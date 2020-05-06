@@ -1,0 +1,47 @@
+{
+  "name": "HALAHLaboratoryPlatform",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DEBUG=app:* nodemon src/index",
+    "start": "NODE_ENV=production node src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyfi06/platzi-master-end-game-backend.git"
+  },
+  "keywords": [
+    "health"
+  ],
+  "contributors": [
+    {
+      "name": "Alexis Araujo",
+      "email": "ala1289@gmail.com"
+    },
+    {
+      "name": "Hector Olvera",
+      "email": "hector.olvera@ciencias.unam.mx"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyfi06/platzi-master-end-game-backend/issues"
+  },
+  "homepage": "https://github.com/hyfi06/platzi-master-end-game-backend#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.0.5"
+  }
+}
