@@ -1,6 +1,6 @@
 {
-  "name": "healthCarePlatform",
-  "version": "1.0.0",
+  "name": "HALAHLaboratoryPlatform",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,15 +10,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ealexisaraujo/platzi-master-end-game-backend.git"
+    "url": "git+https://github.com/hyfi06/platzi-master-end-game-backend.git"
   },
-  "keywords": [],
-  "author": "Alexis Araujo <ala1289@gmail.com>",
+  "keywords": [
+    "health"
+  ],
+  "contributors": [
+    {
+      "name": "Alexis Araujo",
+      "email": "ala1289@gmail.com"
+    },
+    {
+      "name": "Hector Olver",
+      "email": "hector.olvera@ciencias.unam.mx"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ealexisaraujo/platzi-master-end-game-backend/issues"
+    "url": "https://github.com/hyfi06/platzi-master-end-game-backend/issues"
   },
-  "homepage": "https://github.com/ealexisaraujo/platzi-master-end-game-backend#readme",
+  "homepage": "https://github.com/hyfi06/platzi-master-end-game-backend#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
