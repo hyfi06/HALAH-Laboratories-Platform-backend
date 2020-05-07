@@ -1,27 +1,29 @@
 language: node_js
 cache:
   directories:
-    - node_modules
-    - '~/.npm'
+  - node_modules
+  - "~/.npm"
 node_js:
-  - '12'
+- '12'
 git:
   depth: 3
 script:
-  - yarn test
+- yarn test
 notifications:
   slack:
-    secure: 'rtDhCK5xxLW5cIa79orr+TOO84m2+hgAK+9OqwYSzVah1It+7L7aPLYWoHooRteQSxRY6FKefGM3NCnBy/REnbrsipWhTyFbqjjJ2cghyOs1gs+giJpSD8TvXEz/4EOM/riMDFWuyxH+3jW9Rkryozu7e7wbEig7zNVhMlKrgyZxIuxII/4vLrD1vLHY3LYHv0J0v8uivGJCSpDMaYJIUberEJG7WAcpK/Ni56QUsvCmJkm/4uYFDDXQjWCs269UJLBzw4Pbtfgz39obSP25rTfjayle2yEbUdhSdauPjW5pdlPqpULoQ1BFxOQWGoIB1DMxq6wCLJuWvW/MhgAf2ZFh/fm4ovFHBJlb4bAi8JMfuatU72qihJSR35iSDPxNBr7EPbKWWqTxDM+7zHPR7KYuzG7HAm6jvFN8tuVQ7+molElOWcspsRUSd3Ml/dPoNABctbXBnfE7GUCmITzoWV0FGTIU5oQJZk9FcKKQUDR8X0h7d0s5fEmm+JUMXgXzSU9emBWaSPQEodMjCpI7o0wH3EvCMBX9vtKs2UXwV569Hw0rYY+KKHzlHpQYxJarPtgDxVGj6NMr6udVYT75wAwJSI6msQ8aQ3nsrBNxDrVrIzrLaolu8/Q71gFXbWFW+lOS4Yq7VYomSvZM18T+ruEx8TkL5Xwk4c2qlX1biPg='
+    secure: rtDhCK5xxLW5cIa79orr+TOO84m2+hgAK+9OqwYSzVah1It+7L7aPLYWoHooRteQSxRY6FKefGM3NCnBy/REnbrsipWhTyFbqjjJ2cghyOs1gs+giJpSD8TvXEz/4EOM/riMDFWuyxH+3jW9Rkryozu7e7wbEig7zNVhMlKrgyZxIuxII/4vLrD1vLHY3LYHv0J0v8uivGJCSpDMaYJIUberEJG7WAcpK/Ni56QUsvCmJkm/4uYFDDXQjWCs269UJLBzw4Pbtfgz39obSP25rTfjayle2yEbUdhSdauPjW5pdlPqpULoQ1BFxOQWGoIB1DMxq6wCLJuWvW/MhgAf2ZFh/fm4ovFHBJlb4bAi8JMfuatU72qihJSR35iSDPxNBr7EPbKWWqTxDM+7zHPR7KYuzG7HAm6jvFN8tuVQ7+molElOWcspsRUSd3Ml/dPoNABctbXBnfE7GUCmITzoWV0FGTIU5oQJZk9FcKKQUDR8X0h7d0s5fEmm+JUMXgXzSU9emBWaSPQEodMjCpI7o0wH3EvCMBX9vtKs2UXwV569Hw0rYY+KKHzlHpQYxJarPtgDxVGj6NMr6udVYT75wAwJSI6msQ8aQ3nsrBNxDrVrIzrLaolu8/Q71gFXbWFW+lOS4Yq7VYomSvZM18T+ruEx8TkL5Xwk4c2qlX1biPg=
   email:
     recipients:
-      - ala1289@gmail.com
-      - hector.olvera@ciencias.unam.mx
+    - ala1289@gmail.com
+    - hector.olvera@ciencias.unam.mx
     on_success: always
     on_failure: always
 deploy:
   provider: heroku
   skip_cleanup: true
   keep_history: true
-  api_key: 64ed3d11-f470-4cf5-addd-62f5ca793701
+  api_key:
+    secure: QxHZxl3oeCNIuZRDzjS/+OUr3ztMOX2PpOgVTkafDJ46L917D1jjaLxbLDDxEhvD2o+WL917ieepzGC2xuorkvAXko8bTzWFWqkENRJQ4u0+Fw9nsPKitfKaJhq6sdIsmKDaWT3urXVGL0b/+aBCDTrnvZAc92za+PpqIAodLVwMMhHZ0hRnaIga7w7MAB2zHd1u1aUMBe/LUHebv3blUCn09431bTZwas5R7ySmbm8o2NB5nEX33AYwfvZrlVccqSJj2uRBY5VhjhQq+vtlzw8QD8IxCnfeNydfmCgoijKXX4mI/NS4+s/iJqTA4Io4qMGyrPo3orThadkkm9N9BVviyi6gQite5FkYfd3Ac1HrRSuy1L1KaQW6oDsVbAyazUxPZbyEUrcIhOrNbRhfeF+OzvCnkyxmR7yGJVWtiIILy7wtFYLnudpPxMNYTMyAc9JwtD7A7og2Xe+9c9An83C/1JX7N77oSHw5N9LodTz/O/MHEOfRDsln/ZlXq+wkVDX+QZUszum/m2b2M0m2uESfxpH4/mo0CAtfrO5Ka1LAhpBGctO7wJH4/lFgk52DY+L3kkhSme5z7RUPkdSu1hjTsAsB8wTTQxCMpBYcle+dViiHjqAUiWvZGd/O7xrwP64kKEFbgUq01rG27r+IxQV03sDQ2ILLhaA/i2rRDAU=
+  app: backendhalah
   on:
     repo: hyfi06/platzi-master-end-game-backend
