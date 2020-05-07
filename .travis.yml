@@ -22,8 +22,6 @@ deploy:
   provider: heroku
   skip_cleanup: true
   keep_history: true
-  api_key:
-    secure: janaHeBOPTE1WfO+njngGIEsrRG5VK9q7biHMA+v5pZ8Dw0BluzdjCIGLm9ukE/JogHc2lVTbxmH2gffmSrYJNanYJycEVOqCCIi/NU8kss0eW495tclMaJorieaBfwfGMui2lE73A0MOsOqY+skRhJhWoaJN6XhqGhgFnA0goUJG8dB87ZCasHX33X36NXT7jhvKSpHP21Wxa1oPhBJuthTr4S6NG5WBXowiXRT7akv5kHDGWE4ZjFHA+Ggjw47nEciN9hQfI/L7ysM/u8s6j1CO2yjl03wUDqe7d80Yd05UL+Inhnnkj/YChIsX193DptzPn5ee8eU808eHPMzRPECF99XMZ+q7xkf+hmj/+XwEG9/HAyTv0iStur97o17/TnhZaMfiHEGdR5QlsMqyGfZKp/z6oMlcaVIs8RpHE3NSNwJEYltdeqkthBP3+1j20qlYPaq41K8OS4hukBIMFhFzvTT360S/Fqn9CWUMlhZ9VjvUcsgzBt6mbWgkM59djRtmWuZlJCbDODt2BuuXCaoQgXcrEZRG9gs+tNg6Eo+f+KpS+4sx0jogI+Vvy8vJru09/tG/IgPBkYN7FBNZvfcPM+CTpxTyvdelnI2V0aPeYEcyoXGXrUx2sZebRCEhcOidqWx5GgRtwI32wjKtFGo+d/EynNv4VuOyEDa4tI=
-  app: backendhalah
+  api_key: 64ed3d11-f470-4cf5-addd-62f5ca793701
   on:
     repo: hyfi06/platzi-master-end-game-backend
