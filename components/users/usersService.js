@@ -1,8 +1,9 @@
 const MongoLib = require('../../lib/mongo');
+const { config } = require('../../config');
 
 class usersService {
   constructor() {
-    this.collection = 'usersCSV';
+    this.collection = config.dbCollections.users;
     this.mongoDB = new MongoLib();
   }
 

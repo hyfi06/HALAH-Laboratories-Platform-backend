@@ -1,6 +1,6 @@
 const express = require('express');
 const UsersService = require('./usersService');
-const model = require('../../utils/schema/csvSchema');
+const model = require('../../utils/schema/usersSchema');
 const multer = require('multer');
 const csv = require('csvtojson');
 
@@ -21,9 +21,13 @@ function usersApi(app) {
     const { role } = req.query;
     try {
       const users = await usersService.getUsers({ role });
+
+      if (users) {
+        return res.status(200).json({ message: 'Not exist information' });
+      }
       res.status(200).json({
         data: users,
-        message: 'products listed',
+        message: 'users listed',
       });
     } catch (error) {
       next(error);
@@ -34,7 +38,6 @@ function usersApi(app) {
     const jsonArrayUsers = await csv().fromFile(req.file.path);
     try {
       const users = jsonArrayUsers.map((user) => new model(user));
-      console.log(users);
       const createUsersId = await usersService.createUsers(users);
       res.status(201).json({
         data: createUsersId,
