@@ -13,6 +13,11 @@ class usersService {
     return users || [];
   }
 
+  async createUser({ user }) {
+    const createUserId = await this.mongoDB.create(this.collection, user);
+    return createUserId;
+  }
+
   async createUsers(users) {
     const createUsersId = await this.mongoDB.createMany(this.collection, users);
     return createUsersId;
