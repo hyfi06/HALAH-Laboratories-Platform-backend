@@ -1,6 +1,6 @@
 const express = require('express');
 const UsersService = require('./usersService');
-const model = require('../../utils/schema/usersSchema');
+const UserModel = require('../../utils/schema/usersSchema');
 const multer = require('multer');
 const csv = require('csvtojson');
 
@@ -33,7 +33,7 @@ function usersApi(app) {
   router.post('/csv', uploads.single('csv'), async function (req, res, next) {
     const jsonArrayUsers = await csv().fromFile(req.file.path);
     try {
-      const users = jsonArrayUsers.map((user) => new model(user));
+      const users = jsonArrayUsers.map((user) => new UserModel(user));
       const createUsersId = await usersService.createUsers(users);
       res.status(201).json({
         data: createUsersId,
