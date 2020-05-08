@@ -1,5 +1,6 @@
 const MongoLib = require('../../lib/mongo');
 const { config } = require('../../config');
+const UserModel = require('../../utils/schema/usersSchema');
 
 class usersService {
   constructor() {
@@ -14,7 +15,10 @@ class usersService {
   }
 
   async createUser({ user }) {
-    const createUserId = await this.mongoDB.create(this.collection, user);
+    const createUserId = await this.mongoDB.create(
+      this.collection,
+      new UserModel(user)
+    );
     return createUserId;
   }
 

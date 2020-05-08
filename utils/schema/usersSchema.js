@@ -5,7 +5,10 @@ const schema = mongoose.Schema;
 
 const UsersSchema = new schema({
   documentID: {
-    type: String,
+    type: Number,
+    unique: true,
+    trim: true,
+    required: 'Please Supply an identification number',
   },
   firstName: {
     type: String,
@@ -28,6 +31,13 @@ const UsersSchema = new schema({
     unique: true,
     lowercase: true,
     trim: true,
+    default: function () {
+      const first = this.firstName.split(' ').slice(0, 1).join(' ');
+      const last = this.lastName.split(' ').slice(0, 1).join(' ');
+      const digits = this.documentID.toString().slice(-4);
+      const firstLast = first + '.' + last + '.' + digits;
+      return firstLast;
+    },
   },
   password: {
     type: String,
@@ -39,6 +49,8 @@ const UsersSchema = new schema({
   modifiedAt: {
     type: Date,
   },
+  hash: String,
+  salt: String,
 });
 
 const UserModel = mongoose.model(config.dbCollections.users, UsersSchema);
