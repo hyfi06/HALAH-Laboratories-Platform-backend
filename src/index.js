@@ -5,8 +5,6 @@ const helmet = require('helmet');
 const { config } = require('../config/index');
 const usersApi = require('../components/users/routes');
 
-const usersApi = require('../components/users/routes');
-
 app.use(helmet());
 app.use(express.json());
 
