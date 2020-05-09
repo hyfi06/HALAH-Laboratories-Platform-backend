@@ -21,6 +21,11 @@ function usersApi(app) {
     const { role } = req.query;
     try {
       const users = await usersService.getUsers({ role });
+      if (users.length == 0) {
+        return res.status(204).json({
+          error: 'Users not exist information',
+        });
+      }
       res.status(200).json({
         data: users,
         message: 'users listed',
