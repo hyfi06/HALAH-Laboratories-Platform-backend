@@ -26,6 +26,16 @@ class usersService {
     const createUsersId = await this.mongoDB.createMany(this.collection, users);
     return createUsersId;
   }
+
+  async updateUser({ userId, user }) {
+    const updateUserId = await this.mongoDB.update(
+      this.collection,
+      userId,
+      user
+    );
+
+    return updateUserId;
+  }
 }
 
 module.exports = usersService;
