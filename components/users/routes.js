@@ -48,6 +48,24 @@ function usersApi(app) {
     }
   });
 
+  router.put('/:userId', async function (req, res, next) {
+    const { userId } = req.params;
+    const { body: user } = req;
+
+    try {
+      const updatedUser = await usersService.updateUser({
+        userId,
+        user,
+      });
+      res.status(200).json({
+        data: updatedUser,
+        message: 'user updated',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
+
   router.post('/csv', uploads.single('csv'), async function (req, res, next) {
     const jsonArrayUsers = await csv().fromFile(req.file.path);
     try {
