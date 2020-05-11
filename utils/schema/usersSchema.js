@@ -4,14 +4,38 @@ const { config } = require('../../config');
 const schema = mongoose.Schema;
 
 const UsersSchema = new schema({
-  FirstName: {
+  documentID: {
+    type: Number,
+    min: 6,
+  },
+  firstName: {
     type: String,
   },
-  LastName: {
+  lastName: {
     type: String,
+  },
+  email: {
+    type: String,
+  },
+  contactNumber: {
+    type: Number,
+  },
+  username: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updateAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-const model = mongoose.model(config.dbCollections.users, UsersSchema);
+const UserModel = mongoose.model(config.dbCollections.users, UsersSchema);
 
-module.exports = model;
+module.exports = UserModel;
