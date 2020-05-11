@@ -4,19 +4,31 @@ const { config } = require('../../config');
 const { Schema } = mongoose;
 
 const ordersSchema = new Schema({
-  id_patient: Schema.Types.ObjectId,
-  id_doctor: Schema.Types.ObjectId,
+  id_patient: {
+    type: mongoose.Types.ObjectId,
+    required: [true, "Supply patient's id"],
+  },
+  id_doctor: {
+    type: mongoose.Types.ObjectId,
+    required: [true, "Supply doctor's id"],
+  },
   is_complete: {
     type: Boolean,
     default: false,
   },
-  created_at: Number,
-  updated_at: Number,
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-  }
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now(),
+  },
+});
+
+ordersSchema.pre('save', function (next) {
+  this.updatedAt(Date.now());
+  next();
 });
 
 const OrdersModel = mongoose.model(config.dbCollections.orders, ordersSchema);
