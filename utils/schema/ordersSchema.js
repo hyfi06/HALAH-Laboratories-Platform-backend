@@ -4,15 +4,15 @@ const { config } = require('../../config');
 const { Schema } = mongoose;
 
 const ordersSchema = new Schema({
-  id_patient: {
+  patientId: {
     type: mongoose.Types.ObjectId,
     required: [true, "Supply patient's id"],
   },
-  id_doctor: {
+  doctorId: {
     type: mongoose.Types.ObjectId,
     required: [true, "Supply doctor's id"],
   },
-  is_complete: {
+  isComplete: {
     type: Boolean,
     default: false,
   },
