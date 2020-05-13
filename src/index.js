@@ -20,16 +20,13 @@ app.use(express.json());
 usersApi(app);
 ordersApi(app);
 
-
 // Catch 404
 app.use(notFoundHandler);
 app.use(logErrors);
 app.use(wrapErrors);
 app.use(errorHandler);
 
-
 // error middleware
-
 
 app.listen(config.port, function () {
   console.log(`Listening http://localhost:${config.port}`);
