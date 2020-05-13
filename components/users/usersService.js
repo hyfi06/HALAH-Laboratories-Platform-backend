@@ -8,6 +8,11 @@ class usersService {
     this.mongoDB = new MongoLib();
   }
 
+  async getUser({ email }) {
+    const [user] = await this.mongoDB.getAll(this.collection, { email });
+    return user;
+  }
+
   async getUsers({ role }) {
     const query = role && { role: { $in: role } };
     const users = await this.mongoDB.getAll(this.collection, query);
