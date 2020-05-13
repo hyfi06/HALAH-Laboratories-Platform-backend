@@ -1,4 +1,5 @@
 const MongoLib = require('../../lib/mongo');
+const bcrypt = require('bcrypt');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 
@@ -20,9 +21,11 @@ class usersService {
   }
 
   async createUser({ user }) {
+    const { password } = user;
+    const hashedPassword = await bcrypt.hash(password, 10);
     const createUserId = await this.mongoDB.create(
       this.collection,
-      new UserModel(user)
+      new UserModel({ ...user, password: hashedPassword })
     );
     return createUserId;
   }

@@ -39,11 +39,11 @@ function authApi(app) {
             next(boom.unauthorized());
           }
 
-          const { _id: id, name, email } = user;
+          const { _id: id, firstName, email } = user;
 
           const payload = {
             sub: id,
-            name,
+            firstName,
             email,
             scopes: apiKey.scopes,
           };
@@ -52,7 +52,9 @@ function authApi(app) {
             expiresIn: '15m',
           });
 
-          return res.status(200).json({ token, user: { id, name, email } });
+          return res
+            .status(200)
+            .json({ token, user: { id, firstName, email } });
         });
       } catch (error) {
         next(error);
