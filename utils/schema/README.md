@@ -32,7 +32,7 @@ They are Number. They model the date of create and update a order.
 
 ## Exams Schema
 
-```json
+```js
 {
   name: String,
   shortName: String,
@@ -70,7 +70,7 @@ It contains the next structure:
 
 ```js
 {
-  field: String,
+  fieldName: String,
   value: null,
   reference: String,
 }
