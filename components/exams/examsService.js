@@ -30,7 +30,12 @@ class ExamsService {
    * @returns {Object[]} exams
    */
   async getExams({ short }) {
-    const query = short && { shortName: { $in: short } };
+    const query = short ? {
+      shortName: {
+        $regex: new RegExp(`.*${short}.*`),
+        $options: 'i'
+      }
+    }: {};
     const exams = await this.mongoDB.getAll(this.collection, query);
     return exams || [];
   }

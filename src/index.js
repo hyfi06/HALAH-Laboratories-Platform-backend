@@ -12,6 +12,7 @@ const {
 const { config } = require('../config/index');
 const usersApi = require('../components/users/routes');
 const ordersApi = require('../components/orders/ordersRoutes');
+const examsApi = require('../components/exams/routes');
 
 app.use(helmet());
 app.use(express.json());
@@ -19,17 +20,15 @@ app.use(express.json());
 //Routes
 usersApi(app);
 ordersApi(app);
-
+examsApi(app);
 
 // Catch 404
 app.use(notFoundHandler);
+
+// error middleware
 app.use(logErrors);
 app.use(wrapErrors);
 app.use(errorHandler);
-
-
-// error middleware
-
 
 app.listen(config.port, function () {
   console.log(`Listening http://localhost:${config.port}`);
