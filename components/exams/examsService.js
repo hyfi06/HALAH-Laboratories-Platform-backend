@@ -2,6 +2,7 @@ const MongoLib = require('../../lib/mongo');
 const { config } = require('../../config');
 const ExamsModel = require('../../utils/schema/examsSchema');
 const validationModelHandler = require('../../utils/middleware/validationModelHandler');
+const boom = require('@hapi/boom');
 
 class ExamsService {
   constructor() {
@@ -33,18 +34,24 @@ class ExamsService {
     const query = short ? {
       shortName: {
         $regex: new RegExp(`.*${short}.*`),
-        $options: 'i'
-      }
-    }: {};
+        $options: 'i',
+      },
+    } : {};
+
     const exams = await this.mongoDB.getAll(this.collection, query);
-    return exams || [];
+    
+    if (!exams[0]) {
+      throw boom.notFound('Not found exams');
+    }
+
+    return exams;
   }
 
-    /**
-   * Create a new exam
-   * @param {Object} exam exam data
-   * @returns {string} id of new exam
-   */
+  /**
+ * Create a new exam
+ * @param {Object} exam exam data
+ * @returns {string} id of new exam
+ */
   async createExam(exam) {
     validationModelHandler(exam, ExamsModel);
     const createExamId = await this.mongoDB.create(

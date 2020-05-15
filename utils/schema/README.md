@@ -8,6 +8,7 @@
 {
   patientId: ObjectId,
   doctorId: ObjectId,
+  examTypeId:ObjectId,
   isComplete: Boolean,
   createdAt: Date,
   updatedAt: Date,
@@ -21,6 +22,10 @@ It is a ObjectId of Mongo. It models the id of patient order owner. It is requir
 ### doctorId
 
 It is a ObjectId of Mongo. It models the id of doctor who created the order. It is required.
+
+### examTypeId
+
+It is a ObjectId of Mongo. It models the id of test type. It is required.
 
 ### isComplete
 
@@ -83,15 +88,15 @@ Example:
   ...,
   resultTemplate: [
     {
-        fieldName: 'Octanoic Acid, C8:0',
-        value: null,
-        reference: '<1 year: 7-63 nmol/mL\n1-17 years: 9-41 nmol/mL\n> or =18 years: 8-47 nmol/mL',
-      },
-      {
-        fieldName: 'Decenoic Acid, C10:1',
-        value: null,
-        reference: '<1 year: 0.8-4.8 nmol/mL\n1-17 years: 1.6-6.6 nmol/mL\n> or =18 years: 1.8-5.0 nmol/mL',
-      },
+      fieldName: 'Octanoic Acid, C8:0',
+      value: null,
+      reference: '<1 year: 7-63 nmol/mL\n1-17 years: 9-41 nmol/mL\n> or =18 years: 8-47 nmol/mL',
+    },
+    {
+      fieldName: 'Decenoic Acid, C10:1',
+      value: null,
+      reference: '<1 year: 0.8-4.8 nmol/mL\n1-17 years: 1.6-6.6 nmol/mL\n> or =18 years: 1.8-5.0 nmol/mL',
+    },
   ]
   ...,
 }

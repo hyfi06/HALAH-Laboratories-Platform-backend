@@ -11,7 +11,7 @@ const {
 
 const { config } = require('../config/index');
 const usersApi = require('../components/users/routes');
-const ordersApi = require('../components/orders/ordersRoutes');
+const ordersApi = require('../components/orders/routes');
 const examsApi = require('../components/exams/routes');
 
 app.use(helmet());

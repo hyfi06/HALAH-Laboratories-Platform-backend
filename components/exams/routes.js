@@ -17,7 +17,7 @@ function examsApi(app) {
 
       res.status(200).json({
         data: exam,
-        message: 'exam retrieved',
+        message: 'test retrieved',
       });
     } catch (error) {
       next(error);
@@ -31,7 +31,7 @@ function examsApi(app) {
       const exams = await examsService.getExams({ short });
       res.status(200).json({
         data: exams,
-        message: 'exams retrieved',
+        message: 'test retrieved',
       });
     } catch (error) {
       next(error);
