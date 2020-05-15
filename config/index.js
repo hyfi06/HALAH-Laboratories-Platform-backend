@@ -17,6 +17,7 @@ const config = {
     users: 'usersCSV',
     orders: 'orders',
     apiKeys: 'apiKeys',
+    exams: 'exams',
   },
 };
 
