@@ -10,6 +10,7 @@ const {
 } = require('../utils/middleware/errorHandler');
 
 const { config } = require('../config/index');
+const authApi = require('../components/auth/routes');
 const usersApi = require('../components/users/routes');
 const ordersApi = require('../components/orders/routes');
 const examsApi = require('../components/exams/routes');
@@ -18,6 +19,7 @@ app.use(helmet());
 app.use(express.json());
 
 //Routes
+authApi(app);
 usersApi(app);
 ordersApi(app);
 examsApi(app);

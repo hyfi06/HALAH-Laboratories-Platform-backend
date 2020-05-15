@@ -34,6 +34,12 @@ const UsersSchema = new schema({
     type: Date,
     default: Date.now,
   },
+  isActive: {
+    type: Boolean,
+  },
+  imageURL: {
+    type: String,
+  },
 });
 
 const UserModel = mongoose.model(config.dbCollections.users, UsersSchema);
