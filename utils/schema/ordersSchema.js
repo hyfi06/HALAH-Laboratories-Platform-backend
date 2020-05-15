@@ -12,6 +12,10 @@ const ordersSchema = new Schema({
     type: mongoose.Types.ObjectId,
     required: [true, "Supply doctor's id"],
   },
+  examTypeId: {
+    type: mongoose.Types.ObjectId,
+    required: [true, "Supply exam type's id"],
+  },
   isComplete: {
     type: Boolean,
     default: false,

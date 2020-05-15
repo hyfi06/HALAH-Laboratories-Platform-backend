@@ -12,7 +12,8 @@ const config = {
   dbName: process.env.DB_NAME,
   dbCollections: {
     users: 'usersCSV',
-    orders: 'orders'
+    orders: 'orders',
+    exams: 'exams',
   },
 };
 
