@@ -1,4 +1,5 @@
 const MongoLib = require('../../lib/mongo');
+const bcrypt = require('bcrypt');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 
@@ -8,6 +9,11 @@ class usersService {
     this.mongoDB = new MongoLib();
   }
 
+  async getUser({ email }) {
+    const [user] = await this.mongoDB.getAll(this.collection, { email });
+    return user;
+  }
+
   async getUsers({ role }) {
     const query = role && { role: { $in: role } };
     const users = await this.mongoDB.getAll(this.collection, query);
@@ -15,9 +21,11 @@ class usersService {
   }
 
   async createUser({ user }) {
+    const { password } = user;
+    const hashedPassword = await bcrypt.hash(password, 10);
     const createUserId = await this.mongoDB.create(
       this.collection,
-      new UserModel(user)
+      new UserModel({ ...user, password: hashedPassword })
     );
     return createUserId;
   }
