@@ -16,6 +16,7 @@ const config = {
   dbCollections: {
     users: 'usersCSV',
     orders: 'orders',
+    apiKeys: 'apiKeys',
   },
 };
 

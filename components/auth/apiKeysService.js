@@ -1,8 +1,9 @@
 const MongoLib = require('../../lib/mongo');
+const { config } = require('../../config');
 
 class ApiKeysService {
   constructor() {
-    this.collection = 'apiKeys';
+    this.collection = config.dbCollections.apiKeys;
     this.mongoDB = new MongoLib();
   }
 
