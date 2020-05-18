@@ -14,6 +14,11 @@ class usersService {
     return user;
   }
 
+  async getUserId({ userId }) {
+    const user = await this.mongoDB.get(this.collection, userId);
+    return user || {};
+  }
+
   async getUsers({ role }) {
     const query = role && { role: { $in: role } };
     const users = await this.mongoDB.getAll(this.collection, query);
@@ -42,7 +47,9 @@ class usersService {
       user
     );
 
-    return updateUserId;
+    const { username } = await this.getUserId({ userId });
+
+    return updateUserId, username;
   }
 }
 

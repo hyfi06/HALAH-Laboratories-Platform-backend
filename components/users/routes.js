@@ -21,6 +21,21 @@ function usersApi(app) {
   app.use('/api/users', router);
   const usersService = new UsersService();
 
+  router.get('/:userId', async function (req, res, next) {
+    const { userId } = req.params;
+
+    try {
+      const user = await usersService.getUserId({ userId });
+
+      res.status(200).json({
+        data: user,
+        message: 'user retrieved',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
+
   router.get(
     '/',
     passport.authenticate('jwt', { session: false }),
@@ -28,13 +43,33 @@ function usersApi(app) {
       const { role } = req.query;
       try {
         const users = await usersService.getUsers({ role });
+        const fields = [
+          '_id',
+          'username',
+          'lastName',
+          'typeOfUser',
+          'imageURL',
+          'firstName',
+          'lastName',
+        ];
+        const data = [];
+        users.map((obj) => {
+          const newObj = Object.keys(obj).reduce((object, key) => {
+            if (fields.includes(key)) {
+              object[key] = obj[key];
+            }
+            return object;
+          }, {});
+          data.push(newObj);
+        });
+
         if (users.length == 0) {
           return res.status(204).json({
             error: 'Users not exist information',
           });
         }
         res.status(200).json({
-          data: users,
+          data: data,
           message: 'users listed',
         });
       } catch (error) {
@@ -52,6 +87,7 @@ function usersApi(app) {
         const createUserId = await usersService.createUser({ user });
         res.status(201).json({
           data: createUserId,
+          username: user.username,
           message: 'user created',
         });
       } catch (error) {
@@ -72,6 +108,7 @@ function usersApi(app) {
           userId,
           user,
         });
+
         res.status(200).json({
           data: updatedUser,
           message: 'user updated',
