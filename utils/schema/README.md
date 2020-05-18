@@ -98,7 +98,11 @@ They are Number. They model the date of create and update a order.
   shortName: String,
   description: String,
   indications: String,
-  resultTemplate: Object[],
+  resultTemplate: [{
+    fieldName: String,
+    value: Number,
+    reference: String,
+  }],
   scheduledDays: Number,
   resultWaitingDays: Number,
   createdAt: Date,
@@ -168,3 +172,50 @@ It is a Number. It models the days the result take.
 ### createdAt, updatedAt
 
 They are Number. They model the date of create and update a test.
+
+## Results schema
+
+```js
+{
+  orderId: ObjectId
+  result: [{
+    fieldName: String,
+    value: Number,
+    reference: String,
+  }],
+  createdAt: Date,
+  updatedAt: Date,
+}
+```
+
+### orderId
+
+It is a ObjectId of Mongo. It models the id of order. It is required.
+
+### result
+
+It is a array. It contains objects with next structure:
+
+```js
+{
+  fieldName: String,
+  value: Number,
+  reference: String,
+}
+```
+
+#### fieldName
+
+It is a strings. It models name of the measured property.
+
+#### value
+
+It is a number. It models the value of measured property.
+
+#### reference
+
+It is a string. It models the reference values for measured property.
+
+### createdAt, updatedAt
+
+They are Number. They model the date of create and update the results.
