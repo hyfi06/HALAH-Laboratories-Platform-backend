@@ -36,6 +36,7 @@ const UsersSchema = new schema({
   },
   isActive: {
     type: Boolean,
+    default: true,
   },
   imageURL: {
     type: String,
