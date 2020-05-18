@@ -46,6 +46,7 @@ function authApi(app) {
             isActive,
             imageURL,
             lastName,
+            typeOfUser,
           } = user;
 
           const payload = {
@@ -60,7 +61,15 @@ function authApi(app) {
 
           return res.status(200).json({
             token,
-            user: { id, username, isActive, imageURL, firstName, lastName },
+            user: {
+              id,
+              username,
+              typeOfUser,
+              isActive,
+              imageURL,
+              firstName,
+              lastName,
+            },
           });
         });
       } catch (error) {

@@ -40,6 +40,9 @@ const UsersSchema = new schema({
   imageURL: {
     type: String,
   },
+  typeOfUser: {
+    type: String,
+  },
 });
 
 const UserModel = mongoose.model(config.dbCollections.users, UsersSchema);
