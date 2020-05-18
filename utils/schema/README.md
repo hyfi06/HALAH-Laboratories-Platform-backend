@@ -100,7 +100,6 @@ They are Number. They model the date of create and update a order.
   indications: String,
   resultTemplate: [{
     fieldName: String,
-    value: Number,
     reference: String,
   }],
   scheduledDays: Number,
@@ -135,7 +134,6 @@ It contains the next structure:
 ```js
 {
   fieldName: String,
-  value: null,
   reference: String,
 }
 ```
@@ -148,12 +146,10 @@ Example:
   resultTemplate: [
     {
       fieldName: 'Octanoic Acid, C8:0',
-      value: null,
       reference: '<1 year: 7-63 nmol/mL\n1-17 years: 9-41 nmol/mL\n> or =18 years: 8-47 nmol/mL',
     },
     {
       fieldName: 'Decenoic Acid, C10:1',
-      value: null,
       reference: '<1 year: 0.8-4.8 nmol/mL\n1-17 years: 1.6-6.6 nmol/mL\n> or =18 years: 1.8-5.0 nmol/mL',
     },
   ]
@@ -181,7 +177,6 @@ They are Number. They model the date of create and update a test.
   result: [{
     fieldName: String,
     value: Number,
-    reference: String,
   }],
   createdAt: Date,
   updatedAt: Date,
@@ -200,7 +195,6 @@ It is a array. It contains objects with next structure:
 {
   fieldName: String,
   value: Number,
-  reference: String,
 }
 ```
 
@@ -211,10 +205,6 @@ It is a strings. It models name of the measured property.
 #### value
 
 It is a number. It models the value of measured property.
-
-#### reference
-
-It is a string. It models the reference values for measured property.
 
 ### createdAt, updatedAt
 

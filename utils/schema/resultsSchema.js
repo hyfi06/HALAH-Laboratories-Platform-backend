@@ -8,16 +8,15 @@ const resultsSchema = new Schema({
     type: mongoose.Types.ObjectId,
     required: [true, "Supply order's id"],
   },
-  result: [{
+  results: [{
     fieldName: {
       type: String,
+      required: true,
     },
     value: {
       type: Number,
+      required: true,
     },
-    reference: {
-      type: String,
-    }
   }],
   createdAt: {
     type: Date,

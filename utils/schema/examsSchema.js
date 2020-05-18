@@ -23,12 +23,9 @@ const examsSchema = new Schema({
     fieldName: {
       type: String,
     },
-    value: {
-      type: Number,
-    },
     reference: {
       type: String,
-    }
+    },
   }],
   scheduledDays: {
     type: Number,
