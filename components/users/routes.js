@@ -22,19 +22,56 @@ function usersApi(app) {
   const usersService = new UsersService();
 
   router.get(
+    '/:userId',
+    passport.authenticate('jwt', { session: false }),
+    async function (req, res, next) {
+      const { userId } = req.params;
+
+      try {
+        const user = await usersService.getUserId({ userId });
+
+        res.status(200).json({
+          data: user,
+          message: 'user retrieved',
+        });
+      } catch (err) {
+        next(err);
+      }
+    }
+  );
+
+  router.get(
     '/',
     passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {
       const { role } = req.query;
       try {
         const users = await usersService.getUsers({ role });
+        const fields = [
+          '_id',
+          'username',
+          'lastName',
+          'typeOfUser',
+          'imageURL',
+          'firstName',
+          'lastName',
+        ];
+        const data = users.map((user) =>
+          Object.keys(user)
+            .filter((key) => fields.includes(key))
+            .reduce((newUser, key) => {
+              newUser[key] = user[key];
+              return newUser;
+            }, {})
+        );
+
         if (users.length == 0) {
           return res.status(204).json({
             error: 'Users not exist information',
           });
         }
         res.status(200).json({
-          data: users,
+          data: data,
           message: 'users listed',
         });
       } catch (error) {
@@ -72,6 +109,7 @@ function usersApi(app) {
           userId,
           user,
         });
+
         res.status(200).json({
           data: updatedUser,
           message: 'user updated',
