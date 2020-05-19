@@ -21,7 +21,11 @@ class ExamsService {
       id
     );
 
-    return exam || {};
+    if (!exam) {
+      throw boom.notFound('test not found');
+    }
+
+    return exam;
   }
 
   /**
@@ -32,16 +36,23 @@ class ExamsService {
    */
   async getExams({ name }) {
     const query = name ? {
-      shortName: {
-        $regex: new RegExp(`.*${name}.*`),
-        $options: 'i',
-      },
+      $or: [{
+        name: {
+          $regex: new RegExp(`.*${name}.*`),
+          $options: 'i',
+        },
+      }, {
+        shortName: {
+          $regex: new RegExp(`.*${name}.*`),
+          $options: 'i',
+        },
+      }],
     } : {};
 
     const exams = await this.mongoDB.getAll(this.collection, query);
 
     if (!exams[0]) {
-      throw boom.notFound('Not found exams');
+      throw boom.notFound('tests not found');
     }
 
     return exams;

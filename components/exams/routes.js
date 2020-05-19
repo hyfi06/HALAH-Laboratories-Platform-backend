@@ -21,8 +21,11 @@ function examsApi(app) {
 
       try {
         const exam = await examsService.getExam(examId);
-
-
+        delete exam.resultWaitingDays;
+        exam.resultTemplate
+          .forEach(template => {
+            delete template._id;
+          });
 
         res.status(200).json({
           data: exam,
@@ -31,7 +34,8 @@ function examsApi(app) {
       } catch (error) {
         next(error);
       }
-    });
+    }
+  );
 
   router.get(
     '/',
