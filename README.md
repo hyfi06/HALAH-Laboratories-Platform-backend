@@ -2,21 +2,31 @@
 
 Backend for HALAH Laboratory Platform
 
-### API url
+## API url
 
-Working Progress
+Allowed routes:
 
-### Instalación
+### `api/exams`
 
-```
+This route handles enables medical exams. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/exams).
+
+## Installation
+
+```bash
 npm install
 ```
 
-### Develop
+## Run
+
+```bash
+npm start
+```
+
+## Develop
 
 If you want run, run the next line:
 
-```
+```bash
 npm run dev
 ```
 
@@ -32,6 +42,6 @@ You must "Fork" this project, review the problems and create a Pull Request to t
 
 You must "Fork" this project, review the problems and create a Pull Request to this repository.
 
-### Licencia
+## License
 
-[MIT](https://opensource.org/licenses/MIT).
+Licensed under the [MIT License](https://github.com/hyfi06/platzi-master-end-game-backend/blob/master/LICENSE).

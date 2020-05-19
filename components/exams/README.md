@@ -1,6 +1,6 @@
 # Exams
 
-This component manager the orders.
+This component manager the exams.
 
 ## Routes
 
