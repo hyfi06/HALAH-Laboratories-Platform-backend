@@ -56,7 +56,7 @@ class OrdersService {
    * @returns {Object[]}
    */
   async getOrders({ patient }) {
-    const query = { patientId: ObjectId(patient) };
+    const query = patient ? { patientId: ObjectId(patient) } : {};
 
     const orders = this.mongoDB.getAll(this.collection, query);
 
