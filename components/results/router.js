@@ -17,13 +17,13 @@ function resultsApi(app) {
     '/',
     passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {
-      const { results } = req.body;
+      const result = req.body;
 
       try {
-        const createResultsId = await resultsService.createResult(results);
+        const createResultId = await resultsService.createResult(result);
 
         res.status(201).json({
-          data: createResultsId,
+          data: createResultId,
           message: 'result created',
         });
       } catch (error) {

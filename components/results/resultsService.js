@@ -1,6 +1,6 @@
 const MongLib = require('../../lib/mongo');
 const boom = require('@hapi/boom');
-const { config } = require('../../config ');
+const { config } = require('../../config');
 const ResultsModel = require('../../utils/schema/resultsSchema');
 const validationModelHandler = require('../../utils/middleware/validationModelHandler');
 
@@ -20,6 +20,7 @@ class ResultsService {
    */
   async createResult(result) {
     validationModelHandler(result, ResultsModel);
+
     const order = await this.ordersService.getOrder(result.orderId);
     if (!order) throw boom.badRequest('OrderId not found');
 
@@ -27,16 +28,16 @@ class ResultsService {
       this.collection,
       new ResultsModel(result)
     );
-    
-    await this.mongoDB.update(
-      this.collection,
+
+    const updateOrderId = await this.mongoDB.update(
+      config.dbCollections.orders,
       result.orderId,
       {
         resultId: createResultId,
         isComplete: true,
       }
     );
-
+    console.log(updateOrderId);
     return createResultId;
   }
 
