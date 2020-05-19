@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 require('../../utils/auth/strategies/jwt');
-
+const validationIdHandler = require('../../utils/middleware/validationIdHandler');
 const OrdersService = require('./ordersService');
 
 
@@ -32,6 +32,7 @@ function ordersApi(app) {
   router.get(
     '/:orderId',
     passport.authenticate('jwt', { session: false }),
+    validationIdHandler('orderId'),
     async function (req, res, next) {
       const { orderId } = req.params;
 
@@ -50,6 +51,7 @@ function ordersApi(app) {
   router.get(
     '/',
     passport.authenticate('jwt', { session: false }),
+    validationIdHandler('patient','query'),
     async function (req, res, next) {
       const { patient } = req.query;
 

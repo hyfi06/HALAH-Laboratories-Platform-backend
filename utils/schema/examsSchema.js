@@ -19,9 +19,14 @@ const examsSchema = new Schema({
   indications: {
     type: String,
   },
-  resultTemplate: {
-    type: Array,
-  },
+  resultTemplate: [{
+    fieldName: {
+      type: String,
+    },
+    reference: {
+      type: String,
+    },
+  }],
   scheduledDays: {
     type: Number,
   },

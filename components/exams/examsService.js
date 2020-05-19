@@ -18,7 +18,7 @@ class ExamsService {
   async getExam(id) {
     const exam = await this.mongoDB.get(
       this.collection,
-      id,
+      id
     );
 
     return exam || {};
@@ -39,7 +39,7 @@ class ExamsService {
     } : {};
 
     const exams = await this.mongoDB.getAll(this.collection, query);
-    
+
     if (!exams[0]) {
       throw boom.notFound('Not found exams');
     }
@@ -56,7 +56,7 @@ class ExamsService {
     validationModelHandler(exam, ExamsModel);
     const createExamId = await this.mongoDB.create(
       this.collection,
-      new ExamsModel(exam),
+      new ExamsModel(exam)
     );
     return createExamId;
   }

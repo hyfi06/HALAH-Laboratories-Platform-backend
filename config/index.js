@@ -18,6 +18,7 @@ const config = {
     orders: 'orders',
     apiKeys: 'apiKeys',
     exams: 'exams',
+    results: 'results',
   },
 };
 
