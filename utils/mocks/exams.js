@@ -155,4 +155,24 @@ Females:
   },
 ];
 
-module.exports = examsMock;
+function filteredExamsMock(name) {
+  const regexp = new RegExp(`.*${name}.*`);
+  return examsMock.filter(exam =>
+    regexp.test(exam.name) || regexp.test(exam.shortName)
+  );
+}
+
+class ExamsServiceMock {
+  async getExam(id){
+    return Promise.resolve(examsMock[0]);
+  }
+
+  async getExams() {
+    return Promise.resolve(examsMock);
+  }
+}
+module.exports = {
+  examsMock,
+  filteredExamsMock,
+  ExamsServiceMock,
+};

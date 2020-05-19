@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 const ExamsService = require('../../components/exams/examsService');
 
-const examsMock = require('../mocks/exams');
-examsMock.forEach( exam => {
+const { examsMock } = require('../mocks/exams');
+examsMock.forEach(exam => {
   delete exam._id;
   delete exam.createdAt;
   delete exam.updatedAt;
