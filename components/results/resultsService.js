@@ -37,7 +37,7 @@ class ResultsService {
         isComplete: true,
       }
     );
-    console.log(updateOrderId);
+
     return createResultId;
   }
 

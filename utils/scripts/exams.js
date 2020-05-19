@@ -3,13 +3,16 @@ const examsMock = require('../mocks/exams');
 
 const eService = new ExamsService();
 
-const init = async () => {
-  await examsMock.forEach(async exam => {
+const main = async () => {
+  const examsCreated = await examsMock.map(async exam => {
     const id = await eService.createExam(exam);
     console.log(`exam ${id} created`);
   });
-  return;
-}
+  Promise.all(examsCreated).then(() => {
+    console.log(`${examsCreated.length} exams created`);
+    process.exit(0);
+  });
+};
 
 
-init();
+main();

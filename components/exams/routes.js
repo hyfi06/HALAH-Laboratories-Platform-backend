@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 require('../../utils/auth/strategies/jwt');
+const validationIdHandler = require('../../utils/middleware/validationIdHandler');
 
 const ExamsService = require('./examsService');
 
@@ -14,6 +15,7 @@ function examsApi(app) {
   router.get(
     '/:examId',
     passport.authenticate('jwt', { session: false }),
+    validationIdHandler('examId'),
     async function (req, res, next) {
       const { examId } = req.params;
 
