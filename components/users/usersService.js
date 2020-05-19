@@ -10,7 +10,10 @@ class usersService {
   }
 
   async getUser({ username }) {
-    const [user] = await this.mongoDB.getAll(this.collection, { username });
+    const query = username && {
+      $or: [{ username: username }, { email: username }],
+    };
+    const [user] = await this.mongoDB.getAll(this.collection, query);
     return user;
   }
 

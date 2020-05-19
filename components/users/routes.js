@@ -21,20 +21,24 @@ function usersApi(app) {
   app.use('/api/users', router);
   const usersService = new UsersService();
 
-  router.get('/:userId', async function (req, res, next) {
-    const { userId } = req.params;
+  router.get(
+    '/:userId',
+    passport.authenticate('jwt', { session: false }),
+    async function (req, res, next) {
+      const { userId } = req.params;
 
-    try {
-      const user = await usersService.getUserId({ userId });
+      try {
+        const user = await usersService.getUserId({ userId });
 
-      res.status(200).json({
-        data: user,
-        message: 'user retrieved',
-      });
-    } catch (err) {
-      next(err);
+        res.status(200).json({
+          data: user,
+          message: 'user retrieved',
+        });
+      } catch (err) {
+        next(err);
+      }
     }
-  });
+  );
 
   router.get(
     '/',
@@ -52,16 +56,14 @@ function usersApi(app) {
           'firstName',
           'lastName',
         ];
-        const data = [];
-        users.map((obj) => {
-          const newObj = Object.keys(obj).reduce((object, key) => {
-            if (fields.includes(key)) {
-              object[key] = obj[key];
-            }
-            return object;
-          }, {});
-          data.push(newObj);
-        });
+        const data = users.map((user) =>
+          Object.keys(user)
+            .filter((key) => fields.includes(key))
+            .reduce((newUser, key) => {
+              newUser[key] = user[key];
+              return newUser;
+            }, {})
+        );
 
         if (users.length == 0) {
           return res.status(204).json({
