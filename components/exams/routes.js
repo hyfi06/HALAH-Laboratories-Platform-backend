@@ -22,6 +22,8 @@ function examsApi(app) {
       try {
         const exam = await examsService.getExam(examId);
 
+
+
         res.status(200).json({
           data: exam,
           message: 'test retrieved',
@@ -35,13 +37,25 @@ function examsApi(app) {
     '/',
     passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {
-      const { short } = req.query;
+      const { name } = req.query;
 
       try {
-        const exams = await examsService.getExams({ short });
+        const exams = await examsService.getExams({ name });
+
+        exams.forEach(exam => {
+          delete exam.resultWaitingDays;
+          delete exam.createdAt;
+          delete exam.updatedAt;
+          exam.resultTemplate
+            .forEach(template => {
+              delete template._id;
+              delete template.reference;
+            });
+        });
+
         res.status(200).json({
           data: exams,
-          message: 'test retrieved',
+          message: 'tests retrieved',
         });
       } catch (error) {
         next(error);

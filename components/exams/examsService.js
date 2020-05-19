@@ -30,10 +30,10 @@ class ExamsService {
    * @param {string} query.short exam shortName
    * @returns {Object[]} exams
    */
-  async getExams({ short }) {
-    const query = short ? {
+  async getExams({ name }) {
+    const query = name ? {
       shortName: {
-        $regex: new RegExp(`.*${short}.*`),
+        $regex: new RegExp(`.*${name}.*`),
         $options: 'i',
       },
     } : {};
