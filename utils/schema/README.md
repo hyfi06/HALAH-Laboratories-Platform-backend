@@ -98,7 +98,10 @@ They are Number. They model the date of create and update a order.
   shortName: String,
   description: String,
   indications: String,
-  resultTemplate: Object[],
+  resultTemplate: [{
+    fieldName: String,
+    reference: String,
+  }],
   scheduledDays: Number,
   resultWaitingDays: Number,
   createdAt: Date,
@@ -131,7 +134,6 @@ It contains the next structure:
 ```js
 {
   fieldName: String,
-  value: null,
   reference: String,
 }
 ```
@@ -144,12 +146,10 @@ Example:
   resultTemplate: [
     {
       fieldName: 'Octanoic Acid, C8:0',
-      value: null,
       reference: '<1 year: 7-63 nmol/mL\n1-17 years: 9-41 nmol/mL\n> or =18 years: 8-47 nmol/mL',
     },
     {
       fieldName: 'Decenoic Acid, C10:1',
-      value: null,
       reference: '<1 year: 0.8-4.8 nmol/mL\n1-17 years: 1.6-6.6 nmol/mL\n> or =18 years: 1.8-5.0 nmol/mL',
     },
   ]
@@ -168,3 +168,44 @@ It is a Number. It models the days the result take.
 ### createdAt, updatedAt
 
 They are Number. They model the date of create and update a test.
+
+## Results schema
+
+```js
+{
+  orderId: ObjectId
+  result: [{
+    fieldName: String,
+    value: Number,
+  }],
+  createdAt: Date,
+  updatedAt: Date,
+}
+```
+
+### orderId
+
+It is a ObjectId of Mongo. It models the id of order. It is required.
+
+### result
+
+It is a array. It contains objects with next structure:
+
+```js
+{
+  fieldName: String,
+  value: Number,
+}
+```
+
+#### fieldName
+
+It is a strings. It models name of the measured property.
+
+#### value
+
+It is a number. It models the value of measured property.
+
+### createdAt, updatedAt
+
+They are Number. They model the date of create and update the results.

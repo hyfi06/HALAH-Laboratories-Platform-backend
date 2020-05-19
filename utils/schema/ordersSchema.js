@@ -16,6 +16,9 @@ const ordersSchema = new Schema({
     type: mongoose.Types.ObjectId,
     required: [true, "Supply exam type's id"],
   },
+  resultId: {
+    type: mongoose.Types.ObjectId,
+  },
   isComplete: {
     type: Boolean,
     default: false,

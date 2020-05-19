@@ -14,6 +14,7 @@ const authApi = require('../components/auth/routes');
 const usersApi = require('../components/users/routes');
 const ordersApi = require('../components/orders/routes');
 const examsApi = require('../components/exams/routes');
+const resultsApi = require('../components/results/routes');
 
 app.use(helmet());
 app.use(express.json());
@@ -23,6 +24,7 @@ authApi(app);
 usersApi(app);
 ordersApi(app);
 examsApi(app);
+resultsApi(app);
 
 // Catch 404
 app.use(notFoundHandler);

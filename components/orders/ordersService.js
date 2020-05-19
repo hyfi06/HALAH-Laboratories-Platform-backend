@@ -1,4 +1,5 @@
 const MongoLib = require('../../lib/mongo');
+const { ObjectId } = require('mongodb');
 const { config } = require('../../config');
 const OrdersModel = require('../../utils/schema/ordersSchema');
 const validationModelHandler = require('../../utils/middleware/validationModelHandler');
@@ -20,7 +21,7 @@ class OrdersService {
 
     const createOrderId = await this.mongoDB.create(
       this.collection,
-      new OrdersModel(order),
+      new OrdersModel(order)
     );
 
     return createOrderId;
@@ -32,18 +33,14 @@ class OrdersService {
    * @returns {Object} order information
    */
   async getOrder(id) {
-    const regExpId = /[0-9a-fA-F]{24}/;
-    if (!regExpId.test(id)) {
-      throw boom.badRequest(`${id} isn't a id`);
-    }
 
     const order = await this.mongoDB.get(
       this.collection,
-      id,
+      id
     );
 
     if (!order) {
-      throw boom.notFound('Order not found')
+      throw boom.notFound('Order not found');
     }
 
     order.examTypeUrl = `/api/exams/${order.examTypeId}`;
@@ -59,11 +56,7 @@ class OrdersService {
    * @returns {Object[]}
    */
   async getOrders({ patient }) {
-    if (!patient) {
-      boom.badRequest('Patient id is required');
-    }
-
-    const query = { patientId: { $eq: patient } };
+    const query = patient ? { patientId: ObjectId(patient) } : {};
 
     const orders = this.mongoDB.getAll(this.collection, query);
 
