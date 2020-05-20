@@ -20,7 +20,7 @@ class ResultsService {
    */
   async createResult(result) {
     validationModelHandler(result, ResultsModel);
-
+    
     const order = await this.ordersService.getOrder(result.orderId);
     if (!order) throw boom.badRequest('OrderId not found');
 
@@ -46,7 +46,7 @@ class ResultsService {
    * @param {string} id id of result
    * @returns {Object} results details
    */
-  async getResults(id) {
+  async getResult(id) {
     const result = await this.mongoDB.get(
       this.collection,
       id
