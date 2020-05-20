@@ -3,7 +3,10 @@ const passport = require('passport');
 require('../../utils/auth/strategies/jwt');
 const validationIdHandler = require('../../utils/middleware/validationIdHandler');
 const OrdersService = require('./ordersService');
-
+const ExamsService = require('../exams/examsService');
+const UsersService = require('../users/usersService');
+const ResultService = require('../results/resultsService');
+const add = require('date-fns/add');
 
 function ordersApi(app) {
   const router = express.Router();
@@ -11,12 +14,18 @@ function ordersApi(app) {
   app.use('/api/orders', router);
 
   const ordersService = new OrdersService();
+  const examsService = new ExamsService();
+  const usersService = new UsersService();
+  const resultService = new ResultService();
 
   router.post(
     '/',
     passport.authenticate('jwt', { session: false }),
+    validationIdHandler('patientId', 'body'),
+    validationIdHandler('doctorId', 'body'),
+    validationIdHandler('examTypeId', 'body'),
     async function (req, res, next) {
-      const { order } = req.body;
+      const order = req.body;
       try {
         const createOrderId = await ordersService.createOrder(order);
 
@@ -39,8 +48,50 @@ function ordersApi(app) {
       try {
         const order = await ordersService.getOrder(orderId);
 
+        const response = await (async () => {
+          const exam = await examsService.getExam(order.examTypeId);
+          const doctor = await usersService.getUserId({
+            userId: order.doctorId,
+          });
+          const patient = await usersService.getUserId({
+            userId: order.patientId,
+          });
+          const result = order.isComplete ? await resultService.getResults(order.resultId) : {};
+          const bacteriologist = order.isComplete ? await usersService.getUserId({ userId: result.bacteriologistId }) : {};
+
+          return ({
+            _id: order._id,
+            name: exam.name,
+            shortName: exam.shortName,
+            isComplete: order.isComplete,
+            doctor: {
+              documentID: doctor.documentID,
+              firstName: doctor.firstName,
+              lastName: doctor.lastName,
+            },
+            patient: {
+              firstName: patient.firstName,
+              lastName: patient.lastName,
+            },
+            appointmentDate: add(
+              new Date(order.createdAt),
+              { days: exam.scheduledDays }
+            ).toISOString(),
+            createdAt: order.createdAt,
+            ...order.isComplete ? {
+              bacteriologist: {
+                documentID: bacteriologist.documentID,
+                firstName: bacteriologist.firstName,
+                lastName: bacteriologist.lastName,
+              },
+              resultDate: result.createdAt,
+              resultId: order.resultId,
+            } : {},
+          });
+        })();
+
         res.status(200).json({
-          data: order,
+          data: response,
           message: 'order retrieved',
         });
       } catch (error) {
@@ -51,7 +102,7 @@ function ordersApi(app) {
   router.get(
     '/',
     passport.authenticate('jwt', { session: false }),
-    validationIdHandler('patient','query'),
+    validationIdHandler('patient', 'query'),
     async function (req, res, next) {
       const { patient } = req.query;
 
