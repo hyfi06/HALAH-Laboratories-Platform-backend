@@ -97,7 +97,7 @@ Response code 200:
 
 The param `order` should have `patientId` and `doctorId` attributes.
 
-The result is a ObjectId.
+Return a ObjectId.
 
 ```js
 const orderService = new OrdersService();
