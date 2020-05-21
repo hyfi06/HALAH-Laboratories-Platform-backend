@@ -44,9 +44,9 @@ function usersApi(app) {
     '/',
     passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {
-      const { role } = req.query;
+      const args = req.query;
       try {
-        const users = await usersService.getUsers({ role });
+        const users = await usersService.getUsers(args);
         const fields = [
           '_id',
           'username',
