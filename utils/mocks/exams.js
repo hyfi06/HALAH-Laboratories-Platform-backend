@@ -153,6 +153,168 @@ Females:
     scheduledDays: 2,
     resultWaitingDays: 1,
   },
+  {
+    _id: '5ec5809cfc13ae0748000000',
+    createdAt: '2020-03-31T09:57:47Z',
+    updatedAt: '2020-03-31T09:57:47Z',
+    name: 'Folate, Serum',
+    shortName: 'FOL',
+    description: 'Investigation of suspected folate deficiency. Do not order on patients who have recently received methotrexate or other folic acid antagonists.',
+    indications: 'None',
+    resultTemplate: [
+      {
+        _id: '5ec5809cfc13ae0748000004',
+        fieldName: 'Serum folate',
+        reference: `> or =4.0 mcg/L
+<4.0 mcg/L suggests folate deficiency`,
+      },
+    ],
+    scheduledDays: 1,
+    resultWaitingDays: 1,
+  },
+  {
+    _id: '5ec58331fc13ae401e000003',
+    createdAt: '2020-05-03T04:47:37Z',
+    updatedAt: '2020-05-03T04:47:37Z',
+    name: 'Hyperoxaluria Panel, Urine',
+    shortName: 'HYOX',
+    description: 'Distinguishing between primary and secondary hyperoxaluria Distinguishing between primary hyperoxaluria types 1, 2, and 3',
+    indications: 'Void the first-morning specimen, then collect specimen within 2 hours of first-morning void',
+    resultTemplate: [
+      {
+        _id: '5ec58331fc13ae401e000005',
+        fieldName: 'GLYCOLATE',
+        reference: `< or =17 years: < or =75 mg/g creatinine
+> or =18 years: < or =50 mg/g creatinine`,
+      },
+      {
+        _id: '5ec58331fc13ae401e000006',
+        fieldName: 'GLYCERATE',
+        reference: `< or =31 days: < or =75 mg/g creatinine
+32 days - 4 years: < or =125 mg/g creatinine
+5 - 10 years: < or =55 mg/g creatinine
+> or =11 years: < or =25 mg/g creatinine`,
+      },
+      {
+        _id: '5ec58331fc13ae401e000007',
+        fieldName: 'OXALATE',
+        reference: `< or =6 months: < or =400 mg/g creatinine
+7 months - 1 year: < or =300 mg/g creatinine
+2 - 6 years: < or =150 mg/g creatinine
+7 - 10 years: < or =100 mg/g creatinine
+> or =11 years: < or =75 mg/g creatinine`,
+      },
+      {
+        _id: '5ec58331fc13ae401e000008',
+        fieldName: '4-HYDROXY-2-OXOGLUTARATE (HOG)',
+        reference: '< or =10 mg/g creatinine',
+      },
+    ],
+    scheduledDays: 1,
+    resultWaitingDays: 1,
+  },
+  {
+    _id: '5ec58331fc13ae401e00000a',
+    createdAt: '2020-04-20T12:22:05Z',
+    updatedAt: '2020-04-20T12:22:05Z',
+    name: 'Miscellaneous Chlamydia trachomatis and Neisseria gonorrhoeae by Nucleic Acid Amplification, Varies',
+    shortName: 'MCTGC',
+    description: 'Detection of Chlamydia trachomatis and Neisseria gonorrhoeae in non-FDA-approved specimen types',
+    indications: 'None',
+    resultTemplate: [
+      {
+        _id: '5ec58331fc13ae401e00000b',
+        fieldName: 'Chlamydia trachomatis',
+        reference: 'Negative',
+      },
+      {
+        _id: '5ec58331fc13ae401e00000c',
+        fieldName: 'Neisseria gonorrhoeae',
+        reference: 'Negative',
+      },
+    ],
+    scheduledDays: 1,
+    resultWaitingDays: 2,
+  },
+  {
+    _id: '5ec58331fc13ae401e00001d',
+    createdAt: '',
+    updatedAt: '',
+    name: 'Hepatosplenomegaly Panel, Plasma',
+    shortName: 'HSMP',
+    description: 'As a component to the initial evaluation of a patient presenting with hepatosplenomegaly',
+    indications: 'None',
+    resultTemplate: [
+      {
+        _id: '5ec58331fc13ae401e00001e',
+        fieldName: 'CHOLESTANE-3-BETA, 5-ALPHA, 6-BETA-TRIOL',
+        reference: 'Cutoff: < or =0.070 nmol/mL',
+      },
+      {
+        _id: '5ec58331fc13ae401e00001f',
+        fieldName: '7-KETOCHOLESTEROL',
+        reference: 'Cutoff: < or =0.100 nmol/mL',
+      },
+      {
+        _id: '5ec58331fc13ae401e000020',
+        fieldName: 'LYSO-SPHINGOMYELIN',
+        reference: 'Cutoff: < or =0.100 nmol/mL',
+      },
+      {
+        _id: '5ec58331fc13ae401e000021',
+        fieldName: 'GLUCOPSYCHOSINE',
+        reference: 'Cutoff: < or =0.003 nmol/mL',
+      },
+      {
+        _id: '5ec58331fc13ae401e000022',
+        fieldName: '7-ALPHA-HYDROXY-4-CHOLESTEN-3-ONE (7a-C4)',
+        reference: 'Cutoff: < or =0.300 nmol/mL',
+      },
+      {
+        _id: '5ec58331fc13ae401e000023',
+        fieldName: '7-ALPHA,12-ALPHA-DIHYDROXYCHOLEST-4-en-3-ONE (7a12aC4)',
+        reference: 'Cutoff: < or =0.100 nmol/mL',
+      },
+    ],
+    scheduledDays: 1,
+    resultWaitingDays: 2,
+  },
+  {
+    _id: '5ec58331fc13ae401e000030',
+    createdAt: '2020-04-15T12:43:07Z',
+    updatedAt: '2020-04-15T12:43:07Z',
+    name: 'Hepatitis A Total Antibodies, Serum',
+    shortName: 'HAV',
+    description: 'Detection of recent or previous exposure or immunity to hepatitis A',
+    indications: 'For 24 hours before this test do not take multivitamins or dietary supplements containing biotin (vitamin B7), which is commonly found in hair, skin, and nail supplements and multivitamins.',
+    resultTemplate: [
+      {
+        _id: '5ec58331fc13ae401e000031',
+        fieldName: 'anti-HAV IgM',
+        reference: 'Negative',
+      },
+    ],
+    scheduledDays: 2,
+    resultWaitingDays: 2,
+  },
+  {
+    _id: '5ec58331fc13ae401e000042',
+    createdAt: '2019-07-19T07:31:59Z',
+    updatedAt: '2019-07-19T07:31:59Z',
+    name: 'Hepatitis B e-Antibody, Serum',
+    shortName: 'HEAB',
+    description: 'Determining infectivity of hepatitis B virus (HBV) carriers Monitoring infection status of individuals with chronic hepatitis B Monitoring serologic response of chronically HBV-infected patients receiving antiviral therapy Determining the level of hepatitis B e-antibody',
+    indications: 'For 24 hours before this test do not take multivitamins or dietary supplements containing biotin (vitamin B7), which is commonly found in hair, skin, and nail supplements and multivitamins.',
+    resultTemplate: [
+      {
+        _id: '5ec58331fc13ae401e000043',
+        fieldName: 'anti-HBe',
+        reference: 'Negative',
+      },
+    ],
+    scheduledDays: 2,
+    resultWaitingDays: 2,
+  },
 ];
 
 function filteredExamsMock(name) {
@@ -163,7 +325,7 @@ function filteredExamsMock(name) {
 }
 
 class ExamsServiceMock {
-  async getExam(id){
+  async getExam(id) {
     return Promise.resolve(examsMock[0]);
   }
 
