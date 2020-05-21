@@ -8,13 +8,17 @@ const resultsSchema = new Schema({
     type: mongoose.Types.ObjectId,
     required: [true, "Supply order's id"],
   },
+  bacteriologistId: {
+    type: mongoose.Types.ObjectId,
+    required: [true, "Supply bacteriologist's id"],
+  },
   results: [{
     fieldName: {
       type: String,
       required: true,
     },
     value: {
-      type: Number,
+      type: String,
       required: true,
     },
   }],

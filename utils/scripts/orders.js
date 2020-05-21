@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const ExamsService = require('../../components/exams/examsService');
 const UsersService = require('../../components/users/usersService');
 const OrdersService = require('../../components/orders/ordersService');
@@ -7,17 +8,18 @@ const eServices = new ExamsService();
 const oServices = new OrdersService();
 
 const randomOrder = (users, exams) => {
-  let userIndex = 0;
-  let examIndex = 0;
-  const orders = [];
-  while (orders.length < 50) {
-    const patientId = users[userIndex]['_id'];
-    userIndex = (userIndex + 1) % users.length;
-    const doctorId = users[userIndex]['_id'];
-    userIndex = (userIndex + 1) % users.length;
-    const examTypeId = exams[examIndex]['_id'];
-    examIndex = (examIndex + 1) % exams.length;
+  const doctors = users
+    .filter(user => user.typeOfUser == 'doctor');
+  const patients = users
+    .filter(user => user.typeOfUser == 'patient');
 
+  let index = 0;
+  const orders = [];
+  while (orders.length < 300) {
+    const patientId = patients[index % patients.length]['_id'];
+    const doctorId = doctors[index % doctors.length]['_id'];
+    const examTypeId = exams[index % exams.length]['_id'];
+    index += 1;
     orders.push({
       patientId,
       doctorId,
@@ -30,7 +32,7 @@ const randomOrder = (users, exams) => {
 const main = async () => {
   const users = await uServices.getUsers({});
   const exams = await eServices.getExams({});
-  
+
   const orders = randomOrder(users, exams);
 
   const ordersCreated = await orders.map(async order => {

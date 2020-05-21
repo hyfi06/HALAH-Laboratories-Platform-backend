@@ -10,6 +10,11 @@ Allowed routes:
 
 This route handles enables medical exams. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/exams).
 
+### `api/orders`
+
+This route handles patients orders. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/orders).
+
+
 ## Installation
 
 ```bash

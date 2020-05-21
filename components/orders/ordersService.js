@@ -33,7 +33,6 @@ class OrdersService {
    * @returns {Object} order information
    */
   async getOrder(id) {
-
     const order = await this.mongoDB.get(
       this.collection,
       id
@@ -42,9 +41,6 @@ class OrdersService {
     if (!order) {
       throw boom.notFound('Order not found');
     }
-
-    order.examTypeUrl = `/api/exams/${order.examTypeId}`;
-    delete order.examTypeId;
 
     return order;
   }
@@ -58,7 +54,11 @@ class OrdersService {
   async getOrders({ patient }) {
     const query = patient ? { patientId: ObjectId(patient) } : {};
 
-    const orders = this.mongoDB.getAll(this.collection, query);
+    const orders = await this.mongoDB.getAll(this.collection, query);
+
+    if (orders.length == 0) {
+      throw boom.notFound('Orders not found');
+    }
 
     return orders;
   }
