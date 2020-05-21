@@ -36,6 +36,7 @@
     "@hapi/boom": "^9.1.0",
     "@sentry/node": "^5.15.5",
     "bcrypt": "^4.0.1",
+    "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
