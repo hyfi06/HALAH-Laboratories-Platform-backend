@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 const UsersService = require('../../components/users/usersService');
-const usersMock = require('../mocks/users');
+const { usersMock } = require('../mocks/users');
 
 const uService = new UsersService();
 
