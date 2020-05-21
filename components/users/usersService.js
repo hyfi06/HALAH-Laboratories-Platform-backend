@@ -1,6 +1,7 @@
 const MongoLib = require('../../lib/mongo');
 const bcrypt = require('bcrypt');
 const PasswordGenerator = require('../../lib/password');
+const UsernameGenerator = require('../../lib/username');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 const boom = require('@hapi/boom');
@@ -10,6 +11,7 @@ class usersService {
     this.collection = config.dbCollections.users;
     this.mongoDB = new MongoLib();
     this.generatePassword = new PasswordGenerator();
+    this.UsernameGenerator = new UsernameGenerator();
   }
 
   async getUser({ username }) {
@@ -32,7 +34,14 @@ class usersService {
   }
 
   async createUser({ user }) {
-    const { username } = user;
+    const { firstName, lastName, documentID } = user;
+
+    const username = this.UsernameGenerator.build(
+      firstName,
+      lastName,
+      documentID
+    );
+
     const passwordSecure = await this.generatePassword.generate();
     if (!this.generatePassword.isSecurity(passwordSecure))
       throw boom.badRequest('Password not secure');
