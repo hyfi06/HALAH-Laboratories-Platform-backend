@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const PasswordGenerator = require('../../lib/password');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
+const boom = require('@hapi/boom');
 
 class usersService {
   constructor() {
@@ -31,11 +32,12 @@ class usersService {
   }
 
   async createUser({ user }) {
-    const { password, username } = user;
-    const passwordSecure = await this.generatePassword.generate(password);
-    console.log(passwordSecure);
+    const { username } = user;
+    const passwordSecure = await this.generatePassword.generate();
+    if (!this.generatePassword.isSecurity(passwordSecure))
+      throw boom.badRequest('Password not secure');
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(passwordSecure, 10);
     const createUserId = await this.mongoDB.create(
       this.collection,
       new UserModel({ ...user, password: hashedPassword })
