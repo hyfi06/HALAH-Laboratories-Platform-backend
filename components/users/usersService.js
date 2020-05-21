@@ -1,5 +1,6 @@
 const MongoLib = require('../../lib/mongo');
 const bcrypt = require('bcrypt');
+const PasswordGenerator = require('../../lib/password');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 
@@ -7,6 +8,7 @@ class usersService {
   constructor() {
     this.collection = config.dbCollections.users;
     this.mongoDB = new MongoLib();
+    this.generatePassword = new PasswordGenerator();
   }
 
   async getUser({ username }) {
@@ -30,6 +32,9 @@ class usersService {
 
   async createUser({ user }) {
     const { password, username } = user;
+    const passwordSecure = await this.generatePassword.generate(password);
+    console.log(passwordSecure);
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const createUserId = await this.mongoDB.create(
       this.collection,
