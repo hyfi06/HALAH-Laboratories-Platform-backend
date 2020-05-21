@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const helmet = require('helmet');
 
 const notFoundHandler = require('../utils/middleware/notFoundHandler');
@@ -17,6 +18,7 @@ const examsApi = require('../components/exams/routes');
 const resultsApi = require('../components/results/routes');
 
 app.use(helmet());
+app.use(cors());
 app.use(express.json());
 
 //Routes
