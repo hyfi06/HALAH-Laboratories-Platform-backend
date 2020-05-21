@@ -34,13 +34,30 @@ class usersService {
   }
 
   async createUser({ user }) {
+    let intentsGenerateUsername = 100;
     const { firstName, lastName, documentID } = user;
-
-    const username = this.UsernameGenerator.build(
+    let username = this.UsernameGenerator.build(
       firstName,
       lastName,
       documentID
     );
+
+    const checkUser = await this.mongoDB.getUsername(this.collection, username);
+    if (checkUser !== null) {
+      while (checkUser.username === username && intentsGenerateUsername) {
+        username = this.UsernameGenerator.build(
+          firstName,
+          lastName,
+          this.generatePassword.randomNumberStr(4, 100)
+        );
+        intentsGenerateUsername -= 1;
+      }
+      if (intentsGenerateUsername == 0) {
+        throw boom.badImplementation(
+          'Username cannot generate, try to create again!'
+        );
+      }
+    }
 
     const passwordSecure = await this.generatePassword.generate();
     if (!this.generatePassword.isSecurity(passwordSecure))
@@ -49,7 +66,7 @@ class usersService {
     const hashedPassword = await bcrypt.hash(passwordSecure, 10);
     const createUserId = await this.mongoDB.create(
       this.collection,
-      new UserModel({ ...user, password: hashedPassword })
+      new UserModel({ ...user, password: hashedPassword, username: username })
     );
     return createUserId, username;
   }
