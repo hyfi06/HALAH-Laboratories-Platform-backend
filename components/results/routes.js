@@ -49,7 +49,7 @@ function resultsApi(app) {
         const result = await resultsService.getResult(resultId);
         const order = await ordersService.getOrder(result.orderId);
         const exam = await examsService.getExam(order.examTypeId);
-        
+
         result.results.forEach(resultItem => {
           resultItem.reference = exam.resultTemplate
             .filter(template =>

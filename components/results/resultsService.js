@@ -29,7 +29,7 @@ class ResultsService {
       new ResultsModel(result)
     );
 
-    const updateOrderId = await this.mongoDB.update(
+    await this.mongoDB.update(
       config.dbCollections.orders,
       result.orderId,
       {

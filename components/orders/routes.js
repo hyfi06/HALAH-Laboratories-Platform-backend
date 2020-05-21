@@ -129,7 +129,7 @@ function ordersApi(app) {
           const orders = await userOrders.map(async order => {
             const exam = await examsService.getExam(order.examTypeId);
 
-            const result = order.isComplete ? await resultService.getResults(order.resultId) : {};
+            const result = order.isComplete ? await resultService.getResult(order.resultId) : {};
 
             return ({
               _id: order._id,

@@ -1,1631 +1,304 @@
-const resultMocks = [{
-  'orderId': '5ec308befc13ae6887000000',
-  'results': [
-    {
-      'fieldName': 'Griseofulvin',
-      'value': '4.19',
-    },
-    {
-      'fieldName': 'ALTERNARIA TENUIS',
-      'value': '1.17',
-    },
-    {
-      'fieldName': 'risperidone',
-      'value': '8.20',
-    },
-    {
-      'fieldName': 'metformin hydrochloride',
-      'value': '9.34',
-    },
-    {
-      'fieldName': 'Acnida tamariscina',
-      'value': '1.25',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000001',
-  'results': [
-    {
-      'fieldName': 'Methocarbamol',
-      'value': '4.98',
-    },
-    {
-      'fieldName': 'Chlorpheniramine Maleate, Phenylephrine Hydrochloride',
-      'value': '2.90',
-    },
-    {
-      'fieldName': 'HYDROCODONE BITARTRATE AND ACETAMINOPHEN',
-      'value': '6.47',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000002',
-  'results': [
-    {
-      'fieldName': 'Allopurinol',
-      'value': '8.28',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000003',
-  'results': [
-    {
-      'fieldName': 'Adalimumab',
-      'value': '3.10',
-    },
-    {
-      'fieldName': 'ANGELICA DAHURICA ROOT',
-      'value': '7.67',
-    },
-    {
-      'fieldName': 'chloroxylenol',
-      'value': '6.93',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000004',
-  'results': [
-    {
-      'fieldName': 'Diltiazem Hydrochloride',
-      'value': '7.30',
-    },
-    {
-      'fieldName': 'Adult Skin Relief',
-      'value': '3.11',
-    },
-    {
-      'fieldName': 'Natural Medicine',
-      'value': '0.37',
-    },
-    {
-      'fieldName': 'Acetaminophen',
-      'value': '3.30',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000005',
-  'results': [
-    {
-      'fieldName': 'Zinc Oxide, Titanium Dioxide',
-      'value': '6.81',
-    },
-    {
-      'fieldName': 'Acetaminophen, Dextromethorphan HBr, Phenylephrine HCl',
-      'value': '4.54',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000006',
-  'results': [
-    {
-      'fieldName': 'carbidopa, levodopa, and entacapone',
-      'value': '8.48',
-    },
-    {
-      'fieldName': 'Titanium Dioxide',
-      'value': '1.69',
-    },
-    {
-      'fieldName': 'Amoxicillin',
-      'value': '2.48',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000007',
-  'results': [
-    {
-      'fieldName': 'Ibuprofen',
-      'value': '1.20',
-    },
-    {
-      'fieldName': 'Dimethicone',
-      'value': '9.21',
-    },
-    {
-      'fieldName': 'Neomycin sulfate, Polymyxin B Sulfate and Hydrocortisone',
-      'value': '7.55',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000008',
-  'results': [
-    {
-      'fieldName': 'SODIUM BICARBONATE',
-      'value': '7.40',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000009',
-  'results': [
-    {
-      'fieldName': 'Titanium Dioxide',
-      'value': '4.64',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700000a',
-  'results': [
-    {
-      'fieldName': 'Indomethacin',
-      'value': '8.34',
-    },
-    {
-      'fieldName': 'Amiodarone Hydrochloride',
-      'value': '4.12',
-    },
-    {
-      'fieldName': 'Methyldopa',
-      'value': '6.57',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700000b',
-  'results': [
-    {
-      'fieldName': 'TITANIUM DIOXIDE, OCTINOXATE, ZINC OXIDE',
-      'value': '8.54',
-    },
-    {
-      'fieldName': 'Amlodipine Besylate',
-      'value': '5.16',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700000c',
-  'results': [
-    {
-      'fieldName': 'Metronidazole',
-      'value': '2.93',
-    },
-    {
-      'fieldName': 'Neomycin Sulfate, Polymyxin B Sulfate, and Pramoxine Hydrochloride',
-      'value': '2.86',
-    },
-    {
-      'fieldName': 'Hydroxychloroquine Sulfate',
-      'value': '5.22',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700000d',
-  'results': [
-    {
-      'fieldName': 'DEXCHLORPHENIRAMINE MALEATE and PHENYLEPHRINE HYDROCHLORIDE',
-      'value': '1.16',
-    },
-    {
-      'fieldName': 'meloxicam',
-      'value': '6.67',
-    },
-    {
-      'fieldName': 'TETRAHYDROZOLINE HYDROCHLORIDE',
-      'value': '1.09',
-    },
-    {
-      'fieldName': 'Oxygen',
-      'value': '1.95',
-    },
-    {
-      'fieldName': 'Zinc Oxide, Octinoxate, Octisalate',
-      'value': '2.26',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700000e',
-  'results': [
-    {
-      'fieldName': 'Treatment Set TS344558',
-      'value': '7.65',
-    },
-    {
-      'fieldName': 'SODIUM SULFACETAMIDE, SULFUR',
-      'value': '9.47',
-    },
-    {
-      'fieldName': 'midodrine hydrochloride',
-      'value': '1.56',
-    },
-    {
-      'fieldName': 'WARFARIN SODIUM',
-      'value': '9.80',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700000f',
-  'results': [
-    {
-      'fieldName': 'Oxygen',
-      'value': '2.02',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000010',
-  'results': [
-    {
-      'fieldName': 'Ciclopirox',
-      'value': '9.83',
-    },
-    {
-      'fieldName': 'diflorasone diacetate',
-      'value': '2.99',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000011',
-  'results': [
-    {
-      'fieldName': 'House Fly',
-      'value': '2.43',
-    },
-    {
-      'fieldName': 'Bupropion Hydrochloride',
-      'value': '5.97',
-    },
-    {
-      'fieldName': 'SODIUM SULFACETAMIDE',
-      'value': '6.50',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000012',
-  'results': [
-    {
-      'fieldName': 'hydrocodone bitartrate',
-      'value': '7.72',
-    },
-    {
-      'fieldName': 'Menthol,Camphor, Eucalyptus Oil',
-      'value': '7.38',
-    },
-    {
-      'fieldName': 'loperamide HCl',
-      'value': '4.81',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000013',
-  'results': [
-    {
-      'fieldName': 'cetirizine hydrochloride',
-      'value': '1.54',
-    },
-    {
-      'fieldName': 'Silver Sulfadiazine',
-      'value': '2.92',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000014',
-  'results': [
-    {
-      'fieldName': 'MIRTAZAPINE',
-      'value': '1.02',
-    },
-    {
-      'fieldName': 'ZIPRASIDONE HYDROCHLORIDE',
-      'value': '4.85',
-    },
-    {
-      'fieldName': 'Green Pea',
-      'value': '5.27',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000015',
-  'results': [
-    {
-      'fieldName': 'ALLOPURINOL',
-      'value': '1.89',
-    },
-    {
-      'fieldName': 'Aluminum zirconium tetrachlorohydrex gly',
-      'value': '2.80',
-    },
-    {
-      'fieldName': 'Eggplant',
-      'value': '3.38',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000016',
-  'results': [
-    {
-      'fieldName': 'PENICILLIUM CHRYSOGENUM VAR. CHRYSOGENUM',
-      'value': '8.14',
-    },
-    {
-      'fieldName': 'Hydrocodone Bitartrate And Acetaminophen',
-      'value': '2.00',
-    },
-    {
-      'fieldName': 'Dyclonine Hydrochloride',
-      'value': '7.60',
-    },
-    {
-      'fieldName': 'Artemisia vulgaris, Filix mas, Cina, Melilotus officinalis, Quassia amara, Spigelia anthelmia, Teucrium marum, Thymus serpyllum, Siliceea, Calcarea carbonica,',
-      'value': '4.02',
-    },
-    {
-      'fieldName': 'Benzoyl Peroxide',
-      'value': '7.84',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000017',
-  'results': [
-    {
-      'fieldName': 'Amlodipine Besylate',
-      'value': '8.94',
-    },
-    {
-      'fieldName': 'OCTINOXATE, AVOBENZONE',
-      'value': '6.78',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000018',
-  'results': [
-    {
-      'fieldName': 'Populus trichocarpa',
-      'value': '4.02',
-    },
-    {
-      'fieldName': 'TRICLOSAN',
-      'value': '8.55',
-    },
-    {
-      'fieldName': 'Carisoprodol and Aspirin',
-      'value': '5.41',
-    },
-    {
-      'fieldName': 'Aconitum nap, Arnica, Chamomilla, Passiflora, Scutellaria, Citric acid, corn starch, potassium sorbate, sucrose',
-      'value': '4.51',
-    },
-    {
-      'fieldName': 'TITANIUM DIOXIDE',
-      'value': '5.56',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000019',
-  'results': [
-    {
-      'fieldName': 'METHYL SALICYLATE',
-      'value': '7.46',
-    },
-    {
-      'fieldName': 'Triclosan',
-      'value': '3.82',
-    },
-    {
-      'fieldName': 'Sodium Fluoride',
-      'value': '6.65',
-    },
-    {
-      'fieldName': 'GALLIUM CITRATE GA-67',
-      'value': '2.10',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700001a',
-  'results': [
-    {
-      'fieldName': 'OCTINOXATE and ZINC OXIDE',
-      'value': '2.34',
-    },
-    {
-      'fieldName': 'Kalium carbonicum 10',
-      'value': '8.33',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700001b',
-  'results': [
-    {
-      'fieldName': 'Formaldehyde',
-      'value': '7.19',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700001c',
-  'results': [
-    {
-      'fieldName': 'Methylphenidate Hydrochloride',
-      'value': '6.89',
-    },
-    {
-      'fieldName': 'Whole Wheat Wheat Grain',
-      'value': '7.44',
-    },
-    {
-      'fieldName': 'capecitabine',
-      'value': '1.31',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700001d',
-  'results': [
-    {
-      'fieldName': 'Oxygen',
-      'value': '7.79',
-    },
-    {
-      'fieldName': 'LEVOTHYROXINE SODIUM',
-      'value': '7.62',
-    },
-    {
-      'fieldName': 'ALCOHOL',
-      'value': '4.67',
-    },
-    {
-      'fieldName': 'Topotecan Hydrochloride',
-      'value': '2.15',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700001e',
-  'results': [
-    {
-      'fieldName': 'Metformin Hydrochloride',
-      'value': '5.53',
-    },
-    {
-      'fieldName': 'Ribavirin',
-      'value': '6.69',
-    },
-    {
-      'fieldName': 'Naproxen',
-      'value': '1.44',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700001f',
-  'results': [
-    {
-      'fieldName': 'Salicylic Acid',
-      'value': '2.62',
-    },
-    {
-      'fieldName': 'Vancomycin Hydrochloride',
-      'value': '0.25',
-    },
-    {
-      'fieldName': 'BRYONIA ALBA ROOT',
-      'value': '3.61',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000020',
-  'results': [
-    {
-      'fieldName': 'Treatment Set TS329906',
-      'value': '8.98',
-    },
-    {
-      'fieldName': 'Diphenhydramine Hydrochloride',
-      'value': '8.03',
-    },
-    {
-      'fieldName': 'Octinoxate, Octisalate, Titanium dioxide, and Oxybenzone',
-      'value': '2.28',
-    },
-    {
-      'fieldName': 'Potassium Nirtate and Sodium Fluoride',
-      'value': '4.57',
-    },
-    {
-      'fieldName': 'Progesterone',
-      'value': '0.32',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000021',
-  'results': [
-    {
-      'fieldName': 'Titanium dioxide and Zinc oxide',
-      'value': '4.79',
-    },
-    {
-      'fieldName': 'Hemorrhoidal Rectal Suppositories',
-      'value': '8.20',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000022',
-  'results': [
-    {
-      'fieldName': 'Cedar Elm',
-      'value': '2.65',
-    },
-    {
-      'fieldName': 'Acetaminophen',
-      'value': '5.04',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000023',
-  'results': [
-    {
-      'fieldName': 'levalbuterol hydrochloride',
-      'value': '0.06',
-    },
-    {
-      'fieldName': 'Aluminum Zirconium Tetrachlorohydrex Gly',
-      'value': '4.67',
-    },
-    {
-      'fieldName': 'Zinc Oxide',
-      'value': '1.43',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000024',
-  'results': [
-    {
-      'fieldName': 'Quetiapine Fumarate',
-      'value': '6.92',
-    },
-    {
-      'fieldName': 'Danazol',
-      'value': '7.11',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000025',
-  'results': [
-    {
-      'fieldName': 'Warfarin Sodium',
-      'value': '1.27',
-    },
-    {
-      'fieldName': 'disopyramide phosphate',
-      'value': '1.05',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000026',
-  'results': [
-    {
-      'fieldName': 'Acetaminophen',
-      'value': '8.42',
-    },
-    {
-      'fieldName': 'METFORMIN HYDROCHLORIDE',
-      'value': '7.79',
-    },
-    {
-      'fieldName': 'Metronidazole',
-      'value': '1.62',
-    },
-    {
-      'fieldName': 'Acetaminophen, Diphenhydramine HCl and Phenylephrine HCL',
-      'value': '4.70',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000027',
-  'results': [
-    {
-      'fieldName': 'Bupropion Hydrochloride',
-      'value': '6.71',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000028',
-  'results': [
-    {
-      'fieldName': 'Pheniramine Maleate and Naphazoline Hydrochloride',
-      'value': '7.33',
-    },
-    {
-      'fieldName': 'Prochlorperazine Maleate',
-      'value': '6.32',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000029',
-  'results': [
-    {
-      'fieldName': 'Octinoxate and Titanium dioxide',
-      'value': '9.35',
-    },
-    {
-      'fieldName': 'Levocarnitine',
-      'value': '0.03',
-    },
-    {
-      'fieldName': 'Risperidone',
-      'value': '3.80',
-    },
-    {
-      'fieldName': 'Metoprolol Tartrate',
-      'value': '7.59',
-    },
-    {
-      'fieldName': 'risperidone',
-      'value': '7.06',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700002a',
-  'results': [
-    {
-      'fieldName': 'PRAVASTATIN SODIUM',
-      'value': '9.93',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700002b',
-  'results': [
-    {
-      'fieldName': 'SULFUR',
-      'value': '1.31',
-    },
-    {
-      'fieldName': 'Benzalkonium Chloride, Lidocaine Hydrochloride',
-      'value': '0.72',
-    },
-    {
-      'fieldName': 'TRANEXAMIC ACID',
-      'value': '5.09',
-    },
-    {
-      'fieldName': 'oxycodone hydrochloride',
-      'value': '4.76',
-    },
-    {
-      'fieldName': 'anastrozole',
-      'value': '9.24',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700002c',
-  'results': [
-    {
-      'fieldName': 'Aethusa cynapium, Anacardium orientale, Apium graveolens, Calcarea carbonica, Gambogia, Histaminum hydrochloricum, Hydrastis canadensis, Lac defloratum, Lac vaccinum, Pulsatilla, Sepia, Sulphur',
-      'value': '2.23',
-    },
-    {
-      'fieldName': 'LISINOPRIL AND HYDROCHLOROTHIAZIDE',
-      'value': '5.26',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700002d',
-  'results': [
-    {
-      'fieldName': 'Morphine Sulfate',
-      'value': '8.46',
-    },
-    {
-      'fieldName': 'venlafaxine hydrochloride',
-      'value': '5.72',
-    },
-    {
-      'fieldName': 'Oxymorphone hydrochloride',
-      'value': '1.57',
-    },
-    {
-      'fieldName': 'Ethyl Alcohol',
-      'value': '4.02',
-    },
-    {
-      'fieldName': 'Ranitidine',
-      'value': '4.96',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700002e',
-  'results': [
-    {
-      'fieldName': 'Avobenzone, Octinoxate, Octocrylene',
-      'value': '9.38',
-    },
-    {
-      'fieldName': 'Amlodipine besylate',
-      'value': '7.39',
-    },
-    {
-      'fieldName': 'Ciprofloxacin',
-      'value': '3.34',
-    },
-    {
-      'fieldName': 'Thyreoidea Belladonna',
-      'value': '8.45',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700002f',
-  'results': [
-    {
-      'fieldName': 'Groundsel',
-      'value': '2.56',
-    },
-    {
-      'fieldName': 'Prochlorperazine Maleate',
-      'value': '6.00',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000030',
-  'results': [
-    {
-      'fieldName': 'Lithium Carbonate',
-      'value': '1.49',
-    },
-    {
-      'fieldName': 'bacillus subtilis',
-      'value': '7.04',
-    },
-    {
-      'fieldName': 'zolpidem tartrate',
-      'value': '7.91',
-    },
-    {
-      'fieldName': 'HOMOSALATE, OXYBENZONE, OCTISALATE, AVOBENZONE, OCTOCRYLENE',
-      'value': '1.56',
-    },
-    {
-      'fieldName': 'Lorazepam',
-      'value': '9.85',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000031',
-  'results': [
-    {
-      'fieldName': 'Aluminum Zirconium Tetrachlorohydrex Gly',
-      'value': '7.76',
-    },
-    {
-      'fieldName': 'ALCOHOL',
-      'value': '1.01',
-    },
-    {
-      'fieldName': 'Guaifenesin',
-      'value': '0.64',
-    },
-    {
-      'fieldName': 'Octinoxate, Titanium Dioxide, and Zinc Oxide',
-      'value': '9.03',
-    },
-    {
-      'fieldName': 'Titanium Dioxide and Octinoxate',
-      'value': '9.84',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000032',
-  'results': [
-    {
-      'fieldName': 'Bisoprolol fumarate',
-      'value': '3.10',
-    },
-    {
-      'fieldName': 'Adenosinum cyclophosphoricum, Adrenalinum, Adrenocorticotrophin, Allium cepa, Asarum canadense, Cortisone aceticum, Eupatorium aromaticum, Euphrasia officinalis, Fraxinus americana, Galphimia glauca, Helianthus annus, Histaminum hydrochloricum, Juniperus virginiana, Kali muriaticum, Mucosa nasalis suis, Natrum muriaticum, Plantago major, RNA, Rumex crispus, Sabadilla, Senecio jacobaea',
-      'value': '8.29',
-    },
-    {
-      'fieldName': 'CLOTRIMAZOLE',
-      'value': '6.75',
-    },
-    {
-      'fieldName': 'Loratadine',
-      'value': '9.33',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000033',
-  'results': [
-    {
-      'fieldName': 'Zinc Oxide',
-      'value': '8.90',
-    },
-    {
-      'fieldName': 'Russian Olive Elaeagnus angustifolia',
-      'value': '6.14',
-    },
-    {
-      'fieldName': 'FUROSEMIDE',
-      'value': '5.93',
-    },
-    {
-      'fieldName': 'Ofloxaxin',
-      'value': '2.76',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000034',
-  'results': [
-    {
-      'fieldName': 'HYDROCODONE BITARTRATE AND ACETAMINOPHEN',
-      'value': '5.66',
-    },
-    {
-      'fieldName': 'nabumetone',
-      'value': '5.63',
-    },
-    {
-      'fieldName': 'AVOBENZONE, OCTISALATE, OCTOCRYLENE',
-      'value': '7.29',
-    },
-    {
-      'fieldName': 'alcohol',
-      'value': '9.10',
-    },
-    {
-      'fieldName': 'SALICYLIC ACID',
-      'value': '6.09',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000035',
-  'results': [
-    {
-      'fieldName': 'Spondylocladium',
-      'value': '7.91',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000036',
-  'results': [
-    {
-      'fieldName': 'COCCULUS INDICUS, VINCA MINOR, VALERIANA OFFICINALIS, PULSATILLA, NITROGLYCERIN, PLUMBUM ACETICUM, ARGENTUM NITRICUM, ARTEMISIA VULGARIS',
-      'value': '1.73',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000037',
-  'results': [
-    {
-      'fieldName': 'lamotrigine',
-      'value': '7.78',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000038',
-  'results': [
-    {
-      'fieldName': 'Arginine Hydrochloride',
-      'value': '4.38',
-    },
-    {
-      'fieldName': 'Finasteride',
-      'value': '4.83',
-    },
-    {
-      'fieldName': 'DIMETHICONE',
-      'value': '1.49',
-    },
-    {
-      'fieldName': 'Octinoxate, Octisalate, and Titanium Dioxide',
-      'value': '6.80',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000039',
-  'results': [
-    {
-      'fieldName': 'Dermatophagoides pteronyssinus',
-      'value': '3.67',
-    },
-    {
-      'fieldName': 'BENZALKONIUM CHLORIDE, LIDOCAINE, WATER, ISOPROPYL ALCOHOL, ASPIRIN',
-      'value': '7.28',
-    },
-    {
-      'fieldName': 'Triclocarban',
-      'value': '2.11',
-    },
-    {
-      'fieldName': 'Mepivacaine Hydrochloride',
-      'value': '4.87',
-    },
-    {
-      'fieldName': 'butalbital, acetaminophen and caffeine',
-      'value': '6.32',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700003a',
-  'results': [
-    {
-      'fieldName': 'Potassium Chloride',
-      'value': '8.10',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700003b',
-  'results': [
-    {
-      'fieldName': 'Avobenzone, Homosalate, Octisalate and Octocrylene',
-      'value': '5.45',
-    },
-    {
-      'fieldName': 'Enalapril Maleate',
-      'value': '4.32',
-    },
-    {
-      'fieldName': 'Amlodipine Besylate',
-      'value': '3.00',
-    },
-    {
-      'fieldName': 'Echinacea angustifolia, Hydrastis canadensis, lomatium, Myrrha, Nasturtium aquaticum, Tabebuia impetiginosa, Propolis,',
-      'value': '0.29',
-    },
-    {
-      'fieldName': 'CHOLINE MAGNESIUM TRISALICYLATE',
-      'value': '3.37',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700003c',
-  'results': [
-    {
-      'fieldName': 'Alfalfa, Laminaria digitata, Symphytum officinale, Calcarea carbonica, Ferrum metallicum, Agate, Iodium, Magnesium metallicum, Manganum metallicum, Quartz, Tarentula cubensis, Cuprum metallicum, Phosphorus, X-ray, Carbon dioxide, Silicea Magnetis polus articus, Magnetis polus australis,',
-      'value': '1.03',
-    },
-    {
-      'fieldName': 'Human Immunoglobulin G',
-      'value': '1.80',
-    },
-    {
-      'fieldName': 'Fluconazole',
-      'value': '0.59',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700003d',
-  'results': [
-    {
-      'fieldName': 'Viscum Abietis e pl. tota 4 Special Order',
-      'value': '7.90',
-    },
-    {
-      'fieldName': 'Ibuprofen',
-      'value': '6.58',
-    },
-    {
-      'fieldName': 'ALCOHOL',
-      'value': '4.39',
-    },
-    {
-      'fieldName': 'pitavastatin calcium',
-      'value': '4.11',
-    },
-    {
-      'fieldName': 'Canary feathers, Cat hair, Cattle epithelia, Chicken feathers, Dog epithelia, Duck feathers, Gerbil epithelia, Goat epithelia, Goose feathers,',
-      'value': '0.54',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700003e',
-  'results': [
-    {
-      'fieldName': 'Naproxen Sodium',
-      'value': '3.85',
-    },
-    {
-      'fieldName': 'Ibuprofen',
-      'value': '5.18',
-    },
-    {
-      'fieldName': 'Acetaminophen, Chlorpheniramine maleate, and Dextromethorphan Hydrobromide',
-      'value': '9.93',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700003f',
-  'results': [
-    {
-      'fieldName': 'SODIUM FLUORIDE',
-      'value': '4.96',
-    },
-    {
-      'fieldName': 'Carbidopa and Levodopa',
-      'value': '4.80',
-    },
-    {
-      'fieldName': 'Acetaminophen',
-      'value': '8.34',
-    },
-    {
-      'fieldName': 'OCTINOXATE, OXYBENZONE',
-      'value': '9.28',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000040',
-  'results': [
-    {
-      'fieldName': 'Glipizide',
-      'value': '9.03',
-    },
-    {
-      'fieldName': 'Silk',
-      'value': '5.86',
-    },
-    {
-      'fieldName': 'CYTARABINE',
-      'value': '3.59',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000041',
-  'results': [
-    {
-      'fieldName': 'Ergocalciferol',
-      'value': '9.90',
-    },
-    {
-      'fieldName': 'SODIUM FLUORIDE',
-      'value': '3.18',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000042',
-  'results': [
-    {
-      'fieldName': 'glycerin',
-      'value': '8.46',
-    },
-    {
-      'fieldName': 'Diclofenac Sodium and Misoprostol',
-      'value': '7.98',
-    },
-    {
-      'fieldName': 'Salicylic Acid',
-      'value': '1.72',
-    },
-    {
-      'fieldName': 'Iodine and Sodium Iodide and Alcohol',
-      'value': '2.82',
-    },
-    {
-      'fieldName': 'Ropinirole',
-      'value': '7.95',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000043',
-  'results': [
-    {
-      'fieldName': 'Elm, Chinese Ulmus parvifolia',
-      'value': '9.94',
-    },
-    {
-      'fieldName': 'Linden',
-      'value': '0.50',
-    },
-    {
-      'fieldName': 'GABAPENTIN',
-      'value': '1.14',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000044',
-  'results': [
-    {
-      'fieldName': 'Nicotine Polacrilex',
-      'value': '3.39',
-    },
-    {
-      'fieldName': 'Lisinopril',
-      'value': '2.59',
-    },
-    {
-      'fieldName': 'ergocalciferol',
-      'value': '9.13',
-    },
-    {
-      'fieldName': 'Dextrose Monohydrate, Sodium Chloride, Calcium Chloride, Magnesium Chloride, Sodium Lactate',
-      'value': '2.67',
-    },
-    {
-      'fieldName': 'Drospirenone and ethinyl estradiol',
-      'value': '5.69',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000045',
-  'results': [
-    {
-      'fieldName': 'Morphine Sulfate',
-      'value': '0.07',
-    },
-    {
-      'fieldName': 'DIMETHICONE',
-      'value': '1.20',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000046',
-  'results': [
-    {
-      'fieldName': 'LIDOCAINE HCL',
-      'value': '6.94',
-    },
-    {
-      'fieldName': 'Titanium Dioxide and Octinoxate',
-      'value': '9.58',
-    },
-    {
-      'fieldName': 'PANTOPRAZOLE SODIUM',
-      'value': '1.25',
-    },
-    {
-      'fieldName': 'Dextrose',
-      'value': '8.01',
-    },
-    {
-      'fieldName': 'Acetaminophen',
-      'value': '3.17',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000047',
-  'results': [
-    {
-      'fieldName': 'Loratadine and Pseudoephedrine Sulfate',
-      'value': '5.93',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000048',
-  'results': [
-    {
-      'fieldName': 'Aspergillus Fumigatus',
-      'value': '7.48',
-    },
-    {
-      'fieldName': 'Olanzapine',
-      'value': '1.23',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000049',
-  'results': [
-    {
-      'fieldName': 'Octinoxate, TITANIUM DIOXIDE, and ZINC OXIDE',
-      'value': '6.80',
-    },
-    {
-      'fieldName': 'Octinoxate and Oxybenzone',
-      'value': '2.51',
-    },
-    {
-      'fieldName': 'Ethynodiol Diacetate and Ethinyl Estradiol',
-      'value': '4.89',
-    },
-    {
-      'fieldName': 'Sulfamethoxazole and Trimethoprim',
-      'value': '4.14',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700004a',
-  'results': [
-    {
-      'fieldName': 'SALICLYLIC ACID',
-      'value': '9.46',
-    },
-    {
-      'fieldName': 'Oxaprozin',
-      'value': '5.28',
-    },
-    {
-      'fieldName': 'ALCOHOL',
-      'value': '3.75',
-    },
-    {
-      'fieldName': 'castor oil and balsam peru',
-      'value': '1.53',
-    },
-    {
-      'fieldName': 'TOLNAFTATE',
-      'value': '7.29',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700004b',
-  'results': [
-    {
-      'fieldName': 'Castor Oil',
-      'value': '4.86',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700004c',
-  'results': [
-    {
-      'fieldName': 'Eucalyptol, Menthol, Methyl Salicylate, Thymol',
-      'value': '2.89',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700004d',
-  'results': [
-    {
-      'fieldName': 'Trout',
-      'value': '2.01',
-    },
-    {
-      'fieldName': 'Labetalol HCl',
-      'value': '4.86',
-    },
-    {
-      'fieldName': 'Octinoxate, Zinc Oxide',
-      'value': '3.10',
-    },
-    {
-      'fieldName': 'WHOLE ARNICA PLANT',
-      'value': '8.15',
-    },
-    {
-      'fieldName': 'Hydrocortisone Valerate',
-      'value': '5.12',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700004e',
-  'results': [
-    {
-      'fieldName': 'Hypericum Bryophyllum',
-      'value': '6.85',
-    },
-    {
-      'fieldName': 'Acetazolamide',
-      'value': '8.57',
-    },
-    {
-      'fieldName': 'LIDOCAINE',
-      'value': '8.72',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700004f',
-  'results': [
-    {
-      'fieldName': 'Antihemophilic Factor (Recombinant)',
-      'value': '5.15',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000050',
-  'results': [
-    {
-      'fieldName': 'Aconitum nap., Apis mel., Arum dracontium, Belladonna, Bryonia, Cajuputum, Ferrum phosphoricum, Glycyrrhiza glabra, Kali bic., Lachesis, Mentha piperita, Merc. viv., Naja, Nat. carb., Nat. sulphuricum, Nitricum ac., Nux vom., Phosphorus, Phytolacca, Pulsatilla, Spongia, Stannum met., Sticta, Thuja occ., Ulmus fulva, Verbascum, Echinacea',
-      'value': '4.97',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000051',
-  'results': [
-    {
-      'fieldName': 'Acetaminophen',
-      'value': '2.83',
-    },
-    {
-      'fieldName': 'Common Wormwood Annual',
-      'value': '3.82',
-    },
-    {
-      'fieldName': 'Cladosporium fulvum',
-      'value': '7.18',
-    },
-    {
-      'fieldName': 'METHYL SALICYLATE',
-      'value': '0.45',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000052',
-  'results': [
-    {
-      'fieldName': 'Fucus vesiculosus, Spongia tosta, Glandula suprarenalis suis, Pituitaria glandula suis, Thyroidinum suis, Bromium, Calcarea carbonica, Iodium, Lachesis mutus, Pulsatilla,',
-      'value': '6.96',
-    },
-    {
-      'fieldName': 'Octinoxate and Titanium dioxide',
-      'value': '1.75',
-    },
-    {
-      'fieldName': 'alcohol',
-      'value': '1.46',
-    },
-    {
-      'fieldName': 'cephalexin',
-      'value': '0.99',
-    },
-    {
-      'fieldName': 'Trace Elements 4',
-      'value': '4.44',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000053',
-  'results': [
-    {
-      'fieldName': 'Lisinopril',
-      'value': '2.26',
-    },
-    {
-      'fieldName': 'Enoxaparin Sodium',
-      'value': '7.67',
-    },
-    {
-      'fieldName': 'OCTINOXATE, OCTISALATE, OXYBENZONE, TITANIUM DIOXIDE, ZINC OXIDE',
-      'value': '2.06',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000054',
-  'results': [
-    {
-      'fieldName': 'Octinoxate and Oxybenzone',
-      'value': '2.24',
-    },
-    {
-      'fieldName': 'Octinoxate, Titanium Dioxide, and Zinc Oxide',
-      'value': '3.57',
-    },
-    {
-      'fieldName': 'Atenolol',
-      'value': '0.74',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000055',
-  'results': [
-    {
-      'fieldName': 'INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED), INFLUENZA A VIRUS A/TEXAS/50/2012 X-223A (H3N2) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED), and INFLUENZA B VIRUS B/MASSACHUSETTS/2/2012 ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED)',
-      'value': '3.22',
-    },
-    {
-      'fieldName': 'ATORVASTATIN CALCIUM',
-      'value': '8.72',
-    },
-    {
-      'fieldName': 'memantine hydrochloride',
-      'value': '6.92',
-    },
-    {
-      'fieldName': 'Dexamethasone Sodium Phosphate',
-      'value': '7.24',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000056',
-  'results': [
-    {
-      'fieldName': 'Aloe Socotrina, Alumina, Apis Mellifica, Arsenicum Album, Baryta Carbonica, Bryonia, Carbo Vegetabilis, Chamomilla',
-      'value': '0.88',
-    },
-    {
-      'fieldName': 'Quinapril Hydrochloride and Hydrochlorothiazide',
-      'value': '2.57',
-    },
-    {
-      'fieldName': 'TITANIUM DIOXIDE',
-      'value': '1.88',
-    },
-    {
-      'fieldName': 'HEPARIN SODIUM',
-      'value': '3.52',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000057',
-  'results': [
-    {
-      'fieldName': 'Levetiracetam',
-      'value': '4.70',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000058',
-  'results': [
-    {
-      'fieldName': 'Black Walnut',
-      'value': '7.78',
-    },
-    {
-      'fieldName': 'TOBRAMYCIN SULFATE',
-      'value': '2.95',
-    },
-    {
-      'fieldName': 'BENZETHONIUM CHLORIDE',
-      'value': '1.67',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000059',
-  'results': [
-    {
-      'fieldName': 'Avobenzone, Octinoxate, Octisalate, Octocrylene',
-      'value': '7.21',
-    },
-    {
-      'fieldName': 'Esomeprazole strontium',
-      'value': '6.53',
-    },
-    {
-      'fieldName': 'Fenofibrate',
-      'value': '2.38',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700005a',
-  'results': [
-    {
-      'fieldName': 'Isopropyl Alcohol',
-      'value': '4.27',
-    },
-    {
-      'fieldName': 'clobetasol propionate',
-      'value': '0.72',
-    },
-    {
-      'fieldName': 'Fexofenadine hydrochloride',
-      'value': '9.67',
-    },
-    {
-      'fieldName': 'Glimepiride',
-      'value': '9.22',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700005b',
-  'results': [
-    {
-      'fieldName': 'Aspirin',
-      'value': '2.00',
-    },
-    {
-      'fieldName': 'alendronate sodium',
-      'value': '3.47',
-    },
-    {
-      'fieldName': 'Nitrous Oxide',
-      'value': '6.64',
-    },
-    {
-      'fieldName': 'Trichophyton mentagrophytes',
-      'value': '0.05',
-    },
-    {
-      'fieldName': 'Silver Sulfadiazine',
-      'value': '7.35',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700005c',
-  'results': [
-    {
-      'fieldName': 'ACTIVATED CHARCOAL, CITRULLUS COLOCYNTHIS FRUIT, COPPER',
-      'value': '1.85',
-    },
-    {
-      'fieldName': 'neomycin sulfate, polymyxin B sulfate and hydrocortisone',
-      'value': '2.99',
-    },
-    {
-      'fieldName': 'Nicotine Polacrilex',
-      'value': '7.16',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700005d',
-  'results': [
-    {
-      'fieldName': 'Indapamide',
-      'value': '5.23',
-    },
-    {
-      'fieldName': 'tuberculin purified protein derivative',
-      'value': '6.60',
-    },
-    {
-      'fieldName': 'Acetaminophen, Pamabrom and Pyrilamine maleate',
-      'value': '6.17',
-    },
-    {
-      'fieldName': 'Enalapril Maleate',
-      'value': '8.33',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700005e',
-  'results': [
-    {
-      'fieldName': 'Acetaminophen, Dextromethorphan HBr, Guaifenesin, Phenylephrine HCl',
-      'value': '9.96',
-    },
-    {
-      'fieldName': 'Guaifenesin',
-      'value': '0.54',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae688700005f',
-  'results': [
-    {
-      'fieldName': 'ALUMINUM CHLOROHYDRATE',
-      'value': '7.52',
-    },
-    {
-      'fieldName': 'Natural Medicine',
-      'value': '8.24',
-    },
-    {
-      'fieldName': 'ALUMINUM CHLOROHYDRATE',
-      'value': '4.45',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000060',
-  'results': [
-    {
-      'fieldName': 'repaglinide',
-      'value': '3.52',
-    },
-    {
-      'fieldName': 'sertraline hydrochloride',
-      'value': '0.02',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000061',
-  'results': [
-    {
-      'fieldName': 'Loperamide Hydrochloride',
-      'value': '4.80',
-    },
-    {
-      'fieldName': 'Diphenhydramine Hydrochloride',
-      'value': '2.42',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000062',
-  'results': [
-    {
-      'fieldName': 'DESONIDE',
-      'value': '5.02',
-    },
-    {
-      'fieldName': 'Acetaminophen, diphenhydramine hydrochloride, phenylephrine hydrochloride',
-      'value': '4.93',
-    },
-    {
-      'fieldName': 'Heparin Sodium',
-      'value': '4.27',
-    },
-  ],
-}, {
-  'orderId': '5ec308befc13ae6887000063',
-  'results': [
-    {
-      'fieldName': 'Somatropin',
-      'value': '9.44',
-    },
-    {
-      'fieldName': 'Allopurinol',
-      'value': '6.83',
-    },
-    {
-      'fieldName': 'DEXTROSE MONOHYDRATE, SODIUM CHLORIDE, and POTASSIUM CHLORIDE',
-      'value': '3.07',
-    },
-    {
-      'fieldName': 'Apis Belladonna',
-      'value': '0.17',
-    },
-    {
-      'fieldName': 'aliskiren hemifumarate',
-      'value': '8.16',
-    },
-  ],
-}];
+const resultMocks = [{ '_id': '5ec6cc05fc13ae3132000015', 'orderId': '5ec6cc05fc13ae3132000016', 'bacteriologistId': '5ec6cc05fc13ae3132000017', 'results': [{ '_id': '5ec6cc05fc13ae3132000018', 'fieldName': 'Namenda', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000019', 'fieldName': 'Maximum-H', 'value': 10 }, { '_id': '5ec6cc05fc13ae313200001a', 'fieldName': 'care one sinus', 'value': 10 }, { '_id': '5ec6cc05fc13ae313200001b', 'fieldName': 'Claris', 'value': 5 }, { '_id': '5ec6cc05fc13ae313200001c', 'fieldName': 'Aveeno Protect Plus Hydrate Sunscreen', 'value': 7 }], 'createdAt': '2020-02-18T00:18:03Z', 'updatedAt': '2020-04-22T08:09:37Z' },
+{ '_id': '5ec6cc05fc13ae313200001d', 'orderId': '5ec6cc05fc13ae313200001e', 'bacteriologistId': '5ec6cc05fc13ae313200001f', 'results': [{ '_id': '5ec6cc05fc13ae3132000020', 'fieldName': 'Mexican Tea Pollen', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000021', 'fieldName': 'SILICEA', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000022', 'fieldName': 'Glipizide', 'value': 0 }, { '_id': '5ec6cc05fc13ae3132000023', 'fieldName': 'MK Alcohol Prep Pads Medium', 'value': 6 }, { '_id': '5ec6cc05fc13ae3132000024', 'fieldName': 'equaline ibuprofen', 'value': 5 }], 'createdAt': '2020-03-13T06:38:13Z', 'updatedAt': '2020-03-29T16:35:07Z' },
+{ '_id': '5ec6cc05fc13ae3132000025', 'orderId': '5ec6cc05fc13ae3132000026', 'bacteriologistId': '5ec6cc05fc13ae3132000027', 'results': [{ '_id': '5ec6cc05fc13ae3132000028', 'fieldName': 'FENTANYL', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000029', 'fieldName': 'Anti-Bacterial Hand Sanitizer', 'value': 6 }], 'createdAt': '2020-01-29T06:54:23Z', 'updatedAt': '2020-03-01T23:38:49Z' },
+{ '_id': '5ec6cc05fc13ae313200002a', 'orderId': '5ec6cc05fc13ae313200002b', 'bacteriologistId': '5ec6cc05fc13ae313200002c', 'results': [{ '_id': '5ec6cc05fc13ae313200002d', 'fieldName': 'SENSAI CELLULAR PERFORMANCE POWDER FOUNDATION', 'value': 9 }, { '_id': '5ec6cc05fc13ae313200002e', 'fieldName': 'Levocetirizine dihydrochloride', 'value': 4 }, { '_id': '5ec6cc05fc13ae313200002f', 'fieldName': 'Valproic', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000030', 'fieldName': 'Peanut', 'value': 3 }], 'createdAt': '2020-02-11T19:11:07Z', 'updatedAt': '2020-02-20T07:44:11Z' },
+{ '_id': '5ec6cc05fc13ae3132000031', 'orderId': '5ec6cc05fc13ae3132000032', 'bacteriologistId': '5ec6cc05fc13ae3132000033', 'results': [{ '_id': '5ec6cc05fc13ae3132000034', 'fieldName': 'POPULUS DELTOIDES SSP MONILIFERA POLLEN', 'value': 10 }, { '_id': '5ec6cc05fc13ae3132000035', 'fieldName': 'Food - Plant Source, Melon, Cantaloupe Cucumis melo', 'value': 4 }, { '_id': '5ec6cc05fc13ae3132000036', 'fieldName': 'Sani-Hands II', 'value': 1 }], 'createdAt': '2020-02-07T21:51:21Z', 'updatedAt': '2020-03-27T11:27:33Z' },
+{ '_id': '5ec6cc05fc13ae3132000037', 'orderId': '5ec6cc05fc13ae3132000038', 'bacteriologistId': '5ec6cc05fc13ae3132000039', 'results': [{ '_id': '5ec6cc05fc13ae313200003a', 'fieldName': 'Aspir Low', 'value': 6 }], 'createdAt': '2020-04-05T17:13:14Z', 'updatedAt': '2020-04-09T07:09:24Z' },
+{ '_id': '5ec6cc05fc13ae313200003b', 'orderId': '5ec6cc05fc13ae313200003c', 'bacteriologistId': '5ec6cc05fc13ae313200003d', 'results': [{ '_id': '5ec6cc05fc13ae313200003e', 'fieldName': 'SUNSCREEN', 'value': 5 }, { '_id': '5ec6cc05fc13ae313200003f', 'fieldName': 'GOOD NEIGHBOR PHARMACY DIAPER RASH', 'value': 10 }, { '_id': '5ec6cc05fc13ae3132000040', 'fieldName': 'Rx Act headache formula', 'value': 4 }], 'createdAt': '2020-05-16T07:58:25Z', 'updatedAt': '2020-04-14T07:16:58Z' },
+{ '_id': '5ec6cc05fc13ae3132000041', 'orderId': '5ec6cc05fc13ae3132000042', 'bacteriologistId': '5ec6cc05fc13ae3132000043', 'results': [{ '_id': '5ec6cc05fc13ae3132000044', 'fieldName': 'Good Neighbor Pharmacy Ibuprofen', 'value': 7 }, { '_id': '5ec6cc05fc13ae3132000045', 'fieldName': 'SAFEWAY', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000046', 'fieldName': 'Fungicure', 'value': 3 }, { '_id': '5ec6cc05fc13ae3132000047', 'fieldName': 'Theracodophen-750', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000048', 'fieldName': 'Lip Remedy Medicinal Lip Balm', 'value': 8 }], 'createdAt': '2020-05-03T13:10:46Z', 'updatedAt': '2020-01-27T08:43:26Z' },
+{ '_id': '5ec6cc05fc13ae3132000049', 'orderId': '5ec6cc05fc13ae313200004a', 'bacteriologistId': '5ec6cc05fc13ae313200004b', 'results': [{ '_id': '5ec6cc05fc13ae313200004c', 'fieldName': 'AZITHROMYCIN', 'value': 7 }, { '_id': '5ec6cc05fc13ae313200004d', 'fieldName': 'AMOXICILLIN', 'value': 2 }, { '_id': '5ec6cc05fc13ae313200004e', 'fieldName': 'CARE ONE', 'value': 7 }, { '_id': '5ec6cc05fc13ae313200004f', 'fieldName': 'Ethosuximide', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000050', 'fieldName': 'Black Pepper', 'value': 9 }], 'createdAt': '2020-04-20T13:55:28Z', 'updatedAt': '2020-01-13T22:12:57Z' },
+{ '_id': '5ec6cc05fc13ae3132000051', 'orderId': '5ec6cc05fc13ae3132000052', 'bacteriologistId': '5ec6cc05fc13ae3132000053', 'results': [{ '_id': '5ec6cc05fc13ae3132000054', 'fieldName': 'health mart allergy relief', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000055', 'fieldName': 'Connective Tissue', 'value': 0 }], 'createdAt': '2020-02-21T05:10:53Z', 'updatedAt': '2020-05-17T04:09:41Z' },
+{ '_id': '5ec6cc05fc13ae3132000056', 'orderId': '5ec6cc05fc13ae3132000057', 'bacteriologistId': '5ec6cc05fc13ae3132000058', 'results': [{ '_id': '5ec6cc05fc13ae3132000059', 'fieldName': 'Dental Clear Natural', 'value': 4 }], 'createdAt': '2020-03-11T09:10:19Z', 'updatedAt': '2020-03-08T17:29:15Z' },
+{ '_id': '5ec6cc05fc13ae313200005a', 'orderId': '5ec6cc05fc13ae313200005b', 'bacteriologistId': '5ec6cc05fc13ae313200005c', 'results': [{ '_id': '5ec6cc05fc13ae313200005d', 'fieldName': 'Tri-Estarylla', 'value': 8 }, { '_id': '5ec6cc05fc13ae313200005e', 'fieldName': 'Alprazolam', 'value': 0 }, { '_id': '5ec6cc05fc13ae313200005f', 'fieldName': 'Nighttime Sleep Aid', 'value': 6 }, { '_id': '5ec6cc05fc13ae3132000060', 'fieldName': 'ARRID EXTRA EXTRA DRY XX', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000061', 'fieldName': 'ARRID EXTRA DRY', 'value': 10 }], 'createdAt': '2020-04-02T04:17:31Z', 'updatedAt': '2020-04-07T21:33:28Z' },
+{ '_id': '5ec6cc05fc13ae3132000062', 'orderId': '5ec6cc05fc13ae3132000063', 'bacteriologistId': '5ec6cc05fc13ae3132000064', 'results': [{ '_id': '5ec6cc05fc13ae3132000065', 'fieldName': 'Gemcitabine Hydrochloride', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000066', 'fieldName': 'HUMCO Mercuroclear', 'value': 7 }], 'createdAt': '2020-04-16T04:52:56Z', 'updatedAt': '2020-04-01T08:57:24Z' },
+{ '_id': '5ec6cc05fc13ae3132000067', 'orderId': '5ec6cc05fc13ae3132000068', 'bacteriologistId': '5ec6cc05fc13ae3132000069', 'results': [{ '_id': '5ec6cc05fc13ae313200006a', 'fieldName': 'Clonazepam', 'value': 10 }, { '_id': '5ec6cc05fc13ae313200006b', 'fieldName': 'QUETIAPINE FUMARATE', 'value': 10 }], 'createdAt': '2020-03-07T10:45:11Z', 'updatedAt': '2020-03-29T07:40:45Z' },
+{ '_id': '5ec6cc05fc13ae313200006c', 'orderId': '5ec6cc05fc13ae313200006d', 'bacteriologistId': '5ec6cc05fc13ae313200006e', 'results': [{ '_id': '5ec6cc05fc13ae313200006f', 'fieldName': 'ENJUVIA', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000070', 'fieldName': 'Zolpidem Tartrate', 'value': 5 }], 'createdAt': '2020-03-22T13:59:22Z', 'updatedAt': '2020-01-20T06:49:10Z' },
+{ '_id': '5ec6cc05fc13ae3132000071', 'orderId': '5ec6cc05fc13ae3132000072', 'bacteriologistId': '5ec6cc05fc13ae3132000073', 'results': [{ '_id': '5ec6cc05fc13ae3132000074', 'fieldName': 'MORUS RUBRA POLLEN', 'value': 7 }, { '_id': '5ec6cc05fc13ae3132000075', 'fieldName': 'butalbital, acetaminophen and caffeine', 'value': 4 }, { '_id': '5ec6cc05fc13ae3132000076', 'fieldName': 'Stress and Tension Relief', 'value': 0 }], 'createdAt': '2020-05-14T05:22:55Z', 'updatedAt': '2020-05-06T23:01:35Z' },
+{ '_id': '5ec6cc05fc13ae3132000077', 'orderId': '5ec6cc05fc13ae3132000078', 'bacteriologistId': '5ec6cc05fc13ae3132000079', 'results': [{ '_id': '5ec6cc05fc13ae313200007a', 'fieldName': 'Chlorpheniramine Maleate', 'value': 1 }, { '_id': '5ec6cc05fc13ae313200007b', 'fieldName': 'COLLAGEN HD FOUNDATION', 'value': 8 }, { '_id': '5ec6cc05fc13ae313200007c', 'fieldName': 'Senna', 'value': 5 }], 'createdAt': '2020-03-29T12:57:00Z', 'updatedAt': '2020-01-07T00:57:19Z' },
+{ '_id': '5ec6cc05fc13ae313200007d', 'orderId': '5ec6cc05fc13ae313200007e', 'bacteriologistId': '5ec6cc05fc13ae313200007f', 'results': [{ '_id': '5ec6cc05fc13ae3132000080', 'fieldName': 'Penicillin V Potassium', 'value': 8 }, { '_id': '5ec6cc05fc13ae3132000081', 'fieldName': 'FONDAPARINUX SODIUM', 'value': 7 }, { '_id': '5ec6cc05fc13ae3132000082', 'fieldName': 'ALPRAZOLAM', 'value': 2 }], 'createdAt': '2020-04-22T05:57:07Z', 'updatedAt': '2020-01-11T03:37:59Z' },
+{ '_id': '5ec6cc05fc13ae3132000083', 'orderId': '5ec6cc05fc13ae3132000084', 'bacteriologistId': '5ec6cc05fc13ae3132000085', 'results': [{ '_id': '5ec6cc05fc13ae3132000086', 'fieldName': 'VALTREX', 'value': 3 }, { '_id': '5ec6cc05fc13ae3132000087', 'fieldName': 'Reversion Acne Control', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000088', 'fieldName': 'ASSURED PAIN RELIEF HOT PATCH', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000089', 'fieldName': 'Pumpkin Spice Antibacterial Foaming Hand Wash', 'value': 9 }], 'createdAt': '2020-03-17T18:27:32Z', 'updatedAt': '2020-01-31T14:55:04Z' },
+{ '_id': '5ec6cc05fc13ae313200008a', 'orderId': '5ec6cc05fc13ae313200008b', 'bacteriologistId': '5ec6cc05fc13ae313200008c', 'results': [{ '_id': '5ec6cc05fc13ae313200008d', 'fieldName': 'BETULA NIGRA POLLEN', 'value': 1 }, { '_id': '5ec6cc05fc13ae313200008e', 'fieldName': 'Flawless Finish Bare Perfection Makeup SPF 8 Honey', 'value': 4 }, { '_id': '5ec6cc05fc13ae313200008f', 'fieldName': 'Gabapentin', 'value': 0 }], 'createdAt': '2020-03-24T10:42:19Z', 'updatedAt': '2020-04-05T03:45:16Z' },
+{ '_id': '5ec6cc05fc13ae3132000090', 'orderId': '5ec6cc05fc13ae3132000091', 'bacteriologistId': '5ec6cc05fc13ae3132000092', 'results': [{ '_id': '5ec6cc05fc13ae3132000093', 'fieldName': 'Exelon', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000094', 'fieldName': 'CAPTOPRIL', 'value': 4 }, { '_id': '5ec6cc05fc13ae3132000095', 'fieldName': 'Albuterol Sulfate', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000096', 'fieldName': 'Levothyroxine Sodium', 'value': 0 }], 'createdAt': '2020-02-29T20:27:45Z', 'updatedAt': '2020-01-14T08:40:42Z' },
+{ '_id': '5ec6cc05fc13ae3132000097', 'orderId': '5ec6cc05fc13ae3132000098', 'bacteriologistId': '5ec6cc05fc13ae3132000099', 'results': [{ '_id': '5ec6cc05fc13ae313200009a', 'fieldName': 'Infection Complex', 'value': 1 }, { '_id': '5ec6cc05fc13ae313200009b', 'fieldName': 'Rhodotorula mucilaginosa', 'value': 0 }, { '_id': '5ec6cc05fc13ae313200009c', 'fieldName': 'Wheat Smut', 'value': 3 }], 'createdAt': '2020-02-15T00:09:59Z', 'updatedAt': '2020-02-14T18:45:02Z' },
+{ '_id': '5ec6cc05fc13ae313200009d', 'orderId': '5ec6cc05fc13ae313200009e', 'bacteriologistId': '5ec6cc05fc13ae313200009f', 'results': [{ '_id': '5ec6cc05fc13ae31320000a0', 'fieldName': 'Ziprasidone hydrochloride', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000a1', 'fieldName': 'care one ibuprofen ib', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000a2', 'fieldName': 'Acyclovir', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000a3', 'fieldName': 'Benazepril Hydrochloride', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000a4', 'fieldName': 'Clarite 4', 'value': 6 }], 'createdAt': '2020-04-27T13:44:31Z', 'updatedAt': '2020-01-05T00:25:21Z' },
+{ '_id': '5ec6cc05fc13ae31320000a5', 'orderId': '5ec6cc05fc13ae31320000a6', 'bacteriologistId': '5ec6cc05fc13ae31320000a7', 'results': [{ '_id': '5ec6cc05fc13ae31320000a8', 'fieldName': 'Effer-K', 'value': 3 }], 'createdAt': '2020-04-08T10:50:56Z', 'updatedAt': '2020-03-24T21:12:45Z' },
+{ '_id': '5ec6cc05fc13ae31320000a9', 'orderId': '5ec6cc05fc13ae31320000aa', 'bacteriologistId': '5ec6cc05fc13ae31320000ab', 'results': [{ '_id': '5ec6cc05fc13ae31320000ac', 'fieldName': 'Rhus Tox Kit Refill', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000ad', 'fieldName': 'Diphenhydramine', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320000ae', 'fieldName': 'Cough DM', 'value': 3 }], 'createdAt': '2020-05-19T09:28:38Z', 'updatedAt': '2020-05-11T21:33:12Z' },
+{ '_id': '5ec6cc05fc13ae31320000af', 'orderId': '5ec6cc05fc13ae31320000b0', 'bacteriologistId': '5ec6cc05fc13ae31320000b1', 'results': [{ '_id': '5ec6cc05fc13ae31320000b2', 'fieldName': 'Maximum-H', 'value': 1 }, { '_id': '5ec6cc05fc13ae31320000b3', 'fieldName': 'Spironolactone', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320000b4', 'fieldName': 'SOTALOL HYDROCHLORIDE', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000b5', 'fieldName': 'Amlodipine Besylate', 'value': 10 }], 'createdAt': '2020-04-22T21:37:41Z', 'updatedAt': '2020-03-14T22:45:13Z' },
+{ '_id': '5ec6cc05fc13ae31320000b6', 'orderId': '5ec6cc05fc13ae31320000b7', 'bacteriologistId': '5ec6cc05fc13ae31320000b8', 'results': [{ '_id': '5ec6cc05fc13ae31320000b9', 'fieldName': 'Mucinex Fast-Max', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000ba', 'fieldName': 'MIRAE SKIN', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320000bb', 'fieldName': 'EARACHE DROPS', 'value': 1 }, { '_id': '5ec6cc05fc13ae31320000bc', 'fieldName': 'Warfarin Sodium', 'value': 8 }], 'createdAt': '2020-01-16T16:34:55Z', 'updatedAt': '2020-03-02T12:21:15Z' },
+{ '_id': '5ec6cc05fc13ae31320000bd', 'orderId': '5ec6cc05fc13ae31320000be', 'bacteriologistId': '5ec6cc05fc13ae31320000bf', 'results': [{ '_id': '5ec6cc05fc13ae31320000c0', 'fieldName': 'Mentholatum Ironman', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000c1', 'fieldName': 'Forest Sap Patch', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000c2', 'fieldName': 'PIROXICAM', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000c3', 'fieldName': 'Atenolol', 'value': 4 }, { '_id': '5ec6cc05fc13ae31320000c4', 'fieldName': 'Rx Act Pain Relief', 'value': 4 }], 'createdAt': '2020-03-07T00:00:53Z', 'updatedAt': '2020-01-16T04:28:57Z' },
+{ '_id': '5ec6cc05fc13ae31320000c5', 'orderId': '5ec6cc05fc13ae31320000c6', 'bacteriologistId': '5ec6cc05fc13ae31320000c7', 'results': [{ '_id': '5ec6cc05fc13ae31320000c8', 'fieldName': 'Sabal Populus', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000c9', 'fieldName': 'CAPRELSA', 'value': 10 }, { '_id': '5ec6cc05fc13ae31320000ca', 'fieldName': 'EZ-OX PLUS', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320000cb', 'fieldName': 'Juglans Stannum Special Order', 'value': 5 }], 'createdAt': '2020-04-17T15:42:04Z', 'updatedAt': '2020-05-09T03:24:39Z' },
+{ '_id': '5ec6cc05fc13ae31320000cc', 'orderId': '5ec6cc05fc13ae31320000cd', 'bacteriologistId': '5ec6cc05fc13ae31320000ce', 'results': [{ '_id': '5ec6cc05fc13ae31320000cf', 'fieldName': 'Nicotine', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000d0', 'fieldName': 'Simvastatin', 'value': 4 }, { '_id': '5ec6cc05fc13ae31320000d1', 'fieldName': 'BEAUTE INITIALE', 'value': 9 }, { '_id': '5ec6cc05fc13ae31320000d2', 'fieldName': 'Kit for the Preparation of Technetium Tc99m Disofenin', 'value': 4 }, { '_id': '5ec6cc05fc13ae31320000d3', 'fieldName': 'Carbidopa and Levodopa', 'value': 5 }], 'createdAt': '2020-01-06T12:51:00Z', 'updatedAt': '2020-02-24T00:56:48Z' },
+{ '_id': '5ec6cc05fc13ae31320000d4', 'orderId': '5ec6cc05fc13ae31320000d5', 'bacteriologistId': '5ec6cc05fc13ae31320000d6', 'results': [{ '_id': '5ec6cc05fc13ae31320000d7', 'fieldName': 'ADSOL Red Cell Preservation Solution System in Plastic Container (PL 146 Plastic)', 'value': 10 }, { '_id': '5ec6cc05fc13ae31320000d8', 'fieldName': 'Acetaminophen', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320000d9', 'fieldName': 'Amiodarone Hydrochloride', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320000da', 'fieldName': 'Ampicillin', 'value': 1 }, { '_id': '5ec6cc05fc13ae31320000db', 'fieldName': 'ALOE UP PRO SPF 50 ADVANCED FORMULA', 'value': 7 }], 'createdAt': '2020-04-15T14:49:38Z', 'updatedAt': '2020-02-22T04:56:17Z' },
+{ '_id': '5ec6cc05fc13ae31320000dc', 'orderId': '5ec6cc05fc13ae31320000dd', 'bacteriologistId': '5ec6cc05fc13ae31320000de', 'results': [{ '_id': '5ec6cc05fc13ae31320000df', 'fieldName': 'Metronidazole', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000e0', 'fieldName': 'Colgate', 'value': 10 }, { '_id': '5ec6cc05fc13ae31320000e1', 'fieldName': 'Alka-Seltzer Plus', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320000e2', 'fieldName': 'Lisinopril', 'value': 1 }, { '_id': '5ec6cc05fc13ae31320000e3', 'fieldName': 'Topcare childrens pain relief', 'value': 4 }], 'createdAt': '2020-02-11T06:41:59Z', 'updatedAt': '2020-02-13T19:04:45Z' },
+{ '_id': '5ec6cc05fc13ae31320000e4', 'orderId': '5ec6cc05fc13ae31320000e5', 'bacteriologistId': '5ec6cc05fc13ae31320000e6', 'results': [{ '_id': '5ec6cc05fc13ae31320000e7', 'fieldName': 'METFORMIN HYDROCHLORIDE', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320000e8', 'fieldName': 'Daily Facial Moisturizer Broad Spectrum SPF15 Sunscreen', 'value': 7 }], 'createdAt': '2020-05-07T00:13:46Z', 'updatedAt': '2020-02-29T04:10:04Z' },
+{ '_id': '5ec6cc05fc13ae31320000e9', 'orderId': '5ec6cc05fc13ae31320000ea', 'bacteriologistId': '5ec6cc05fc13ae31320000eb', 'results': [{ '_id': '5ec6cc05fc13ae31320000ec', 'fieldName': 'DuoFilm Wart Remover', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320000ed', 'fieldName': 'Acetaminophen', 'value': 5 }, { '_id': '5ec6cc05fc13ae31320000ee', 'fieldName': 'Isosorbide Mononitrate', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320000ef', 'fieldName': 'Glytone acne treatment flesh tinted acne', 'value': 5 }, { '_id': '5ec6cc05fc13ae31320000f0', 'fieldName': 'Bald Cypress', 'value': 9 }], 'createdAt': '2020-03-11T03:40:24Z', 'updatedAt': '2020-05-09T16:24:50Z' },
+{ '_id': '5ec6cc05fc13ae31320000f1', 'orderId': '5ec6cc05fc13ae31320000f2', 'bacteriologistId': '5ec6cc05fc13ae31320000f3', 'results': [{ '_id': '5ec6cc05fc13ae31320000f4', 'fieldName': 'Clearasil Daily Clear', 'value': 4 }, { '_id': '5ec6cc05fc13ae31320000f5', 'fieldName': 'Betamethasone Valerate', 'value': 2 }, { '_id': '5ec6cc05fc13ae31320000f6', 'fieldName': 'Valacyclovir Hydrochloride', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320000f7', 'fieldName': 'Eucalyptus', 'value': 2 }, { '_id': '5ec6cc05fc13ae31320000f8', 'fieldName': 'methylphenidate hydrochloride', 'value': 9 }], 'createdAt': '2020-04-10T19:51:35Z', 'updatedAt': '2020-03-08T00:02:26Z' },
+{ '_id': '5ec6cc05fc13ae31320000f9', 'orderId': '5ec6cc05fc13ae31320000fa', 'bacteriologistId': '5ec6cc05fc13ae31320000fb', 'results': [{ '_id': '5ec6cc05fc13ae31320000fc', 'fieldName': 'Clonidine Hydrochloride', 'value': 2 }, { '_id': '5ec6cc05fc13ae31320000fd', 'fieldName': 'Neuro', 'value': 5 }, { '_id': '5ec6cc05fc13ae31320000fe', 'fieldName': 'ROBAFEN COUGH FORMULA', 'value': 9 }, { '_id': '5ec6cc05fc13ae31320000ff', 'fieldName': 'sunmark tussin dm', 'value': 4 }], 'createdAt': '2020-04-20T12:21:29Z', 'updatedAt': '2020-04-09T00:25:05Z' },
+{ '_id': '5ec6cc05fc13ae3132000100', 'orderId': '5ec6cc05fc13ae3132000101', 'bacteriologistId': '5ec6cc05fc13ae3132000102', 'results': [{ '_id': '5ec6cc05fc13ae3132000103', 'fieldName': 'Sun Mark allergy relief', 'value': 8 }, { '_id': '5ec6cc05fc13ae3132000104', 'fieldName': 'Lamotrigine', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000105', 'fieldName': 'Petroleum', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000106', 'fieldName': 'Moexipril Hydrochloride and Hydrochlorothiazide', 'value': 9 }], 'createdAt': '2020-01-16T11:28:33Z', 'updatedAt': '2020-02-26T06:53:11Z' },
+{ '_id': '5ec6cc05fc13ae3132000107', 'orderId': '5ec6cc05fc13ae3132000108', 'bacteriologistId': '5ec6cc05fc13ae3132000109', 'results': [{ '_id': '5ec6cc05fc13ae313200010a', 'fieldName': 'Lasix', 'value': 7 }, { '_id': '5ec6cc05fc13ae313200010b', 'fieldName': 'Bethanechol Chloride', 'value': 2 }, { '_id': '5ec6cc05fc13ae313200010c', 'fieldName': 'Bentasil', 'value': 9 }, { '_id': '5ec6cc05fc13ae313200010d', 'fieldName': 'Azithromycin', 'value': 9 }], 'createdAt': '2020-03-12T06:26:20Z', 'updatedAt': '2020-02-26T21:01:32Z' },
+{ '_id': '5ec6cc05fc13ae313200010e', 'orderId': '5ec6cc05fc13ae313200010f', 'bacteriologistId': '5ec6cc05fc13ae3132000110', 'results': [{ '_id': '5ec6cc05fc13ae3132000111', 'fieldName': 'Treatment Set TS351314', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000112', 'fieldName': 'Loratadine', 'value': 8 }, { '_id': '5ec6cc05fc13ae3132000113', 'fieldName': 'Hada Labo Tokyo Protecting Day', 'value': 6 }], 'createdAt': '2020-01-17T16:27:32Z', 'updatedAt': '2020-02-05T02:17:40Z' },
+{ '_id': '5ec6cc05fc13ae3132000114', 'orderId': '5ec6cc05fc13ae3132000115', 'bacteriologistId': '5ec6cc05fc13ae3132000116', 'results': [{ '_id': '5ec6cc05fc13ae3132000117', 'fieldName': 'SMART SENSE', 'value': 7 }, { '_id': '5ec6cc05fc13ae3132000118', 'fieldName': 'Hua Tuo Huo Lu Oil', 'value': 4 }], 'createdAt': '2020-01-25T12:41:34Z', 'updatedAt': '2020-04-24T03:33:30Z' },
+{ '_id': '5ec6cc05fc13ae3132000119', 'orderId': '5ec6cc05fc13ae313200011a', 'bacteriologistId': '5ec6cc05fc13ae313200011b', 'results': [{ '_id': '5ec6cc05fc13ae313200011c', 'fieldName': 'Lisinopril and Hydrochlorothiazide', 'value': 3 }, { '_id': '5ec6cc05fc13ae313200011d', 'fieldName': 'Triamcinolone Acetonide', 'value': 2 }, { '_id': '5ec6cc05fc13ae313200011e', 'fieldName': 'THE TREATMENT POWDER FOUNDATION', 'value': 4 }], 'createdAt': '2020-01-17T17:54:25Z', 'updatedAt': '2020-01-29T07:22:35Z' },
+{ '_id': '5ec6cc05fc13ae313200011f', 'orderId': '5ec6cc05fc13ae3132000120', 'bacteriologistId': '5ec6cc05fc13ae3132000121', 'results': [{ '_id': '5ec6cc05fc13ae3132000122', 'fieldName': 'Perphenazine', 'value': 6 }], 'createdAt': '2020-02-24T08:20:21Z', 'updatedAt': '2020-04-06T21:56:40Z' },
+{ '_id': '5ec6cc05fc13ae3132000123', 'orderId': '5ec6cc05fc13ae3132000124', 'bacteriologistId': '5ec6cc05fc13ae3132000125', 'results': [{ '_id': '5ec6cc05fc13ae3132000126', 'fieldName': 'Lady Speed Stick Invisible Dry Power Powder Fresh', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000127', 'fieldName': 'Nitrogen', 'value': 7 }, { '_id': '5ec6cc05fc13ae3132000128', 'fieldName': 'Fosinopril Sodium', 'value': 3 }], 'createdAt': '2020-03-26T16:30:57Z', 'updatedAt': '2020-01-08T15:57:16Z' },
+{ '_id': '5ec6cc05fc13ae3132000129', 'orderId': '5ec6cc05fc13ae313200012a', 'bacteriologistId': '5ec6cc05fc13ae313200012b', 'results': [{ '_id': '5ec6cc05fc13ae313200012c', 'fieldName': 'Bladder Irritation', 'value': 8 }], 'createdAt': '2020-03-27T16:49:47Z', 'updatedAt': '2020-01-03T18:44:45Z' },
+{ '_id': '5ec6cc05fc13ae313200012d', 'orderId': '5ec6cc05fc13ae313200012e', 'bacteriologistId': '5ec6cc05fc13ae313200012f', 'results': [{ '_id': '5ec6cc05fc13ae3132000130', 'fieldName': 'Oxygen', 'value': 4 }], 'createdAt': '2020-04-23T00:52:11Z', 'updatedAt': '2020-04-14T10:39:03Z' },
+{ '_id': '5ec6cc05fc13ae3132000131', 'orderId': '5ec6cc05fc13ae3132000132', 'bacteriologistId': '5ec6cc05fc13ae3132000133', 'results': [{ '_id': '5ec6cc05fc13ae3132000134', 'fieldName': 'Witch Hazel', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000135', 'fieldName': 'Natazia', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000136', 'fieldName': 'FLAWLESS FINISH FOUNDATION', 'value': 10 }, { '_id': '5ec6cc05fc13ae3132000137', 'fieldName': 'Imipramine Hydrochloride', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000138', 'fieldName': 'Sterile Water', 'value': 4 }], 'createdAt': '2020-03-13T01:11:37Z', 'updatedAt': '2020-03-10T07:38:15Z' },
+{ '_id': '5ec6cc05fc13ae3132000139', 'orderId': '5ec6cc05fc13ae313200013a', 'bacteriologistId': '5ec6cc05fc13ae313200013b', 'results': [{ '_id': '5ec6cc05fc13ae313200013c', 'fieldName': 'ERYTHROMYCIN Base Filmtab', 'value': 6 }, { '_id': '5ec6cc05fc13ae313200013d', 'fieldName': 'doxycycline hyclate', 'value': 7 }, { '_id': '5ec6cc05fc13ae313200013e', 'fieldName': 'Bahia Grass', 'value': 8 }, { '_id': '5ec6cc05fc13ae313200013f', 'fieldName': 'cisatracurium besylate', 'value': 6 }], 'createdAt': '2020-01-05T02:19:02Z', 'updatedAt': '2020-01-10T21:38:28Z' },
+{ '_id': '5ec6cc05fc13ae3132000140', 'orderId': '5ec6cc05fc13ae3132000141', 'bacteriologistId': '5ec6cc05fc13ae3132000142', 'results': [{ '_id': '5ec6cc05fc13ae3132000143', 'fieldName': 'CareOne Childrens Pain and Fever', 'value': 7 }], 'createdAt': '2020-04-03T14:03:38Z', 'updatedAt': '2020-04-28T21:55:14Z' },
+{ '_id': '5ec6cc05fc13ae3132000144', 'orderId': '5ec6cc05fc13ae3132000145', 'bacteriologistId': '5ec6cc05fc13ae3132000146', 'results': [{ '_id': '5ec6cc05fc13ae3132000147', 'fieldName': 'Lisinopril', 'value': 3 }, { '_id': '5ec6cc05fc13ae3132000148', 'fieldName': 'Hydralazine Hydrochloride', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000149', 'fieldName': 'Black Locust', 'value': 2 }], 'createdAt': '2020-02-12T17:39:09Z', 'updatedAt': '2020-03-11T04:02:30Z' },
+{ '_id': '5ec6cc05fc13ae313200014a', 'orderId': '5ec6cc05fc13ae313200014b', 'bacteriologistId': '5ec6cc05fc13ae313200014c', 'results': [{ '_id': '5ec6cc05fc13ae313200014d', 'fieldName': 'Tartar control plus', 'value': 8 }, { '_id': '5ec6cc05fc13ae313200014e', 'fieldName': 'womans laxative', 'value': 7 }], 'createdAt': '2020-01-15T13:54:34Z', 'updatedAt': '2020-02-20T09:11:21Z' },
+{ '_id': '5ec6cc05fc13ae313200014f', 'orderId': '5ec6cc05fc13ae3132000150', 'bacteriologistId': '5ec6cc05fc13ae3132000151', 'results': [{ '_id': '5ec6cc05fc13ae3132000152', 'fieldName': 'Pain Relief', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000153', 'fieldName': 'Lamotrigine', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000154', 'fieldName': 'Isopropyl Alcohol', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000155', 'fieldName': 'Pan-Zyme-S', 'value': 3 }], 'createdAt': '2020-04-16T08:39:52Z', 'updatedAt': '2020-01-21T08:32:35Z' },
+{ '_id': '5ec6cc05fc13ae3132000156', 'orderId': '5ec6cc05fc13ae3132000157', 'bacteriologistId': '5ec6cc05fc13ae3132000158', 'results': [{ '_id': '5ec6cc05fc13ae3132000159', 'fieldName': 'Xeloda', 'value': 10 }, { '_id': '5ec6cc05fc13ae313200015a', 'fieldName': 'Metronidazole', 'value': 4 }, { '_id': '5ec6cc05fc13ae313200015b', 'fieldName': 'Molds, Rusts and Smuts, Aspergillus fumigatus', 'value': 10 }, { '_id': '5ec6cc05fc13ae313200015c', 'fieldName': 'Lil Drug Store Anti-Diarrheal', 'value': 0 }, { '_id': '5ec6cc05fc13ae313200015d', 'fieldName': 'Codeine sulfate', 'value': 9 }], 'createdAt': '2020-03-18T23:49:11Z', 'updatedAt': '2020-02-20T12:44:32Z' },
+{ '_id': '5ec6cc05fc13ae313200015e', 'orderId': '5ec6cc05fc13ae313200015f', 'bacteriologistId': '5ec6cc05fc13ae3132000160', 'results': [{ '_id': '5ec6cc05fc13ae3132000161', 'fieldName': 'Phentermine Hydrochloride', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000162', 'fieldName': 'Lovastatin', 'value': 9 }, { '_id': '5ec6cc05fc13ae3132000163', 'fieldName': 'Thyroid', 'value': 2 }], 'createdAt': '2020-05-14T22:06:22Z', 'updatedAt': '2020-05-20T03:46:38Z' },
+{ '_id': '5ec6cc05fc13ae3132000164', 'orderId': '5ec6cc05fc13ae3132000165', 'bacteriologistId': '5ec6cc05fc13ae3132000166', 'results': [{ '_id': '5ec6cc05fc13ae3132000167', 'fieldName': 'Extra Strength Pain Reliever', 'value': 8 }, { '_id': '5ec6cc05fc13ae3132000168', 'fieldName': 'Hydrogen Peroxide', 'value': 10 }, { '_id': '5ec6cc05fc13ae3132000169', 'fieldName': 'enfuselle Acne Clarifying', 'value': 8 }, { '_id': '5ec6cc05fc13ae313200016a', 'fieldName': 'LOreal Paris Sublime Sun', 'value': 6 }], 'createdAt': '2020-03-17T15:50:35Z', 'updatedAt': '2020-01-06T15:49:29Z' },
+{ '_id': '5ec6cc05fc13ae313200016b', 'orderId': '5ec6cc05fc13ae313200016c', 'bacteriologistId': '5ec6cc05fc13ae313200016d', 'results': [{ '_id': '5ec6cc05fc13ae313200016e', 'fieldName': 'Abstral', 'value': 8 }, { '_id': '5ec6cc05fc13ae313200016f', 'fieldName': 'Metoprolol Succinate', 'value': 8 }, { '_id': '5ec6cc05fc13ae3132000170', 'fieldName': 'AMOXICILLIN', 'value': 0 }], 'createdAt': '2020-01-26T00:13:28Z', 'updatedAt': '2020-01-21T16:11:50Z' },
+{ '_id': '5ec6cc05fc13ae3132000171', 'orderId': '5ec6cc05fc13ae3132000172', 'bacteriologistId': '5ec6cc05fc13ae3132000173', 'results': [{ '_id': '5ec6cc05fc13ae3132000174', 'fieldName': 'Gabapentin', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000175', 'fieldName': 'Metformin Hydrochloride', 'value': 1 }, { '_id': '5ec6cc05fc13ae3132000176', 'fieldName': 'LOreal Paris Visible Lift CC Broad Spectrum SPF 20 Light Medium', 'value': 4 }, { '_id': '5ec6cc05fc13ae3132000177', 'fieldName': 'Dr. Oberon Original Snail Cream', 'value': 10 }, { '_id': '5ec6cc05fc13ae3132000178', 'fieldName': 'DR. LIN SKINCARE ACNE', 'value': 1 }], 'createdAt': '2020-01-02T01:00:29Z', 'updatedAt': '2020-03-24T21:25:03Z' },
+{ '_id': '5ec6cc05fc13ae3132000179', 'orderId': '5ec6cc05fc13ae313200017a', 'bacteriologistId': '5ec6cc05fc13ae313200017b', 'results': [{ '_id': '5ec6cc05fc13ae313200017c', 'fieldName': 'Lisinopril', 'value': 10 }, { '_id': '5ec6cc05fc13ae313200017d', 'fieldName': 'Aspirin', 'value': 2 }], 'createdAt': '2020-02-22T18:58:09Z', 'updatedAt': '2020-03-09T00:53:17Z' },
+{ '_id': '5ec6cc05fc13ae313200017e', 'orderId': '5ec6cc05fc13ae313200017f', 'bacteriologistId': '5ec6cc05fc13ae3132000180', 'results': [{ '_id': '5ec6cc05fc13ae3132000181', 'fieldName': 'Antibacterial', 'value': 2 }, { '_id': '5ec6cc05fc13ae3132000182', 'fieldName': 'Leader Loperamide Hydrochloride', 'value': 3 }, { '_id': '5ec6cc05fc13ae3132000183', 'fieldName': 'Aplicare Povidone-iodine Scrub', 'value': 0 }, { '_id': '5ec6cc05fc13ae3132000184', 'fieldName': 'simple pleasures', 'value': 5 }, { '_id': '5ec6cc05fc13ae3132000185', 'fieldName': 'Ketorolac Tromethamine', 'value': 7 }], 'createdAt': '2020-05-10T00:28:01Z', 'updatedAt': '2020-03-29T23:20:31Z' },
+{ '_id': '5ec6cc05fc13ae3132000186', 'orderId': '5ec6cc05fc13ae3132000187', 'bacteriologistId': '5ec6cc05fc13ae3132000188', 'results': [{ '_id': '5ec6cc05fc13ae3132000189', 'fieldName': 'Tobramycin', 'value': 3 }], 'createdAt': '2020-02-21T06:27:07Z', 'updatedAt': '2020-04-26T04:28:14Z' },
+{ '_id': '5ec6cc05fc13ae313200018a', 'orderId': '5ec6cc05fc13ae313200018b', 'bacteriologistId': '5ec6cc05fc13ae313200018c', 'results': [{ '_id': '5ec6cc05fc13ae313200018d', 'fieldName': 'Womens Laxative', 'value': 1 }, { '_id': '5ec6cc05fc13ae313200018e', 'fieldName': 'Leader Cardinal Health Aspirin', 'value': 3 }, { '_id': '5ec6cc05fc13ae313200018f', 'fieldName': 'Lamotrigine', 'value': 2 }], 'createdAt': '2020-02-03T23:04:36Z', 'updatedAt': '2020-02-02T18:23:36Z' },
+{ '_id': '5ec6cc05fc13ae3132000190', 'orderId': '5ec6cc05fc13ae3132000191', 'bacteriologistId': '5ec6cc05fc13ae3132000192', 'results': [{ '_id': '5ec6cc05fc13ae3132000193', 'fieldName': 'Cortrosyn', 'value': 8 }, { '_id': '5ec6cc05fc13ae3132000194', 'fieldName': 'Medi First Plus Antacid', 'value': 2 }], 'createdAt': '2020-04-25T07:14:54Z', 'updatedAt': '2020-05-19T21:56:18Z' },
+{ '_id': '5ec6cc05fc13ae3132000195', 'orderId': '5ec6cc05fc13ae3132000196', 'bacteriologistId': '5ec6cc05fc13ae3132000197', 'results': [{ '_id': '5ec6cc05fc13ae3132000198', 'fieldName': 'Lorazepam', 'value': 3 }, { '_id': '5ec6cc05fc13ae3132000199', 'fieldName': 'Crest Complete Multi-Benefit', 'value': 8 }], 'createdAt': '2020-04-10T02:05:23Z', 'updatedAt': '2020-05-08T22:33:52Z' },
+{ '_id': '5ec6cc05fc13ae313200019a', 'orderId': '5ec6cc05fc13ae313200019b', 'bacteriologistId': '5ec6cc05fc13ae313200019c', 'results': [{ '_id': '5ec6cc05fc13ae313200019d', 'fieldName': 'Oxalis e pl. tota 3', 'value': 2 }], 'createdAt': '2020-01-31T07:16:19Z', 'updatedAt': '2020-01-07T11:51:47Z' },
+{ '_id': '5ec6cc05fc13ae313200019e', 'orderId': '5ec6cc05fc13ae313200019f', 'bacteriologistId': '5ec6cc05fc13ae31320001a0', 'results': [{ '_id': '5ec6cc05fc13ae31320001a1', 'fieldName': 'Blue Star', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320001a2', 'fieldName': 'Ludens Sugar Free Wild Cherry Throat', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320001a3', 'fieldName': 'B-PLEX 100', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320001a4', 'fieldName': 'DermaCen Protectant', 'value': 4 }], 'createdAt': '2020-04-30T22:28:28Z', 'updatedAt': '2020-01-02T02:38:04Z' },
+{ '_id': '5ec6cc05fc13ae31320001a5', 'orderId': '5ec6cc05fc13ae31320001a6', 'bacteriologistId': '5ec6cc05fc13ae31320001a7', 'results': [{ '_id': '5ec6cc05fc13ae31320001a8', 'fieldName': 'Actos', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320001a9', 'fieldName': 'CY BETTER LIPS BALM Humectante para Labios con color FPS 18', 'value': 9 }, { '_id': '5ec6cc05fc13ae31320001aa', 'fieldName': 'PROVIGIL', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320001ab', 'fieldName': 'TOMATO SUN', 'value': 5 }], 'createdAt': '2020-02-09T01:18:55Z', 'updatedAt': '2020-01-13T09:36:22Z' },
+{ '_id': '5ec6cc05fc13ae31320001ac', 'orderId': '5ec6cc05fc13ae31320001ad', 'bacteriologistId': '5ec6cc05fc13ae31320001ae', 'results': [{ '_id': '5ec6cc05fc13ae31320001af', 'fieldName': 'Complete Allergy', 'value': 6 }, { '_id': '5ec6cc05fc13ae31320001b0', 'fieldName': 'Clotrimazole', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320001b1', 'fieldName': 'FLUCAINE', 'value': 2 }, { '_id': '5ec6cc05fc13ae31320001b2', 'fieldName': 'Flecainide Acetate', 'value': 3 }, { '_id': '5ec6cc05fc13ae31320001b3', 'fieldName': 'Estrogen', 'value': 9 }], 'createdAt': '2020-05-09T23:57:44Z', 'updatedAt': '2020-03-13T02:33:56Z' },
+{ '_id': '5ec6cc05fc13ae31320001b4', 'orderId': '5ec6cc05fc13ae31320001b5', 'bacteriologistId': '5ec6cc05fc13ae31320001b6', 'results': [{ '_id': '5ec6cc05fc13ae31320001b7', 'fieldName': 'Glimepiride', 'value': 1 }, { '_id': '5ec6cc05fc13ae31320001b8', 'fieldName': 'Donepezil hydrochloride', 'value': 1 }, { '_id': '5ec6cc05fc13ae31320001b9', 'fieldName': 'Peppermint Swirl Antibacterial Hand Sanitizer', 'value': 3 }], 'createdAt': '2020-03-05T12:54:24Z', 'updatedAt': '2020-04-08T15:54:17Z' },
+{ '_id': '5ec6cc05fc13ae31320001ba', 'orderId': '5ec6cc05fc13ae31320001bb', 'bacteriologistId': '5ec6cc05fc13ae31320001bc', 'results': [{ '_id': '5ec6cc05fc13ae31320001bd', 'fieldName': 'donepezil hydrochloride', 'value': 1 }], 'createdAt': '2020-01-26T19:34:33Z', 'updatedAt': '2020-04-16T00:26:04Z' },
+{ '_id': '5ec6cc05fc13ae31320001be', 'orderId': '5ec6cc05fc13ae31320001bf', 'bacteriologistId': '5ec6cc05fc13ae31320001c0', 'results': [{ '_id': '5ec6cc05fc13ae31320001c1', 'fieldName': 'Estradiol', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320001c2', 'fieldName': 'SEVERE HEMORRHOIDS', 'value': 0 }, { '_id': '5ec6cc05fc13ae31320001c3', 'fieldName': 'Banana Boat Sport Performance SPF 30', 'value': 1 }], 'createdAt': '2020-03-29T02:28:23Z', 'updatedAt': '2020-04-16T23:59:19Z' },
+{ '_id': '5ec6cc05fc13ae31320001c4', 'orderId': '5ec6cc05fc13ae31320001c5', 'bacteriologistId': '5ec6cc05fc13ae31320001c6', 'results': [{ '_id': '5ec6cc05fc13ae31320001c7', 'fieldName': 'meloxicam', 'value': 8 }, { '_id': '5ec6cc05fc13ae31320001c8', 'fieldName': 'ADSOL Red Cell Preservation Solution System in Plastic Container (PL 146 Plastic)', 'value': 9 }], 'createdAt': '2020-01-23T15:04:58Z', 'updatedAt': '2020-02-15T09:29:55Z' },
+{ '_id': '5ec6cc06fc13ae31320001c9', 'orderId': '5ec6cc06fc13ae31320001ca', 'bacteriologistId': '5ec6cc06fc13ae31320001cb', 'results': [{ '_id': '5ec6cc06fc13ae31320001cc', 'fieldName': 'LEVOTHYROXINE SODIUM', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320001cd', 'fieldName': 'Dial Aloe', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320001ce', 'fieldName': 'EQUALINE TOLNAFTATE ANTIFUNGAL', 'value': 2 }], 'createdAt': '2020-02-27T02:26:50Z', 'updatedAt': '2020-02-27T09:55:51Z' },
+{ '_id': '5ec6cc06fc13ae31320001cf', 'orderId': '5ec6cc06fc13ae31320001d0', 'bacteriologistId': '5ec6cc06fc13ae31320001d1', 'results': [{ '_id': '5ec6cc06fc13ae31320001d2', 'fieldName': 'Theophylline', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320001d3', 'fieldName': 'FNG', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320001d4', 'fieldName': 'Hydrochlorothiazide', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320001d5', 'fieldName': 'VESIcare', 'value': 0 }], 'createdAt': '2020-05-14T18:19:00Z', 'updatedAt': '2020-04-11T02:56:05Z' },
+{ '_id': '5ec6cc06fc13ae31320001d6', 'orderId': '5ec6cc06fc13ae31320001d7', 'bacteriologistId': '5ec6cc06fc13ae31320001d8', 'results': [{ '_id': '5ec6cc06fc13ae31320001d9', 'fieldName': 'DiorSkin Nude 050 Cafe Moka', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320001da', 'fieldName': 'Soft Care Foam Select Antibacterial Hand', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320001db', 'fieldName': 'Clean All', 'value': 0 }], 'createdAt': '2020-05-05T23:53:12Z', 'updatedAt': '2020-04-12T17:29:10Z' },
+{ '_id': '5ec6cc06fc13ae31320001dc', 'orderId': '5ec6cc06fc13ae31320001dd', 'bacteriologistId': '5ec6cc06fc13ae31320001de', 'results': [{ '_id': '5ec6cc06fc13ae31320001df', 'fieldName': 'Amitriptyline Hydrochloride', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320001e0', 'fieldName': 'HORIZANT', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320001e1', 'fieldName': 'Morphine Sulfate', 'value': 5 }], 'createdAt': '2020-05-08T10:21:51Z', 'updatedAt': '2020-03-19T10:22:39Z' },
+{ '_id': '5ec6cc06fc13ae31320001e2', 'orderId': '5ec6cc06fc13ae31320001e3', 'bacteriologistId': '5ec6cc06fc13ae31320001e4', 'results': [{ '_id': '5ec6cc06fc13ae31320001e5', 'fieldName': 'Cetirizine Hydrochloride', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320001e6', 'fieldName': 'Loratadine', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320001e7', 'fieldName': 'AGARICUS EMETICUS', 'value': 0 }], 'createdAt': '2020-02-23T16:55:48Z', 'updatedAt': '2020-05-20T01:34:04Z' },
+{ '_id': '5ec6cc06fc13ae31320001e8', 'orderId': '5ec6cc06fc13ae31320001e9', 'bacteriologistId': '5ec6cc06fc13ae31320001ea', 'results': [{ '_id': '5ec6cc06fc13ae31320001eb', 'fieldName': 'Torsemide', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320001ec', 'fieldName': 'Oxygen', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320001ed', 'fieldName': 'Ofloxacin', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320001ee', 'fieldName': 'Amitriptyline Hydrochloride', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320001ef', 'fieldName': 'BETULA LENTA POLLEN', 'value': 0 }], 'createdAt': '2020-04-05T07:06:56Z', 'updatedAt': '2020-04-17T21:51:07Z' },
+{ '_id': '5ec6cc06fc13ae31320001f0', 'orderId': '5ec6cc06fc13ae31320001f1', 'bacteriologistId': '5ec6cc06fc13ae31320001f2', 'results': [{ '_id': '5ec6cc06fc13ae31320001f3', 'fieldName': 'Vida Mia Hand Sanitizer', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320001f4', 'fieldName': 'SHISEIDO SHEER MATIFYING COMPACT (REFILL)', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320001f5', 'fieldName': 'PREDNISONE', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320001f6', 'fieldName': 'CORTISONE ACETATE', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320001f7', 'fieldName': 'Levetiracetam', 'value': 9 }], 'createdAt': '2020-02-28T21:59:23Z', 'updatedAt': '2020-04-17T01:39:59Z' },
+{ '_id': '5ec6cc06fc13ae31320001f8', 'orderId': '5ec6cc06fc13ae31320001f9', 'bacteriologistId': '5ec6cc06fc13ae31320001fa', 'results': [{ '_id': '5ec6cc06fc13ae31320001fb', 'fieldName': 'Silica 30 Special Order', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320001fc', 'fieldName': 'Triamcinolone Acetonide', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320001fd', 'fieldName': 'Sulfamethoxazole and Trimethoprim', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320001fe', 'fieldName': 'Hand Sanitizer', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320001ff', 'fieldName': 'Amoxicillin', 'value': 5 }], 'createdAt': '2020-01-21T12:28:32Z', 'updatedAt': '2020-04-28T02:07:46Z' },
+{ '_id': '5ec6cc06fc13ae3132000200', 'orderId': '5ec6cc06fc13ae3132000201', 'bacteriologistId': '5ec6cc06fc13ae3132000202', 'results': [{ '_id': '5ec6cc06fc13ae3132000203', 'fieldName': 'Degree', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000204', 'fieldName': 'Antipyrine and Benzocaine', 'value': 0 }], 'createdAt': '2020-03-15T04:14:01Z', 'updatedAt': '2020-04-03T08:33:05Z' },
+{ '_id': '5ec6cc06fc13ae3132000205', 'orderId': '5ec6cc06fc13ae3132000206', 'bacteriologistId': '5ec6cc06fc13ae3132000207', 'results': [{ '_id': '5ec6cc06fc13ae3132000208', 'fieldName': 'Lansoprazole', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000209', 'fieldName': 'Ramipril', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200020a', 'fieldName': 'PNV Ferrous Fumarate Docusate Folic Acid', 'value': 0 }, { '_id': '5ec6cc06fc13ae313200020b', 'fieldName': 'Childrens Silapap', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200020c', 'fieldName': 'Secura Personal Skin Care Kit', 'value': 5 }], 'createdAt': '2020-04-18T21:44:14Z', 'updatedAt': '2020-02-25T22:32:55Z' },
+{ '_id': '5ec6cc06fc13ae313200020d', 'orderId': '5ec6cc06fc13ae313200020e', 'bacteriologistId': '5ec6cc06fc13ae313200020f', 'results': [{ '_id': '5ec6cc06fc13ae3132000210', 'fieldName': 'Oxycodone and Acetaminophen', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000211', 'fieldName': 'LEVOBUNOLOL HYDROCHLORIDE', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000212', 'fieldName': 'Tacrolimus', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000213', 'fieldName': 'FUSARIUM VASINFECTUM OXYSPORUM', 'value': 1 }], 'createdAt': '2020-02-08T16:41:18Z', 'updatedAt': '2020-01-07T14:23:53Z' },
+{ '_id': '5ec6cc06fc13ae3132000214', 'orderId': '5ec6cc06fc13ae3132000215', 'bacteriologistId': '5ec6cc06fc13ae3132000216', 'results': [{ '_id': '5ec6cc06fc13ae3132000217', 'fieldName': 'Glyburide', 'value': 8 }], 'createdAt': '2020-03-14T02:31:20Z', 'updatedAt': '2020-01-07T20:52:21Z' },
+{ '_id': '5ec6cc06fc13ae3132000218', 'orderId': '5ec6cc06fc13ae3132000219', 'bacteriologistId': '5ec6cc06fc13ae313200021a', 'results': [{ '_id': '5ec6cc06fc13ae313200021b', 'fieldName': 'MADINA AFRICAN BLACK SOAP', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200021c', 'fieldName': 'NERVE TONIC', 'value': 4 }], 'createdAt': '2020-03-01T04:48:40Z', 'updatedAt': '2020-05-10T11:28:29Z' },
+{ '_id': '5ec6cc06fc13ae313200021d', 'orderId': '5ec6cc06fc13ae313200021e', 'bacteriologistId': '5ec6cc06fc13ae313200021f', 'results': [{ '_id': '5ec6cc06fc13ae3132000220', 'fieldName': 'HEB', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000221', 'fieldName': 'Acetaminophen And Codeine', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000222', 'fieldName': 'Ceftriaxone Sodium', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000223', 'fieldName': 'Citalopram', 'value': 8 }], 'createdAt': '2020-01-05T19:47:23Z', 'updatedAt': '2020-01-14T13:52:29Z' },
+{ '_id': '5ec6cc06fc13ae3132000224', 'orderId': '5ec6cc06fc13ae3132000225', 'bacteriologistId': '5ec6cc06fc13ae3132000226', 'results': [{ '_id': '5ec6cc06fc13ae3132000227', 'fieldName': 'Artificial Tears', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000228', 'fieldName': 'CENTER-AL - ARTEMISIA TRIDENTATA POLLEN', 'value': 3 }], 'createdAt': '2020-04-19T04:50:35Z', 'updatedAt': '2020-03-23T14:15:01Z' },
+{ '_id': '5ec6cc06fc13ae3132000229', 'orderId': '5ec6cc06fc13ae313200022a', 'bacteriologistId': '5ec6cc06fc13ae313200022b', 'results': [{ '_id': '5ec6cc06fc13ae313200022c', 'fieldName': 'nasal decongestant', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200022d', 'fieldName': 'Hydrocortisone Regular Strength', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200022e', 'fieldName': 'RISPERDAL', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200022f', 'fieldName': 'CORTISPORIN', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000230', 'fieldName': 'GENTAMICIN SULFATE', 'value': 2 }], 'createdAt': '2020-03-16T10:14:30Z', 'updatedAt': '2020-03-22T13:38:55Z' },
+{ '_id': '5ec6cc06fc13ae3132000231', 'orderId': '5ec6cc06fc13ae3132000232', 'bacteriologistId': '5ec6cc06fc13ae3132000233', 'results': [{ '_id': '5ec6cc06fc13ae3132000234', 'fieldName': 'Gas Relief', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000235', 'fieldName': 'Clonazepam', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000236', 'fieldName': 'Cystex', 'value': 4 }], 'createdAt': '2020-02-17T22:55:16Z', 'updatedAt': '2020-01-24T05:54:34Z' },
+{ '_id': '5ec6cc06fc13ae3132000237', 'orderId': '5ec6cc06fc13ae3132000238', 'bacteriologistId': '5ec6cc06fc13ae3132000239', 'results': [{ '_id': '5ec6cc06fc13ae313200023a', 'fieldName': 'CELEBREX', 'value': 0 }, { '_id': '5ec6cc06fc13ae313200023b', 'fieldName': 'Nitrogen', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200023c', 'fieldName': 'SPF 30 Sunscreen', 'value': 10 }], 'createdAt': '2020-04-12T07:59:02Z', 'updatedAt': '2020-04-30T10:14:21Z' },
+{ '_id': '5ec6cc06fc13ae313200023d', 'orderId': '5ec6cc06fc13ae313200023e', 'bacteriologistId': '5ec6cc06fc13ae313200023f', 'results': [{ '_id': '5ec6cc06fc13ae3132000240', 'fieldName': 'Metoprolol Tartrate', 'value': 0 }], 'createdAt': '2020-01-30T05:11:15Z', 'updatedAt': '2020-04-22T00:38:12Z' },
+{ '_id': '5ec6cc06fc13ae3132000241', 'orderId': '5ec6cc06fc13ae3132000242', 'bacteriologistId': '5ec6cc06fc13ae3132000243', 'results': [{ '_id': '5ec6cc06fc13ae3132000244', 'fieldName': 'Cinnamon and Cream Antibacterial Foaming Hand Wash', 'value': 9 }], 'createdAt': '2020-05-18T23:13:02Z', 'updatedAt': '2020-02-21T22:34:04Z' },
+{ '_id': '5ec6cc06fc13ae3132000245', 'orderId': '5ec6cc06fc13ae3132000246', 'bacteriologistId': '5ec6cc06fc13ae3132000247', 'results': [{ '_id': '5ec6cc06fc13ae3132000248', 'fieldName': 'Metoprolol Tartrate', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000249', 'fieldName': 'NO-AD Kids SPF50 Continuous Mist Sunscreen', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200024a', 'fieldName': 'LBel', 'value': 3 }, { '_id': '5ec6cc06fc13ae313200024b', 'fieldName': 'Medistik', 'value': 3 }], 'createdAt': '2020-05-06T20:31:38Z', 'updatedAt': '2020-02-21T03:00:04Z' },
+{ '_id': '5ec6cc06fc13ae313200024c', 'orderId': '5ec6cc06fc13ae313200024d', 'bacteriologistId': '5ec6cc06fc13ae313200024e', 'results': [{ '_id': '5ec6cc06fc13ae313200024f', 'fieldName': 'Citalopram Hydrobromide', 'value': 1 }], 'createdAt': '2020-04-08T01:31:11Z', 'updatedAt': '2020-02-10T15:56:23Z' },
+{ '_id': '5ec6cc06fc13ae3132000250', 'orderId': '5ec6cc06fc13ae3132000251', 'bacteriologistId': '5ec6cc06fc13ae3132000252', 'results': [{ '_id': '5ec6cc06fc13ae3132000253', 'fieldName': 'Endoplex M', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000254', 'fieldName': 'Myambutol', 'value': 4 }], 'createdAt': '2020-04-01T02:09:15Z', 'updatedAt': '2020-04-01T11:00:27Z' },
+{ '_id': '5ec6cc06fc13ae3132000255', 'orderId': '5ec6cc06fc13ae3132000256', 'bacteriologistId': '5ec6cc06fc13ae3132000257', 'results': [{ '_id': '5ec6cc06fc13ae3132000258', 'fieldName': 'Risperidone', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000259', 'fieldName': 'Isopropyl alcohol', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200025a', 'fieldName': 'NATRUM PHOSPHORICUM', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200025b', 'fieldName': 'Captopril and Hydrochlorothiazide', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200025c', 'fieldName': 'Zometa', 'value': 7 }], 'createdAt': '2020-04-25T18:38:52Z', 'updatedAt': '2020-03-06T11:41:34Z' },
+{ '_id': '5ec6cc06fc13ae313200025d', 'orderId': '5ec6cc06fc13ae313200025e', 'bacteriologistId': '5ec6cc06fc13ae313200025f', 'results': [{ '_id': '5ec6cc06fc13ae3132000260', 'fieldName': 'Glyburide and Metformin Hydrochloride', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000261', 'fieldName': 'Natural SUN', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000262', 'fieldName': 'SK1N NATURAL SUNSCREEN SPF 40', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000263', 'fieldName': 'Voriconazole', 'value': 8 }], 'createdAt': '2020-03-07T03:13:55Z', 'updatedAt': '2020-05-19T12:02:39Z' },
+{ '_id': '5ec6cc06fc13ae3132000264', 'orderId': '5ec6cc06fc13ae3132000265', 'bacteriologistId': '5ec6cc06fc13ae3132000266', 'results': [{ '_id': '5ec6cc06fc13ae3132000267', 'fieldName': 'Crest Wild Expressions', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000268', 'fieldName': 'Mucus Relief', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000269', 'fieldName': 'Rapid Comfort Ibuprofen', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200026a', 'fieldName': 'Vancomycin Hydrochloride', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200026b', 'fieldName': 'Womens Laxative', 'value': 3 }], 'createdAt': '2020-02-03T06:33:21Z', 'updatedAt': '2020-01-26T09:28:57Z' },
+{ '_id': '5ec6cc06fc13ae313200026c', 'orderId': '5ec6cc06fc13ae313200026d', 'bacteriologistId': '5ec6cc06fc13ae313200026e', 'results': [{ '_id': '5ec6cc06fc13ae313200026f', 'fieldName': 'ENALAPRIL MALEATE', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000270', 'fieldName': 'Pure Champagne Skin Defense Makeup SPF 15', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000271', 'fieldName': 'MODAFINIL', 'value': 8 }], 'createdAt': '2020-02-24T10:57:36Z', 'updatedAt': '2020-03-05T08:54:21Z' },
+{ '_id': '5ec6cc06fc13ae3132000272', 'orderId': '5ec6cc06fc13ae3132000273', 'bacteriologistId': '5ec6cc06fc13ae3132000274', 'results': [{ '_id': '5ec6cc06fc13ae3132000275', 'fieldName': 'CELEBREX', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000276', 'fieldName': 'Adenoscan', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000277', 'fieldName': 'CARBAMAZEPINE', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000278', 'fieldName': 'XtraCare Foam Antibacterial Hand Wash', 'value': 9 }], 'createdAt': '2020-01-16T15:43:06Z', 'updatedAt': '2020-01-08T23:34:31Z' },
+{ '_id': '5ec6cc06fc13ae3132000279', 'orderId': '5ec6cc06fc13ae313200027a', 'bacteriologistId': '5ec6cc06fc13ae313200027b', 'results': [{ '_id': '5ec6cc06fc13ae313200027c', 'fieldName': 'Delsym', 'value': 0 }], 'createdAt': '2020-03-02T12:48:55Z', 'updatedAt': '2020-01-24T10:59:26Z' },
+{ '_id': '5ec6cc06fc13ae313200027d', 'orderId': '5ec6cc06fc13ae313200027e', 'bacteriologistId': '5ec6cc06fc13ae313200027f', 'results': [{ '_id': '5ec6cc06fc13ae3132000280', 'fieldName': 'care one all day pain relief', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000281', 'fieldName': 'GERI-TUSSIN EXPECTORANT', 'value': 9 }], 'createdAt': '2020-02-16T11:50:23Z', 'updatedAt': '2020-03-29T17:59:29Z' },
+{ '_id': '5ec6cc06fc13ae3132000282', 'orderId': '5ec6cc06fc13ae3132000283', 'bacteriologistId': '5ec6cc06fc13ae3132000284', 'results': [{ '_id': '5ec6cc06fc13ae3132000285', 'fieldName': 'Prazosin Hydrochloride', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000286', 'fieldName': 'Prednisone', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000287', 'fieldName': 'Robitussin Maximum Strength Cough Plus Chest Congestion DM', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000288', 'fieldName': 'Paroxetine', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000289', 'fieldName': 'Vitamin A and Vitamin D', 'value': 10 }], 'createdAt': '2020-03-31T17:08:06Z', 'updatedAt': '2020-01-27T23:52:54Z' },
+{ '_id': '5ec6cc06fc13ae313200028a', 'orderId': '5ec6cc06fc13ae313200028b', 'bacteriologistId': '5ec6cc06fc13ae313200028c', 'results': [{ '_id': '5ec6cc06fc13ae313200028d', 'fieldName': 'Isopropyl Alcohol', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200028e', 'fieldName': 'ZIANA', 'value': 8 }, { '_id': '5ec6cc06fc13ae313200028f', 'fieldName': 'CVS Pharmacy Cough Relief Honey Lemon Flavor', 'value': 0 }], 'createdAt': '2020-03-12T23:48:00Z', 'updatedAt': '2020-01-21T18:58:51Z' },
+{ '_id': '5ec6cc06fc13ae3132000290', 'orderId': '5ec6cc06fc13ae3132000291', 'bacteriologistId': '5ec6cc06fc13ae3132000292', 'results': [{ '_id': '5ec6cc06fc13ae3132000293', 'fieldName': 'Old Spice Red Zone Sweat Defense', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000294', 'fieldName': 'AFLURIA', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000295', 'fieldName': 'Nu Skin Tri-Phasic White System', 'value': 0 }], 'createdAt': '2020-02-18T04:25:12Z', 'updatedAt': '2020-04-19T02:48:19Z' },
+{ '_id': '5ec6cc06fc13ae3132000296', 'orderId': '5ec6cc06fc13ae3132000297', 'bacteriologistId': '5ec6cc06fc13ae3132000298', 'results': [{ '_id': '5ec6cc06fc13ae3132000299', 'fieldName': 'K CARE', 'value': 1 }, { '_id': '5ec6cc06fc13ae313200029a', 'fieldName': 'Levetiracetam', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200029b', 'fieldName': 'Good Neighbor Pharmacy Night Time', 'value': 1 }, { '_id': '5ec6cc06fc13ae313200029c', 'fieldName': 'Doxycycline Hyclate', 'value': 5 }], 'createdAt': '2020-05-16T14:36:44Z', 'updatedAt': '2020-01-24T19:47:27Z' },
+{ '_id': '5ec6cc06fc13ae313200029d', 'orderId': '5ec6cc06fc13ae313200029e', 'bacteriologistId': '5ec6cc06fc13ae313200029f', 'results': [{ '_id': '5ec6cc06fc13ae31320002a0', 'fieldName': 'Vicks DayQuil and Vicks NyQuil', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320002a1', 'fieldName': 'Extra Strength Pain Relief', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002a2', 'fieldName': 'Cladribine', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320002a3', 'fieldName': 'Night Cold Flu Cough and Allergy', 'value': 2 }], 'createdAt': '2020-01-31T01:50:29Z', 'updatedAt': '2020-04-24T14:28:01Z' },
+{ '_id': '5ec6cc06fc13ae31320002a4', 'orderId': '5ec6cc06fc13ae31320002a5', 'bacteriologistId': '5ec6cc06fc13ae31320002a6', 'results': [{ '_id': '5ec6cc06fc13ae31320002a7', 'fieldName': 'Tolmetin Sodium', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320002a8', 'fieldName': 'QUERCUS ALBA POLLEN', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320002a9', 'fieldName': 'Sinus and Allergy PE', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002aa', 'fieldName': 'amlodipine besylate and atorvastatin calcium', 'value': 8 }], 'createdAt': '2020-04-23T23:46:23Z', 'updatedAt': '2020-02-16T02:36:02Z' },
+{ '_id': '5ec6cc06fc13ae31320002ab', 'orderId': '5ec6cc06fc13ae31320002ac', 'bacteriologistId': '5ec6cc06fc13ae31320002ad', 'results': [{ '_id': '5ec6cc06fc13ae31320002ae', 'fieldName': 'White Tetterine', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320002af', 'fieldName': 'Ativan', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320002b0', 'fieldName': 'Vida Mia Hand Sanitizer', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002b1', 'fieldName': 'Likewise Facial Moisturizer - Sun Protectant SPF 50 Oily Skin', 'value': 0 }], 'createdAt': '2020-04-20T10:44:58Z', 'updatedAt': '2020-02-07T20:22:05Z' },
+{ '_id': '5ec6cc06fc13ae31320002b2', 'orderId': '5ec6cc06fc13ae31320002b3', 'bacteriologistId': '5ec6cc06fc13ae31320002b4', 'results': [{ '_id': '5ec6cc06fc13ae31320002b5', 'fieldName': 'CareOne 7-in-1 Anti-Aging Vitamin', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320002b6', 'fieldName': 'Sooryehan Pure-Whitening Essential Starter', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320002b7', 'fieldName': 'Zodryl DEC 50', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320002b8', 'fieldName': 'Sulfamethoxazole and Trimethoprim', 'value': 6 }], 'createdAt': '2020-03-08T02:08:03Z', 'updatedAt': '2020-01-26T09:43:30Z' },
+{ '_id': '5ec6cc06fc13ae31320002b9', 'orderId': '5ec6cc06fc13ae31320002ba', 'bacteriologistId': '5ec6cc06fc13ae31320002bb', 'results': [{ '_id': '5ec6cc06fc13ae31320002bc', 'fieldName': 'PAROXETINE', 'value': 4 }], 'createdAt': '2020-01-09T22:26:53Z', 'updatedAt': '2020-01-21T04:38:41Z' },
+{ '_id': '5ec6cc06fc13ae31320002bd', 'orderId': '5ec6cc06fc13ae31320002be', 'bacteriologistId': '5ec6cc06fc13ae31320002bf', 'results': [{ '_id': '5ec6cc06fc13ae31320002c0', 'fieldName': 'INSTANT HAND SANITIZER', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320002c1', 'fieldName': 'Bufferin', 'value': 2 }], 'createdAt': '2020-02-18T06:21:00Z', 'updatedAt': '2020-04-23T11:06:39Z' },
+{ '_id': '5ec6cc06fc13ae31320002c2', 'orderId': '5ec6cc06fc13ae31320002c3', 'bacteriologistId': '5ec6cc06fc13ae31320002c4', 'results': [{ '_id': '5ec6cc06fc13ae31320002c5', 'fieldName': 'Fusarium compactum', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320002c6', 'fieldName': 'Perphenazine', 'value': 2 }], 'createdAt': '2020-04-19T08:17:26Z', 'updatedAt': '2020-05-16T06:29:07Z' },
+{ '_id': '5ec6cc06fc13ae31320002c7', 'orderId': '5ec6cc06fc13ae31320002c8', 'bacteriologistId': '5ec6cc06fc13ae31320002c9', 'results': [{ '_id': '5ec6cc06fc13ae31320002ca', 'fieldName': 'Morphine Sulfate', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320002cb', 'fieldName': 'Zeasorb', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002cc', 'fieldName': 'Acetaminophen And Codeine', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320002cd', 'fieldName': 'levalbuterol inhalation', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320002ce', 'fieldName': 'Quetiapine Fumarate', 'value': 4 }], 'createdAt': '2020-01-24T04:02:49Z', 'updatedAt': '2020-04-08T22:41:38Z' },
+{ '_id': '5ec6cc06fc13ae31320002cf', 'orderId': '5ec6cc06fc13ae31320002d0', 'bacteriologistId': '5ec6cc06fc13ae31320002d1', 'results': [{ '_id': '5ec6cc06fc13ae31320002d2', 'fieldName': 'PHENERGAN', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002d3', 'fieldName': 'Medique Guaicon DMS', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320002d4', 'fieldName': 'Sensitive', 'value': 4 }], 'createdAt': '2020-02-20T21:40:17Z', 'updatedAt': '2020-05-04T21:10:56Z' },
+{ '_id': '5ec6cc06fc13ae31320002d5', 'orderId': '5ec6cc06fc13ae31320002d6', 'bacteriologistId': '5ec6cc06fc13ae31320002d7', 'results': [{ '_id': '5ec6cc06fc13ae31320002d8', 'fieldName': 'Sisal', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320002d9', 'fieldName': 'Flecainide Acetate', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320002da', 'fieldName': 'Prednisone', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002db', 'fieldName': 'Colgate', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320002dc', 'fieldName': 'Amitiza', 'value': 0 }], 'createdAt': '2020-04-16T10:37:48Z', 'updatedAt': '2020-02-26T08:21:48Z' },
+{ '_id': '5ec6cc06fc13ae31320002dd', 'orderId': '5ec6cc06fc13ae31320002de', 'bacteriologistId': '5ec6cc06fc13ae31320002df', 'results': [{ '_id': '5ec6cc06fc13ae31320002e0', 'fieldName': 'Corn Smut', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320002e1', 'fieldName': 'Nitrous Oxide', 'value': 9 }], 'createdAt': '2020-03-10T00:05:01Z', 'updatedAt': '2020-01-05T20:16:27Z' },
+{ '_id': '5ec6cc06fc13ae31320002e2', 'orderId': '5ec6cc06fc13ae31320002e3', 'bacteriologistId': '5ec6cc06fc13ae31320002e4', 'results': [{ '_id': '5ec6cc06fc13ae31320002e5', 'fieldName': 'Sensipar', 'value': 1 }], 'createdAt': '2020-05-05T13:51:36Z', 'updatedAt': '2020-03-29T16:15:22Z' },
+{ '_id': '5ec6cc06fc13ae31320002e6', 'orderId': '5ec6cc06fc13ae31320002e7', 'bacteriologistId': '5ec6cc06fc13ae31320002e8', 'results': [{ '_id': '5ec6cc06fc13ae31320002e9', 'fieldName': 'bleve', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320002ea', 'fieldName': 'Meclizine HCl', 'value': 3 }], 'createdAt': '2020-02-02T03:31:26Z', 'updatedAt': '2020-03-15T08:47:46Z' },
+{ '_id': '5ec6cc06fc13ae31320002eb', 'orderId': '5ec6cc06fc13ae31320002ec', 'bacteriologistId': '5ec6cc06fc13ae31320002ed', 'results': [{ '_id': '5ec6cc06fc13ae31320002ee', 'fieldName': 'Colocynthis Homaccord', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320002ef', 'fieldName': 'CRESTOR', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320002f0', 'fieldName': 'Kimcare Moisturizing Instant Hand Sanitizer', 'value': 2 }], 'createdAt': '2020-02-24T00:10:11Z', 'updatedAt': '2020-03-11T03:57:04Z' },
+{ '_id': '5ec6cc06fc13ae31320002f1', 'orderId': '5ec6cc06fc13ae31320002f2', 'bacteriologistId': '5ec6cc06fc13ae31320002f3', 'results': [{ '_id': '5ec6cc06fc13ae31320002f4', 'fieldName': 'Advanced', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320002f5', 'fieldName': 'FLOVENT', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320002f6', 'fieldName': 'RED ORANGE JELLY BB', 'value': 3 }], 'createdAt': '2020-01-24T17:47:12Z', 'updatedAt': '2020-04-18T16:29:48Z' },
+{ '_id': '5ec6cc06fc13ae31320002f7', 'orderId': '5ec6cc06fc13ae31320002f8', 'bacteriologistId': '5ec6cc06fc13ae31320002f9', 'results': [{ '_id': '5ec6cc06fc13ae31320002fa', 'fieldName': 'Ticlopidine hydrochloride', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320002fb', 'fieldName': 'ProBLEN HGH Plus IGF-1 IGF-2', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320002fc', 'fieldName': 'Sandostatin LAR Depot', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320002fd', 'fieldName': 'Quinapril', 'value': 9 }], 'createdAt': '2020-04-06T06:28:20Z', 'updatedAt': '2020-01-30T21:04:56Z' },
+{ '_id': '5ec6cc06fc13ae31320002fe', 'orderId': '5ec6cc06fc13ae31320002ff', 'bacteriologistId': '5ec6cc06fc13ae3132000300', 'results': [{ '_id': '5ec6cc06fc13ae3132000301', 'fieldName': 'Linkus Lozenges', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000302', 'fieldName': 'Cold and Flu', 'value': 7 }], 'createdAt': '2020-03-23T09:07:54Z', 'updatedAt': '2020-05-10T12:31:46Z' },
+{ '_id': '5ec6cc06fc13ae3132000303', 'orderId': '5ec6cc06fc13ae3132000304', 'bacteriologistId': '5ec6cc06fc13ae3132000305', 'results': [{ '_id': '5ec6cc06fc13ae3132000306', 'fieldName': 'SHISEIDO SUN PROTECTION FOUNDATION', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000307', 'fieldName': 'LITTLE ONES', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000308', 'fieldName': 'Zolpidem Tartrate', 'value': 0 }], 'createdAt': '2020-04-18T04:24:37Z', 'updatedAt': '2020-04-30T16:59:02Z' },
+{ '_id': '5ec6cc06fc13ae3132000309', 'orderId': '5ec6cc06fc13ae313200030a', 'bacteriologistId': '5ec6cc06fc13ae313200030b', 'results': [{ '_id': '5ec6cc06fc13ae313200030c', 'fieldName': 'Proactiv', 'value': 8 }, { '_id': '5ec6cc06fc13ae313200030d', 'fieldName': 'Meijer Sheer SPF 15', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200030e', 'fieldName': 'Anti Diarrheal', 'value': 1 }], 'createdAt': '2020-04-23T06:12:20Z', 'updatedAt': '2020-02-18T21:24:11Z' },
+{ '_id': '5ec6cc06fc13ae313200030f', 'orderId': '5ec6cc06fc13ae3132000310', 'bacteriologistId': '5ec6cc06fc13ae3132000311', 'results': [{ '_id': '5ec6cc06fc13ae3132000312', 'fieldName': 'Carvedilol', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000313', 'fieldName': 'Cephalexin', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000314', 'fieldName': 'Antibacterial Soap', 'value': 1 }], 'createdAt': '2020-01-26T21:12:58Z', 'updatedAt': '2020-01-09T01:51:24Z' },
+{ '_id': '5ec6cc06fc13ae3132000315', 'orderId': '5ec6cc06fc13ae3132000316', 'bacteriologistId': '5ec6cc06fc13ae3132000317', 'results': [{ '_id': '5ec6cc06fc13ae3132000318', 'fieldName': 'anti bacterial hand sanitizer', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000319', 'fieldName': 'Fluticasone Propionate', 'value': 1 }, { '_id': '5ec6cc06fc13ae313200031a', 'fieldName': 'Haloperidol', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200031b', 'fieldName': 'BZK Plus Swabsticks', 'value': 0 }, { '_id': '5ec6cc06fc13ae313200031c', 'fieldName': 'Solu-Medrol', 'value': 0 }], 'createdAt': '2020-03-08T04:14:14Z', 'updatedAt': '2020-01-26T03:23:41Z' },
+{ '_id': '5ec6cc06fc13ae313200031d', 'orderId': '5ec6cc06fc13ae313200031e', 'bacteriologistId': '5ec6cc06fc13ae313200031f', 'results': [{ '_id': '5ec6cc06fc13ae3132000320', 'fieldName': 'Oxygen', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000321', 'fieldName': 'care one flu and severe cold', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000322', 'fieldName': 'YF-VAX', 'value': 8 }], 'createdAt': '2020-01-16T10:04:17Z', 'updatedAt': '2020-01-15T17:48:06Z' },
+{ '_id': '5ec6cc06fc13ae3132000323', 'orderId': '5ec6cc06fc13ae3132000324', 'bacteriologistId': '5ec6cc06fc13ae3132000325', 'results': [{ '_id': '5ec6cc06fc13ae3132000326', 'fieldName': 'Calcitriol', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000327', 'fieldName': 'Brewers Yeast', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000328', 'fieldName': 'Pollens - Weeds, Careless/Pigweed Mix', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000329', 'fieldName': 'quetiapine fumarate', 'value': 4 }], 'createdAt': '2020-01-06T00:17:14Z', 'updatedAt': '2020-04-22T20:39:07Z' },
+{ '_id': '5ec6cc06fc13ae313200032a', 'orderId': '5ec6cc06fc13ae313200032b', 'bacteriologistId': '5ec6cc06fc13ae313200032c', 'results': [{ '_id': '5ec6cc06fc13ae313200032d', 'fieldName': 'up and up acetaminophen', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200032e', 'fieldName': 'Banana Boat Natural Reflect Sunscreen SPF 50 Plus', 'value': 1 }, { '_id': '5ec6cc06fc13ae313200032f', 'fieldName': 'CAUSTICUM', 'value': 7 }], 'createdAt': '2020-01-23T10:25:23Z', 'updatedAt': '2020-04-29T03:42:14Z' },
+{ '_id': '5ec6cc06fc13ae3132000330', 'orderId': '5ec6cc06fc13ae3132000331', 'bacteriologistId': '5ec6cc06fc13ae3132000332', 'results': [{ '_id': '5ec6cc06fc13ae3132000333', 'fieldName': 'LIQUIDAMBAR STYRACIFLUA POLLEN', 'value': 9 }], 'createdAt': '2020-03-11T15:20:24Z', 'updatedAt': '2020-05-12T13:09:25Z' },
+{ '_id': '5ec6cc06fc13ae3132000334', 'orderId': '5ec6cc06fc13ae3132000335', 'bacteriologistId': '5ec6cc06fc13ae3132000336', 'results': [{ '_id': '5ec6cc06fc13ae3132000337', 'fieldName': 'Nerve Pain', 'value': 9 }], 'createdAt': '2020-02-08T11:46:24Z', 'updatedAt': '2020-03-24T07:26:58Z' },
+{ '_id': '5ec6cc06fc13ae3132000338', 'orderId': '5ec6cc06fc13ae3132000339', 'bacteriologistId': '5ec6cc06fc13ae313200033a', 'results': [{ '_id': '5ec6cc06fc13ae313200033b', 'fieldName': 'Bethanechol Chloride', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200033c', 'fieldName': 'Demerol', 'value': 3 }, { '_id': '5ec6cc06fc13ae313200033d', 'fieldName': 'Quetiapine Fumarate', 'value': 0 }, { '_id': '5ec6cc06fc13ae313200033e', 'fieldName': 'Lorazepam', 'value': 10 }], 'createdAt': '2020-01-20T23:59:53Z', 'updatedAt': '2020-02-15T12:10:01Z' },
+{ '_id': '5ec6cc06fc13ae313200033f', 'orderId': '5ec6cc06fc13ae3132000340', 'bacteriologistId': '5ec6cc06fc13ae3132000341', 'results': [{ '_id': '5ec6cc06fc13ae3132000342', 'fieldName': 'Zep Professional Mild Antimicrobial Hand Cleaner', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000343', 'fieldName': 'Risperidone', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000344', 'fieldName': 'Lisinopril', 'value': 3 }], 'createdAt': '2020-02-23T00:52:44Z', 'updatedAt': '2020-01-13T22:50:27Z' },
+{ '_id': '5ec6cc06fc13ae3132000345', 'orderId': '5ec6cc06fc13ae3132000346', 'bacteriologistId': '5ec6cc06fc13ae3132000347', 'results': [{ '_id': '5ec6cc06fc13ae3132000348', 'fieldName': 'TechneScan HDP', 'value': 5 }], 'createdAt': '2020-02-24T04:09:25Z', 'updatedAt': '2020-02-18T12:26:31Z' },
+{ '_id': '5ec6cc06fc13ae3132000349', 'orderId': '5ec6cc06fc13ae313200034a', 'bacteriologistId': '5ec6cc06fc13ae313200034b', 'results': [{ '_id': '5ec6cc06fc13ae313200034c', 'fieldName': 'Artery Cholesterol and BP', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200034d', 'fieldName': 'risedronate sodium', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200034e', 'fieldName': 'Healing', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200034f', 'fieldName': 'SkinCeuticals Sheer Physical UV Defense Broad Spectrum SPF 30 Sunscreen', 'value': 7 }], 'createdAt': '2020-01-29T02:05:36Z', 'updatedAt': '2020-03-25T01:18:14Z' },
+{ '_id': '5ec6cc06fc13ae3132000350', 'orderId': '5ec6cc06fc13ae3132000351', 'bacteriologistId': '5ec6cc06fc13ae3132000352', 'results': [{ '_id': '5ec6cc06fc13ae3132000353', 'fieldName': 'Aplicare Povidone-Iodine Scrub Sponges', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000354', 'fieldName': 'Trandolapril', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000355', 'fieldName': 'Cough DM', 'value': 7 }], 'createdAt': '2020-04-22T00:58:59Z', 'updatedAt': '2020-03-08T02:33:01Z' },
+{ '_id': '5ec6cc06fc13ae3132000356', 'orderId': '5ec6cc06fc13ae3132000357', 'bacteriologistId': '5ec6cc06fc13ae3132000358', 'results': [{ '_id': '5ec6cc06fc13ae3132000359', 'fieldName': 'Hand Wash', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200035a', 'fieldName': 'Suboxone', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200035b', 'fieldName': 'Mirtazapine', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200035c', 'fieldName': 'ReCreate Foundation', 'value': 5 }], 'createdAt': '2020-03-22T21:10:28Z', 'updatedAt': '2020-04-09T21:09:44Z' },
+{ '_id': '5ec6cc06fc13ae313200035d', 'orderId': '5ec6cc06fc13ae313200035e', 'bacteriologistId': '5ec6cc06fc13ae313200035f', 'results': [{ '_id': '5ec6cc06fc13ae3132000360', 'fieldName': 'ARANESP', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000361', 'fieldName': 'Easy Care First Aid Kit - Sports and Travel', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000362', 'fieldName': 'Stibium 20 Special Order', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000363', 'fieldName': 'Neutrogena T/Gel Therapeutic', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000364', 'fieldName': 'Timolol Maleate', 'value': 9 }], 'createdAt': '2020-01-17T19:37:49Z', 'updatedAt': '2020-01-19T17:47:40Z' },
+{ '_id': '5ec6cc06fc13ae3132000365', 'orderId': '5ec6cc06fc13ae3132000366', 'bacteriologistId': '5ec6cc06fc13ae3132000367', 'results': [{ '_id': '5ec6cc06fc13ae3132000368', 'fieldName': 'Terbutaline Sulfate', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000369', 'fieldName': 'Red Cedar', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200036a', 'fieldName': 'Jute', 'value': 6 }], 'createdAt': '2020-03-08T20:35:10Z', 'updatedAt': '2020-05-13T00:41:08Z' },
+{ '_id': '5ec6cc06fc13ae313200036b', 'orderId': '5ec6cc06fc13ae313200036c', 'bacteriologistId': '5ec6cc06fc13ae313200036d', 'results': [{ '_id': '5ec6cc06fc13ae313200036e', 'fieldName': 'anti nausea', 'value': 7 }], 'createdAt': '2020-01-28T13:55:04Z', 'updatedAt': '2020-03-06T02:28:02Z' },
+{ '_id': '5ec6cc06fc13ae313200036f', 'orderId': '5ec6cc06fc13ae3132000370', 'bacteriologistId': '5ec6cc06fc13ae3132000371', 'results': [{ '_id': '5ec6cc06fc13ae3132000372', 'fieldName': 'Mucus Relief', 'value': 0 }], 'createdAt': '2020-02-27T01:01:51Z', 'updatedAt': '2020-01-18T08:27:17Z' },
+{ '_id': '5ec6cc06fc13ae3132000373', 'orderId': '5ec6cc06fc13ae3132000374', 'bacteriologistId': '5ec6cc06fc13ae3132000375', 'results': [{ '_id': '5ec6cc06fc13ae3132000376', 'fieldName': 'Sunmark fexofenadine hydrochloride', 'value': 9 }], 'createdAt': '2020-05-02T15:25:43Z', 'updatedAt': '2020-03-13T00:48:37Z' },
+{ '_id': '5ec6cc06fc13ae3132000377', 'orderId': '5ec6cc06fc13ae3132000378', 'bacteriologistId': '5ec6cc06fc13ae3132000379', 'results': [{ '_id': '5ec6cc06fc13ae313200037a', 'fieldName': 'Enflurane', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200037b', 'fieldName': 'Wal-Phed PE', 'value': 3 }, { '_id': '5ec6cc06fc13ae313200037c', 'fieldName': 'Valacyclovir Hydrochloride', 'value': 7 }], 'createdAt': '2020-02-03T01:22:13Z', 'updatedAt': '2020-01-31T22:13:52Z' },
+{ '_id': '5ec6cc06fc13ae313200037d', 'orderId': '5ec6cc06fc13ae313200037e', 'bacteriologistId': '5ec6cc06fc13ae313200037f', 'results': [{ '_id': '5ec6cc06fc13ae3132000380', 'fieldName': 'Red Oak', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000381', 'fieldName': 'Lysol', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000382', 'fieldName': 'IMOGAM RABIES-HT', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000383', 'fieldName': 'Ranitidine', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000384', 'fieldName': 'Butorphanol Tartrate', 'value': 7 }], 'createdAt': '2020-03-23T17:00:08Z', 'updatedAt': '2020-04-13T14:33:10Z' },
+{ '_id': '5ec6cc06fc13ae3132000385', 'orderId': '5ec6cc06fc13ae3132000386', 'bacteriologistId': '5ec6cc06fc13ae3132000387', 'results': [{ '_id': '5ec6cc06fc13ae3132000388', 'fieldName': 'careone childrens pain and fever', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000389', 'fieldName': 'Jet Lag', 'value': 6 }], 'createdAt': '2020-02-04T12:27:49Z', 'updatedAt': '2020-04-03T06:22:24Z' },
+{ '_id': '5ec6cc06fc13ae313200038a', 'orderId': '5ec6cc06fc13ae313200038b', 'bacteriologistId': '5ec6cc06fc13ae313200038c', 'results': [{ '_id': '5ec6cc06fc13ae313200038d', 'fieldName': 'Cardizem LA', 'value': 8 }, { '_id': '5ec6cc06fc13ae313200038e', 'fieldName': 'BUDEPRION', 'value': 8 }, { '_id': '5ec6cc06fc13ae313200038f', 'fieldName': 'Antiseptic Mouth Rinse', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000390', 'fieldName': 'Paroxetine', 'value': 1 }], 'createdAt': '2020-01-06T04:21:13Z', 'updatedAt': '2020-03-05T04:28:25Z' },
+{ '_id': '5ec6cc06fc13ae3132000391', 'orderId': '5ec6cc06fc13ae3132000392', 'bacteriologistId': '5ec6cc06fc13ae3132000393', 'results': [{ '_id': '5ec6cc06fc13ae3132000394', 'fieldName': 'ARC FIRST AID Contains 303 PIECES', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000395', 'fieldName': 'Amoxicillin and Clavulanate Potassium', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000396', 'fieldName': 'Kroger', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000397', 'fieldName': 'WAL SOM', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000398', 'fieldName': 'Animal Hair and Dander Allergy Relief', 'value': 9 }], 'createdAt': '2020-01-30T16:08:16Z', 'updatedAt': '2020-01-17T05:40:51Z' },
+{ '_id': '5ec6cc06fc13ae3132000399', 'orderId': '5ec6cc06fc13ae313200039a', 'bacteriologistId': '5ec6cc06fc13ae313200039b', 'results': [{ '_id': '5ec6cc06fc13ae313200039c', 'fieldName': 'Apis compositum', 'value': 6 }], 'createdAt': '2020-02-01T02:50:03Z', 'updatedAt': '2020-01-13T11:35:52Z' },
+{ '_id': '5ec6cc06fc13ae313200039d', 'orderId': '5ec6cc06fc13ae313200039e', 'bacteriologistId': '5ec6cc06fc13ae313200039f', 'results': [{ '_id': '5ec6cc06fc13ae31320003a0', 'fieldName': 'B Mold Mixture', 'value': 2 }], 'createdAt': '2020-04-03T00:14:06Z', 'updatedAt': '2020-03-06T21:29:48Z' },
+{ '_id': '5ec6cc06fc13ae31320003a1', 'orderId': '5ec6cc06fc13ae31320003a2', 'bacteriologistId': '5ec6cc06fc13ae31320003a3', 'results': [{ '_id': '5ec6cc06fc13ae31320003a4', 'fieldName': 'Diphenhydramine HCl and Zinc Acetate', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320003a5', 'fieldName': 'Zidovudine', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320003a6', 'fieldName': 'CEENU', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320003a7', 'fieldName': 'Clonazepam', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320003a8', 'fieldName': 'Water', 'value': 6 }], 'createdAt': '2020-04-13T02:14:53Z', 'updatedAt': '2020-03-27T20:10:52Z' },
+{ '_id': '5ec6cc06fc13ae31320003a9', 'orderId': '5ec6cc06fc13ae31320003aa', 'bacteriologistId': '5ec6cc06fc13ae31320003ab', 'results': [{ '_id': '5ec6cc06fc13ae31320003ac', 'fieldName': 'Nicardipine Hydrochloride', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320003ad', 'fieldName': 'Molds, Rusts and Smuts, Mucor racemosus', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320003ae', 'fieldName': 'AMBROSIA ACANTHICARPA POLLEN', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320003af', 'fieldName': 'Sulfacetamide Sodium', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320003b0', 'fieldName': 'ELF ACNE Fighting Foundation', 'value': 4 }], 'createdAt': '2020-04-20T14:21:27Z', 'updatedAt': '2020-04-13T18:19:11Z' },
+{ '_id': '5ec6cc06fc13ae31320003b1', 'orderId': '5ec6cc06fc13ae31320003b2', 'bacteriologistId': '5ec6cc06fc13ae31320003b3', 'results': [{ '_id': '5ec6cc06fc13ae31320003b4', 'fieldName': 'PhysiciansCare Allergy', 'value': 4 }], 'createdAt': '2020-04-17T01:07:06Z', 'updatedAt': '2020-05-17T15:20:32Z' },
+{ '_id': '5ec6cc06fc13ae31320003b5', 'orderId': '5ec6cc06fc13ae31320003b6', 'bacteriologistId': '5ec6cc06fc13ae31320003b7', 'results': [{ '_id': '5ec6cc06fc13ae31320003b8', 'fieldName': 'HALOPERIDOL', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320003b9', 'fieldName': 'Leader Childrens Ibuprofen', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320003ba', 'fieldName': 'Disney Antibacterial Hand Wipes - TOY STORY, CARS, MONSTERS UNIVERSITY', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320003bb', 'fieldName': 'TOPCARE', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320003bc', 'fieldName': 'Pumpkin', 'value': 5 }], 'createdAt': '2020-04-17T22:47:04Z', 'updatedAt': '2020-04-27T18:35:29Z' },
+{ '_id': '5ec6cc06fc13ae31320003bd', 'orderId': '5ec6cc06fc13ae31320003be', 'bacteriologistId': '5ec6cc06fc13ae31320003bf', 'results': [{ '_id': '5ec6cc06fc13ae31320003c0', 'fieldName': 'Morphine Sulfate', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320003c1', 'fieldName': 'Synthroid', 'value': 8 }], 'createdAt': '2020-03-13T15:38:45Z', 'updatedAt': '2020-02-07T15:57:59Z' },
+{ '_id': '5ec6cc06fc13ae31320003c2', 'orderId': '5ec6cc06fc13ae31320003c3', 'bacteriologistId': '5ec6cc06fc13ae31320003c4', 'results': [{ '_id': '5ec6cc06fc13ae31320003c5', 'fieldName': 'Citalopram', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320003c6', 'fieldName': 'Amoxicillin', 'value': 2 }], 'createdAt': '2020-04-08T06:43:09Z', 'updatedAt': '2020-05-14T12:31:05Z' },
+{ '_id': '5ec6cc06fc13ae31320003c7', 'orderId': '5ec6cc06fc13ae31320003c8', 'bacteriologistId': '5ec6cc06fc13ae31320003c9', 'results': [{ '_id': '5ec6cc06fc13ae31320003ca', 'fieldName': 'Potassium Chloride in Dextrose and Sodium Chloride', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320003cb', 'fieldName': 'Pain Relief', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320003cc', 'fieldName': 'CUPRUM METALLICUM', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320003cd', 'fieldName': 'Ibuprofen', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320003ce', 'fieldName': 'Zep Anti-Bacterial Foaming Hand Cleaner', 'value': 2 }], 'createdAt': '2020-03-04T22:31:33Z', 'updatedAt': '2020-04-23T21:16:10Z' },
+{ '_id': '5ec6cc06fc13ae31320003cf', 'orderId': '5ec6cc06fc13ae31320003d0', 'bacteriologistId': '5ec6cc06fc13ae31320003d1', 'results': [{ '_id': '5ec6cc06fc13ae31320003d2', 'fieldName': 'PCMX with Emollient', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320003d3', 'fieldName': 'REFISSA', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320003d4', 'fieldName': 'Nitrofurantoin Macrocrystals', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320003d5', 'fieldName': 'SHISEIDO RADIANT LIFTING FOUNDATION', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320003d6', 'fieldName': 'INDERAL XL', 'value': 0 }], 'createdAt': '2020-01-19T13:03:58Z', 'updatedAt': '2020-03-11T12:08:06Z' },
+{ '_id': '5ec6cc06fc13ae31320003d7', 'orderId': '5ec6cc06fc13ae31320003d8', 'bacteriologistId': '5ec6cc06fc13ae31320003d9', 'results': [{ '_id': '5ec6cc06fc13ae31320003da', 'fieldName': 'TC EnrichedFoam', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320003db', 'fieldName': 'Immune Support', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320003dc', 'fieldName': 'Perioe lucky fresh - cavity care', 'value': 7 }], 'createdAt': '2020-05-02T14:46:27Z', 'updatedAt': '2020-03-11T20:52:49Z' },
+{ '_id': '5ec6cc06fc13ae31320003dd', 'orderId': '5ec6cc06fc13ae31320003de', 'bacteriologistId': '5ec6cc06fc13ae31320003df', 'results': [{ '_id': '5ec6cc06fc13ae31320003e0', 'fieldName': 'Leucovorin', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320003e1', 'fieldName': 'Treatment Set TS329915', 'value': 2 }], 'createdAt': '2020-01-28T08:04:09Z', 'updatedAt': '2020-01-02T20:46:10Z' },
+{ '_id': '5ec6cc06fc13ae31320003e2', 'orderId': '5ec6cc06fc13ae31320003e3', 'bacteriologistId': '5ec6cc06fc13ae31320003e4', 'results': [{ '_id': '5ec6cc06fc13ae31320003e5', 'fieldName': 'Mirtazapine', 'value': 4 }], 'createdAt': '2020-03-21T21:25:49Z', 'updatedAt': '2020-02-27T21:53:11Z' },
+{ '_id': '5ec6cc06fc13ae31320003e6', 'orderId': '5ec6cc06fc13ae31320003e7', 'bacteriologistId': '5ec6cc06fc13ae31320003e8', 'results': [{ '_id': '5ec6cc06fc13ae31320003e9', 'fieldName': 'Isopropyl Alcohol', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320003ea', 'fieldName': 'Oxygen-Helium Mixture', 'value': 0 }], 'createdAt': '2020-05-10T05:53:35Z', 'updatedAt': '2020-05-13T19:02:00Z' },
+{ '_id': '5ec6cc06fc13ae31320003eb', 'orderId': '5ec6cc06fc13ae31320003ec', 'bacteriologistId': '5ec6cc06fc13ae31320003ed', 'results': [{ '_id': '5ec6cc06fc13ae31320003ee', 'fieldName': 'Alclometasone Dipropionate', 'value': 6 }], 'createdAt': '2020-01-22T04:57:25Z', 'updatedAt': '2020-05-15T17:31:37Z' },
+{ '_id': '5ec6cc06fc13ae31320003ef', 'orderId': '5ec6cc06fc13ae31320003f0', 'bacteriologistId': '5ec6cc06fc13ae31320003f1', 'results': [{ '_id': '5ec6cc06fc13ae31320003f2', 'fieldName': 'Penicillin V Potassium', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320003f3', 'fieldName': 'Bupropion Hydrochloride', 'value': 9 }], 'createdAt': '2020-01-08T13:59:36Z', 'updatedAt': '2020-04-06T06:26:23Z' },
+{ '_id': '5ec6cc06fc13ae31320003f4', 'orderId': '5ec6cc06fc13ae31320003f5', 'bacteriologistId': '5ec6cc06fc13ae31320003f6', 'results': [{ '_id': '5ec6cc06fc13ae31320003f7', 'fieldName': 'Neurontin', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320003f8', 'fieldName': 'PURELL Advanced Hand Sanitizer Sweet Plum', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320003f9', 'fieldName': 'SUPER CREAM', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320003fa', 'fieldName': 'aspirin', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320003fb', 'fieldName': 'Grains and Gluten Intolerances', 'value': 9 }], 'createdAt': '2020-04-21T18:18:18Z', 'updatedAt': '2020-01-27T05:25:12Z' },
+{ '_id': '5ec6cc06fc13ae31320003fc', 'orderId': '5ec6cc06fc13ae31320003fd', 'bacteriologistId': '5ec6cc06fc13ae31320003fe', 'results': [{ '_id': '5ec6cc06fc13ae31320003ff', 'fieldName': 'triple antibiotic', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000400', 'fieldName': 'Natures Gate', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000401', 'fieldName': 'Paclitaxel', 'value': 0 }], 'createdAt': '2020-04-24T23:39:41Z', 'updatedAt': '2020-01-25T18:52:53Z' },
+{ '_id': '5ec6cc06fc13ae3132000402', 'orderId': '5ec6cc06fc13ae3132000403', 'bacteriologistId': '5ec6cc06fc13ae3132000404', 'results': [{ '_id': '5ec6cc06fc13ae3132000405', 'fieldName': 'Aspirin', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000406', 'fieldName': 'Orenitram', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000407', 'fieldName': 'Nivea A Kiss of Recovery Medicated Lip Care', 'value': 4 }], 'createdAt': '2020-05-16T11:13:33Z', 'updatedAt': '2020-02-14T20:11:19Z' },
+{ '_id': '5ec6cc06fc13ae3132000408', 'orderId': '5ec6cc06fc13ae3132000409', 'bacteriologistId': '5ec6cc06fc13ae313200040a', 'results': [{ '_id': '5ec6cc06fc13ae313200040b', 'fieldName': 'Senna-Lax', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200040c', 'fieldName': 'Motion-Time', 'value': 7 }], 'createdAt': '2020-03-17T11:22:22Z', 'updatedAt': '2020-04-18T15:06:30Z' },
+{ '_id': '5ec6cc06fc13ae313200040d', 'orderId': '5ec6cc06fc13ae313200040e', 'bacteriologistId': '5ec6cc06fc13ae313200040f', 'results': [{ '_id': '5ec6cc06fc13ae3132000410', 'fieldName': 'Lisinopril', 'value': 4 }], 'createdAt': '2020-03-06T04:13:44Z', 'updatedAt': '2020-03-09T10:09:59Z' },
+{ '_id': '5ec6cc06fc13ae3132000411', 'orderId': '5ec6cc06fc13ae3132000412', 'bacteriologistId': '5ec6cc06fc13ae3132000413', 'results': [{ '_id': '5ec6cc06fc13ae3132000414', 'fieldName': 'Hydromarine', 'value': 0 }], 'createdAt': '2020-04-13T10:34:31Z', 'updatedAt': '2020-05-18T18:09:43Z' },
+{ '_id': '5ec6cc06fc13ae3132000415', 'orderId': '5ec6cc06fc13ae3132000416', 'bacteriologistId': '5ec6cc06fc13ae3132000417', 'results': [{ '_id': '5ec6cc06fc13ae3132000418', 'fieldName': 'Systane Lubricant', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000419', 'fieldName': 'equaline', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200041a', 'fieldName': 'Nitrofurantoin Macrocrystals', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200041b', 'fieldName': 'Broncolin', 'value': 6 }], 'createdAt': '2020-04-16T00:04:58Z', 'updatedAt': '2020-01-08T07:25:22Z' },
+{ '_id': '5ec6cc06fc13ae313200041c', 'orderId': '5ec6cc06fc13ae313200041d', 'bacteriologistId': '5ec6cc06fc13ae313200041e', 'results': [{ '_id': '5ec6cc06fc13ae313200041f', 'fieldName': 'Simvastatin', 'value': 0 }], 'createdAt': '2020-03-26T02:00:45Z', 'updatedAt': '2020-04-16T06:53:45Z' },
+{ '_id': '5ec6cc06fc13ae3132000420', 'orderId': '5ec6cc06fc13ae3132000421', 'bacteriologistId': '5ec6cc06fc13ae3132000422', 'results': [{ '_id': '5ec6cc06fc13ae3132000423', 'fieldName': 'Cetirizine Hydrochloride', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000424', 'fieldName': 'Levalbuterol Hydrochloride', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000425', 'fieldName': 'Nighttime Sleep Aid', 'value': 10 }], 'createdAt': '2020-05-13T04:15:01Z', 'updatedAt': '2020-01-04T03:58:26Z' },
+{ '_id': '5ec6cc06fc13ae3132000426', 'orderId': '5ec6cc06fc13ae3132000427', 'bacteriologistId': '5ec6cc06fc13ae3132000428', 'results': [{ '_id': '5ec6cc06fc13ae3132000429', 'fieldName': 'SPIRONOLACTONE', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200042a', 'fieldName': 'Cephalexin', 'value': 5 }], 'createdAt': '2020-02-06T10:02:14Z', 'updatedAt': '2020-04-02T09:43:13Z' },
+{ '_id': '5ec6cc06fc13ae313200042b', 'orderId': '5ec6cc06fc13ae313200042c', 'bacteriologistId': '5ec6cc06fc13ae313200042d', 'results': [{ '_id': '5ec6cc06fc13ae313200042e', 'fieldName': 'Conceptrol', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200042f', 'fieldName': 'Ketoprofen', 'value': 1 }], 'createdAt': '2020-04-21T05:30:29Z', 'updatedAt': '2020-02-02T02:36:51Z' },
+{ '_id': '5ec6cc06fc13ae3132000430', 'orderId': '5ec6cc06fc13ae3132000431', 'bacteriologistId': '5ec6cc06fc13ae3132000432', 'results': [{ '_id': '5ec6cc06fc13ae3132000433', 'fieldName': 'Zep Professional Healthcare Worker', 'value': 5 }], 'createdAt': '2020-04-26T00:46:37Z', 'updatedAt': '2020-01-10T04:51:13Z' },
+{ '_id': '5ec6cc06fc13ae3132000434', 'orderId': '5ec6cc06fc13ae3132000435', 'bacteriologistId': '5ec6cc06fc13ae3132000436', 'results': [{ '_id': '5ec6cc06fc13ae3132000437', 'fieldName': 'Proactivplus Skin Smoothing Exfoliator', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000438', 'fieldName': 'Digitalis Purpurea Kit Refill', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000439', 'fieldName': 'KONSYL Original Formula Psyllium Fiber', 'value': 6 }], 'createdAt': '2020-03-28T08:44:16Z', 'updatedAt': '2020-03-21T08:13:04Z' },
+{ '_id': '5ec6cc06fc13ae313200043a', 'orderId': '5ec6cc06fc13ae313200043b', 'bacteriologistId': '5ec6cc06fc13ae313200043c', 'results': [{ '_id': '5ec6cc06fc13ae313200043d', 'fieldName': 'Triamcinolone Acetonide', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200043e', 'fieldName': 'CENTER-AL - AMBROSIA ACANTHICARPA POLLEN', 'value': 2 }], 'createdAt': '2020-04-22T23:49:22Z', 'updatedAt': '2020-05-11T21:18:31Z' },
+{ '_id': '5ec6cc06fc13ae313200043f', 'orderId': '5ec6cc06fc13ae3132000440', 'bacteriologistId': '5ec6cc06fc13ae3132000441', 'results': [{ '_id': '5ec6cc06fc13ae3132000442', 'fieldName': 'PROLASTIN-C', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000443', 'fieldName': 'Prempro', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000444', 'fieldName': 'No7 Beautiful Skin day Normal Dry Sunscreen Broad Spectrum SPF 15', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000445', 'fieldName': 'Salex', 'value': 0 }], 'createdAt': '2020-04-21T20:22:15Z', 'updatedAt': '2020-02-14T23:01:25Z' },
+{ '_id': '5ec6cc06fc13ae3132000446', 'orderId': '5ec6cc06fc13ae3132000447', 'bacteriologistId': '5ec6cc06fc13ae3132000448', 'results': [{ '_id': '5ec6cc06fc13ae3132000449', 'fieldName': 'Ofloxacin', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200044a', 'fieldName': 'Minocycline Hydrochloride', 'value': 8 }], 'createdAt': '2020-01-04T11:18:41Z', 'updatedAt': '2020-03-24T19:41:17Z' },
+{ '_id': '5ec6cc06fc13ae313200044b', 'orderId': '5ec6cc06fc13ae313200044c', 'bacteriologistId': '5ec6cc06fc13ae313200044d', 'results': [{ '_id': '5ec6cc06fc13ae313200044e', 'fieldName': 'Cryselle', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200044f', 'fieldName': 'Kiehls Since 1851 Superbly Efficient Antiperspirant and Deodorant', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000450', 'fieldName': 'pure petroleum', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000451', 'fieldName': 'AMIFOSTINE', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000452', 'fieldName': 'Metamucil', 'value': 6 }], 'createdAt': '2020-04-01T18:03:26Z', 'updatedAt': '2020-02-18T05:51:41Z' },
+{ '_id': '5ec6cc06fc13ae3132000453', 'orderId': '5ec6cc06fc13ae3132000454', 'bacteriologistId': '5ec6cc06fc13ae3132000455', 'results': [{ '_id': '5ec6cc06fc13ae3132000456', 'fieldName': 'Gas Relief', 'value': 1 }], 'createdAt': '2020-03-01T01:42:02Z', 'updatedAt': '2020-03-28T11:36:34Z' },
+{ '_id': '5ec6cc06fc13ae3132000457', 'orderId': '5ec6cc06fc13ae3132000458', 'bacteriologistId': '5ec6cc06fc13ae3132000459', 'results': [{ '_id': '5ec6cc06fc13ae313200045a', 'fieldName': 'Livergen', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200045b', 'fieldName': 'HORMODENDRUM CLADOSPORIUM CLADOSPORIOIDES', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200045c', 'fieldName': 'PROCRIT', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200045d', 'fieldName': 'BabyBIG', 'value': 0 }], 'createdAt': '2020-04-11T15:33:12Z', 'updatedAt': '2020-02-21T04:29:24Z' },
+{ '_id': '5ec6cc06fc13ae313200045e', 'orderId': '5ec6cc06fc13ae313200045f', 'bacteriologistId': '5ec6cc06fc13ae3132000460', 'results': [{ '_id': '5ec6cc06fc13ae3132000461', 'fieldName': 'JUGLANS REGIA POLLEN', 'value': 5 }], 'createdAt': '2020-01-18T22:13:14Z', 'updatedAt': '2020-04-11T12:29:27Z' },
+{ '_id': '5ec6cc06fc13ae3132000462', 'orderId': '5ec6cc06fc13ae3132000463', 'bacteriologistId': '5ec6cc06fc13ae3132000464', 'results': [{ '_id': '5ec6cc06fc13ae3132000465', 'fieldName': 'methylergonovine maleate', 'value': 8 }], 'createdAt': '2020-01-20T04:25:45Z', 'updatedAt': '2020-01-27T11:04:13Z' },
+{ '_id': '5ec6cc06fc13ae3132000466', 'orderId': '5ec6cc06fc13ae3132000467', 'bacteriologistId': '5ec6cc06fc13ae3132000468', 'results': [{ '_id': '5ec6cc06fc13ae3132000469', 'fieldName': 'Colgate', 'value': 0 }], 'createdAt': '2020-01-23T17:48:39Z', 'updatedAt': '2020-01-15T22:25:36Z' },
+{ '_id': '5ec6cc06fc13ae313200046a', 'orderId': '5ec6cc06fc13ae313200046b', 'bacteriologistId': '5ec6cc06fc13ae313200046c', 'results': [{ '_id': '5ec6cc06fc13ae313200046d', 'fieldName': 'Softlips Pure Tint', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200046e', 'fieldName': 'HYPERICUM PERFORATUM', 'value': 2 }, { '_id': '5ec6cc06fc13ae313200046f', 'fieldName': 'Antibacterial Hand Sanitizer', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000470', 'fieldName': 'Conray', 'value': 6 }], 'createdAt': '2020-01-13T03:53:41Z', 'updatedAt': '2020-04-08T14:00:21Z' },
+{ '_id': '5ec6cc06fc13ae3132000471', 'orderId': '5ec6cc06fc13ae3132000472', 'bacteriologistId': '5ec6cc06fc13ae3132000473', 'results': [{ '_id': '5ec6cc06fc13ae3132000474', 'fieldName': 'Gelato APF', 'value': 5 }, { '_id': '5ec6cc06fc13ae3132000475', 'fieldName': 'FUROSEMIDE', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000476', 'fieldName': 'Ondansetron', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000477', 'fieldName': 'Fentanyl', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000478', 'fieldName': 'Phentermine Hydrochloride', 'value': 6 }], 'createdAt': '2020-04-18T21:31:07Z', 'updatedAt': '2020-04-29T20:00:06Z' },
+{ '_id': '5ec6cc06fc13ae3132000479', 'orderId': '5ec6cc06fc13ae313200047a', 'bacteriologistId': '5ec6cc06fc13ae313200047b', 'results': [{ '_id': '5ec6cc06fc13ae313200047c', 'fieldName': 'ALLOPURINOL', 'value': 9 }, { '_id': '5ec6cc06fc13ae313200047d', 'fieldName': 'Extra Strength Acetaminohpen', 'value': 0 }, { '_id': '5ec6cc06fc13ae313200047e', 'fieldName': 'HYDROCHLOROTHIAZIDE', 'value': 4 }], 'createdAt': '2020-04-18T07:52:56Z', 'updatedAt': '2020-01-12T05:04:33Z' },
+{ '_id': '5ec6cc06fc13ae313200047f', 'orderId': '5ec6cc06fc13ae3132000480', 'bacteriologistId': '5ec6cc06fc13ae3132000481', 'results': [{ '_id': '5ec6cc06fc13ae3132000482', 'fieldName': 'Paricalcitol', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000483', 'fieldName': 'Johnsons Baby Pure Cornstarch Medicated', 'value': 4 }], 'createdAt': '2020-01-04T18:58:38Z', 'updatedAt': '2020-04-08T12:00:48Z' },
+{ '_id': '5ec6cc06fc13ae3132000484', 'orderId': '5ec6cc06fc13ae3132000485', 'bacteriologistId': '5ec6cc06fc13ae3132000486', 'results': [{ '_id': '5ec6cc06fc13ae3132000487', 'fieldName': 'Losartan Potassium', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000488', 'fieldName': 'Home 360 Ultra Dish Detergent Green Apple Scent', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000489', 'fieldName': 'ENJUVIA', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200048a', 'fieldName': 'Sominex', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200048b', 'fieldName': 'ADSOL Red Cell Preservation Solution System in Plastic Container (PL 146 Plastic)', 'value': 2 }], 'createdAt': '2020-05-16T22:53:19Z', 'updatedAt': '2020-01-05T20:19:53Z' },
+{ '_id': '5ec6cc06fc13ae313200048c', 'orderId': '5ec6cc06fc13ae313200048d', 'bacteriologistId': '5ec6cc06fc13ae313200048e', 'results': [{ '_id': '5ec6cc06fc13ae313200048f', 'fieldName': 'ELOCTATE', 'value': 6 }], 'createdAt': '2020-01-17T02:10:08Z', 'updatedAt': '2020-01-03T14:05:50Z' },
+{ '_id': '5ec6cc06fc13ae3132000490', 'orderId': '5ec6cc06fc13ae3132000491', 'bacteriologistId': '5ec6cc06fc13ae3132000492', 'results': [{ '_id': '5ec6cc06fc13ae3132000493', 'fieldName': 'allergy', 'value': 5 }], 'createdAt': '2020-01-19T02:07:58Z', 'updatedAt': '2020-02-03T03:57:11Z' },
+{ '_id': '5ec6cc06fc13ae3132000494', 'orderId': '5ec6cc06fc13ae3132000495', 'bacteriologistId': '5ec6cc06fc13ae3132000496', 'results': [{ '_id': '5ec6cc06fc13ae3132000497', 'fieldName': 'Night Time Cherry', 'value': 10 }], 'createdAt': '2020-03-12T21:25:37Z', 'updatedAt': '2020-02-16T00:38:13Z' },
+{ '_id': '5ec6cc06fc13ae3132000498', 'orderId': '5ec6cc06fc13ae3132000499', 'bacteriologistId': '5ec6cc06fc13ae313200049a', 'results': [{ '_id': '5ec6cc06fc13ae313200049b', 'fieldName': 'NovaFerrum', 'value': 0 }], 'createdAt': '2020-04-18T03:45:02Z', 'updatedAt': '2020-05-19T06:14:15Z' },
+{ '_id': '5ec6cc06fc13ae313200049c', 'orderId': '5ec6cc06fc13ae313200049d', 'bacteriologistId': '5ec6cc06fc13ae313200049e', 'results': [{ '_id': '5ec6cc06fc13ae313200049f', 'fieldName': 'Terrasil Rapid-Clear Anti-Fungal', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320004a0', 'fieldName': 'Loratadine', 'value': 0 }], 'createdAt': '2020-03-13T03:44:42Z', 'updatedAt': '2020-01-20T03:05:55Z' },
+{ '_id': '5ec6cc06fc13ae31320004a1', 'orderId': '5ec6cc06fc13ae31320004a2', 'bacteriologistId': '5ec6cc06fc13ae31320004a3', 'results': [{ '_id': '5ec6cc06fc13ae31320004a4', 'fieldName': 'Impact Fix Essence Make Up Base', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320004a5', 'fieldName': 'Inclear', 'value': 2 }], 'createdAt': '2020-05-04T20:15:30Z', 'updatedAt': '2020-04-14T23:15:20Z' },
+{ '_id': '5ec6cc06fc13ae31320004a6', 'orderId': '5ec6cc06fc13ae31320004a7', 'bacteriologistId': '5ec6cc06fc13ae31320004a8', 'results': [{ '_id': '5ec6cc06fc13ae31320004a9', 'fieldName': 'Childrens Relief Cherry', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320004aa', 'fieldName': 'Venapro', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320004ab', 'fieldName': 'Mirtazapine', 'value': 0 }], 'createdAt': '2020-01-27T18:56:27Z', 'updatedAt': '2020-05-03T10:42:16Z' },
+{ '_id': '5ec6cc06fc13ae31320004ac', 'orderId': '5ec6cc06fc13ae31320004ad', 'bacteriologistId': '5ec6cc06fc13ae31320004ae', 'results': [{ '_id': '5ec6cc06fc13ae31320004af', 'fieldName': 'Neutrogena Healthy Skin Compact Makeup', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320004b0', 'fieldName': 'BANDAGE', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320004b1', 'fieldName': 'Degree Girl', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320004b2', 'fieldName': 'Loxapine', 'value': 2 }], 'createdAt': '2020-01-08T04:06:24Z', 'updatedAt': '2020-01-04T07:57:43Z' },
+{ '_id': '5ec6cc06fc13ae31320004b3', 'orderId': '5ec6cc06fc13ae31320004b4', 'bacteriologistId': '5ec6cc06fc13ae31320004b5', 'results': [{ '_id': '5ec6cc06fc13ae31320004b6', 'fieldName': 'Orphenadrine Citrate', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320004b7', 'fieldName': 'CareOne Allergy Relief', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320004b8', 'fieldName': 'STEMPHYLIUM SARCINIFORME', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320004b9', 'fieldName': 'MoodCalm', 'value': 2 }], 'createdAt': '2020-01-28T22:32:43Z', 'updatedAt': '2020-02-05T08:29:32Z' },
+{ '_id': '5ec6cc06fc13ae31320004ba', 'orderId': '5ec6cc06fc13ae31320004bb', 'bacteriologistId': '5ec6cc06fc13ae31320004bc', 'results': [{ '_id': '5ec6cc06fc13ae31320004bd', 'fieldName': 'Hot Spot', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320004be', 'fieldName': 'Otis Clapp Back Quell', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320004bf', 'fieldName': 'Lamotrigine', 'value': 1 }], 'createdAt': '2020-05-15T03:49:56Z', 'updatedAt': '2020-04-20T23:20:28Z' },
+{ '_id': '5ec6cc06fc13ae31320004c0', 'orderId': '5ec6cc06fc13ae31320004c1', 'bacteriologistId': '5ec6cc06fc13ae31320004c2', 'results': [{ '_id': '5ec6cc06fc13ae31320004c3', 'fieldName': 'Gelato Perio Maintenance Rinse', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320004c4', 'fieldName': 'HCB-Tone', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320004c5', 'fieldName': 'Yu Long You Pain Relieving', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320004c6', 'fieldName': 'Good Care Surgical Brush With Nail Cleaner', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320004c7', 'fieldName': 'Quinapril', 'value': 6 }], 'createdAt': '2020-02-01T22:13:27Z', 'updatedAt': '2020-01-11T06:32:43Z' },
+{ '_id': '5ec6cc06fc13ae31320004c8', 'orderId': '5ec6cc06fc13ae31320004c9', 'bacteriologistId': '5ec6cc06fc13ae31320004ca', 'results': [{ '_id': '5ec6cc06fc13ae31320004cb', 'fieldName': 'Sun Protect Beblesh Pact SPF30 PA 2Plus', 'value': 2 }], 'createdAt': '2020-05-19T20:57:13Z', 'updatedAt': '2020-03-11T09:41:46Z' },
+{ '_id': '5ec6cc06fc13ae31320004cc', 'orderId': '5ec6cc06fc13ae31320004cd', 'bacteriologistId': '5ec6cc06fc13ae31320004ce', 'results': [{ '_id': '5ec6cc06fc13ae31320004cf', 'fieldName': 'Undecylenic Acid', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320004d0', 'fieldName': 'KAO-TIN PEPPERMINT FLAVOR', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320004d1', 'fieldName': 'Furosemide', 'value': 9 }], 'createdAt': '2020-01-26T04:18:09Z', 'updatedAt': '2020-03-09T00:12:36Z' },
+{ '_id': '5ec6cc06fc13ae31320004d2', 'orderId': '5ec6cc06fc13ae31320004d3', 'bacteriologistId': '5ec6cc06fc13ae31320004d4', 'results': [{ '_id': '5ec6cc06fc13ae31320004d5', 'fieldName': 'Cladribine', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320004d6', 'fieldName': 'Olive Vaginal Formula', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320004d7', 'fieldName': 'Cefadroxil', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320004d8', 'fieldName': 'Olanzapine', 'value': 3 }], 'createdAt': '2020-03-12T15:12:53Z', 'updatedAt': '2020-03-08T12:45:23Z' },
+{ '_id': '5ec6cc06fc13ae31320004d9', 'orderId': '5ec6cc06fc13ae31320004da', 'bacteriologistId': '5ec6cc06fc13ae31320004db', 'results': [{ '_id': '5ec6cc06fc13ae31320004dc', 'fieldName': 'Avalon Organics Essential Lift', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320004dd', 'fieldName': 'Clarins Self Tanning Milk With Sun Protection Spf 6', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320004de', 'fieldName': 'Servo Stat-Foam', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320004df', 'fieldName': 'Clonidine Hydrochloride', 'value': 2 }, { '_id': '5ec6cc06fc13ae31320004e0', 'fieldName': 'medroxyprogesterone acetate', 'value': 3 }], 'createdAt': '2020-01-08T15:56:37Z', 'updatedAt': '2020-04-16T19:22:46Z' },
+{ '_id': '5ec6cc06fc13ae31320004e1', 'orderId': '5ec6cc06fc13ae31320004e2', 'bacteriologistId': '5ec6cc06fc13ae31320004e3', 'results': [{ '_id': '5ec6cc06fc13ae31320004e4', 'fieldName': 'Allergy Multi-Symptom', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320004e5', 'fieldName': 'Lisinopril', 'value': 10 }, { '_id': '5ec6cc06fc13ae31320004e6', 'fieldName': 'albuterol sulfate', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320004e7', 'fieldName': 'Fenofibric Acid', 'value': 0 }, { '_id': '5ec6cc06fc13ae31320004e8', 'fieldName': 'Sterile Diluent for Allergenic Extract', 'value': 6 }], 'createdAt': '2020-03-05T19:44:45Z', 'updatedAt': '2020-01-14T02:08:48Z' },
+{ '_id': '5ec6cc06fc13ae31320004e9', 'orderId': '5ec6cc06fc13ae31320004ea', 'bacteriologistId': '5ec6cc06fc13ae31320004eb', 'results': [{ '_id': '5ec6cc06fc13ae31320004ec', 'fieldName': 'Bioelements', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320004ed', 'fieldName': 'Pantoprazole Sodium', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320004ee', 'fieldName': 'Quinapril Hydrochloride', 'value': 8 }, { '_id': '5ec6cc06fc13ae31320004ef', 'fieldName': 'Allergy Relief', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320004f0', 'fieldName': 'LE TECHNIQ', 'value': 9 }], 'createdAt': '2020-01-01T23:44:09Z', 'updatedAt': '2020-01-31T02:52:19Z' },
+{ '_id': '5ec6cc06fc13ae31320004f1', 'orderId': '5ec6cc06fc13ae31320004f2', 'bacteriologistId': '5ec6cc06fc13ae31320004f3', 'results': [{ '_id': '5ec6cc06fc13ae31320004f4', 'fieldName': 'TOLNAFTATE ANTIFUNGAL', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320004f5', 'fieldName': 'Fludarabine Phosphate', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320004f6', 'fieldName': 'Ibuprofen', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320004f7', 'fieldName': 'Anti-Bacterial Hand', 'value': 5 }], 'createdAt': '2020-03-26T02:34:37Z', 'updatedAt': '2020-01-14T08:14:51Z' },
+{ '_id': '5ec6cc06fc13ae31320004f8', 'orderId': '5ec6cc06fc13ae31320004f9', 'bacteriologistId': '5ec6cc06fc13ae31320004fa', 'results': [{ '_id': '5ec6cc06fc13ae31320004fb', 'fieldName': 'Fenofibric Acid', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320004fc', 'fieldName': 'Micro-Coated Aspirin', 'value': 7 }], 'createdAt': '2020-05-18T07:04:56Z', 'updatedAt': '2020-01-06T22:02:20Z' },
+{ '_id': '5ec6cc06fc13ae31320004fd', 'orderId': '5ec6cc06fc13ae31320004fe', 'bacteriologistId': '5ec6cc06fc13ae31320004ff', 'results': [{ '_id': '5ec6cc06fc13ae3132000500', 'fieldName': 'Fludrocortisone Acetate', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000501', 'fieldName': 'Fluconazole', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000502', 'fieldName': 'MBM 8 Small Intestine', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000503', 'fieldName': 'Tiazac Extended Release', 'value': 3 }, { '_id': '5ec6cc06fc13ae3132000504', 'fieldName': 'Gold Bond Ultimate Diabetics', 'value': 6 }], 'createdAt': '2020-02-23T04:16:11Z', 'updatedAt': '2020-03-13T15:09:50Z' },
+{ '_id': '5ec6cc06fc13ae3132000505', 'orderId': '5ec6cc06fc13ae3132000506', 'bacteriologistId': '5ec6cc06fc13ae3132000507', 'results': [{ '_id': '5ec6cc06fc13ae3132000508', 'fieldName': 'Para-Chord', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000509', 'fieldName': 'LEADER Loratadine', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200050a', 'fieldName': 'Aspirin', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200050b', 'fieldName': 'Azithromycin', 'value': 8 }], 'createdAt': '2020-03-16T01:50:01Z', 'updatedAt': '2020-01-22T10:53:56Z' },
+{ '_id': '5ec6cc06fc13ae313200050c', 'orderId': '5ec6cc06fc13ae313200050d', 'bacteriologistId': '5ec6cc06fc13ae313200050e', 'results': [{ '_id': '5ec6cc06fc13ae313200050f', 'fieldName': 'Bodycology', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000510', 'fieldName': 'stila CC color correcting broad-spectrum SPF 20 05 RICH MEDIUM', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000511', 'fieldName': 'Methylphenidate Hydrochloride', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000512', 'fieldName': 'Treatment Set TS347250', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000513', 'fieldName': 'Naphazoline Hydrochloride and Pheniramine Maleate', 'value': 8 }], 'createdAt': '2020-03-19T17:24:59Z', 'updatedAt': '2020-01-10T18:58:09Z' },
+{ '_id': '5ec6cc06fc13ae3132000514', 'orderId': '5ec6cc06fc13ae3132000515', 'bacteriologistId': '5ec6cc06fc13ae3132000516', 'results': [{ '_id': '5ec6cc06fc13ae3132000517', 'fieldName': 'Gongjinhyang Seol Whitening Intensive', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000518', 'fieldName': 'desonide', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000519', 'fieldName': 'Felbamate', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200051a', 'fieldName': 'Gabapentin', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200051b', 'fieldName': 'Losartan Potassium', 'value': 5 }], 'createdAt': '2020-04-20T02:27:01Z', 'updatedAt': '2020-03-29T10:01:18Z' },
+{ '_id': '5ec6cc06fc13ae313200051c', 'orderId': '5ec6cc06fc13ae313200051d', 'bacteriologistId': '5ec6cc06fc13ae313200051e', 'results': [{ '_id': '5ec6cc06fc13ae313200051f', 'fieldName': 'Doxepin Hydrochloride', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000520', 'fieldName': 'MegaFresh Antibacterial Deodorant', 'value': 3 }], 'createdAt': '2020-04-17T09:09:29Z', 'updatedAt': '2020-03-06T18:57:08Z' },
+{ '_id': '5ec6cc06fc13ae3132000521', 'orderId': '5ec6cc06fc13ae3132000522', 'bacteriologistId': '5ec6cc06fc13ae3132000523', 'results': [{ '_id': '5ec6cc06fc13ae3132000524', 'fieldName': 'Super Plus Beblesh Balm Triple Functions SPF25 PA 2Plus', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000525', 'fieldName': 'Felodipine', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000526', 'fieldName': 'MI-ACID MAXIMUM STRENGTH', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000527', 'fieldName': 'Cotton', 'value': 6 }], 'createdAt': '2020-04-10T20:11:13Z', 'updatedAt': '2020-01-20T18:55:47Z' },
+{ '_id': '5ec6cc06fc13ae3132000528', 'orderId': '5ec6cc06fc13ae3132000529', 'bacteriologistId': '5ec6cc06fc13ae313200052a', 'results': [{ '_id': '5ec6cc06fc13ae313200052b', 'fieldName': 'Ramipril', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200052c', 'fieldName': 'Doxepin Hydrochloride', 'value': 0 }, { '_id': '5ec6cc06fc13ae313200052d', 'fieldName': 'Treatment Set TS346791', 'value': 6 }], 'createdAt': '2020-05-03T23:00:57Z', 'updatedAt': '2020-01-24T19:46:22Z' },
+{ '_id': '5ec6cc06fc13ae313200052e', 'orderId': '5ec6cc06fc13ae313200052f', 'bacteriologistId': '5ec6cc06fc13ae3132000530', 'results': [{ '_id': '5ec6cc06fc13ae3132000531', 'fieldName': 'ADVIL COLD AND SINUS', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000532', 'fieldName': 'Enalapril Maleate', 'value': 6 }], 'createdAt': '2020-04-22T22:26:41Z', 'updatedAt': '2020-04-17T15:57:42Z' },
+{ '_id': '5ec6cc06fc13ae3132000533', 'orderId': '5ec6cc06fc13ae3132000534', 'bacteriologistId': '5ec6cc06fc13ae3132000535', 'results': [{ '_id': '5ec6cc06fc13ae3132000536', 'fieldName': 'Zolpidem Tartrate', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000537', 'fieldName': 'IASO White Science EX Serum', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000538', 'fieldName': 'ZINC OXIDE', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000539', 'fieldName': 'Methylphenidate Hydrochloride', 'value': 4 }], 'createdAt': '2020-05-19T08:28:42Z', 'updatedAt': '2020-01-07T22:39:18Z' },
+{ '_id': '5ec6cc06fc13ae313200053a', 'orderId': '5ec6cc06fc13ae313200053b', 'bacteriologistId': '5ec6cc06fc13ae313200053c', 'results': [{ '_id': '5ec6cc06fc13ae313200053d', 'fieldName': 'NataChew', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200053e', 'fieldName': 'LEVOFLOXACIN', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200053f', 'fieldName': 'Fluoxetine Hydrochloride', 'value': 4 }], 'createdAt': '2020-01-09T03:51:10Z', 'updatedAt': '2020-03-09T08:33:45Z' },
+{ '_id': '5ec6cc06fc13ae3132000540', 'orderId': '5ec6cc06fc13ae3132000541', 'bacteriologistId': '5ec6cc06fc13ae3132000542', 'results': [{ '_id': '5ec6cc06fc13ae3132000543', 'fieldName': 'Lovastatin', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000544', 'fieldName': 'Sterile Water', 'value': 10 }, { '_id': '5ec6cc06fc13ae3132000545', 'fieldName': 'Starlix', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000546', 'fieldName': 'Good Neighbor Pharmacy Miconazole Nitrate', 'value': 2 }, { '_id': '5ec6cc06fc13ae3132000547', 'fieldName': 'Panhematin', 'value': 10 }], 'createdAt': '2020-01-09T20:18:17Z', 'updatedAt': '2020-01-12T16:08:31Z' },
+{ '_id': '5ec6cc06fc13ae3132000548', 'orderId': '5ec6cc06fc13ae3132000549', 'bacteriologistId': '5ec6cc06fc13ae313200054a', 'results': [{ '_id': '5ec6cc06fc13ae313200054b', 'fieldName': 'Phytonadione', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200054c', 'fieldName': 'Isomers Clear Skin Acne Treatment Gel', 'value': 6 }], 'createdAt': '2020-03-08T00:59:20Z', 'updatedAt': '2020-01-15T00:53:05Z' },
+{ '_id': '5ec6cc06fc13ae313200054d', 'orderId': '5ec6cc06fc13ae313200054e', 'bacteriologistId': '5ec6cc06fc13ae313200054f', 'results': [{ '_id': '5ec6cc06fc13ae3132000550', 'fieldName': 'Mary Kay Tinted Moisturizer Sunscreen SPF 20 Beige 2', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000551', 'fieldName': 'Azathioprine', 'value': 4 }], 'createdAt': '2020-05-05T00:42:40Z', 'updatedAt': '2020-01-21T02:17:14Z' },
+{ '_id': '5ec6cc06fc13ae3132000552', 'orderId': '5ec6cc06fc13ae3132000553', 'bacteriologistId': '5ec6cc06fc13ae3132000554', 'results': [{ '_id': '5ec6cc06fc13ae3132000555', 'fieldName': 'OXYGEN', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000556', 'fieldName': 'XtraCare Antibacterial Hand Cleanse', 'value': 4 }], 'createdAt': '2020-02-06T12:53:42Z', 'updatedAt': '2020-04-07T03:36:50Z' },
+{ '_id': '5ec6cc06fc13ae3132000557', 'orderId': '5ec6cc06fc13ae3132000558', 'bacteriologistId': '5ec6cc06fc13ae3132000559', 'results': [{ '_id': '5ec6cc06fc13ae313200055a', 'fieldName': 'MiraLAX', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200055b', 'fieldName': 'Health Smart Natural Epsom Salt', 'value': 7 }, { '_id': '5ec6cc06fc13ae313200055c', 'fieldName': 'Clodan Kit', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200055d', 'fieldName': 'Hydrogen Peroxide', 'value': 10 }], 'createdAt': '2020-03-12T23:10:14Z', 'updatedAt': '2020-01-13T02:45:04Z' },
+{ '_id': '5ec6cc06fc13ae313200055e', 'orderId': '5ec6cc06fc13ae313200055f', 'bacteriologistId': '5ec6cc06fc13ae3132000560', 'results': [{ '_id': '5ec6cc06fc13ae3132000561', 'fieldName': 'DEMEROL', 'value': 1 }, { '_id': '5ec6cc06fc13ae3132000562', 'fieldName': 'Milk of Magnesia', 'value': 4 }, { '_id': '5ec6cc06fc13ae3132000563', 'fieldName': 'Glyburide', 'value': 9 }, { '_id': '5ec6cc06fc13ae3132000564', 'fieldName': 'Aureobasidium pullulans', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000565', 'fieldName': 'Ondansetron Hydrochloride', 'value': 6 }], 'createdAt': '2020-01-30T00:56:51Z', 'updatedAt': '2020-01-20T02:34:50Z' },
+{ '_id': '5ec6cc06fc13ae3132000566', 'orderId': '5ec6cc06fc13ae3132000567', 'bacteriologistId': '5ec6cc06fc13ae3132000568', 'results': [{ '_id': '5ec6cc06fc13ae3132000569', 'fieldName': 'Oxygen', 'value': 0 }], 'createdAt': '2020-04-26T03:14:54Z', 'updatedAt': '2020-01-14T02:42:01Z' },
+{ '_id': '5ec6cc06fc13ae313200056a', 'orderId': '5ec6cc06fc13ae313200056b', 'bacteriologistId': '5ec6cc06fc13ae313200056c', 'results': [{ '_id': '5ec6cc06fc13ae313200056d', 'fieldName': 'Acremonium strictum', 'value': 8 }, { '_id': '5ec6cc06fc13ae313200056e', 'fieldName': 'Citrus Burst Antibacterial Foaming Hand Wash', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200056f', 'fieldName': 'NARS PURE SHEER SPF LIP TREATMENT', 'value': 9 }], 'createdAt': '2020-05-09T14:57:12Z', 'updatedAt': '2020-02-05T12:48:00Z' },
+{ '_id': '5ec6cc06fc13ae3132000570', 'orderId': '5ec6cc06fc13ae3132000571', 'bacteriologistId': '5ec6cc06fc13ae3132000572', 'results': [{ '_id': '5ec6cc06fc13ae3132000573', 'fieldName': '3LAB PERFECT Sunscreen SPF 50 Plus Broad Spectrum', 'value': 8 }], 'createdAt': '2020-02-17T04:34:33Z', 'updatedAt': '2020-04-19T22:13:13Z' },
+{ '_id': '5ec6cc06fc13ae3132000574', 'orderId': '5ec6cc06fc13ae3132000575', 'bacteriologistId': '5ec6cc06fc13ae3132000576', 'results': [{ '_id': '5ec6cc06fc13ae3132000577', 'fieldName': 'Head and Shoulders 2in1', 'value': 5 }], 'createdAt': '2020-04-07T00:09:54Z', 'updatedAt': '2020-01-15T07:41:11Z' },
+{ '_id': '5ec6cc06fc13ae3132000578', 'orderId': '5ec6cc06fc13ae3132000579', 'bacteriologistId': '5ec6cc06fc13ae313200057a', 'results': [{ '_id': '5ec6cc06fc13ae313200057b', 'fieldName': 'Ciprofloxacin', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200057c', 'fieldName': 'Boost Remedy Water', 'value': 1 }, { '_id': '5ec6cc06fc13ae313200057d', 'fieldName': 'Diclofenac Sodium', 'value': 10 }, { '_id': '5ec6cc06fc13ae313200057e', 'fieldName': 'Ketorolac Tromethamine', 'value': 9 }], 'createdAt': '2020-03-24T22:34:10Z', 'updatedAt': '2020-03-27T02:13:05Z' },
+{ '_id': '5ec6cc06fc13ae313200057f', 'orderId': '5ec6cc06fc13ae3132000580', 'bacteriologistId': '5ec6cc06fc13ae3132000581', 'results': [{ '_id': '5ec6cc06fc13ae3132000582', 'fieldName': '3 Pack Instant Hand Sanitizer with moisturizers Aloe Scented', 'value': 1 }], 'createdAt': '2020-03-10T16:22:43Z', 'updatedAt': '2020-04-23T20:43:16Z' },
+{ '_id': '5ec6cc06fc13ae3132000583', 'orderId': '5ec6cc06fc13ae3132000584', 'bacteriologistId': '5ec6cc06fc13ae3132000585', 'results': [{ '_id': '5ec6cc06fc13ae3132000586', 'fieldName': 'Arnica e pl. tota 30', 'value': 5 }], 'createdAt': '2020-04-15T23:17:01Z', 'updatedAt': '2020-03-02T20:13:37Z' },
+{ '_id': '5ec6cc06fc13ae3132000587', 'orderId': '5ec6cc06fc13ae3132000588', 'bacteriologistId': '5ec6cc06fc13ae3132000589', 'results': [{ '_id': '5ec6cc06fc13ae313200058a', 'fieldName': 'Lamotrigine', 'value': 4 }, { '_id': '5ec6cc06fc13ae313200058b', 'fieldName': 'ELIDEL', 'value': 6 }, { '_id': '5ec6cc06fc13ae313200058c', 'fieldName': 'PrednisoLONE', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200058d', 'fieldName': 'AMLODIPINE BESYLATE', 'value': 3 }], 'createdAt': '2020-04-06T10:59:39Z', 'updatedAt': '2020-02-10T23:14:15Z' },
+{ '_id': '5ec6cc06fc13ae313200058e', 'orderId': '5ec6cc06fc13ae313200058f', 'bacteriologistId': '5ec6cc06fc13ae3132000590', 'results': [{ '_id': '5ec6cc06fc13ae3132000591', 'fieldName': 'Alfuzosin Hydrochloride', 'value': 8 }, { '_id': '5ec6cc06fc13ae3132000592', 'fieldName': 'Koh Gen Do Maifanshi Makeup Color Base', 'value': 7 }, { '_id': '5ec6cc06fc13ae3132000593', 'fieldName': 'Degree', 'value': 6 }], 'createdAt': '2020-03-08T16:31:32Z', 'updatedAt': '2020-05-20T12:40:43Z' },
+{ '_id': '5ec6cc06fc13ae3132000594', 'orderId': '5ec6cc06fc13ae3132000595', 'bacteriologistId': '5ec6cc06fc13ae3132000596', 'results': [{ '_id': '5ec6cc06fc13ae3132000597', 'fieldName': 'Promethazine Hydrochloride', 'value': 0 }, { '_id': '5ec6cc06fc13ae3132000598', 'fieldName': 'Metoprolol Tartrate', 'value': 6 }, { '_id': '5ec6cc06fc13ae3132000599', 'fieldName': 'AZITHROMYCIN', 'value': 8 }, { '_id': '5ec6cc06fc13ae313200059a', 'fieldName': 'Smart Sense Clearlax', 'value': 1 }], 'createdAt': '2020-02-11T13:38:08Z', 'updatedAt': '2020-03-02T18:10:39Z' },
+{ '_id': '5ec6cc06fc13ae313200059b', 'orderId': '5ec6cc06fc13ae313200059c', 'bacteriologistId': '5ec6cc06fc13ae313200059d', 'results': [{ '_id': '5ec6cc06fc13ae313200059e', 'fieldName': 'Standardized Cat Hair', 'value': 5 }, { '_id': '5ec6cc06fc13ae313200059f', 'fieldName': 'Erythromycin', 'value': 6 }, { '_id': '5ec6cc06fc13ae31320005a0', 'fieldName': 'POTASSIUM CHLORIDE', 'value': 3 }, { '_id': '5ec6cc06fc13ae31320005a1', 'fieldName': 'Creon', 'value': 5 }, { '_id': '5ec6cc06fc13ae31320005a2', 'fieldName': 'sotalol hydrochloride', 'value': 2 }], 'createdAt': '2020-02-25T22:07:43Z', 'updatedAt': '2020-02-01T03:21:18Z' },
+{ '_id': '5ec6cc06fc13ae31320005a3', 'orderId': '5ec6cc06fc13ae31320005a4', 'bacteriologistId': '5ec6cc06fc13ae31320005a5', 'results': [{ '_id': '5ec6cc06fc13ae31320005a6', 'fieldName': 'Hydrocodone Bitartrate and Acetaminophen', 'value': 4 }, { '_id': '5ec6cc06fc13ae31320005a7', 'fieldName': 'First Mark', 'value': 9 }, { '_id': '5ec6cc06fc13ae31320005a8', 'fieldName': 'Standardized Grass Pollen, Grass Mix 5', 'value': 1 }, { '_id': '5ec6cc06fc13ae31320005a9', 'fieldName': 'ENALAPRIL MALEATE', 'value': 7 }, { '_id': '5ec6cc06fc13ae31320005aa', 'fieldName': 'Sertraline Hydrochloride', 'value': 5 }], 'createdAt': '2020-02-11T16:07:02Z', 'updatedAt': '2020-04-14T00:17:28Z' },
+{ '_id': '5ec6cc07fc13ae31320005ab', 'orderId': '5ec6cc07fc13ae31320005ac', 'bacteriologistId': '5ec6cc07fc13ae31320005ad', 'results': [{ '_id': '5ec6cc07fc13ae31320005ae', 'fieldName': 'Amoxicillin and Clavulanate Potassium', 'value': 4 }, { '_id': '5ec6cc07fc13ae31320005af', 'fieldName': 'Norethindrone', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320005b0', 'fieldName': 'Miacalcin', 'value': 10 }, { '_id': '5ec6cc07fc13ae31320005b1', 'fieldName': 'Renotox', 'value': 4 }], 'createdAt': '2020-01-14T06:35:28Z', 'updatedAt': '2020-02-01T08:20:09Z' },
+{ '_id': '5ec6cc07fc13ae31320005b2', 'orderId': '5ec6cc07fc13ae31320005b3', 'bacteriologistId': '5ec6cc07fc13ae31320005b4', 'results': [{ '_id': '5ec6cc07fc13ae31320005b5', 'fieldName': 'Belladonna Betula Formica', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320005b6', 'fieldName': 'Echinacea e rad. 50', 'value': 2 }, { '_id': '5ec6cc07fc13ae31320005b7', 'fieldName': 'SINGULAIR', 'value': 6 }, { '_id': '5ec6cc07fc13ae31320005b8', 'fieldName': 'Ibuprofen', 'value': 10 }], 'createdAt': '2020-03-21T02:30:13Z', 'updatedAt': '2020-03-05T14:30:05Z' },
+{ '_id': '5ec6cc07fc13ae31320005b9', 'orderId': '5ec6cc07fc13ae31320005ba', 'bacteriologistId': '5ec6cc07fc13ae31320005bb', 'results': [{ '_id': '5ec6cc07fc13ae31320005bc', 'fieldName': 'Naproxen Sodium', 'value': 6 }, { '_id': '5ec6cc07fc13ae31320005bd', 'fieldName': 'Alprazolam', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320005be', 'fieldName': 'Senna/Docusate Sodium', 'value': 4 }, { '_id': '5ec6cc07fc13ae31320005bf', 'fieldName': 'Magnesium Sulfate', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320005c0', 'fieldName': 'Diltiazem Hydrochloride', 'value': 6 }], 'createdAt': '2020-04-20T22:24:57Z', 'updatedAt': '2020-03-21T16:02:34Z' },
+{ '_id': '5ec6cc07fc13ae31320005c1', 'orderId': '5ec6cc07fc13ae31320005c2', 'bacteriologistId': '5ec6cc07fc13ae31320005c3', 'results': [{ '_id': '5ec6cc07fc13ae31320005c4', 'fieldName': 'Oxygen', 'value': 2 }, { '_id': '5ec6cc07fc13ae31320005c5', 'fieldName': 'Safeguard', 'value': 6 }, { '_id': '5ec6cc07fc13ae31320005c6', 'fieldName': 'Senna- S', 'value': 2 }, { '_id': '5ec6cc07fc13ae31320005c7', 'fieldName': 'Non-Drowsy Daytime Multi-Symptom Cold and Flu', 'value': 5 }], 'createdAt': '2020-04-09T18:26:39Z', 'updatedAt': '2020-03-30T22:27:41Z' },
+{ '_id': '5ec6cc07fc13ae31320005c8', 'orderId': '5ec6cc07fc13ae31320005c9', 'bacteriologistId': '5ec6cc07fc13ae31320005ca', 'results': [{ '_id': '5ec6cc07fc13ae31320005cb', 'fieldName': 'Ready Foundation', 'value': 4 }], 'createdAt': '2020-03-01T18:28:15Z', 'updatedAt': '2020-03-01T01:40:15Z' },
+{ '_id': '5ec6cc07fc13ae31320005cc', 'orderId': '5ec6cc07fc13ae31320005cd', 'bacteriologistId': '5ec6cc07fc13ae31320005ce', 'results': [{ '_id': '5ec6cc07fc13ae31320005cf', 'fieldName': 'NMC Magic Serum', 'value': 6 }, { '_id': '5ec6cc07fc13ae31320005d0', 'fieldName': 'Degree', 'value': 10 }, { '_id': '5ec6cc07fc13ae31320005d1', 'fieldName': 'Lovastatin', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320005d2', 'fieldName': 'Mandragora e rad. 3', 'value': 4 }, { '_id': '5ec6cc07fc13ae31320005d3', 'fieldName': 'Flu-less', 'value': 5 }], 'createdAt': '2020-05-16T02:26:35Z', 'updatedAt': '2020-04-18T22:05:12Z' },
+{ '_id': '5ec6cc07fc13ae31320005d4', 'orderId': '5ec6cc07fc13ae31320005d5', 'bacteriologistId': '5ec6cc07fc13ae31320005d6', 'results': [{ '_id': '5ec6cc07fc13ae31320005d7', 'fieldName': 'BANANA BOAT', 'value': 7 }, { '_id': '5ec6cc07fc13ae31320005d8', 'fieldName': 'Walgreens SunscreenSPF 70', 'value': 2 }, { '_id': '5ec6cc07fc13ae31320005d9', 'fieldName': 'Primer Results Tinted Moisturizer SPF15 Golden Beige', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320005da', 'fieldName': 'Fenofibrate', 'value': 2 }], 'createdAt': '2020-03-05T05:39:23Z', 'updatedAt': '2020-02-12T17:32:26Z' },
+{ '_id': '5ec6cc07fc13ae31320005db', 'orderId': '5ec6cc07fc13ae31320005dc', 'bacteriologistId': '5ec6cc07fc13ae31320005dd', 'results': [{ '_id': '5ec6cc07fc13ae31320005de', 'fieldName': 'Elitek', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320005df', 'fieldName': 'Good Care Povidone Iodine Swabsticks', 'value': 8 }], 'createdAt': '2020-04-13T15:37:55Z', 'updatedAt': '2020-03-10T22:07:12Z' },
+{ '_id': '5ec6cc07fc13ae31320005e0', 'orderId': '5ec6cc07fc13ae31320005e1', 'bacteriologistId': '5ec6cc07fc13ae31320005e2', 'results': [{ '_id': '5ec6cc07fc13ae31320005e3', 'fieldName': 'SORGHUM HALEPENSE POLLEN', 'value': 1 }, { '_id': '5ec6cc07fc13ae31320005e4', 'fieldName': 'Nicotinum', 'value': 1 }], 'createdAt': '2020-01-08T13:09:22Z', 'updatedAt': '2020-05-02T12:04:39Z' },
+{ '_id': '5ec6cc07fc13ae31320005e5', 'orderId': '5ec6cc07fc13ae31320005e6', 'bacteriologistId': '5ec6cc07fc13ae31320005e7', 'results': [{ '_id': '5ec6cc07fc13ae31320005e8', 'fieldName': 'Triacting Daytime Cold Cough', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320005e9', 'fieldName': 'Gumsol', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320005ea', 'fieldName': 'Theophylline', 'value': 0 }], 'createdAt': '2020-01-08T11:33:48Z', 'updatedAt': '2020-02-21T10:12:27Z' },
+{ '_id': '5ec6cc07fc13ae31320005eb', 'orderId': '5ec6cc07fc13ae31320005ec', 'bacteriologistId': '5ec6cc07fc13ae31320005ed', 'results': [{ '_id': '5ec6cc07fc13ae31320005ee', 'fieldName': 'gemcitabine', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320005ef', 'fieldName': 'Lil Drug Store Multi-Symptom Sinus Relief', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320005f0', 'fieldName': 'Sulfamethoxazole and Trimethoprim', 'value': 6 }], 'createdAt': '2020-05-03T15:07:05Z', 'updatedAt': '2020-04-01T01:49:30Z' },
+{ '_id': '5ec6cc07fc13ae31320005f1', 'orderId': '5ec6cc07fc13ae31320005f2', 'bacteriologistId': '5ec6cc07fc13ae31320005f3', 'results': [{ '_id': '5ec6cc07fc13ae31320005f4', 'fieldName': 'Levetiracetam', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320005f5', 'fieldName': 'CYZONE', 'value': 2 }], 'createdAt': '2020-04-20T19:27:45Z', 'updatedAt': '2020-04-21T20:17:06Z' },
+{ '_id': '5ec6cc07fc13ae31320005f6', 'orderId': '5ec6cc07fc13ae31320005f7', 'bacteriologistId': '5ec6cc07fc13ae31320005f8', 'results': [{ '_id': '5ec6cc07fc13ae31320005f9', 'fieldName': 'BANANA BOAT', 'value': 10 }], 'createdAt': '2020-02-24T15:10:17Z', 'updatedAt': '2020-03-15T13:24:28Z' },
+{ '_id': '5ec6cc07fc13ae31320005fa', 'orderId': '5ec6cc07fc13ae31320005fb', 'bacteriologistId': '5ec6cc07fc13ae31320005fc', 'results': [{ '_id': '5ec6cc07fc13ae31320005fd', 'fieldName': 'Primidone', 'value': 9 }], 'createdAt': '2020-01-25T23:45:01Z', 'updatedAt': '2020-05-05T21:38:50Z' },
+{ '_id': '5ec6cc07fc13ae31320005fe', 'orderId': '5ec6cc07fc13ae31320005ff', 'bacteriologistId': '5ec6cc07fc13ae3132000600', 'results': [{ '_id': '5ec6cc07fc13ae3132000601', 'fieldName': 'Stalevo', 'value': 3 }, { '_id': '5ec6cc07fc13ae3132000602', 'fieldName': 'leader nasal decongestant pe', 'value': 3 }], 'createdAt': '2020-02-15T22:21:50Z', 'updatedAt': '2020-02-11T13:03:07Z' },
+{ '_id': '5ec6cc07fc13ae3132000603', 'orderId': '5ec6cc07fc13ae3132000604', 'bacteriologistId': '5ec6cc07fc13ae3132000605', 'results': [{ '_id': '5ec6cc07fc13ae3132000606', 'fieldName': 'Head and Shoulders', 'value': 6 }, { '_id': '5ec6cc07fc13ae3132000607', 'fieldName': 'Lovastatin', 'value': 7 }], 'createdAt': '2020-05-01T23:20:01Z', 'updatedAt': '2020-01-17T03:45:32Z' },
+{ '_id': '5ec6cc07fc13ae3132000608', 'orderId': '5ec6cc07fc13ae3132000609', 'bacteriologistId': '5ec6cc07fc13ae313200060a', 'results': [{ '_id': '5ec6cc07fc13ae313200060b', 'fieldName': 'Benztropine Mesylate', 'value': 9 }, { '_id': '5ec6cc07fc13ae313200060c', 'fieldName': 'Betamethasone Dipropionate', 'value': 1 }, { '_id': '5ec6cc07fc13ae313200060d', 'fieldName': 'Gabapentin', 'value': 7 }], 'createdAt': '2020-01-19T23:21:11Z', 'updatedAt': '2020-02-28T00:59:03Z' },
+{ '_id': '5ec6cc07fc13ae313200060e', 'orderId': '5ec6cc07fc13ae313200060f', 'bacteriologistId': '5ec6cc07fc13ae3132000610', 'results': [{ '_id': '5ec6cc07fc13ae3132000611', 'fieldName': 'Protriptyline Hydrochloride', 'value': 5 }, { '_id': '5ec6cc07fc13ae3132000612', 'fieldName': 'Risperidone', 'value': 2 }, { '_id': '5ec6cc07fc13ae3132000613', 'fieldName': 'Clonidine Hydrochloride', 'value': 0 }, { '_id': '5ec6cc07fc13ae3132000614', 'fieldName': 'BABY ACNE', 'value': 9 }], 'createdAt': '2020-03-25T14:20:15Z', 'updatedAt': '2020-03-23T22:50:34Z' },
+{ '_id': '5ec6cc07fc13ae3132000615', 'orderId': '5ec6cc07fc13ae3132000616', 'bacteriologistId': '5ec6cc07fc13ae3132000617', 'results': [{ '_id': '5ec6cc07fc13ae3132000618', 'fieldName': 'Extra Strength Headache Relief', 'value': 10 }, { '_id': '5ec6cc07fc13ae3132000619', 'fieldName': 'Aralast', 'value': 0 }, { '_id': '5ec6cc07fc13ae313200061a', 'fieldName': 'HORSE HAIR AND DANDER', 'value': 0 }, { '_id': '5ec6cc07fc13ae313200061b', 'fieldName': 'Cold Multi-Symptom Daytime', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200061c', 'fieldName': 'Alcohol Prep Pad', 'value': 8 }], 'createdAt': '2020-02-04T08:56:59Z', 'updatedAt': '2020-04-16T13:36:13Z' },
+{ '_id': '5ec6cc07fc13ae313200061d', 'orderId': '5ec6cc07fc13ae313200061e', 'bacteriologistId': '5ec6cc07fc13ae313200061f', 'results': [{ '_id': '5ec6cc07fc13ae3132000620', 'fieldName': 'Sonacaine Topical Anesthetic With Menthol', 'value': 4 }, { '_id': '5ec6cc07fc13ae3132000621', 'fieldName': 'LBEL COULEUR LUXE AMPLIFIER XP', 'value': 5 }, { '_id': '5ec6cc07fc13ae3132000622', 'fieldName': 'NewYork-Presbyterian Amenity', 'value': 2 }, { '_id': '5ec6cc07fc13ae3132000623', 'fieldName': 'Oxycodone Hydrochloride', 'value': 10 }, { '_id': '5ec6cc07fc13ae3132000624', 'fieldName': 'Lovastatin', 'value': 0 }], 'createdAt': '2020-04-20T09:54:27Z', 'updatedAt': '2020-02-07T15:22:32Z' },
+{ '_id': '5ec6cc07fc13ae3132000625', 'orderId': '5ec6cc07fc13ae3132000626', 'bacteriologistId': '5ec6cc07fc13ae3132000627', 'results': [{ '_id': '5ec6cc07fc13ae3132000628', 'fieldName': 'Dye Free Ibuprofen', 'value': 4 }, { '_id': '5ec6cc07fc13ae3132000629', 'fieldName': 'PREMIER VALUE HEMORRHOIDAL', 'value': 3 }], 'createdAt': '2020-04-19T22:46:44Z', 'updatedAt': '2020-04-10T05:23:57Z' },
+{ '_id': '5ec6cc07fc13ae313200062a', 'orderId': '5ec6cc07fc13ae313200062b', 'bacteriologistId': '5ec6cc07fc13ae313200062c', 'results': [{ '_id': '5ec6cc07fc13ae313200062d', 'fieldName': 'EAR INFLAM HP', 'value': 10 }, { '_id': '5ec6cc07fc13ae313200062e', 'fieldName': 'VENLAFAXINE', 'value': 8 }, { '_id': '5ec6cc07fc13ae313200062f', 'fieldName': 'Blistex', 'value': 2 }, { '_id': '5ec6cc07fc13ae3132000630', 'fieldName': 'Sumatriptan', 'value': 7 }, { '_id': '5ec6cc07fc13ae3132000631', 'fieldName': 'PediaCare Infants Fever Reducer Cherry', 'value': 10 }], 'createdAt': '2020-04-26T16:17:03Z', 'updatedAt': '2020-03-30T21:45:42Z' },
+{ '_id': '5ec6cc07fc13ae3132000632', 'orderId': '5ec6cc07fc13ae3132000633', 'bacteriologistId': '5ec6cc07fc13ae3132000634', 'results': [{ '_id': '5ec6cc07fc13ae3132000635', 'fieldName': 'Holiday Treats Antibacterial Foaming Hand Wash', 'value': 5 }], 'createdAt': '2020-01-09T23:26:19Z', 'updatedAt': '2020-02-14T08:54:02Z' },
+{ '_id': '5ec6cc07fc13ae3132000636', 'orderId': '5ec6cc07fc13ae3132000637', 'bacteriologistId': '5ec6cc07fc13ae3132000638', 'results': [{ '_id': '5ec6cc07fc13ae3132000639', 'fieldName': 'Oxy Daily Defense Facial Cleanser', 'value': 8 }], 'createdAt': '2020-02-16T11:54:28Z', 'updatedAt': '2020-03-06T09:27:11Z' },
+{ '_id': '5ec6cc07fc13ae313200063a', 'orderId': '5ec6cc07fc13ae313200063b', 'bacteriologistId': '5ec6cc07fc13ae313200063c', 'results': [{ '_id': '5ec6cc07fc13ae313200063d', 'fieldName': 'Cold n Cough 4 Kids', 'value': 7 }, { '_id': '5ec6cc07fc13ae313200063e', 'fieldName': 'Cerebellum Thalamus B', 'value': 3 }], 'createdAt': '2020-01-25T16:04:11Z', 'updatedAt': '2020-03-28T00:46:34Z' },
+{ '_id': '5ec6cc07fc13ae313200063f', 'orderId': '5ec6cc07fc13ae3132000640', 'bacteriologistId': '5ec6cc07fc13ae3132000641', 'results': [{ '_id': '5ec6cc07fc13ae3132000642', 'fieldName': 'Vitafol-OB Plus DHA', 'value': 4 }, { '_id': '5ec6cc07fc13ae3132000643', 'fieldName': 'Etodolac', 'value': 8 }, { '_id': '5ec6cc07fc13ae3132000644', 'fieldName': 'Donepezil Hydrochloride', 'value': 10 }], 'createdAt': '2020-03-23T10:09:54Z', 'updatedAt': '2020-02-24T13:35:29Z' },
+{ '_id': '5ec6cc07fc13ae3132000645', 'orderId': '5ec6cc07fc13ae3132000646', 'bacteriologistId': '5ec6cc07fc13ae3132000647', 'results': [{ '_id': '5ec6cc07fc13ae3132000648', 'fieldName': 'Echinacea Essence', 'value': 3 }, { '_id': '5ec6cc07fc13ae3132000649', 'fieldName': 'Carbidopa and Levodopa', 'value': 5 }, { '_id': '5ec6cc07fc13ae313200064a', 'fieldName': 'Cortisone Acetate', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200064b', 'fieldName': 'Simvastatin', 'value': 2 }, { '_id': '5ec6cc07fc13ae313200064c', 'fieldName': 'Absorica', 'value': 7 }], 'createdAt': '2020-05-16T11:48:15Z', 'updatedAt': '2020-03-18T01:35:17Z' },
+{ '_id': '5ec6cc07fc13ae313200064d', 'orderId': '5ec6cc07fc13ae313200064e', 'bacteriologistId': '5ec6cc07fc13ae313200064f', 'results': [{ '_id': '5ec6cc07fc13ae3132000650', 'fieldName': 'PRO-LONGWEAR', 'value': 9 }, { '_id': '5ec6cc07fc13ae3132000651', 'fieldName': 'Ibuprofen', 'value': 5 }, { '_id': '5ec6cc07fc13ae3132000652', 'fieldName': 'flormar REBORN FOUNDATION SUNSCREEN BROAD SPECTRUM SPF 20 SF21 Soft Beige', 'value': 2 }], 'createdAt': '2020-03-22T05:07:39Z', 'updatedAt': '2020-02-19T15:26:47Z' },
+{ '_id': '5ec6cc07fc13ae3132000653', 'orderId': '5ec6cc07fc13ae3132000654', 'bacteriologistId': '5ec6cc07fc13ae3132000655', 'results': [{ '_id': '5ec6cc07fc13ae3132000656', 'fieldName': 'MEDI-FIRST Non-Aspirin', 'value': 3 }], 'createdAt': '2020-04-10T10:48:08Z', 'updatedAt': '2020-01-20T01:37:58Z' },
+{ '_id': '5ec6cc07fc13ae3132000657', 'orderId': '5ec6cc07fc13ae3132000658', 'bacteriologistId': '5ec6cc07fc13ae3132000659', 'results': [{ '_id': '5ec6cc07fc13ae313200065a', 'fieldName': 'Eco Whitening', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200065b', 'fieldName': 'Clario Ultra Blue Antibacterial Foaming Skin Cleanser', 'value': 7 }], 'createdAt': '2020-04-06T01:43:01Z', 'updatedAt': '2020-05-14T21:11:01Z' },
+{ '_id': '5ec6cc07fc13ae313200065c', 'orderId': '5ec6cc07fc13ae313200065d', 'bacteriologistId': '5ec6cc07fc13ae313200065e', 'results': [{ '_id': '5ec6cc07fc13ae313200065f', 'fieldName': 'VANIQA', 'value': 10 }, { '_id': '5ec6cc07fc13ae3132000660', 'fieldName': 'PREZISTA', 'value': 10 }, { '_id': '5ec6cc07fc13ae3132000661', 'fieldName': 'Helminthosporium', 'value': 9 }, { '_id': '5ec6cc07fc13ae3132000662', 'fieldName': 'Amlodipine Besylate', 'value': 8 }, { '_id': '5ec6cc07fc13ae3132000663', 'fieldName': 'TIMENTIN', 'value': 4 }], 'createdAt': '2020-05-03T03:58:51Z', 'updatedAt': '2020-05-16T08:39:19Z' },
+{ '_id': '5ec6cc07fc13ae3132000664', 'orderId': '5ec6cc07fc13ae3132000665', 'bacteriologistId': '5ec6cc07fc13ae3132000666', 'results': [{ '_id': '5ec6cc07fc13ae3132000667', 'fieldName': 'Optiray', 'value': 6 }, { '_id': '5ec6cc07fc13ae3132000668', 'fieldName': 'Daily Moisturizing Antioxidant SPF 50', 'value': 4 }], 'createdAt': '2020-03-03T14:41:19Z', 'updatedAt': '2020-03-14T16:14:41Z' },
+{ '_id': '5ec6cc07fc13ae3132000669', 'orderId': '5ec6cc07fc13ae313200066a', 'bacteriologistId': '5ec6cc07fc13ae313200066b', 'results': [{ '_id': '5ec6cc07fc13ae313200066c', 'fieldName': 'Losortan Potassium', 'value': 7 }], 'createdAt': '2020-05-02T04:49:11Z', 'updatedAt': '2020-01-06T13:37:29Z' },
+{ '_id': '5ec6cc07fc13ae313200066d', 'orderId': '5ec6cc07fc13ae313200066e', 'bacteriologistId': '5ec6cc07fc13ae313200066f', 'results': [{ '_id': '5ec6cc07fc13ae3132000670', 'fieldName': 'meloxicam', 'value': 3 }, { '_id': '5ec6cc07fc13ae3132000671', 'fieldName': 'Rexall Childrens Allergy', 'value': 7 }, { '_id': '5ec6cc07fc13ae3132000672', 'fieldName': 'Levetiracetam', 'value': 3 }, { '_id': '5ec6cc07fc13ae3132000673', 'fieldName': 'care one ibuprofen cold and sinus', 'value': 6 }, { '_id': '5ec6cc07fc13ae3132000674', 'fieldName': 'Hydrochlorothiazide', 'value': 6 }], 'createdAt': '2020-01-28T22:07:17Z', 'updatedAt': '2020-02-24T00:38:04Z' },
+{ '_id': '5ec6cc07fc13ae3132000675', 'orderId': '5ec6cc07fc13ae3132000676', 'bacteriologistId': '5ec6cc07fc13ae3132000677', 'results': [{ '_id': '5ec6cc07fc13ae3132000678', 'fieldName': 'Omnitrope', 'value': 2 }, { '_id': '5ec6cc07fc13ae3132000679', 'fieldName': 'Nifedipine', 'value': 2 }], 'createdAt': '2020-03-02T01:19:51Z', 'updatedAt': '2020-03-19T03:34:50Z' },
+{ '_id': '5ec6cc07fc13ae313200067a', 'orderId': '5ec6cc07fc13ae313200067b', 'bacteriologistId': '5ec6cc07fc13ae313200067c', 'results': [{ '_id': '5ec6cc07fc13ae313200067d', 'fieldName': 'Flomax', 'value': 2 }, { '_id': '5ec6cc07fc13ae313200067e', 'fieldName': 'Sweet Gum', 'value': 0 }], 'createdAt': '2020-05-16T06:06:41Z', 'updatedAt': '2020-01-08T00:04:51Z' },
+{ '_id': '5ec6cc07fc13ae313200067f', 'orderId': '5ec6cc07fc13ae3132000680', 'bacteriologistId': '5ec6cc07fc13ae3132000681', 'results': [{ '_id': '5ec6cc07fc13ae3132000682', 'fieldName': 'CALCIUM ACETATE', 'value': 0 }], 'createdAt': '2020-01-29T23:56:26Z', 'updatedAt': '2020-03-10T09:13:10Z' },
+{ '_id': '5ec6cc07fc13ae3132000683', 'orderId': '5ec6cc07fc13ae3132000684', 'bacteriologistId': '5ec6cc07fc13ae3132000685', 'results': [{ '_id': '5ec6cc07fc13ae3132000686', 'fieldName': 'Dilotab II', 'value': 4 }, { '_id': '5ec6cc07fc13ae3132000687', 'fieldName': 'Gabapentin', 'value': 4 }, { '_id': '5ec6cc07fc13ae3132000688', 'fieldName': 'GUNA-IL 4', 'value': 1 }, { '_id': '5ec6cc07fc13ae3132000689', 'fieldName': 'Axe', 'value': 4 }], 'createdAt': '2020-03-27T13:47:41Z', 'updatedAt': '2020-04-06T17:54:37Z' },
+{ '_id': '5ec6cc07fc13ae313200068a', 'orderId': '5ec6cc07fc13ae313200068b', 'bacteriologistId': '5ec6cc07fc13ae313200068c', 'results': [{ '_id': '5ec6cc07fc13ae313200068d', 'fieldName': 'Fosinopril Sodium', 'value': 8 }, { '_id': '5ec6cc07fc13ae313200068e', 'fieldName': 'Stool Softener', 'value': 1 }, { '_id': '5ec6cc07fc13ae313200068f', 'fieldName': 'Thyroid', 'value': 2 }, { '_id': '5ec6cc07fc13ae3132000690', 'fieldName': 'FoamFresh Antibacterial Hand Wash', 'value': 7 }, { '_id': '5ec6cc07fc13ae3132000691', 'fieldName': 'Oxycodone Hydrochloride', 'value': 8 }], 'createdAt': '2020-01-30T08:49:35Z', 'updatedAt': '2020-05-01T19:28:18Z' },
+{ '_id': '5ec6cc07fc13ae3132000692', 'orderId': '5ec6cc07fc13ae3132000693', 'bacteriologistId': '5ec6cc07fc13ae3132000694', 'results': [{ '_id': '5ec6cc07fc13ae3132000695', 'fieldName': 'Berberis Quartz', 'value': 3 }], 'createdAt': '2020-04-14T03:43:08Z', 'updatedAt': '2020-03-16T08:55:49Z' },
+{ '_id': '5ec6cc07fc13ae3132000696', 'orderId': '5ec6cc07fc13ae3132000697', 'bacteriologistId': '5ec6cc07fc13ae3132000698', 'results': [{ '_id': '5ec6cc07fc13ae3132000699', 'fieldName': 'Jun Wai Lung Medicine', 'value': 5 }, { '_id': '5ec6cc07fc13ae313200069a', 'fieldName': 'Rilutek', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200069b', 'fieldName': 'Oxybutynin Chloride', 'value': 4 }], 'createdAt': '2020-04-09T07:40:00Z', 'updatedAt': '2020-03-23T14:38:28Z' },
+{ '_id': '5ec6cc07fc13ae313200069c', 'orderId': '5ec6cc07fc13ae313200069d', 'bacteriologistId': '5ec6cc07fc13ae313200069e', 'results': [{ '_id': '5ec6cc07fc13ae313200069f', 'fieldName': 'Natural Sunscreen Broad Spectrum SPF 30', 'value': 8 }, { '_id': '5ec6cc07fc13ae31320006a0', 'fieldName': 'Berberis Prunus', 'value': 4 }], 'createdAt': '2020-01-14T02:17:48Z', 'updatedAt': '2020-04-23T01:38:20Z' },
+{ '_id': '5ec6cc07fc13ae31320006a1', 'orderId': '5ec6cc07fc13ae31320006a2', 'bacteriologistId': '5ec6cc07fc13ae31320006a3', 'results': [{ '_id': '5ec6cc07fc13ae31320006a4', 'fieldName': 'White Pine', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320006a5', 'fieldName': 'Amlodipine besylate and Atorvastatin calcium', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320006a6', 'fieldName': 'Lisinopril and hydrochlorothiazide', 'value': 0 }], 'createdAt': '2020-05-09T12:57:49Z', 'updatedAt': '2020-03-14T13:37:17Z' },
+{ '_id': '5ec6cc07fc13ae31320006a7', 'orderId': '5ec6cc07fc13ae31320006a8', 'bacteriologistId': '5ec6cc07fc13ae31320006a9', 'results': [{ '_id': '5ec6cc07fc13ae31320006aa', 'fieldName': 'Sandostatin', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320006ab', 'fieldName': 'Cheratussin AC', 'value': 1 }], 'createdAt': '2020-02-03T21:54:35Z', 'updatedAt': '2020-01-19T01:22:50Z' },
+{ '_id': '5ec6cc07fc13ae31320006ac', 'orderId': '5ec6cc07fc13ae31320006ad', 'bacteriologistId': '5ec6cc07fc13ae31320006ae', 'results': [{ '_id': '5ec6cc07fc13ae31320006af', 'fieldName': 'Phentermine Hydrochloride', 'value': 2 }, { '_id': '5ec6cc07fc13ae31320006b0', 'fieldName': 'SENEXON-S', 'value': 5 }], 'createdAt': '2020-03-25T00:57:07Z', 'updatedAt': '2020-01-26T09:15:30Z' },
+{ '_id': '5ec6cc07fc13ae31320006b1', 'orderId': '5ec6cc07fc13ae31320006b2', 'bacteriologistId': '5ec6cc07fc13ae31320006b3', 'results': [{ '_id': '5ec6cc07fc13ae31320006b4', 'fieldName': 'Sulfacetamide Sodium and Prednisolone Sodium Phosphate', 'value': 1 }, { '_id': '5ec6cc07fc13ae31320006b5', 'fieldName': 'Sally Hansen Cracked Heel Repair Creme', 'value': 1 }, { '_id': '5ec6cc07fc13ae31320006b6', 'fieldName': 'Hydromorphone HCl', 'value': 10 }, { '_id': '5ec6cc07fc13ae31320006b7', 'fieldName': 'Care One arthritis pain relief', 'value': 7 }, { '_id': '5ec6cc07fc13ae31320006b8', 'fieldName': 'Lamotrigine', 'value': 10 }], 'createdAt': '2020-03-17T15:46:52Z', 'updatedAt': '2020-04-29T22:32:29Z' },
+{ '_id': '5ec6cc07fc13ae31320006b9', 'orderId': '5ec6cc07fc13ae31320006ba', 'bacteriologistId': '5ec6cc07fc13ae31320006bb', 'results': [{ '_id': '5ec6cc07fc13ae31320006bc', 'fieldName': 'Metoclopramide', 'value': 2 }], 'createdAt': '2020-02-16T16:57:50Z', 'updatedAt': '2020-02-10T18:17:52Z' },
+{ '_id': '5ec6cc07fc13ae31320006bd', 'orderId': '5ec6cc07fc13ae31320006be', 'bacteriologistId': '5ec6cc07fc13ae31320006bf', 'results': [{ '_id': '5ec6cc07fc13ae31320006c0', 'fieldName': 'GUNA-HEMORRHOIDS', 'value': 9 }, { '_id': '5ec6cc07fc13ae31320006c1', 'fieldName': 'Tums', 'value': 8 }, { '_id': '5ec6cc07fc13ae31320006c2', 'fieldName': 'Neutrogena T/Gel Therapeutic', 'value': 1 }, { '_id': '5ec6cc07fc13ae31320006c3', 'fieldName': 'Nettle', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320006c4', 'fieldName': 'oil', 'value': 0 }], 'createdAt': '2020-02-16T02:02:26Z', 'updatedAt': '2020-02-29T22:48:54Z' },
+{ '_id': '5ec6cc07fc13ae31320006c5', 'orderId': '5ec6cc07fc13ae31320006c6', 'bacteriologistId': '5ec6cc07fc13ae31320006c7', 'results': [{ '_id': '5ec6cc07fc13ae31320006c8', 'fieldName': 'TYSABRI', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320006c9', 'fieldName': 'Cefepime', 'value': 1 }, { '_id': '5ec6cc07fc13ae31320006ca', 'fieldName': 'Zodryl DEC 30', 'value': 1 }, { '_id': '5ec6cc07fc13ae31320006cb', 'fieldName': 'Humco Strong Iodine Tincture', 'value': 6 }], 'createdAt': '2020-02-03T01:49:19Z', 'updatedAt': '2020-03-06T13:36:31Z' },
+{ '_id': '5ec6cc07fc13ae31320006cc', 'orderId': '5ec6cc07fc13ae31320006cd', 'bacteriologistId': '5ec6cc07fc13ae31320006ce', 'results': [{ '_id': '5ec6cc07fc13ae31320006cf', 'fieldName': 'DNA', 'value': 3 }, { '_id': '5ec6cc07fc13ae31320006d0', 'fieldName': 'soCALM Pain Relieving', 'value': 10 }], 'createdAt': '2020-02-12T22:00:54Z', 'updatedAt': '2020-05-10T16:26:40Z' },
+{ '_id': '5ec6cc07fc13ae31320006d1', 'orderId': '5ec6cc07fc13ae31320006d2', 'bacteriologistId': '5ec6cc07fc13ae31320006d3', 'results': [{ '_id': '5ec6cc07fc13ae31320006d4', 'fieldName': 'Good Sense Naproxen Sodium', 'value': 7 }, { '_id': '5ec6cc07fc13ae31320006d5', 'fieldName': 'Desferal', 'value': 7 }], 'createdAt': '2020-05-18T12:34:17Z', 'updatedAt': '2020-04-01T05:35:23Z' },
+{ '_id': '5ec6cc07fc13ae31320006d6', 'orderId': '5ec6cc07fc13ae31320006d7', 'bacteriologistId': '5ec6cc07fc13ae31320006d8', 'results': [{ '_id': '5ec6cc07fc13ae31320006d9', 'fieldName': 'Chlorzoxazone', 'value': 9 }], 'createdAt': '2020-01-06T12:49:44Z', 'updatedAt': '2020-03-23T09:19:59Z' },
+{ '_id': '5ec6cc07fc13ae31320006da', 'orderId': '5ec6cc07fc13ae31320006db', 'bacteriologistId': '5ec6cc07fc13ae31320006dc', 'results': [{ '_id': '5ec6cc07fc13ae31320006dd', 'fieldName': 'fiber laxative', 'value': 6 }, { '_id': '5ec6cc07fc13ae31320006de', 'fieldName': 'Nuvel Hand Sanitizer', 'value': 4 }, { '_id': '5ec6cc07fc13ae31320006df', 'fieldName': 'Standardized Mite D. farinae', 'value': 9 }], 'createdAt': '2020-02-07T12:36:50Z', 'updatedAt': '2020-03-03T13:01:59Z' },
+{ '_id': '5ec6cc07fc13ae31320006e0', 'orderId': '5ec6cc07fc13ae31320006e1', 'bacteriologistId': '5ec6cc07fc13ae31320006e2', 'results': [{ '_id': '5ec6cc07fc13ae31320006e3', 'fieldName': 'Renal Caps', 'value': 6 }], 'createdAt': '2020-03-10T09:46:05Z', 'updatedAt': '2020-01-12T15:13:00Z' },
+{ '_id': '5ec6cc07fc13ae31320006e4', 'orderId': '5ec6cc07fc13ae31320006e5', 'bacteriologistId': '5ec6cc07fc13ae31320006e6', 'results': [{ '_id': '5ec6cc07fc13ae31320006e7', 'fieldName': 'Lorazepam', 'value': 10 }, { '_id': '5ec6cc07fc13ae31320006e8', 'fieldName': 'equaline nicotine', 'value': 5 }, { '_id': '5ec6cc07fc13ae31320006e9', 'fieldName': 'Quack Grass', 'value': 9 }, { '_id': '5ec6cc07fc13ae31320006ea', 'fieldName': 'Stool Softener', 'value': 8 }], 'createdAt': '2020-03-19T13:59:19Z', 'updatedAt': '2020-01-04T10:47:21Z' },
+{ '_id': '5ec6cc07fc13ae31320006eb', 'orderId': '5ec6cc07fc13ae31320006ec', 'bacteriologistId': '5ec6cc07fc13ae31320006ed', 'results': [{ '_id': '5ec6cc07fc13ae31320006ee', 'fieldName': 'BAUME PRODIGIEUX LEVRES 04 RED CHARISMATIC', 'value': 10 }], 'createdAt': '2020-04-20T03:03:51Z', 'updatedAt': '2020-04-15T04:45:21Z' },
+{ '_id': '5ec6cc07fc13ae31320006ef', 'orderId': '5ec6cc07fc13ae31320006f0', 'bacteriologistId': '5ec6cc07fc13ae31320006f1', 'results': [{ '_id': '5ec6cc07fc13ae31320006f2', 'fieldName': 'Kadian', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320006f3', 'fieldName': 'TEPADINA', 'value': 6 }], 'createdAt': '2020-02-21T13:12:24Z', 'updatedAt': '2020-01-06T11:45:55Z' },
+{ '_id': '5ec6cc07fc13ae31320006f4', 'orderId': '5ec6cc07fc13ae31320006f5', 'bacteriologistId': '5ec6cc07fc13ae31320006f6', 'results': [{ '_id': '5ec6cc07fc13ae31320006f7', 'fieldName': 'SOFT AND PRECIOUS NURSERY', 'value': 4 }, { '_id': '5ec6cc07fc13ae31320006f8', 'fieldName': 'Oxygen', 'value': 2 }, { '_id': '5ec6cc07fc13ae31320006f9', 'fieldName': 'Fluconazole', 'value': 0 }, { '_id': '5ec6cc07fc13ae31320006fa', 'fieldName': 'tussin dm', 'value': 10 }, { '_id': '5ec6cc07fc13ae31320006fb', 'fieldName': 'mark.', 'value': 1 }], 'createdAt': '2020-02-20T23:03:12Z', 'updatedAt': '2020-03-01T19:45:19Z' },
+{ '_id': '5ec6cc07fc13ae31320006fc', 'orderId': '5ec6cc07fc13ae31320006fd', 'bacteriologistId': '5ec6cc07fc13ae31320006fe', 'results': [{ '_id': '5ec6cc07fc13ae31320006ff', 'fieldName': 'Hydrogen Peroxide', 'value': 6 }], 'createdAt': '2020-02-25T03:53:09Z', 'updatedAt': '2020-05-13T20:26:49Z' },
+{ '_id': '5ec6cc07fc13ae3132000700', 'orderId': '5ec6cc07fc13ae3132000701', 'bacteriologistId': '5ec6cc07fc13ae3132000702', 'results': [{ '_id': '5ec6cc07fc13ae3132000703', 'fieldName': 'TIAGABINE HYDROCHLORIDE', 'value': 7 }, { '_id': '5ec6cc07fc13ae3132000704', 'fieldName': 'OAT', 'value': 2 }, { '_id': '5ec6cc07fc13ae3132000705', 'fieldName': 'LEVETIRACETAM', 'value': 10 }, { '_id': '5ec6cc07fc13ae3132000706', 'fieldName': 'Sorine', 'value': 7 }, { '_id': '5ec6cc07fc13ae3132000707', 'fieldName': 'California Live Oak', 'value': 7 }], 'createdAt': '2020-05-20T08:49:38Z', 'updatedAt': '2020-02-03T04:37:44Z' },
+{ '_id': '5ec6cc07fc13ae3132000708', 'orderId': '5ec6cc07fc13ae3132000709', 'bacteriologistId': '5ec6cc07fc13ae313200070a', 'results': [{ '_id': '5ec6cc07fc13ae313200070b', 'fieldName': 'Sertraline Hydrochloride', 'value': 9 }, { '_id': '5ec6cc07fc13ae313200070c', 'fieldName': 'Radish', 'value': 4 }, { '_id': '5ec6cc07fc13ae313200070d', 'fieldName': 'Addiclenz', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200070e', 'fieldName': 'NeuroMed 7 Topical Pain Relief', 'value': 1 }, { '_id': '5ec6cc07fc13ae313200070f', 'fieldName': 'Oxybutynin Chloride', 'value': 8 }], 'createdAt': '2020-02-02T15:32:25Z', 'updatedAt': '2020-04-24T14:59:27Z' },
+{ '_id': '5ec6cc07fc13ae3132000710', 'orderId': '5ec6cc07fc13ae3132000711', 'bacteriologistId': '5ec6cc07fc13ae3132000712', 'results': [{ '_id': '5ec6cc07fc13ae3132000713', 'fieldName': 'Citalopram', 'value': 1 }, { '_id': '5ec6cc07fc13ae3132000714', 'fieldName': 'Isoniazid', 'value': 1 }, { '_id': '5ec6cc07fc13ae3132000715', 'fieldName': 'ASACOL', 'value': 9 }, { '_id': '5ec6cc07fc13ae3132000716', 'fieldName': 'Pramipexole Dihydrochloride', 'value': 3 }], 'createdAt': '2020-02-15T20:59:24Z', 'updatedAt': '2020-04-13T06:58:43Z' },
+{ '_id': '5ec6cc07fc13ae3132000717', 'orderId': '5ec6cc07fc13ae3132000718', 'bacteriologistId': '5ec6cc07fc13ae3132000719', 'results': [{ '_id': '5ec6cc07fc13ae313200071a', 'fieldName': 'DICYCLOMINE', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200071b', 'fieldName': 'HAND AND NATURE SANITIZER', 'value': 3 }, { '_id': '5ec6cc07fc13ae313200071c', 'fieldName': 'Amitriptyline Hydrochloride', 'value': 2 }, { '_id': '5ec6cc07fc13ae313200071d', 'fieldName': 'PREDNISONE', 'value': 10 }, { '_id': '5ec6cc07fc13ae313200071e', 'fieldName': 'Escitalopram', 'value': 10 }], 'createdAt': '2020-03-19T07:17:54Z', 'updatedAt': '2020-04-10T02:41:02Z' },
+{ '_id': '5ec6cc07fc13ae313200071f', 'orderId': '5ec6cc07fc13ae3132000720', 'bacteriologistId': '5ec6cc07fc13ae3132000721', 'results': [{ '_id': '5ec6cc07fc13ae3132000722', 'fieldName': 'DAMOAE THERAPY TONIC', 'value': 8 }, { '_id': '5ec6cc07fc13ae3132000723', 'fieldName': 'NATURES GUM BALM', 'value': 6 }, { '_id': '5ec6cc07fc13ae3132000724', 'fieldName': 'Temazepam', 'value': 10 }, { '_id': '5ec6cc07fc13ae3132000725', 'fieldName': 'Sertraline Hydrochloride', 'value': 2 }], 'createdAt': '2020-02-12T06:52:43Z', 'updatedAt': '2020-03-12T20:08:55Z' }];
 
-module.exports = resultMocks;
+module.exports = {
+  resultMocks,
+};
