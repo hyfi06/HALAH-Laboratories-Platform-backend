@@ -27,9 +27,21 @@ class usersService {
     return user || {};
   }
 
-  async getUsers({ role }) {
-    const query = role && { role: { $in: role } };
-    const users = await this.mongoDB.getAll(this.collection, query);
+  async getUsers(args) {
+    const query = Object.keys(args);
+
+    const search = query.map((criteria) => ({
+      [criteria]: args[criteria],
+    }));
+
+    const where =
+      search.length > 0
+        ? {
+            $or: search,
+          }
+        : {};
+
+    const users = await this.mongoDB.getAll(this.collection, where);
     return users || [];
   }
 
