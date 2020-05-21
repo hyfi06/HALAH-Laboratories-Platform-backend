@@ -8,12 +8,18 @@ const boom = require('@hapi/boom');
  */
 function validationIdHandler(attribute = 'id', check = 'params', required = true) {
   return function (req, res, next) {
+
     const regExpId = /[0-9a-fA-F]{24}/;
 
     const id = req[check][attribute];
 
-    if (required && !id) {
-      next(boom.badRequest(`${attribute} is required`));
+    if (!id) {
+      if (required) {
+        next(boom.badRequest(`${attribute} is required`));
+      } else {
+        next();
+        return;
+      }
     }
 
     if (regExpId.test(id)) {

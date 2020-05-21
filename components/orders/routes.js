@@ -1,7 +1,11 @@
 const express = require('express');
 const passport = require('passport');
 require('../../utils/auth/strategies/jwt');
+
+const boom = require('@hapi/boom');
 const validationIdHandler = require('../../utils/middleware/validationIdHandler');
+
+
 const OrdersService = require('./ordersService');
 const ExamsService = require('../exams/examsService');
 const UsersService = require('../users/usersService');
@@ -102,14 +106,52 @@ function ordersApi(app) {
   router.get(
     '/',
     passport.authenticate('jwt', { session: false }),
-    validationIdHandler('patient', 'query'),
+    validationIdHandler('patient', 'query', false),
     async function (req, res, next) {
-      const { patient } = req.query;
+      const { patient, username } = req.query;
+      if (!patient && !username) {
+        next(boom.badRequest('patient or username query is required'));
+        return;
+      }
 
       try {
-        const userOrders = await ordersService.getOrders({ patient });
+        const userId = username ? await (async () => {
+          const user = await usersService.getUser({ username });
+          if (!user) throw boom.notFound('user orders not found');
+          return user._id;
+        })() : null;
+  
+        const query = userId ? userId : patient;
+  
+        const userOrders = await ordersService.getOrders({ patient: query });
+
+        const response = await (async () => {
+          const orders = await userOrders.map(async order => {
+            const exam = await examsService.getExam(order.examTypeId);
+
+            const result = order.isComplete ? await resultService.getResults(order.resultId) : {};
+
+            return ({
+              _id: order._id,
+              name: exam.name,
+              shortName: exam.shortName,
+              isComplete: order.isComplete,
+              appointmentDate: add(
+                new Date(order.createdAt),
+                { days: exam.scheduledDays }
+              ).toISOString(),
+              createdAt: order.createdAt,
+              ...order.isComplete ? {
+                resultDate: result.createdAt,
+                resultId: order.resultId,
+              } : {},
+            });
+          });
+
+          return Promise.all(orders).then(res => res);
+        })();
         res.status(200).json({
-          data: userOrders,
+          data: response,
           message: 'user orders retrieved',
         });
       } catch (error) {

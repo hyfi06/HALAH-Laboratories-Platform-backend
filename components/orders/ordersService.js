@@ -54,7 +54,11 @@ class OrdersService {
   async getOrders({ patient }) {
     const query = patient ? { patientId: ObjectId(patient) } : {};
 
-    const orders = this.mongoDB.getAll(this.collection, query);
+    const orders = await this.mongoDB.getAll(this.collection, query);
+
+    if (orders.length == 0) {
+      throw boom.notFound('Orders not found');
+    }
 
     return orders;
   }
