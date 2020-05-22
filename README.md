@@ -1,5 +1,7 @@
 # Backed HALAH Laboratory Platform
 
+[![Build Status](https://travis-ci.com/hyfi06/platzi-master-end-game-backend.svg?branch=master)](https://travis-ci.com/hyfi06/platzi-master-end-game-backend)
+
 Backend for HALAH Laboratory Platform
 
 ## API url
