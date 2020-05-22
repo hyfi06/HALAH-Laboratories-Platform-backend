@@ -13,6 +13,8 @@ const config = {
   authJwtSecret: process.env.AUTH_JWT_SECRET,
   publicApiKeyToken: process.env.PUBLIC_API_KEY_TOKEN,
   adminApiKeyToken: process.env.ADMIN_API_KEY_TOKEN,
+  sendgridApiKey: process.env.MAIL_KEY,
+  businessMail: process.env.BUSINESS_MAIL,
   dbCollections: {
     users: 'usersCSV',
     orders: 'orders',

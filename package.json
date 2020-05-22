@@ -1,6 +1,6 @@
 {
   "name": "HALAHLaboratoryPlatform",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/hyfi06/platzi-master-end-game-backend#readme",
   "dependencies": {
     "@hapi/boom": "^9.1.0",
+    "@sendgrid/mail": "^7.1.1",
     "@sentry/node": "^5.15.5",
     "bcrypt": "^4.0.1",
     "cors": "^2.8.5",
