@@ -1,10 +1,20 @@
 # Backed HALAH Laboratory Platform
 
+[![Build Status](https://travis-ci.com/hyfi06/platzi-master-end-game-backend.svg?branch=master)](https://travis-ci.com/hyfi06/platzi-master-end-game-backend)
+
 Backend for HALAH Laboratory Platform
 
 ## API url
 
 Allowed routes:
+
+### `api/auth`
+
+This route handles authentication. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/auth).
+
+### `api/users`
+
+This route handles users. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/users).
 
 ### `api/exams`
 
@@ -14,6 +24,9 @@ This route handles enables medical exams. [See more](https://github.com/hyfi06/p
 
 This route handles patients orders. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/orders).
 
+### `api/results`
+
+This route handles results of test. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/results).
 
 ## Installation
 
