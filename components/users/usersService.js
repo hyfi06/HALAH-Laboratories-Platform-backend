@@ -1,10 +1,14 @@
 const MongoLib = require('../../lib/mongo');
+
 const bcrypt = require('bcrypt');
 const PasswordGenerator = require('../../lib/password');
 const UsernameGenerator = require('../../lib/username');
+const MailService = require('../../lib/mail');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 const boom = require('@hapi/boom');
+
+const emailTemplate = require('../../utils/templates/emailTemplate');
 
 class usersService {
   constructor() {
@@ -12,6 +16,7 @@ class usersService {
     this.mongoDB = new MongoLib();
     this.generatePassword = new PasswordGenerator();
     this.UsernameGenerator = new UsernameGenerator();
+    this.mailService = new MailService();
   }
 
   async getUser({ username }) {
@@ -45,7 +50,7 @@ class usersService {
     return users || [];
   }
 
-  async createUser({ user }) {
+  async createUser({ user }, sendmail = true) {
     let intentsGenerateUsername = 100;
     const { firstName, lastName, documentID } = user;
     let username = this.UsernameGenerator.build(
@@ -76,6 +81,20 @@ class usersService {
       throw boom.badRequest('Password not secure');
 
     const hashedPassword = await bcrypt.hash(passwordSecure, 10);
+
+    if (sendmail) {
+      const error = await this.mailService.sendMail({
+        to: user.email,
+        subject: 'Welcome Halah Laboratories',
+        html: emailTemplate({ name: firstName, username, passwordSecure }),
+      });
+      if (error) {
+        throw boom.badImplementation(
+          'Email cannot send, please check your email registration'
+        );
+      }
+    }
+
     const createUserId = await this.mongoDB.create(
       this.collection,
       new UserModel({ ...user, password: hashedPassword, username: username })
