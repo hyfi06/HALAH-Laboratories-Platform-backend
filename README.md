@@ -6,6 +6,14 @@ Backend for HALAH Laboratory Platform
 
 Allowed routes:
 
+### `api/auth`
+
+This route handles authentication. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/auth).
+
+### `api/users`
+
+This route handles users. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/users).
+
 ### `api/exams`
 
 This route handles enables medical exams. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/exams).
@@ -14,6 +22,9 @@ This route handles enables medical exams. [See more](https://github.com/hyfi06/p
 
 This route handles patients orders. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/orders).
 
+### `api/results`
+
+This route handles results of test. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/results).
 
 ## Installation
 
