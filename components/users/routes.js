@@ -55,6 +55,7 @@ function usersApi(app) {
           'imageURL',
           'firstName',
           'lastName',
+          'isActive',
         ];
         const data = users.map((user) =>
           Object.keys(user)
@@ -97,7 +98,7 @@ function usersApi(app) {
     }
   );
 
-  router.put(
+  router.patch(
     '/:userId',
     passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {
