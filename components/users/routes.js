@@ -5,6 +5,8 @@ const UserModel = require('../../utils/schema/usersSchema');
 const multer = require('multer');
 const csv = require('csvtojson');
 
+const { config } = require('../../config');
+
 const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -30,8 +32,17 @@ function usersApi(app) {
       try {
         const user = await usersService.getUserId({ userId });
 
+        const fields = ['password'];
+
+        const data = Object.keys(user)
+          .filter((key) => !fields.includes(key))
+          .reduce((newUser, key) => {
+            newUser[key] = user[key];
+            return newUser;
+          }, {});
+
         res.status(200).json({
-          data: user,
+          data: data,
           message: 'user retrieved',
         });
       } catch (err) {
