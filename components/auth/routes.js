@@ -49,6 +49,8 @@ function authApi(app) {
             typeOfUser,
           } = user;
 
+          const defaultPath = config.defaultPath[user.typeOfUser] || '/';
+
           const payload = {
             sub: id,
             username,
@@ -69,6 +71,7 @@ function authApi(app) {
               imageURL,
               firstName,
               lastName,
+              defaultPath,
             },
           });
         });
