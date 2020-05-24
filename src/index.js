@@ -16,6 +16,7 @@ const usersApi = require('../components/users/routes');
 const ordersApi = require('../components/orders/routes');
 const examsApi = require('../components/exams/routes');
 const resultsApi = require('../components/results/routes');
+const pdfApi = require('../components/pdfs/routes');
 
 app.use(helmet());
 app.use(cors());
@@ -27,6 +28,7 @@ usersApi(app);
 ordersApi(app);
 examsApi(app);
 resultsApi(app);
+pdfApi(app);
 
 // Catch 404
 app.use(notFoundHandler);
