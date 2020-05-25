@@ -28,6 +28,7 @@ const config = {
     Bacteriologist: '/patients',
     Patient: '/test',
   },
+  loginUrl: process.env.LOGIN_URL,
 };
 
 module.exports = { config };

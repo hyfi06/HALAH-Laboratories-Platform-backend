@@ -1,3 +1,5 @@
+const { config } = require('../../config');
+
 const emailTemplate = (data) => {
   const { name, username, passwordSecure } = data;
   return `
@@ -93,7 +95,7 @@ const emailTemplate = (data) => {
               color: #f1f7fe;
               text-decoration: none;
             "
-            href=""
+            href=${config.loginUrl}
             >Go to Login</a
           >
         </td>
