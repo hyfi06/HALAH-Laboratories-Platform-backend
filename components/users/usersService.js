@@ -35,9 +35,15 @@ class usersService {
   async getUsers(args) {
     const query = Object.keys(args);
 
-    const search = query.map((criteria) => ({
-      [criteria]: args[criteria],
-    }));
+    const regExpId = /^[0-9]+$/;
+
+    const search = query.map((criteria) => {
+      if (regExpId.test(args[criteria])) {
+        return { [criteria]: parseInt(args[criteria]) };
+      } else {
+        return { [criteria]: args[criteria] };
+      }
+    });
 
     const where =
       search.length > 0
