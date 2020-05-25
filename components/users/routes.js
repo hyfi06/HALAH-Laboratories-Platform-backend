@@ -89,10 +89,15 @@ function usersApi(app) {
     async function (req, res, next) {
       const { body: user } = req;
       try {
-        const createUserId = await usersService.createUser({ user });
+        const { createUserId: id, username } = await usersService.createUser({
+          user,
+        });
+
         res.status(201).json({
-          data: createUserId,
-          message: 'user created',
+          data: {
+            _id: id,
+          },
+          message: `User ${username} created`,
         });
       } catch (error) {
         next(error);
