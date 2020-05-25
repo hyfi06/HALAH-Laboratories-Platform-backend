@@ -7,7 +7,6 @@ const emailTemplate = (data) => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HALAH Form</title>
-  </head>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Muli:wght@700&family=Source+Sans+Pro:wght@400;700&display=swap');
     body {
@@ -47,6 +46,8 @@ const emailTemplate = (data) => {
       text-decoration: none;
     }
   </style>
+  </head>
+
   <body>
     <main>
       <img
