@@ -1,74 +1,108 @@
 const emailTemplate = (data) => {
   const { name, username, passwordSecure } = data;
   return `
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HALAH Form</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Muli:wght@700&family=Source+Sans+Pro:wght@400;700&display=swap');
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    main {
-      width: 100%;
-      height: 530px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #00224e;
-    }
-    h1 {
-      font-family: 'Muli';
-      color: #f1f7fe;
-      margin: 0 1em;
-    }
-    p {
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 20px;
-      color: #f1f7fe;
-    }
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    span {
-      color: #02c39a;
-      font-size: 22px;
-    }
-    a {
-      font-family: 'Muli';
-      color: #ff453e;
-      text-decoration: none;
-    }
-  </style>
   </head>
-
-  <body>
-    <main>
-      <img
-        src="https://i.imgur.com/JR05wxd.png"
-        alt="Logo of HALAH Laboratories"
-      />
-      <h1>Welcome ${name}</h1>
-      <p>
-        HALAH Laboratories <br />
-        Thanks you for your preference
-      </p>
-      <div>
-        <p>This are your access data</p>
-        <p>Username: <span>${username}</span></p>
-        <p>Password: <span>${passwordSecure}</span></p>
-      </div>
-
-      <a href="">Go to login</a>
-    </main>
+  <body style="margin: 0; padding: 0;">
+    <table
+      style="
+        width: 340px;
+        height: 530px;
+        margin: 0 auto;
+        background-color: #00224e;
+      "
+    >
+      <tr>
+        <td style="text-align: center;">
+          <img
+            width="180px"
+            height="180px"
+            src="https://i.imgur.com/JR05wxd.png"
+            alt="Logo of HALAH Laboratories"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">
+          <h1 style="font-family: Geneva; color: #f1f7fe;">
+            Welcome ${name}
+          </h1>
+          <p
+            style="
+              font-family: 'Source Sans Pro', sans-serif;
+              font-size: 18px;
+              color: #f1f7fe;
+              text-align: justify;
+              margin-left: 20px;
+            "
+          >
+            HALAH Laboratories <br />
+            thanks you for your preference
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">
+          <p
+            style="
+              font-family: 'Source Sans Pro', sans-serif;
+              font-size: 20px;
+              color: #f1f7fe;
+            "
+          >
+            This are your access data
+          </p>
+          <p
+            style="
+              font-family: 'Source Sans Pro', sans-serif;
+              font-size: 20px;
+              color: #dbdbdbbb;
+              text-align: justify;
+              margin-left: 20px;
+            "
+          >
+            Username:
+            <span style="font-size: 24px; color: #f1f7fe;">${username}</span>
+          </p>
+          <p
+            style="
+              font-family: 'Source Sans Pro', sans-serif;
+              font-size: 20px;
+              color: #dbdbdbbb;
+              text-align: justify;
+              margin-left: 20px;
+            "
+          >
+            Password:
+            <span style="font-size: 24px; color: #f1f7fe;">${passwordSecure}</span>
+          </p>
+        </td>
+      </tr>
+      <tr style="margin-bottom: 15px;">
+        <td style="text-align: center;">
+          <a
+            style="
+              font-family: Helvetica;
+              font-size: 24px;
+              text-shadow: 1px 3px #525252;
+              color: #f1f7fe;
+              text-decoration: none;
+            "
+            href=""
+            >Go to Login</a
+          >
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
+
+
 `;
 };
 
