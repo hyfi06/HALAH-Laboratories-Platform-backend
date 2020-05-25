@@ -60,7 +60,7 @@ function ordersApi(app) {
           const patient = await usersService.getUserId({
             userId: order.patientId,
           });
-          const result = order.isComplete ? await resultService.getResults(order.resultId) : {};
+          const result = order.isComplete ? await resultService.getResult(order.resultId) : {};
           const bacteriologist = order.isComplete ? await usersService.getUserId({ userId: result.bacteriologistId }) : {};
 
           return ({
