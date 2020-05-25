@@ -99,7 +99,8 @@ class usersService {
       this.collection,
       new UserModel({ ...user, password: hashedPassword, username: username })
     );
-    return createUserId, username;
+
+    return { createUserId, username };
   }
 
   async createUsers(users) {
