@@ -34,6 +34,7 @@
   "homepage": "https://github.com/hyfi06/platzi-master-end-game-backend#readme",
   "dependencies": {
     "@hapi/boom": "^9.1.0",
+    "@hyfi06/html2pdf": "^1.1.0",
     "@sendgrid/mail": "^7.1.1",
     "@sentry/node": "^5.15.5",
     "bcrypt": "^4.0.1",
