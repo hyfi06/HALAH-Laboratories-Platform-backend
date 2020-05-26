@@ -19,7 +19,7 @@ function authApi(app) {
     const { apiKeyToken } = req.body;
 
     if (!apiKeyToken) {
-      next(boom.unauthorized('apiKeyToken is required'));
+      throw boom.unauthorized('apiKeyToken is required');
     }
 
     passport.authenticate('basic', function (error, user) {
@@ -49,6 +49,8 @@ function authApi(app) {
             typeOfUser,
           } = user;
 
+          const defaultPath = config.defaultPath[user.typeOfUser] || '/';
+
           const payload = {
             sub: id,
             username,
@@ -56,7 +58,7 @@ function authApi(app) {
           };
 
           const token = jwt.sign(payload, config.authJwtSecret, {
-            expiresIn: '15m',
+            expiresIn: '5d',
           });
 
           return res.status(200).json({
@@ -69,6 +71,7 @@ function authApi(app) {
               imageURL,
               firstName,
               lastName,
+              defaultPath,
             },
           });
         });

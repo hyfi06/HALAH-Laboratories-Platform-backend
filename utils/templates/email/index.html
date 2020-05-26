@@ -1,9 +1,4 @@
-const { config } = require('../../config');
-
-const emailTemplate = (data) => {
-  const { name, username, passwordSecure } = data;
-  return `
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -32,7 +27,7 @@ const emailTemplate = (data) => {
       <tr>
         <td style="text-align: center;">
           <h1 style="font-family: Geneva; color: #f1f7fe;">
-            Welcome ${name}
+            Welcome firstName
           </h1>
           <p
             style="
@@ -69,7 +64,7 @@ const emailTemplate = (data) => {
             "
           >
             Username:
-            <span style="font-size: 24px; color: #f1f7fe;">${username}</span>
+            <span style="font-size: 24px; color: #f1f7fe;">username</span>
           </p>
           <p
             style="
@@ -81,7 +76,7 @@ const emailTemplate = (data) => {
             "
           >
             Password:
-            <span style="font-size: 24px; color: #f1f7fe;">${passwordSecure}</span>
+            <span style="font-size: 24px; color: #f1f7fe;">password</span>
           </p>
         </td>
       </tr>
@@ -95,7 +90,7 @@ const emailTemplate = (data) => {
               color: #f1f7fe;
               text-decoration: none;
             "
-            href=${config.loginUrl}
+            href=""
             >Go to Login</a
           >
         </td>
@@ -103,9 +98,3 @@ const emailTemplate = (data) => {
     </table>
   </body>
 </html>
-
-
-`;
-};
-
-module.exports = emailTemplate;

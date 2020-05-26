@@ -30,6 +30,8 @@ function usersApi(app) {
       try {
         const user = await usersService.getUserId({ userId });
 
+        delete user.password;
+
         res.status(200).json({
           data: user,
           message: 'user retrieved',
@@ -55,6 +57,7 @@ function usersApi(app) {
           'imageURL',
           'firstName',
           'lastName',
+          'isActive',
         ];
         const data = users.map((user) =>
           Object.keys(user)
@@ -86,10 +89,15 @@ function usersApi(app) {
     async function (req, res, next) {
       const { body: user } = req;
       try {
-        const createUserId = await usersService.createUser({ user });
+        const { createUserId: id, username } = await usersService.createUser({
+          user,
+        });
+
         res.status(201).json({
-          data: createUserId,
-          message: 'user created',
+          data: {
+            _id: id,
+          },
+          message: `User ${username} created`,
         });
       } catch (error) {
         next(error);
@@ -97,7 +105,7 @@ function usersApi(app) {
     }
   );
 
-  router.put(
+  router.patch(
     '/:userId',
     passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {

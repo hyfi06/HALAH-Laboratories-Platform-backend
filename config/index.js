@@ -22,6 +22,13 @@ const config = {
     exams: 'exams',
     results: 'results',
   },
+  defaultPath: {
+    Administrator: '/users',
+    Doctor: '/patients',
+    Bacteriologist: '/patients',
+    Patient: '/test',
+  },
+  loginUrl: process.env.LOGIN_URL,
 };
 
 module.exports = { config };
