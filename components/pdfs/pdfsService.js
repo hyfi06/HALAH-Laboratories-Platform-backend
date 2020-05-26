@@ -16,13 +16,24 @@ const resultTestTemplate = require('../../utils/templates/resultsPDF/resultTest'
 const layout = require('../../utils/templates/resultsPDF/layout');
 
 class PDFService {
-  constructor() { }
   /**
-   * 
+   * Get a html string of results
    * @param {Object[]} orderIds 
    * @param {string}
    */
   async resultsHTMLString(orderIds) {
+    try {
+      const regExpId = /[0-9a-fA-F]{24}/;
+      const validation = orderIds
+        .map(id => regExpId.test(id))
+        .reduce((ant, curr) => ant && curr);
+      if (!validation) {
+        throw boom.badRequest();
+      }
+    } catch (error) {
+      throw boom.badRequest("It isn't a array of valid ids");
+    }
+
     const data = await this.getResultsData(orderIds);
     const patientHtml = patientTemplate(data.patient);
     const resultsHTML = data.results
