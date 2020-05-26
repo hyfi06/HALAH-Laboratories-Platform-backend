@@ -48,7 +48,7 @@ class usersService {
     const where =
       search.length > 0
         ? {
-            $or: search,
+            $and: search,
           }
         : {};
 
