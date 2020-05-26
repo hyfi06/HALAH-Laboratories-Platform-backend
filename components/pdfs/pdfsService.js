@@ -16,13 +16,24 @@ const resultTestTemplate = require('../../utils/templates/resultsPDF/resultTest'
 const layout = require('../../utils/templates/resultsPDF/layout');
 
 class PDFService {
-  constructor() { }
   /**
-   * 
+   * Get a html string of results
    * @param {Object[]} orderIds 
    * @param {string}
    */
   async resultsHTMLString(orderIds) {
+    try {
+      const regExpId = /[0-9a-fA-F]{24}/;
+      const validation = orderIds
+        .map(id => regExpId.test(id))
+        .reduce((ant, curr) => ant && curr);
+      if (!validation) {
+        throw boom.badRequest();
+      }
+    } catch (error) {
+      throw boom.badRequest("It isn't a array of valid ids");
+    }
+
     const data = await this.getResultsData(orderIds);
     const patientHtml = patientTemplate(data.patient);
     const resultsHTML = data.results
@@ -78,7 +89,9 @@ class PDFService {
       );
       const result = orderResult.results.map(result => {
         delete result._id;
-        result.value = this._round(result.value);
+        if (!['Positive', 'Negative'].includes(result.value)) {
+          result.value = this._round(result.value);
+        }
         result.reference = orderExam.resultTemplate
           .filter(template => template.fieldName == result.fieldName)[0].reference;
         return result;
@@ -130,7 +143,7 @@ class PDFService {
   }
 
   _findById(arr, id) {
-    return arr.filter(item => toString(item._id) == toString(id))[0];
+    return arr.filter(item => item._id.toString() == id.toString())[0];
   }
 
   async _getUsersByIds(id) {

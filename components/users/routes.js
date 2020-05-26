@@ -58,6 +58,7 @@ function usersApi(app) {
           'firstName',
           'lastName',
           'isActive',
+          'documentID',
         ];
         const data = users.map((user) =>
           Object.keys(user)
