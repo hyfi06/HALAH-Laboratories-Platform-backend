@@ -89,7 +89,9 @@ class PDFService {
       );
       const result = orderResult.results.map(result => {
         delete result._id;
-        result.value = this._round(result.value);
+        if (!['Positive', 'Negative'].includes(result.value)) {
+          result.value = this._round(result.value);
+        }
         result.reference = orderExam.resultTemplate
           .filter(template => template.fieldName == result.fieldName)[0].reference;
         return result;
@@ -141,7 +143,7 @@ class PDFService {
   }
 
   _findById(arr, id) {
-    return arr.filter(item => toString(item._id) == toString(id))[0];
+    return arr.filter(item => item._id.toString() == id.toString())[0];
   }
 
   async _getUsersByIds(id) {
