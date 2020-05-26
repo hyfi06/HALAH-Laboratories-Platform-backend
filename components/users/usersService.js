@@ -104,8 +104,22 @@ class usersService {
   }
 
   async createUsers(users) {
-    const createUsersId = await this.mongoDB.createMany(this.collection, users);
-    return createUsersId;
+    const data = await Promise.all(
+      users.map(async (user) => {
+        try {
+          const { createUserId, username } = await this.createUser(
+            { user },
+            true
+          );
+          return { id: createUserId, username, error: false };
+        } catch (error) {
+          return { user: user.documentID, error: true };
+        }
+      })
+    ).then((res) => {
+      return res;
+    });
+    return data;
   }
 
   async updateUser({ userId, user }) {
