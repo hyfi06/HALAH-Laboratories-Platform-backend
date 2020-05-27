@@ -129,12 +129,30 @@ function usersApi(app) {
 
   router.post('/csv', uploads.single('csv'), async function (req, res, next) {
     const jsonArrayUsers = await csv().fromFile(req.file.path);
+
     try {
       const users = jsonArrayUsers;
       const createUsersId = await usersService.createUsers(users);
+      const usersCreated = createUsersId.filter((res) => !res.error);
+
+      usersCreated.forEach((res) => delete res.error);
+
+      const userWithErros = createUsersId
+        .filter((res) => res.error)
+        .map(
+          (res) => `${res.index}: ${res.user.firstName} ${res.user.lastName}`
+        )
+        .join('\n');
+      console.log(userWithErros);
+
       res.status(201).json({
-        data: createUsersId,
-        message: 'users created from csv',
+        data: usersCreated,
+        message:
+          `${usersCreated.length} users created succesfully` +
+            userWithErros.length ==
+          0
+            ? `Users cannot create:${userWithErros}`
+            : `Users cannot create:${userWithErros}`,
       });
     } catch (error) {
       next(error);

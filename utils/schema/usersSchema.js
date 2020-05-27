@@ -6,19 +6,24 @@ const schema = mongoose.Schema;
 const UsersSchema = new schema({
   documentID: {
     type: Number,
-    min: 6,
+    min: 4,
+    required: true,
   },
   firstName: {
     type: String,
+    required: true,
   },
   lastName: {
     type: String,
+    required: true,
   },
   email: {
     type: String,
+    required: true,
   },
   contactNumber: {
     type: Number,
+    required: true,
   },
   username: {
     type: String,
@@ -43,6 +48,7 @@ const UsersSchema = new schema({
   },
   typeOfUser: {
     type: String,
+    required: true,
   },
 });
 

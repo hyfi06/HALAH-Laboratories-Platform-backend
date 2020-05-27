@@ -7,7 +7,7 @@ const MailService = require('../../lib/mail');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 const boom = require('@hapi/boom');
-
+const validationHandler = require('../../utils/middleware/validationModelHandler');
 const emailTemplate = require('../../utils/templates/emailTemplate');
 
 class usersService {
@@ -51,6 +51,7 @@ class usersService {
   }
 
   async createUser({ user }, sendmail = true) {
+    await validationHandler(user, UserModel);
     let intentsGenerateUsername = 100;
     const { firstName, lastName, documentID } = user;
     let username = this.UsernameGenerator.build(
@@ -105,15 +106,15 @@ class usersService {
 
   async createUsers(users) {
     const data = await Promise.all(
-      users.map(async (user) => {
+      users.map(async (user, index) => {
         try {
           const { createUserId, username } = await this.createUser(
             { user },
-            true
+            false
           );
           return { id: createUserId, username, error: false };
         } catch (error) {
-          return { user: user.documentID, error: true };
+          return { user: user, index, error: true };
         }
       })
     ).then((res) => {
