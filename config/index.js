@@ -26,7 +26,7 @@ const config = {
     Administrator: '/users',
     Doctor: '/patients',
     Bacteriologist: '/patients',
-    Patient: '/test',
+    Patient: '/tests',
   },
   loginUrl: process.env.LOGIN_URL,
 };
