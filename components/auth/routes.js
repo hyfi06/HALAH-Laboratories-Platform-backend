@@ -38,6 +38,7 @@ function authApi(app) {
 
           if (!apiKey) {
             next(boom.unauthorized());
+            return;
           }
 
           const {

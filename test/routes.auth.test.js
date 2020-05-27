@@ -51,6 +51,17 @@ describe('routes - auth', function () {
         .expect(401, done);
     });
 
+    it('should response 401 with wrong apiKey', function (done) {
+      request
+        .post('/api/auth/sign-in')
+        .auth(userMock.email, 'test')
+        .send({
+          apiKeyToken: '1234567890',
+        })
+        .set('Accept', 'application/json')
+        .expect(401, done);
+    });
+
     it('should response 200', function (done) {
       request
         .post('/api/auth/sign-in')
@@ -60,6 +71,31 @@ describe('routes - auth', function () {
         })
         .set('Accept', 'application/json')
         .expect(200, done);
+    });
+
+    it('should respond with token and user', function (done) {
+      request
+        .post('/api/auth/sign-in')
+        .auth(userMock.email, 'test')
+        .send({
+          apiKeyToken: apiKeyMocks[0].token,
+        })
+        .set('Accept', 'application/json')
+        .end(function (err, res) {
+          if (err) return done(err);
+          assert.deepEqual(Object.keys(res.body),['token','user']);
+          assert.deepEqual(Object.keys(res.body.user),[
+            'id',
+            'username',
+            'typeOfUser',
+            'isActive',
+            'imageURL',
+            'firstName',
+            'lastName',
+            'defaultPath',
+          ]);
+          done();
+        });
     });
   });
 });
