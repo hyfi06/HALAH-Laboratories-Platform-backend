@@ -37,28 +37,37 @@ class usersService {
 
     const regExpId = /^[0-9]+$/;
 
-    const search = query.map((criteria) => {
-      if (regExpId.test(args[criteria])) {
-        return { [criteria]: parseInt(args[criteria]) };
-      } else if (criteria === 'firstName') {
-        return {
-          [criteria]: { $regex: new RegExp(`.*${args[criteria]}.*`, 'i') },
-        };
-      } else if (criteria === 'isActive' && args[criteria] == 'true') {
-        return { [criteria]: true };
-      } else if (criteria === 'isActive' && args[criteria] == 'false') {
-        return { [criteria]: false };
-      }
-    });
+    const search = query
+      .filter((criteria) => criteria !== 'name')
+      .map((criteria) => {
+        if (regExpId.test(args[criteria])) {
+          return { [criteria]: parseInt(args[criteria]) };
+        } else if (criteria === 'isActive' && args[criteria] == 'true') {
+          return { [criteria]: true };
+        } else if (criteria === 'isActive' && args[criteria] == 'false') {
+          return { [criteria]: false };
+        } else {
+          return {
+            [criteria]: { $regex: new RegExp(`.*?${args[criteria]}.*?`, 'i') },
+          };
+        }
+      });
 
     const where =
       search.length > 0
         ? {
-            $and: search,
-          }
+          $and: search,
+        }
         : {};
 
-    const users = await this.mongoDB.getAll(this.collection, where);
+    const users = (await this.mongoDB.getAll(this.collection, where))
+      .filter((user) => {
+        if (!query.includes('name')) {
+          return true;
+        }
+        const regExp = new RegExp(`.*?${args.name}.*?`, 'i');
+        return regExp.test(`${user.lastName} ${user.name}`) || regExp.test(`${user.name} ${user.lastName}`);
+      });
     return users || [];
   }
 
