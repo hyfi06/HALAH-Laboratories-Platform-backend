@@ -40,10 +40,14 @@ class usersService {
     const search = query.map((criteria) => {
       if (regExpId.test(args[criteria])) {
         return { [criteria]: parseInt(args[criteria]) };
-      } else {
+      } else if (criteria === 'firstName') {
         return {
           [criteria]: { $regex: new RegExp(`.*${args[criteria]}.*`, 'i') },
         };
+      } else if (criteria === 'isActive' && args[criteria] == 'true') {
+        return { [criteria]: true };
+      } else if (criteria === 'isActive' && args[criteria] == 'false') {
+        return { [criteria]: false };
       }
     });
 
