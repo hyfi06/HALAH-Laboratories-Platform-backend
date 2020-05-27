@@ -10,6 +10,8 @@ const {
   errorHandler,
 } = require('../utils/middleware/errorHandler');
 
+const { errorRegister } = require('../utils/middleware/errorRegister');
+
 const { config } = require('../config/index');
 const authApi = require('../components/auth/routes');
 const usersApi = require('../components/users/routes');
@@ -34,7 +36,11 @@ pdfApi(app);
 app.use(notFoundHandler);
 
 // error middleware
-app.use(logErrors);
+if(config.dev){
+  app.use(logErrors);
+} else {
+  app.use(errorRegister);
+}
 app.use(wrapErrors);
 app.use(errorHandler);
 
