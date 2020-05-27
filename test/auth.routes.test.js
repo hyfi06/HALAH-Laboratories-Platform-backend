@@ -6,12 +6,13 @@ const testServer = require('../utils/testServer');
 
 const { userMock } = require('../utils/mocks/users');
 
-const { apiKeysMock, ApiKeysServiceMock } = require('../utils/mocks/auth');
+const { apiKeysMock, ApiKeysServiceMock, configMock } = require('../utils/mocks/auth');
 
 
 describe('auth - routes', function () {
   const route = proxyquire('../components/auth/routes', {
     './apiKeysService': ApiKeysServiceMock,
+    '../../config': configMock,
   });
 
   const request = testServer(route);
@@ -83,8 +84,8 @@ describe('auth - routes', function () {
         .set('Accept', 'application/json')
         .end(function (err, res) {
           if (err) return done(err);
-          assert.deepEqual(Object.keys(res.body),['token','user']);
-          assert.deepEqual(Object.keys(res.body.user),[
+          assert.deepEqual(Object.keys(res.body), ['token', 'user']);
+          assert.deepEqual(Object.keys(res.body.user), [
             'id',
             'username',
             'typeOfUser',
