@@ -21,7 +21,7 @@ describe('auth - routes', function () {
     this.authenticate = sinon.stub(passport, 'authenticate')
       .callsFake((strategy, callback) => {
         if (strategy === 'basic') {
-          return function (req, res, next) {
+          return function (req) {
             if (!req.headers.authorization) {
               return callback(null, null);
             } else {
