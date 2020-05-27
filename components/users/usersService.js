@@ -42,7 +42,7 @@ class usersService {
         return { [criteria]: parseInt(args[criteria]) };
       } else {
         return {
-          [criteria]: { $regex: new RegExp(`^${args[criteria]}`, 'i') },
+          [criteria]: { $regex: new RegExp(`.*${args[criteria]}.*`, 'i') },
         };
       }
     });
