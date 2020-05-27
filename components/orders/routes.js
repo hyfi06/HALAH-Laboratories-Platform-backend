@@ -35,7 +35,7 @@ function ordersApi(app) {
 
         res.status(201).json({
           data: createOrderId,
-          message: 'order created',
+          message: 'Patient test created',
         });
       } catch (error) {
         next(error);
@@ -96,7 +96,7 @@ function ordersApi(app) {
 
         res.status(200).json({
           data: response,
-          message: 'order retrieved',
+          message: 'Patient test details retrieved',
         });
       } catch (error) {
         next(error);
@@ -117,7 +117,7 @@ function ordersApi(app) {
       try {
         const userId = username ? await (async () => {
           const user = await usersService.getUser({ username });
-          if (!user) throw boom.notFound('user orders not found');
+          if (!user) throw boom.notFound('Patient not found');
           return user._id;
         })() : null;
   
@@ -152,7 +152,7 @@ function ordersApi(app) {
         })();
         res.status(200).json({
           data: response,
-          message: 'user orders retrieved',
+          message: 'Patient tests retrieved',
         });
       } catch (error) {
         next(error);

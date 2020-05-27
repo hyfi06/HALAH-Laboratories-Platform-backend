@@ -39,7 +39,7 @@ class OrdersService {
     );
 
     if (!order) {
-      throw boom.notFound('Order not found');
+      throw boom.notFound('Test details could not be found');
     }
 
     return order;
@@ -57,7 +57,7 @@ class OrdersService {
     const orders = await this.mongoDB.getAll(this.collection, query);
 
     if (orders.length == 0) {
-      throw boom.notFound('Orders not found');
+      throw boom.notFound("There isn't test for this patient");
     }
 
     return orders;
