@@ -41,7 +41,9 @@ class usersService {
       if (regExpId.test(args[criteria])) {
         return { [criteria]: parseInt(args[criteria]) };
       } else {
-        return { [criteria]: args[criteria] };
+        return {
+          [criteria]: { $regex: new RegExp(`.*${args[criteria]}.*`, 'i') },
+        };
       }
     });
 
