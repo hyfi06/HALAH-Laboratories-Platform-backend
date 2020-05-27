@@ -127,34 +127,41 @@ function usersApi(app) {
     }
   );
 
-  router.post('/csv', uploads.single('csv'), async function (req, res, next) {
-    const jsonArrayUsers = await csv().fromFile(req.file.path);
+  router.post(
+    '/csv',
+    passport.authenticate('jwt', { session: false }),
+    uploads.single('csv'),
+    async function (req, res, next) {
+      const jsonArrayUsers = await csv().fromFile(req.file.path);
 
-    try {
-      const users = jsonArrayUsers;
-      const createUsersId = await usersService.createUsers(users);
-      const usersCreated = createUsersId.filter((res) => !res.error);
+      try {
+        const users = jsonArrayUsers;
+        const createUsersId = await usersService.createUsers(users);
+        const usersCreated = createUsersId.filter((res) => !res.error);
 
-      usersCreated.forEach((res) => delete res.error);
+        usersCreated.forEach((res) => delete res.error);
 
-      const userWithErros = createUsersId
-        .filter((res) => res.error)
-        .map(
-          (res) =>
-            `line ${res.index + 2}: ${res.user.firstName} ${res.user.lastName}`
-        )
-        .join('\n ');
+        const userWithErros = createUsersId
+          .filter((res) => res.error)
+          .map(
+            (res) =>
+              `line ${res.index + 2}: ${res.user.firstName} ${
+                res.user.lastName
+              }`
+          )
+          .join('\n ');
 
-      res.status(201).json({
-        data: usersCreated,
-        message: `${usersCreated.length} users created succesfully${
-          userWithErros ? `\n${userWithErros}\nusers cannot create` : ''
-        }`,
-      });
-    } catch (error) {
-      next(error);
+        res.status(201).json({
+          data: usersCreated,
+          message: `${usersCreated.length} users created succesfully${
+            userWithErros ? `\n${userWithErros}\nusers cannot create` : ''
+          }`,
+        });
+      } catch (error) {
+        next(error);
+      }
     }
-  });
+  );
 }
 
 module.exports = usersApi;
