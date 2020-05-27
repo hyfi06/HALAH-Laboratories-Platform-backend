@@ -1,7 +1,12 @@
 const sinon = require('sinon');
+const { config } = require('../../config');
+
+const { apiKeysMock } = require('../mocks/auth');
 
 const getAllStub = sinon.stub();
-//getAllStub.withArgs(collection).resolves(mock);
+getAllStub
+  .withArgs(config.dbCollections.apiKeys)
+  .resolves(apiKeysMock);
 //getAllStub.withArgs(collection, query).resolves(filteredMock(query));
 
 const getStub = sinon.stub();
