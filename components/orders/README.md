@@ -27,7 +27,7 @@ Response code 201:
 ```js
 {
   "data": orderId,
-  "message": "order created"
+  "message": "Patient test created"
 }
 ```
 
@@ -82,7 +82,41 @@ Response code 200:
     "appointmentDate": "",
     "createdAt": ""
   },
-  "message": "order retrieved"
+  "message": "Patient test details retrieved"
+}
+```
+
+```js
+{
+  "data": {
+    "_id": "",
+    "name": "",
+    "shortName": "",
+    "isComplete": true,
+    "doctor": {
+      "documentID": 0,
+      "firstName": "",
+      "lastName": ""
+    },
+    "patient": {
+      "firstName": "",
+      "lastName": ""
+    },
+    "appointmentDate": "",
+    "createdAt": "",
+    "resultId":""
+  },
+  "message": "User test details retrieved"
+}
+```
+
+Response 404:
+
+```js
+{
+  "statusCode": 404,
+  "error": "Not Found",
+  "message": "Test details could not be found"
 }
 ```
 
@@ -114,7 +148,7 @@ Response 200:
       "resultId": "",
     },
   ],
-  "message": "user orders retrieved"
+  "message": "Patient orders retrieved"
 }
 ```
 
@@ -124,7 +158,7 @@ Response 404:
 {
     "statusCode": 404,
     "error": "Not Found",
-    "message": "Orders not found",
+    "message": "There isn't test for this patient",
 }
 ```
 
@@ -134,7 +168,15 @@ Responses 400:
 {
   "statusCode": 400,
   "error": "Bad Request",
-  "message": "patient=### isn't a id"
+  "message": "### isn't a id"
+}
+```
+
+```js
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "patient or username query is required"
 }
 ```
 
@@ -166,7 +208,7 @@ Response 200:
       "resultId": "",
     },
   ],
-  "message": "user orders retrieved"
+  "message": "Patient tests retrieved"
 }
 ```
 
@@ -176,7 +218,15 @@ Response 404:
 {
     "statusCode": 404,
     "error": "Not Found",
-    "message": "Orders not found",
+    "message": "Patient not found",
+}
+```
+
+```js
+{
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "There isn't test for this patient",
 }
 ```
 
@@ -186,7 +236,7 @@ Response 400:
 {
   "statusCode": 400,
   "error": "Bad Request",
-  "message": "patient=### isn't a id"
+  "message": "patient or username query is required"
 }
 ```
 
@@ -259,7 +309,7 @@ It returns a array with patient's orders.
 const orderService = new OrdersService();
 
 const patientOrders = orderService.getOrders({
-  patient: '5ec609a6fc13ae6f86000000'
+  patient: '5ec609a6fc13ae6f86000000',
 });
 
 console.log(patientOrders);
