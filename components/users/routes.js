@@ -140,19 +140,16 @@ function usersApi(app) {
       const userWithErros = createUsersId
         .filter((res) => res.error)
         .map(
-          (res) => `${res.index}: ${res.user.firstName} ${res.user.lastName}`
+          (res) =>
+            `line ${res.index + 2}: ${res.user.firstName} ${res.user.lastName}`
         )
-        .join('\n');
-      console.log(userWithErros);
+        .join('\n ');
 
       res.status(201).json({
         data: usersCreated,
-        message:
-          `${usersCreated.length} users created succesfully` +
-            userWithErros.length ==
-          0
-            ? `Users cannot create:${userWithErros}`
-            : `Users cannot create:${userWithErros}`,
+        message: `${usersCreated.length} users created succesfully${
+          userWithErros ? `\n${userWithErros}\nusers cannot create` : ''
+        }`,
       });
     } catch (error) {
       next(error);
