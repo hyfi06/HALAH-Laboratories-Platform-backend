@@ -6,12 +6,12 @@ const testServer = require('../utils/testServer');
 
 const { userMock } = require('../utils/mocks/users');
 
-const { apiKeyMocks, apiKeysService } = require('../utils/mocks/auth');
+const { apiKeysMock, ApiKeysServiceMock } = require('../utils/mocks/auth');
 
 
-describe('routes - auth', function () {
+describe('auth - routes', function () {
   const route = proxyquire('../components/auth/routes', {
-    './apiKeysService': apiKeysService,
+    './apiKeysService': ApiKeysServiceMock,
   });
 
   const request = testServer(route);
@@ -47,7 +47,7 @@ describe('routes - auth', function () {
     it('username and password should be required', function (done) {
       request
         .post('/api/auth/sign-in')
-        .send({ apiKeyToken: apiKeyMocks[0].token })
+        .send({ apiKeyToken: apiKeysMock[0].token })
         .expect(401, done);
     });
 
@@ -67,7 +67,7 @@ describe('routes - auth', function () {
         .post('/api/auth/sign-in')
         .auth(userMock.email, 'test')
         .send({
-          apiKeyToken: apiKeyMocks[0].token,
+          apiKeyToken: apiKeysMock[0].token,
         })
         .set('Accept', 'application/json')
         .expect(200, done);
@@ -78,7 +78,7 @@ describe('routes - auth', function () {
         .post('/api/auth/sign-in')
         .auth(userMock.email, 'test')
         .send({
-          apiKeyToken: apiKeyMocks[0].token,
+          apiKeyToken: apiKeysMock[0].token,
         })
         .set('Accept', 'application/json')
         .end(function (err, res) {
