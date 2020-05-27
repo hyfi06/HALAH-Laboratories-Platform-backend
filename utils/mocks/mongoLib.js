@@ -16,7 +16,6 @@ const createStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001eb');
 
 const updateStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001f1');
 
-
 class MongoLibMock {
   get(collection, id) {
     return getStub(collection, id);
@@ -29,8 +28,6 @@ class MongoLibMock {
   create(collection, data) {
     return createStub(collection, data);
   }
-
-  createMany(collection, array) { }
 
   update(collection, id, data) {
     return updateStub(collection, id, data);
