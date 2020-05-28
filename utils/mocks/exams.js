@@ -317,24 +317,61 @@ Females:
   },
 ];
 
+const copy = (object) => JSON.parse(JSON.stringify(object));
+
 function filteredExamsMock(name) {
   const regexp = new RegExp(`.*${name}.*`);
-  return examsMock.filter(exam =>
+  const exams = copy(examsMock);
+  return exams.filter(exam =>
     regexp.test(exam.name) || regexp.test(exam.shortName)
   );
 }
 
+const getExamsMock = copy(examsMock);
+getExamsMock.forEach(exam => {
+  delete exam.resultWaitingDays;
+  delete exam.createdAt;
+  delete exam.updatedAt;
+  exam.resultTemplate
+    .forEach(template => {
+      delete template._id;
+      delete template.reference;
+    });
+});
+
+const getExamMock = copy(examsMock[0]);
+delete getExamMock.resultWaitingDays;
+getExamMock.resultTemplate
+  .forEach(template => {
+    delete template._id;
+  });
+
 class ExamsServiceMock {
   async getExam(id) {
-    return Promise.resolve(examsMock[0]);
+    if (id == examsMock[0]._id) {
+      return Promise.resolve(copy(examsMock[0]));
+    } else {
+      return Promise.resolve(null);
+    }
   }
 
-  async getExams() {
-    return Promise.resolve(examsMock);
+  async getExams({ name }) {
+    if (!name) {
+      return Promise.resolve(copy(examsMock));
+    } else {
+      return Promise.resolve(filteredExamsMock(name));
+    }
+  }
+
+  async createExam(exam) {
+    return Promise.resolve(examsMock[0]._id);
   }
 }
+
 module.exports = {
   examsMock,
+  getExamsMock,
+  getExamMock,
   filteredExamsMock,
   ExamsServiceMock,
 };

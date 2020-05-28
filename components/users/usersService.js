@@ -7,7 +7,7 @@ const MailService = require('../../lib/mail');
 const { config } = require('../../config');
 const UserModel = require('../../utils/schema/usersSchema');
 const boom = require('@hapi/boom');
-
+const validationHandler = require('../../utils/middleware/validationModelHandler');
 const emailTemplate = require('../../utils/templates/emailTemplate');
 
 class usersService {
@@ -35,22 +35,51 @@ class usersService {
   async getUsers(args) {
     const query = Object.keys(args);
 
-    const search = query.map((criteria) => ({
-      [criteria]: args[criteria],
-    }));
+    const regExpId = /^[0-9]+$/;
+
+    const search = query
+      .filter((criteria) => criteria !== 'name')
+      .map((criteria) => {
+        if (regExpId.test(args[criteria])) {
+          return { [criteria]: parseInt(args[criteria]) };
+        } else if (criteria === 'isActive' && args[criteria] == 'true') {
+          return { [criteria]: true };
+        } else if (criteria === 'isActive' && args[criteria] == 'false') {
+          return { [criteria]: false };
+        } else {
+          return {
+            [criteria]: { $regex: new RegExp(`.*?${args[criteria]}.*?`, 'i') },
+          };
+        }
+      });
 
     const where =
       search.length > 0
         ? {
-            $or: search,
+            $and: search,
           }
         : {};
 
-    const users = await this.mongoDB.getAll(this.collection, where);
+    const users = (await this.mongoDB.getAll(this.collection, where)).filter(
+      (user) => {
+        if (!query.includes('name')) {
+          return true;
+        }
+        const regExp = new RegExp(`.*?${args.name}.*?`, 'i');
+        return (
+          regExp.test(`${user.lastName} ${user.firstName}`) ||
+          regExp.test(`${user.firstName} ${user.lastName}`)
+        );
+      }
+    );
+    if (users.length == 0) {
+      throw boom.notFound('Users cannot found in these filters');
+    }
     return users || [];
   }
 
   async createUser({ user }, sendmail = true) {
+    await validationHandler(user, UserModel);
     let intentsGenerateUsername = 100;
     const { firstName, lastName, documentID } = user;
     let username = this.UsernameGenerator.build(
@@ -99,15 +128,34 @@ class usersService {
       this.collection,
       new UserModel({ ...user, password: hashedPassword, username: username })
     );
-    return createUserId, username;
+
+    return { createUserId, username };
   }
 
   async createUsers(users) {
-    const createUsersId = await this.mongoDB.createMany(this.collection, users);
-    return createUsersId;
+    const data = await Promise.all(
+      users.map(async (user, index) => {
+        try {
+          const { createUserId, username } = await this.createUser(
+            { user },
+            false
+          );
+          return { id: createUserId, username, error: false };
+        } catch (error) {
+          return { user: user, index, error: true };
+        }
+      })
+    ).then((res) => {
+      return res;
+    });
+    return data;
   }
 
   async updateUser({ userId, user }) {
+    if (Object.keys(user).length == 0) {
+      throw boom.badRequest('Not data to update');
+    }
+
     const updateUserId = await this.mongoDB.update(
       this.collection,
       userId,

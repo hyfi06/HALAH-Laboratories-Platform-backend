@@ -1,10 +1,5 @@
 const boom = require('@hapi/boom');
-const Sentry = require('@sentry/node');
 const { config } = require('../../config');
-
-Sentry.init({
-  dsn: `https://${config.sentryDns}.ingest.sentry.io/${config.sentryId}`,
-});
 
 function withErrorStack(err, stack) {
   if (config.dev) {
@@ -14,11 +9,8 @@ function withErrorStack(err, stack) {
 }
 
 function logErrors(err, req, res, next) {
-  if (config.dev) {
-    console.log(err);
-  } else {
-    Sentry.captureException(err);
-  }
+  // eslint-disable-next-line no-console
+  console.log(err);
   next(err);
 }
 

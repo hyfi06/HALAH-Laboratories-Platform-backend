@@ -13,11 +13,17 @@ passport.use(
       const user = await userService.getUser({ username });
 
       if (!user) {
-        return cb(boom.unauthorized(), false);
+        return cb(
+          boom.unauthorized('Please verify username or password'),
+          false
+        );
       }
 
       if (!(await bcrypt.compare(password, user.password))) {
-        return cb(boom.unauthorized(), false);
+        return cb(
+          boom.unauthorized('Please verify username or password'),
+          false
+        );
       }
 
       delete user.password;

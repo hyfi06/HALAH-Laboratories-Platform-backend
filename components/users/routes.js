@@ -1,7 +1,6 @@
 const express = require('express');
 const passport = require('passport');
 const UsersService = require('./usersService');
-const UserModel = require('../../utils/schema/usersSchema');
 const multer = require('multer');
 const csv = require('csvtojson');
 
@@ -58,6 +57,7 @@ function usersApi(app) {
           'firstName',
           'lastName',
           'isActive',
+          'documentID',
         ];
         const data = users.map((user) =>
           Object.keys(user)
@@ -67,12 +67,6 @@ function usersApi(app) {
               return newUser;
             }, {})
         );
-
-        if (users.length == 0) {
-          return res.status(204).json({
-            error: 'Users not exist information',
-          });
-        }
         res.status(200).json({
           data: data,
           message: 'users listed',
@@ -89,10 +83,15 @@ function usersApi(app) {
     async function (req, res, next) {
       const { body: user } = req;
       try {
-        const createUserId = await usersService.createUser({ user });
+        const { createUserId: id, username } = await usersService.createUser({
+          user,
+        });
+
         res.status(201).json({
-          data: createUserId,
-          message: 'user created',
+          data: {
+            _id: id,
+          },
+          message: `User ${username} created`,
         });
       } catch (error) {
         next(error);
@@ -113,9 +112,17 @@ function usersApi(app) {
           user,
         });
 
+        const query = Object.keys(user);
+
+        const message = query.includes('isActive')
+          ? `User ${
+              user.isActive == 'true' ? 'enabled' : 'disabled'
+            } sucessfull`
+          : 'Data updated sucessfully';
+
         res.status(200).json({
           data: updatedUser,
-          message: 'user updated',
+          message: message,
         });
       } catch (err) {
         next(err);
@@ -123,19 +130,40 @@ function usersApi(app) {
     }
   );
 
-  router.post('/csv', uploads.single('csv'), async function (req, res, next) {
-    const jsonArrayUsers = await csv().fromFile(req.file.path);
-    try {
-      const users = jsonArrayUsers.map((user) => new UserModel(user));
-      const createUsersId = await usersService.createUsers(users);
-      res.status(201).json({
-        data: createUsersId,
-        message: 'users created from csv',
-      });
-    } catch (error) {
-      next(error);
+  router.post(
+    '/csv',
+    passport.authenticate('jwt', { session: false }),
+    uploads.single('csv'),
+    async function (req, res, next) {
+      try {
+        const jsonArrayUsers = await csv().fromFile(req.file.path);
+        const users = jsonArrayUsers;
+        const createUsersId = await usersService.createUsers(users);
+        const usersCreated = createUsersId.filter((res) => !res.error);
+
+        usersCreated.forEach((res) => delete res.error);
+
+        const userWithErros = createUsersId
+          .filter((res) => res.error)
+          .map(
+            (res) =>
+              `line ${res.index + 2}: ${res.user.firstName} ${
+                res.user.lastName
+              }`
+          )
+          .join('\n ');
+
+        res.status(201).json({
+          data: usersCreated,
+          message: `${usersCreated.length} users created succesfully${
+            userWithErros ? `\n${userWithErros}\nusers cannot create` : ''
+          }`,
+        });
+      } catch (error) {
+        next(error);
+      }
     }
-  });
+  );
 }
 
 module.exports = usersApi;
