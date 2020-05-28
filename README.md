@@ -28,6 +28,10 @@ This route handles patients orders. [See more](https://github.com/hyfi06/platzi-
 
 This route handles results of test. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/results).
 
+### `/api/pdfs`
+
+This route handles test results pdf. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/pdfs).
+
 ## Installation
 
 ```bash
