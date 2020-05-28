@@ -1,4 +1,5 @@
 const express = require('express');
+const boom = require('@hapi/boom');
 const passport = require('passport');
 const UsersService = require('./usersService');
 const multer = require('multer');
@@ -79,7 +80,7 @@ function usersApi(app) {
 
   router.post(
     '/',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     async function (req, res, next) {
       const { body: user } = req;
       try {
@@ -112,9 +113,27 @@ function usersApi(app) {
           user,
         });
 
+        const query = Object.keys(user);
+
+        const message = query
+          .filter((criteria) => criteria !== 'updatedAt')
+          .map((criteria) => {
+            if (criteria === 'isActive' && user[criteria] == true) {
+              return `User enabled sucessfull`;
+            } else if (criteria === 'isActive' && user[criteria] == false) {
+              return `User disabled sucessfull`;
+            } else {
+              return `Data updated`;
+            }
+          });
+
+        if (message.length == 0) {
+          throw boom.badRequest('Please verify field you want to update');
+        }
+
         res.status(200).json({
           data: updatedUser,
-          message: 'user updated',
+          message: `${message}`,
         });
       } catch (err) {
         next(err);
