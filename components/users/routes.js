@@ -133,9 +133,8 @@ function usersApi(app) {
     passport.authenticate('jwt', { session: false }),
     uploads.single('csv'),
     async function (req, res, next) {
-      const jsonArrayUsers = await csv().fromFile(req.file.path);
-
       try {
+        const jsonArrayUsers = await csv().fromFile(req.file.path);
         const users = jsonArrayUsers;
         const createUsersId = await usersService.createUsers(users);
         const usersCreated = createUsersId.filter((res) => !res.error);
