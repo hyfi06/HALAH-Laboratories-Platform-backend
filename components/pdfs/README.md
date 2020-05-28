@@ -8,7 +8,7 @@ This component manager the result in pdf.
 /api/pdfs
 ```
 
-### GET `/api/pdf`
+### GET `/api/pdfs`
 
 Generate a pdf with de results of given ordersId
 

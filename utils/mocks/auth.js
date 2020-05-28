@@ -1,4 +1,3 @@
-const { config } = require('../../config');
 const apiKeysMock = [
   {
     _id: '5ecea6e2fc13ae04570000ac',
@@ -17,15 +16,7 @@ class ApiKeysServiceMock {
   }
 }
 
-const configMock = {
-  config: {
-    defaultPath: config.defaultPath,
-    authJwtSecret: 'secret',
-  },
-};
-
 module.exports = {
   apiKeysMock,
-  configMock,
   ApiKeysServiceMock,
 };

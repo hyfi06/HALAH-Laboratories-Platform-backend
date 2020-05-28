@@ -112,9 +112,17 @@ function usersApi(app) {
           user,
         });
 
+        const query = Object.keys(user);
+
+        const message = query.includes('isActive')
+          ? `User ${
+              user.isActive == 'true' ? 'enabled' : 'disabled'
+            } sucessfull`
+          : 'Data updated sucessfully';
+
         res.status(200).json({
           data: updatedUser,
-          message: 'user updated',
+          message: message,
         });
       } catch (err) {
         next(err);
