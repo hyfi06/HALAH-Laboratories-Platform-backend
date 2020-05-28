@@ -6,8 +6,8 @@ const testServer = require('../utils/testServer');
 
 const { userMock } = require('../utils/mocks/users');
 
-const { apiKeysMock, ApiKeysServiceMock, configMock } = require('../utils/mocks/auth');
-
+const { apiKeysMock, ApiKeysServiceMock } = require('../utils/mocks/auth');
+const { configMock } = require('../utils/mocks/config');
 
 describe('auth - routes', function () {
   const route = proxyquire('../components/auth/routes', {
@@ -34,7 +34,6 @@ describe('auth - routes', function () {
   this.afterEach(() => {
     this.authenticate.restore();
   });
-
 
   describe('POST /api/auth/sign-in', function () {
 
