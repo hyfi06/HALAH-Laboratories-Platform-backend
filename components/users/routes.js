@@ -68,12 +68,6 @@ function usersApi(app) {
               return newUser;
             }, {})
         );
-
-        if (users.length == 0) {
-          return res.status(204).json({
-            error: 'Users not exist information',
-          });
-        }
         res.status(200).json({
           data: data,
           message: 'users listed',
