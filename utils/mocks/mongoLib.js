@@ -1,7 +1,12 @@
 const sinon = require('sinon');
+const { config } = require('../../config');
+
+const { apiKeysMock } = require('../mocks/auth');
 
 const getAllStub = sinon.stub();
-//getAllStub.withArgs(collection).resolves(mock);
+getAllStub
+  .withArgs(config.dbCollections.apiKeys)
+  .resolves(apiKeysMock);
 //getAllStub.withArgs(collection, query).resolves(filteredMock(query));
 
 const getStub = sinon.stub();
@@ -10,7 +15,6 @@ const getStub = sinon.stub();
 const createStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001eb');
 
 const updateStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001f1');
-
 
 class MongoLibMock {
   get(collection, id) {
@@ -24,8 +28,6 @@ class MongoLibMock {
   create(collection, data) {
     return createStub(collection, data);
   }
-
-  createMany(collection, array) { }
 
   update(collection, id, data) {
     return updateStub(collection, id, data);
