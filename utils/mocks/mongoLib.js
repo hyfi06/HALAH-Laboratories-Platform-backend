@@ -2,14 +2,26 @@ const sinon = require('sinon');
 const { config } = require('../../config');
 
 const { apiKeysMock } = require('../mocks/auth');
+const { examsMock } = require('../mocks/exams');
 
 const getAllStub = sinon.stub();
 getAllStub
   .withArgs(config.dbCollections.apiKeys)
   .resolves(apiKeysMock);
+
+getAllStub
+  .withArgs(config.dbCollections.exams, {})
+  .resolves(examsMock);
+
+getAllStub
+  .withArgs(config.dbCollections.exams, { name: '' })
+  .resolves(null);
 //getAllStub.withArgs(collection, query).resolves(filteredMock(query));
 
 const getStub = sinon.stub();
+getStub
+  .withArgs(config.dbCollections.exams, examsMock[0]._id)
+  .resolves(examsMock[0]);
 //getStub.withArgs(collection, mock[0]._id).resolves(mock[0]);
 
 const createStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001eb');
