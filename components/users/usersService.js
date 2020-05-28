@@ -56,8 +56,8 @@ class usersService {
     const where =
       search.length > 0
         ? {
-          $and: search,
-        }
+            $and: search,
+          }
         : {};
 
     const users = (await this.mongoDB.getAll(this.collection, where)).filter(
@@ -152,6 +152,10 @@ class usersService {
   }
 
   async updateUser({ userId, user }) {
+    if (Object.keys(user).length == 0) {
+      throw boom.badRequest('Not data to update');
+    }
+
     const updateUserId = await this.mongoDB.update(
       this.collection,
       userId,
