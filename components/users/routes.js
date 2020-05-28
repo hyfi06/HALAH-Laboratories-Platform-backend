@@ -122,7 +122,7 @@ function usersApi(app) {
 
         res.status(200).json({
           data: updatedUser,
-          message: `${message}`,
+          message: message,
         });
       } catch (err) {
         next(err);
