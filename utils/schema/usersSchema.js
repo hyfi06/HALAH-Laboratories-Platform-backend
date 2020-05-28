@@ -35,7 +35,7 @@ const UsersSchema = new schema({
     type: Date,
     default: Date.now,
   },
-  updateAt: {
+  updatedAt: {
     type: Date,
     default: Date.now,
   },
