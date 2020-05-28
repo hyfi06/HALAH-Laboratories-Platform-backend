@@ -60,14 +60,21 @@ class usersService {
         }
         : {};
 
-    const users = (await this.mongoDB.getAll(this.collection, where))
-      .filter((user) => {
+    const users = (await this.mongoDB.getAll(this.collection, where)).filter(
+      (user) => {
         if (!query.includes('name')) {
           return true;
         }
         const regExp = new RegExp(`.*?${args.name}.*?`, 'i');
-        return regExp.test(`${user.lastName} ${user.name}`) || regExp.test(`${user.name} ${user.lastName}`);
-      });
+        return (
+          regExp.test(`${user.lastName} ${user.firstName}`) ||
+          regExp.test(`${user.firstName} ${user.lastName}`)
+        );
+      }
+    );
+    if (users.length == 0) {
+      throw boom.notFound('Users cannot found in these filters');
+    }
     return users || [];
   }
 
