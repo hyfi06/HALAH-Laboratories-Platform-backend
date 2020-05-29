@@ -240,6 +240,58 @@ Response 400:
 }
 ```
 
+### GET `/api/orders?patient=&isComplete=` `/api/orders?username=&isComplete=`
+
+Retrieve a complete patient order.
+
+Response 200:
+
+```js
+{
+  "data": [
+    {
+      "_id": "",
+      "name": "",
+      "shortName": "",
+      "isComplete": true,
+      "appointmentDate": "",
+      "createdAt": "",
+      "resultDate": "",
+      "resultId": "",
+    },
+  ],
+  "message": "Patient orders retrieved"
+}
+```
+
+Response 404:
+
+```js
+{
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "There isn't test completed for this patient",
+}
+```
+
+Responses 400:
+
+```js
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "### isn't a id"
+}
+```
+
+```js
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "patient or username query is required"
+}
+```
+
 ## Order Service
 
 ### Attributes
@@ -299,7 +351,7 @@ console.log(order);
 }*/
 ```
 
-#### OrdersService.getOrder({patient})
+#### OrdersService.getOrders({patient, isComplete})
 
 The param `patient` should be a string of a ObjectId.
 
@@ -310,6 +362,7 @@ const orderService = new OrdersService();
 
 const patientOrders = orderService.getOrders({
   patient: '5ec609a6fc13ae6f86000000',
+  isComplete: true,
 });
 
 console.log(patientOrders);
