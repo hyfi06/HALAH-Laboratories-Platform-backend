@@ -301,11 +301,12 @@ const usersMock = [{ '_id': '5ec5ce16fc13ae1506000064', 'documentID': '852530417
 
 const userMock = { '_id': '5ec5ce16fc13ae150600006a', 'documentID': '6307195684', 'firstName': 'Tiff', 'lastName': 'Kender', 'username': 'tiff.kender.5684', 'email': 'tkender6@wiley.com', 'contactNumber': 3725901647472, 'imageURL': 'http://dummyimage.com/200x200.jpg/ff4444/ffffff', 'password': '$2b$10$kEcHxPgMIIukN7TigElpBu7lagjUnXSml1ZKnxIwTbYuA5/GNbPeG', 'isActive': true, 'typeOfUser': 'Administrator', 'createdAt': '2020-05-01T18:53:37Z', 'updateAt': '2020-05-01T18:53:37Z' };
 
+const copy = (object) => JSON.parse(JSON.stringify(object));
 class UsersServiceMock {
   async getUser({ username }) {
     if (username === 'tiff.kender.5684' ||
       username === 'tkender6@wiley.com') {
-      return userMock;
+      return copy(userMock);
     }
   }
   async getUserId({ userId }) { }
@@ -313,7 +314,6 @@ class UsersServiceMock {
   async createUser({ user }, sendmail) { }
   async createUsers(users) { }
   async updateUser({ userId, user }) { }
-
 }
 
 module.exports = {
