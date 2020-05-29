@@ -49,15 +49,24 @@ class OrdersService {
    * 
    * @param {Object} query query
    * @param {string} query.user user id
+   * @param {Boolean} query.isComplete
    * @returns {Object[]}
    */
-  async getOrders({ patient }) {
-    const query = patient ? { patientId: ObjectId(patient) } : {};
+  async getOrders({ patient, isComplete }) {
+    const query = {};
+    if (typeof isComplete !== 'undefined' && patient) {
+      query['$and'] = [
+        { isComplete: isComplete },
+        { patientId: ObjectId(patient) },
+      ];
+    } else if (patient) {
+      query.patientId = ObjectId(patient);
+    }
 
     const orders = await this.mongoDB.getAll(this.collection, query);
 
     if (orders.length == 0) {
-      throw boom.notFound("There isn't test for this patient");
+      throw boom.notFound(`There isn't test${isComplete == 'true' ? ' completed' : ''} for this patient`);
     }
 
     return orders;
