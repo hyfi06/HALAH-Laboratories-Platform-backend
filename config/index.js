@@ -21,6 +21,7 @@ const config = {
     apiKeys: 'apiKeys',
     exams: 'exams',
     results: 'results',
+    messages: 'messages',
   },
   defaultPath: {
     Administrator: '/users',
