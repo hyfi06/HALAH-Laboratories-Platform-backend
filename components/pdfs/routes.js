@@ -13,7 +13,7 @@ function pdfApi(app) {
   const router = express.Router();
 
   app.use('/api/pdfs', router);
-  router.get(
+  router.post(
     '/',
     passport.authenticate('jwt', { session: false }),
     pdf,
