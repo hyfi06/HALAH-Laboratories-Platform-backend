@@ -351,7 +351,7 @@ class ExamsServiceMock {
     if (id == examsMock[0]._id) {
       return Promise.resolve(copy(examsMock[0]));
     } else {
-      return Promise.resolve(null);
+      return Promise.reject();
     }
   }
 

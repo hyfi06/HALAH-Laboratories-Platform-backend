@@ -301,7 +301,14 @@ const usersMock = [{ '_id': '5ec5ce16fc13ae1506000064', 'documentID': '852530417
 
 const userMock = { '_id': '5ec5ce16fc13ae150600006a', 'documentID': '6307195684', 'firstName': 'Tiff', 'lastName': 'Kender', 'username': 'tiff.kender.5684', 'email': 'tkender6@wiley.com', 'contactNumber': 3725901647472, 'imageURL': 'http://dummyimage.com/200x200.jpg/ff4444/ffffff', 'password': '$2b$10$kEcHxPgMIIukN7TigElpBu7lagjUnXSml1ZKnxIwTbYuA5/GNbPeG', 'isActive': true, 'typeOfUser': 'Administrator', 'createdAt': '2020-05-01T18:53:37Z', 'updateAt': '2020-05-01T18:53:37Z' };
 
+const patientMock = { '_id': '5ec5ce16fc13ae1506000064', 'documentID': '8525304171', 'firstName': 'Mayne', 'lastName': 'Snasel', 'username': 'mayne.snasel.4171', 'email': 'msnasel0@tripadvisor.com', 'contactNumber': 624215528148, 'imageURL': 'http://dummyimage.com/200x200.png/ff4444/ffffff', 'password': '1077aeb58ec7c1b2c5df372093b9a5215f45fb9ba6bfd75d640ffd7b0dafadc5', 'isActive': false, 'typeOfUser': 'Patient', 'createdAt': '2020-05-11T13:54:33Z', 'updateAt': '2020-05-11T13:54:33Z' };
+
+const bacteriologistMock = { '_id': '5ec5ce16fc13ae1506000067', 'documentID': '9524930997', 'firstName': 'Morse', 'lastName': 'Cavendish', 'username': 'morse.cavendish.0997', 'email': 'mcavendish3@ucoz.ru', 'contactNumber': 3868896045278, 'imageURL': 'http://dummyimage.com/200x200.jpg/dddddd/000000', 'password': 'b0f643f84e23cb3546f9f3e9da72c4d661171edab76b87d1739304dc871ecf22', 'isActive': true, 'typeOfUser': 'Bacteriologist', 'createdAt': '2020-02-08T11:11:27Z', 'updateAt': '2020-02-08T11:11:27Z' };
+
+const doctorMock = { '_id': '5ec5ce16fc13ae1506000066', 'documentID': '9228628907', 'firstName': 'Cathie', 'lastName': 'Toffaloni', 'username': 'cathie.toffaloni.8907', 'email': 'ctoffaloni2@chicagotribune.com', 'contactNumber': 869309644942, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': '4c39653e53d5003926f9fb9124e79675abab67accda7bea5e03297fdf4d8389f', 'isActive': true, 'typeOfUser': 'Doctor', 'createdAt': '2020-01-08T06:34:34Z', 'updateAt': '2020-01-08T06:34:34Z' };
+
 const copy = (object) => JSON.parse(JSON.stringify(object));
+
 class UsersServiceMock {
   async getUser({ username }) {
     if (username === 'tiff.kender.5684' ||
@@ -319,5 +326,7 @@ class UsersServiceMock {
 module.exports = {
   usersMock,
   userMock,
+  patientMock,
+  bacteriologistMock,
   UsersServiceMock,
 };

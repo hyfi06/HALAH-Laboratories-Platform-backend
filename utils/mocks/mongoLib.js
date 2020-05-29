@@ -1,8 +1,10 @@
 const sinon = require('sinon');
 const { config } = require('../../config');
 
-const { apiKeysMock } = require('../mocks/auth');
-const { examsMock } = require('../mocks/exams');
+const { apiKeysMock } = require('./auth');
+const { examsMock } = require('./exams');
+const { resultMocks } = require('./result');
+const { ordersMock } = require('./order');
 
 const getAllStub = sinon.stub();
 getAllStub
@@ -16,17 +18,29 @@ getAllStub
 getAllStub
   .withArgs(config.dbCollections.exams, { name: '' })
   .resolves(null);
-//getAllStub.withArgs(collection, query).resolves(filteredMock(query));
+
 
 const getStub = sinon.stub();
 getStub
   .withArgs(config.dbCollections.exams, examsMock[0]._id)
   .resolves(examsMock[0]);
-//getStub.withArgs(collection, mock[0]._id).resolves(mock[0]);
+getStub
+  .withArgs(config.dbCollections.results, resultMocks[0]._id)
+  .resolves(resultMocks[0]);
 
-const createStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001eb');
 
-const updateStub = sinon.stub().resolves('5ec3ecb1fc13ae15180001f1');
+const createStub = sinon.stub();
+createStub
+  .withArgs(config.dbCollections.exams)
+  .resolves(examsMock[0]._id);
+createStub
+  .withArgs(config.dbCollections.results)
+  .resolves(resultMocks[0]._id);
+
+const updateStub = sinon.stub();
+updateStub
+  .withArgs(config.dbCollections.orders)
+  .resolves(ordersMock[0]._id);
 
 class MongoLibMock {
   get(collection, id) {
