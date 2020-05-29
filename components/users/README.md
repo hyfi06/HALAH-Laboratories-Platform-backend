@@ -22,7 +22,6 @@ Data send in body as JSON.
   "email": "",
   "contactNumber": 0,
   "isActive": "",
-  "imageURL": "",
   "typeOfUser": "
 }
 ```
@@ -31,12 +30,12 @@ Response code 201:
 
 ```js
 {
-  "data": username,
+  "data": users created succesfully,
   "message": "user created"
 }
 ```
 
-Response code 400:
+Response code 404:
 
 ```js
 {
@@ -63,8 +62,19 @@ Response code 200:
    "firstName": "",
    "lastName": "",
    "isActive": "",
+   "documentID": "",
   },
   "message": "users listed"
+}
+```
+
+Response code 404:
+
+```js
+{
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "Not found",
 }
 ```
 
@@ -94,7 +104,17 @@ Response code 200:
 }
 ```
 
-### GET `api/users/?username`
+Response code 404:
+
+```js
+{
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "Not found",
+}
+```
+
+### GET `api/users/?username=?name=?typeOfUser=?email=`
 
 Find test by slice of field do you want to find.
 
@@ -116,29 +136,13 @@ Response code 200:
 }
 ```
 
-### GET `api/users/:userId`
-
-Retrieve a user
-
-Response code 200:
+Response code 404:
 
 ```js
 {
-  "data": {
-    "_id": "",
-    "isActive": "",
-    "documentID": 0,
-    "firstName": "",
-    "lastName":""
-    "email": "",
-    "contactNumber": 0,
-    "typeOfUser" : "",
-    "imageURL": "",
-    "username": ""
-    "createdAt": "",
-    "updateAt": ""
-  },
-  "message": "user retrieved"
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "Users cannot found in these filters",
 }
 ```
 
@@ -166,11 +170,11 @@ Response code 201:
 ```js
 {
   "data": username,
-  "message": "user updated"
+  "message": "Data updated"
 }
 ```
 
-Response code 400:
+Response code 404:
 
 ```js
 {
@@ -190,66 +194,188 @@ Response code 400:
 | mongoDB           | Instance of MongoLib                                       |
 | generatePassword  | Name of function to generate random password for each user |
 | UsernameGenerator | Name of function to generate a username                    |
-| mailService       | Name of function to send credential for email              |
+| mailService       | Name of function to send credentials for email             |
 
 ### Methods
 
-| Method       | Params         | Result | Description         |
-| ------------ | -------------- | ------ | ------------------- |
-| getResult    | string(id)     | Object | Get a result        |
-| createResult | Result(result) | string | Create a new result |
+| Method      | Params                                            | Result | Description                                               |
+| ----------- | ------------------------------------------------- | ------ | --------------------------------------------------------- |
+| getUser     | string(username)                                  | User[] | Get a user to authentication layer                        |
+| getUserId   | string(id)                                        | User[] | Get a user                                                |
+| getUsers    |                                                   | User[] | Get a list of users                                       |
+| getUsers    | { string(name, typeOfUser, isActive,documentID) } | User[] | Get users by name or typeOfUSer or isActive or DocumentID |
+| createUser  | userModel(user)                                   | User[] | Create a new user                                         |
+| createUsers | userModel(user)                                   | User[] | Create bulk users from CSV                                |
+| updateUser  | string(id), object(user)                          | string | Update a user                                             |
 
-#### ResultServices.getResult(id)
+#### UserService.getUser({ username })
 
-Get result by id.
+Get user by username or email.
 
-The param `id` should be a string of ObjectId.
+The param `username` should be a string of username or email.
 
-Return a object with the result data
+Return a object with the user data
 
 ```js
-const resultServices = new ResultService();
+const userService = new UsersService();
 
-const result = await resultService.getResult('5eb96c9ffc13ae25db00001a');
+const user = await userService.getUser({ 'msnasel0@tripadvisor.com || mayne.snasel.4171' });
 
-console.log(result);
+console.log(user);
 /*
 {
-  "_id": "5eb96c9ffc13ae25db00001a",
-  "createdAt": "2020-05-18T23:52:42.378Z",
-  "updatedAt": "2020-05-19T00:33:19.703Z",
-  "orderId": "5eb96c9ffc13ae25db00003c",
-  "bacteriologistId":"5eb96c9ffc13ae25db000009"
-  "results": [
-    {
-      "_id": "5eb96c9ffc13ae25db000061",
-      "fieldName": "DVHD",
-      "value": 0.6
-    },
-  ]
+  _id: 5ec5ce16fc13ae1506000064,
+  isActive: false,
+  documentID: 21873837287,
+  firstName: 'Mayne',
+  lastName: 'Snasel',
+  email: "msnasel0@tripadvisor.com",
+  contactNumber: 624215528148,
+  typeOfUser: "Administrator",
+  username: 'mayne.snasel.4171',
+  createdAt: 2020-05-28T15:36:57.064Z,
+  updatedAt: '2020-05-28T17:58:55.489Z'
 }
 */
 ```
 
-#### ResultServices.createResult(result)
+#### UserService.getUser({userId})
 
-The param `result` should have `orderId`, `bacteriologistId` and `results` attributes.
+Get user by id.
+
+The param `id` should be a string of ObjectId.
+
+Result is a object with user data.
+
+```js
+const userService = new UsersService();
+
+const user = await userService.getUserId({ '5ec5ce16fc13ae1506000064' });
+
+console.log(user);
+/*
+{
+  _id: 5ec5ce16fc13ae1506000064,
+  isActive: false,
+  documentID: 21873837287,
+  firstName: 'Mayne',
+  lastName: 'Snasel',
+  email: "msnasel0@tripadvisor.com",
+  contactNumber: 624215528148,
+  typeOfUser: "Administrator",
+  username: 'mayne.snasel.4171',
+  createdAt: 2020-05-28T15:36:57.064Z,
+  updatedAt: '2020-05-28T17:58:55.489Z'
+}
+*/
+```
+
+#### UserService.getUsers()
+
+Get all users
+
+Result is a array that contains objects with users data.
+
+```js
+const userService = new UsersService();
+
+const users = await usersService.getUsers();
+
+console.log(users);
+/*
+[
+      {
+        _id: 5ec5ce16fc13ae1506000064,
+        isActive: false,
+        documentID: 21873837287,
+        firstName: 'Mayne',
+        lastName: 'Snasel',
+        email: "msnasel0@tripadvisor.com",
+        contactNumber: 624215528148,
+        typeOfUser: "Administrator",
+        username: 'mayne.snasel.4171',
+        createdAt: 2020-05-28T15:36:57.064Z,
+        updatedAt: '2020-05-28T17:58:55.489Z'
+      },
+
+],
+*/
+```
+
+#### UserService.getUsers({ name || typeOfUser || documentID || isActive})
+
+Get all users by name or typeOfUser or documentID or isActive.
+
+Result is a array that contains objects with users data.
+
+```js
+const userService = new UsersService();
+
+const users = await usersService.getUsers(
+  { name: 'Mayne' } || { typeOfUser: 'Administrator' } || {
+      documentID: 21873837287,
+    } || { isActive: false }
+);
+
+console.log(users);
+/*
+[
+      {
+        _id: 5ec5ce16fc13ae1506000064,
+        isActive: false,
+        documentID: 21873837287,
+        firstName: 'Mayne',
+        lastName: 'Snasel',
+        email: "msnasel0@tripadvisor.com",
+        contactNumber: 624215528148,
+        typeOfUser: "Administrator",
+        username: 'mayne.snasel.4171',
+        createdAt: 2020-05-28T15:36:57.064Z,
+        updatedAt: '2020-05-28T17:58:55.489Z'
+      },
+
+],
+*/
+```
+
+#### UserService.createUser({ user })
+
+The param `user` should have `documentID`, `firstName` and `lastName` and `email` and `contactNumber` and `typeOfUser` attributes.
 
 Return a ObjectId.
 
 ```js
-const resultServices = new ResultService();
+const usersService = new UsersService();
 
-const createdResultId = await  resultsService.createResult({
-  'orderId': '5eb96c9ffc13ae25db00003c',
-  'bacteriologistId':'5eb96c9ffc13ae25db000009'
-  'results': [
-    {
-      'fieldName': 'DVHD',
-      'value': 0.6
-    },
-  ]
+const { createUserId: id, username } = await usersService.createUser({
+  documentID: 21873837287,
+  firstName: 'Mayne',
+  lastName: 'Snasel',
+  email: 'msnasel0@tripadvisor.com',
+  contactNumber: 624215528148,
+  typeOfUser: 'Administrator',
 });
 
-console.log(createdResultId); // 5eb96c9ffc13ae25db00001a
+console.log((createUserId: id), username); // 5ec5ce16fc13ae1506000064 , mayne.snasel.4171
+```
+
+#### UserService.createUsers({ user })
+
+The param `user` should have `documentID`, `firstName` and `lastName` and `email` and `contactNumber` and `typeOfUser` attributes.
+
+Return a ObjectId for each User.
+
+```js
+const usersService = new UsersService();
+
+const { createUserId: id, username } = await usersService.createUser({
+  documentID: 21873837287,
+  firstName: 'Mayne',
+  lastName: 'Snasel',
+  email: 'msnasel0@tripadvisor.com',
+  contactNumber: 624215528148,
+  typeOfUser: 'Administrator',
+});
+
+console.log((createUserId: id), username); // 5ec5ce16fc13ae1506000064 , mayne.snasel.4171
 ```
