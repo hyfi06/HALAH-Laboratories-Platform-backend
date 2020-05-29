@@ -1,4 +1,5 @@
 const sinon = require('sinon');
+const { ObjectId } = require('mongodb');
 const { config } = require('../../config');
 
 const { apiKeysMock } = require('./auth');
@@ -19,6 +20,12 @@ getAllStub
   .withArgs(config.dbCollections.exams, { name: '' })
   .resolves(null);
 
+getAllStub
+  .withArgs(config.dbCollections.orders, {})
+  .resolves(ordersMock);
+getAllStub
+  .withArgs(config.dbCollections.orders, { patientId: ObjectId(ordersMock[0].patientId) })
+  .resolves([ordersMock[0]]);
 
 const getStub = sinon.stub();
 getStub
@@ -27,6 +34,9 @@ getStub
 getStub
   .withArgs(config.dbCollections.results, resultMocks[0]._id)
   .resolves(resultMocks[0]);
+getStub
+  .withArgs(config.dbCollections.orders, ordersMock[0]._id)
+  .resolves(ordersMock[0]);
 
 
 const createStub = sinon.stub();
@@ -36,6 +46,10 @@ createStub
 createStub
   .withArgs(config.dbCollections.results)
   .resolves(resultMocks[0]._id);
+createStub
+  .withArgs(config.dbCollections.orders)
+  .resolves(ordersMock[0]._id);
+
 
 const updateStub = sinon.stub();
 updateStub

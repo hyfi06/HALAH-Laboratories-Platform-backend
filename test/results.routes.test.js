@@ -4,10 +4,9 @@ const testServer = require('../utils/testServer');
 
 const { loginMock } = require('../utils/mocks/login');
 const { UsersServiceMock,
-  patientMock,
   bacteriologistMock } = require('../utils/mocks/users');
 
-const { OrderService, ordersMock } = require('../utils/mocks/order');
+const { OrderServiceMock, ordersMock } = require('../utils/mocks/order');
 const { ExamsServiceMock } = require('../utils/mocks/exams');
 
 const { configMock } = require('../utils/mocks/config');
@@ -19,7 +18,7 @@ const { ResultsServiceMock, resultMocks, getResultMock } = require('../utils/moc
 describe('results - routes', function () {
   const route = proxyquire('../components/results/routes', {
     './resultsService': ResultsServiceMock,
-    '../orders/ordersService': OrderService,
+    '../orders/ordersService': OrderServiceMock,
     '../exams/examsService': ExamsServiceMock,
     '../../utils/auth/strategies/jwt': {
       '@noCallThru': true,
@@ -43,6 +42,7 @@ describe('results - routes', function () {
         .post('/api/results')
         .expect(401, done);
     });
+
     it('should require bearer token', function (done) {
       request
         .post('/api/results')

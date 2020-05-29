@@ -103,8 +103,21 @@ const ordersMock = [
 
 const copy = (object) => JSON.parse(JSON.stringify(object));
 
-class OrderService {
-  async createOrder(order) { }
+function filteredOrdersbyPatientIdMock(id) {
+  const orders = ordersMock.filter((order) => order.patientId == id);
+  return copy(orders);
+}
+
+class OrderServiceMock {
+  async createOrder(order) {
+
+    if (order) {
+      return Promise.resolve(copy(ordersMock[0])._id);
+    } else {
+      return Promise.reject();
+    }
+  }
+
   async getOrder(id) {
     if (id == ordersMock[0]._id) {
       return Promise.resolve(copy(ordersMock[0]));
@@ -112,10 +125,18 @@ class OrderService {
       return Promise.reject();
     }
   }
-  async getOrders({ patient }) { }
+  async getOrders({ patient }) {
+    if (patient) {
+      const orders = filteredOrdersbyPatientIdMock(patient);
+      if (orders.length > 0) {
+        return Promise.resolve(orders);
+      }
+    }
+    return Promise.reject();
+  }
 }
 
 module.exports = {
   ordersMock,
-  OrderService,
+  OrderServiceMock,
 };

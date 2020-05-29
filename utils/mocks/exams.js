@@ -364,7 +364,11 @@ class ExamsServiceMock {
   }
 
   async createExam(exam) {
-    return Promise.resolve(examsMock[0]._id);
+    if (exam) {
+      return Promise.resolve(examsMock[0]._id);
+    } else {
+      return Promise.reject();
+    }
   }
 }
 

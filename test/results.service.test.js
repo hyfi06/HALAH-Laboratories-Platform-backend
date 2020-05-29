@@ -1,5 +1,4 @@
 const assert = require('assert');
-const asyncThrows = require('../lib/asyncThrows');
 const proxyquire = require('proxyquire');
 
 const { MongoLibMock,
@@ -7,14 +6,14 @@ const { MongoLibMock,
   createStub,
   updateStub } = require('../utils/mocks/mongoLib');
 
-const { OrderService } = require('../utils/mocks/order');
+const { OrderServiceMock } = require('../utils/mocks/order');
 
 const { resultMocks } = require('../utils/mocks/result');
 
 describe('result - service', function () {
   const ResultService = proxyquire('../components/results/resultsService', {
     '../../lib/mongo': MongoLibMock,
-    '../orders/ordersService': OrderService,
+    '../orders/ordersService': OrderServiceMock,
   });
 
   const resultService = new ResultService();

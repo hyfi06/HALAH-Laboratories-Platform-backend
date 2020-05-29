@@ -1,10 +1,10 @@
-const usersMock = [{ '_id': '5ec5ce16fc13ae1506000064', 'documentID': '8525304171', 'firstName': 'Mayne', 'lastName': 'Snasel', 'username': 'mayne.snasel.4171', 'email': 'msnasel0@tripadvisor.com', 'contactNumber': 624215528148, 'imageURL': 'http://dummyimage.com/200x200.png/ff4444/ffffff', 'password': '1077aeb58ec7c1b2c5df372093b9a5215f45fb9ba6bfd75d640ffd7b0dafadc5', 'isActive': false, 'typeOfUser': 'Patient', 'createdAt': '2020-05-11T13:54:33Z', 'updateAt': '2020-05-11T13:54:33Z' },
+const usersMock = [{ '_id': '5ec5ce16fc13ae1506000064', 'documentID': '8525304171', 'firstName': 'Mayne', 'lastName': 'Snasel', 'username': 'mayne.snasel.4171', 'email': 'msnasel0@tripadvisor.com', 'contactNumber': 624215528148, 'imageURL': 'http://dummyimage.com/200x200.png/ff4444/ffffff', 'password': '$2b$10$p/hKsMtaFCFV.yna5iWjZe6n5d7f.IGyZeRt4Ska7DasLPZW6mjiK', 'isActive': false, 'typeOfUser': 'Patient', 'createdAt': '2020-05-11T13:54:33Z', 'updateAt': '2020-05-11T13:54:33Z' },
 { '_id': '5ec5ce16fc13ae1506000065', 'documentID': '0536226368', 'firstName': 'Ingrid', 'lastName': 'Niblett', 'username': 'ingrid.niblett.6368', 'email': 'iniblett1@vistaprint.com', 'contactNumber': 3813256802011, 'imageURL': 'http://dummyimage.com/200x200.jpg/cc0000/ffffff', 'password': '55ce776da79868f0314e41d146bafeba43d1bfd158fe677211c4f58efb308404', 'isActive': true, 'typeOfUser': 'Patient', 'createdAt': '2020-02-05T21:03:00Z', 'updateAt': '2020-02-05T21:03:00Z' },
-{ '_id': '5ec5ce16fc13ae1506000066', 'documentID': '9228628907', 'firstName': 'Cathie', 'lastName': 'Toffaloni', 'username': 'cathie.toffaloni.8907', 'email': 'ctoffaloni2@chicagotribune.com', 'contactNumber': 869309644942, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': '4c39653e53d5003926f9fb9124e79675abab67accda7bea5e03297fdf4d8389f', 'isActive': true, 'typeOfUser': 'Doctor', 'createdAt': '2020-01-08T06:34:34Z', 'updateAt': '2020-01-08T06:34:34Z' },
-{ '_id': '5ec5ce16fc13ae1506000067', 'documentID': '9524930997', 'firstName': 'Morse', 'lastName': 'Cavendish', 'username': 'morse.cavendish.0997', 'email': 'mcavendish3@ucoz.ru', 'contactNumber': 3868896045278, 'imageURL': 'http://dummyimage.com/200x200.jpg/dddddd/000000', 'password': 'b0f643f84e23cb3546f9f3e9da72c4d661171edab76b87d1739304dc871ecf22', 'isActive': true, 'typeOfUser': 'Bacteriologist', 'createdAt': '2020-02-08T11:11:27Z', 'updateAt': '2020-02-08T11:11:27Z' },
+{ '_id': '5ec5ce16fc13ae1506000066', 'documentID': '9228628907', 'firstName': 'Cathie', 'lastName': 'Toffaloni', 'username': 'cathie.toffaloni.8907', 'email': 'ctoffaloni2@chicagotribune.com', 'contactNumber': 869309644942, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': '$2b$10$XIHjbYOUAsT4lecs7uxLB.vMkU8CvInyWUNv9tEKKtlZi0WXR1OdO', 'isActive': true, 'typeOfUser': 'Doctor', 'createdAt': '2020-01-08T06:34:34Z', 'updateAt': '2020-01-08T06:34:34Z' },
+{ '_id': '5ec5ce16fc13ae1506000067', 'documentID': '9524930997', 'firstName': 'Morse', 'lastName': 'Cavendish', 'username': 'morse.cavendish.0997', 'email': 'mcavendish3@ucoz.ru', 'contactNumber': 3868896045278, 'imageURL': 'http://dummyimage.com/200x200.jpg/dddddd/000000', 'password': '$2b$10$2bWo75SN9jWKnX9HxAh/YuM2m/LYdmL/.5tNmKZBL9/2QMnDtB4Jm', 'isActive': true, 'typeOfUser': 'Bacteriologist', 'createdAt': '2020-02-08T11:11:27Z', 'updateAt': '2020-02-08T11:11:27Z' },
 { '_id': '5ec5ce16fc13ae1506000068', 'documentID': '0721574489', 'firstName': 'Payton', 'lastName': 'Treamayne', 'username': 'payton.treamayne.4489', 'email': 'ptreamayne4@deliciousdays.com', 'contactNumber': 77711370727, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': 'fac012aabf3979128a6f62ee8f8612d6dc1f4a08ff9bffc2094304acd4562547', 'isActive': true, 'typeOfUser': 'Doctor', 'createdAt': '2020-04-03T17:06:33Z', 'updateAt': '2020-04-03T17:06:33Z' },
 { '_id': '5ec5ce16fc13ae1506000069', 'documentID': '2356858581', 'firstName': 'Wilhelm', 'lastName': 'Duchart', 'username': 'wilhelm.duchart.8581', 'email': 'wduchart5@topsy.com', 'contactNumber': 862036364014, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': 'c6adbcdcffd13496ab2392f08ab77aa853cacbb230bfb8832df8f52af81b29b0', 'isActive': true, 'typeOfUser': 'Bacteriologist', 'createdAt': '2020-02-20T22:58:59Z', 'updateAt': '2020-02-20T22:58:59Z' },
-{ '_id': '5ec5ce16fc13ae150600006a', 'documentID': '6307195684', 'firstName': 'Tiff', 'lastName': 'Kender', 'username': 'tiff.kender.5684', 'email': 'tkender6@wiley.com', 'contactNumber': 3725901647472, 'imageURL': 'http://dummyimage.com/200x200.jpg/ff4444/ffffff', 'password': '21be9daae0a1202f3311e476993dad86be72b1440de1efe52a83610c829eccdb', 'isActive': true, 'typeOfUser': 'Administrator', 'createdAt': '2020-05-01T18:53:37Z', 'updateAt': '2020-05-01T18:53:37Z' },
+{ '_id': '5ec5ce16fc13ae150600006a', 'documentID': '6307195684', 'firstName': 'Tiff', 'lastName': 'Kender', 'username': 'tiff.kender.5684', 'email': 'tkender6@wiley.com', 'contactNumber': 3725901647472, 'imageURL': 'http://dummyimage.com/200x200.jpg/ff4444/ffffff', 'password': '$2b$10$kEcHxPgMIIukN7TigElpBu7lagjUnXSml1ZKnxIwTbYuA5/GNbPeG', 'isActive': true, 'typeOfUser': 'Administrator', 'createdAt': '2020-05-01T18:53:37Z', 'updateAt': '2020-05-01T18:53:37Z' },
 { '_id': '5ec5ce16fc13ae150600006b', 'documentID': '7501639588', 'firstName': 'Casi', 'lastName': 'Kellitt', 'username': 'casi.kellitt.9588', 'email': 'ckellitt7@wiley.com', 'contactNumber': 559544250428, 'imageURL': 'http://dummyimage.com/200x200.png/5fa2dd/ffffff', 'password': '6d0accc21ca05474f561bc3796764cc027b1e3c70e85235cc7c5f290dd3156dd', 'isActive': false, 'typeOfUser': 'Doctor', 'createdAt': '2020-02-07T17:12:42Z', 'updateAt': '2020-02-07T17:12:42Z' },
 { '_id': '5ec5ce16fc13ae150600006c', 'documentID': '7471496262', 'firstName': 'Boy', 'lastName': 'Pirson', 'username': 'boy.pirson.6262', 'email': 'bpirson8@free.fr', 'contactNumber': 204323183235, 'imageURL': 'http://dummyimage.com/200x200.jpg/dddddd/000000', 'password': 'e049c979498586ea285a1c8933d713b5e4faddb07e982029174ecedfb806bbd1', 'isActive': false, 'typeOfUser': 'Patient', 'createdAt': '2020-01-14T08:09:14Z', 'updateAt': '2020-01-14T08:09:14Z' },
 { '_id': '5ec5ce16fc13ae150600006d', 'documentID': '7897767644', 'firstName': 'Ivonne', 'lastName': 'Pendrill', 'username': 'ivonne.pendrill.7644', 'email': 'ipendrill9@plala.or.jp', 'contactNumber': 4202953095353, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': '97fd7335a578067c83a8e2cbb267977ed826a15ce9899c8580f2284a1e6c2427', 'isActive': false, 'typeOfUser': 'Doctor', 'createdAt': '2020-03-31T10:20:19Z', 'updateAt': '2020-03-31T10:20:19Z' },
@@ -301,22 +301,44 @@ const usersMock = [{ '_id': '5ec5ce16fc13ae1506000064', 'documentID': '852530417
 
 const userMock = { '_id': '5ec5ce16fc13ae150600006a', 'documentID': '6307195684', 'firstName': 'Tiff', 'lastName': 'Kender', 'username': 'tiff.kender.5684', 'email': 'tkender6@wiley.com', 'contactNumber': 3725901647472, 'imageURL': 'http://dummyimage.com/200x200.jpg/ff4444/ffffff', 'password': '$2b$10$kEcHxPgMIIukN7TigElpBu7lagjUnXSml1ZKnxIwTbYuA5/GNbPeG', 'isActive': true, 'typeOfUser': 'Administrator', 'createdAt': '2020-05-01T18:53:37Z', 'updateAt': '2020-05-01T18:53:37Z' };
 
-const patientMock = { '_id': '5ec5ce16fc13ae1506000064', 'documentID': '8525304171', 'firstName': 'Mayne', 'lastName': 'Snasel', 'username': 'mayne.snasel.4171', 'email': 'msnasel0@tripadvisor.com', 'contactNumber': 624215528148, 'imageURL': 'http://dummyimage.com/200x200.png/ff4444/ffffff', 'password': '1077aeb58ec7c1b2c5df372093b9a5215f45fb9ba6bfd75d640ffd7b0dafadc5', 'isActive': false, 'typeOfUser': 'Patient', 'createdAt': '2020-05-11T13:54:33Z', 'updateAt': '2020-05-11T13:54:33Z' };
+const patientMock = { '_id': '5ec5ce16fc13ae1506000064', 'documentID': '8525304171', 'firstName': 'Mayne', 'lastName': 'Snasel', 'username': 'mayne.snasel.4171', 'email': 'msnasel0@tripadvisor.com', 'contactNumber': 624215528148, 'imageURL': 'http://dummyimage.com/200x200.png/ff4444/ffffff', 'password': '$2b$10$p/hKsMtaFCFV.yna5iWjZe6n5d7f.IGyZeRt4Ska7DasLPZW6mjiK', 'isActive': false, 'typeOfUser': 'Patient', 'createdAt': '2020-05-11T13:54:33Z', 'updateAt': '2020-05-11T13:54:33Z' };
 
-const bacteriologistMock = { '_id': '5ec5ce16fc13ae1506000067', 'documentID': '9524930997', 'firstName': 'Morse', 'lastName': 'Cavendish', 'username': 'morse.cavendish.0997', 'email': 'mcavendish3@ucoz.ru', 'contactNumber': 3868896045278, 'imageURL': 'http://dummyimage.com/200x200.jpg/dddddd/000000', 'password': 'b0f643f84e23cb3546f9f3e9da72c4d661171edab76b87d1739304dc871ecf22', 'isActive': true, 'typeOfUser': 'Bacteriologist', 'createdAt': '2020-02-08T11:11:27Z', 'updateAt': '2020-02-08T11:11:27Z' };
+const bacteriologistMock = { '_id': '5ec5ce16fc13ae1506000067', 'documentID': '9524930997', 'firstName': 'Morse', 'lastName': 'Cavendish', 'username': 'morse.cavendish.0997', 'email': 'mcavendish3@ucoz.ru', 'contactNumber': 3868896045278, 'imageURL': 'http://dummyimage.com/200x200.jpg/dddddd/000000', 'password': '$2b$10$2bWo75SN9jWKnX9HxAh/YuM2m/LYdmL/.5tNmKZBL9/2QMnDtB4Jm', 'isActive': true, 'typeOfUser': 'Bacteriologist', 'createdAt': '2020-02-08T11:11:27Z', 'updateAt': '2020-02-08T11:11:27Z' };
 
-const doctorMock = { '_id': '5ec5ce16fc13ae1506000066', 'documentID': '9228628907', 'firstName': 'Cathie', 'lastName': 'Toffaloni', 'username': 'cathie.toffaloni.8907', 'email': 'ctoffaloni2@chicagotribune.com', 'contactNumber': 869309644942, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': '4c39653e53d5003926f9fb9124e79675abab67accda7bea5e03297fdf4d8389f', 'isActive': true, 'typeOfUser': 'Doctor', 'createdAt': '2020-01-08T06:34:34Z', 'updateAt': '2020-01-08T06:34:34Z' };
+const doctorMock = { '_id': '5ec5ce16fc13ae1506000066', 'documentID': '9228628907', 'firstName': 'Cathie', 'lastName': 'Toffaloni', 'username': 'cathie.toffaloni.8907', 'email': 'ctoffaloni2@chicagotribune.com', 'contactNumber': 869309644942, 'imageURL': 'http://dummyimage.com/200x200.jpg/5fa2dd/ffffff', 'password': '$2b$10$XIHjbYOUAsT4lecs7uxLB.vMkU8CvInyWUNv9tEKKtlZi0WXR1OdO', 'isActive': true, 'typeOfUser': 'Doctor', 'createdAt': '2020-01-08T06:34:34Z', 'updateAt': '2020-01-08T06:34:34Z' };
 
 const copy = (object) => JSON.parse(JSON.stringify(object));
 
+function filteredUserMockById(id) {
+  const usersFilter = usersMock.filter((user) => user._id == id);
+  return copy(usersFilter);
+}
+
+function filteredUserbyUsernameMock(username) {
+  const usersFilter = usersMock
+    .filter((user) => user.username == username || user.email == username);
+  return copy(usersFilter);
+}
+
 class UsersServiceMock {
   async getUser({ username }) {
-    if (username === 'tiff.kender.5684' ||
-      username === 'tkender6@wiley.com') {
-      return copy(userMock);
+    if (username) {
+      const users = filteredUserbyUsernameMock(username);
+      if (users.length > 0) {
+        return Promise.resolve(users[0]);
+      }
     }
+    return Promise.reject();
   }
-  async getUserId({ userId }) { }
+  async getUserId({ userId }) {
+    if (userId) {
+      const users = filteredUserMockById(userId);
+      if (users.length > 0) {
+        return Promise.resolve(users[0]);
+      }
+    }
+    return Promise.reject();
+  }
   async getUsers(args) { }
   async createUser({ user }, sendmail) { }
   async createUsers(users) { }
@@ -327,6 +349,7 @@ module.exports = {
   usersMock,
   userMock,
   patientMock,
+  doctorMock,
   bacteriologistMock,
   UsersServiceMock,
 };
