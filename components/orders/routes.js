@@ -108,7 +108,7 @@ function ordersApi(app) {
     passport.authenticate('jwt', { session: false }),
     validationIdHandler('patient', 'query', false),
     async function (req, res, next) {
-      const { patient, username } = req.query;
+      const { patient, username, isComplete } = req.query;
       if (!patient && !username) {
         next(boom.badRequest('patient or username query is required'));
         return;
@@ -120,10 +120,14 @@ function ordersApi(app) {
           if (!user) throw boom.notFound('Patient not found');
           return user._id;
         })() : null;
-  
-        const query = userId ? userId : patient;
-  
-        const userOrders = await ordersService.getOrders({ patient: query });
+
+        const query = {};
+        query.patient = userId ? userId : patient;
+        if (isComplete) {
+          query.isComplete = isComplete == 'true';
+        }
+
+        const userOrders = await ordersService.getOrders(query);
 
         const response = await (async () => {
           const orders = await userOrders.map(async order => {
