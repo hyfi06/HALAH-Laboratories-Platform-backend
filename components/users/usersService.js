@@ -78,7 +78,7 @@ class usersService {
     return users || [];
   }
 
-  async createUser({ user }, sendmail = true) {
+  async createUser({ user }) {
     await validationHandler(user, UserModel);
     let intentsGenerateUsername = 100;
     const { firstName, lastName, documentID } = user;
@@ -111,7 +111,7 @@ class usersService {
 
     const hashedPassword = await bcrypt.hash(passwordSecure, 10);
 
-    if (sendmail) {
+    if (config.sendEmail) {
       const error = await this.mailService.sendMail({
         to: user.email,
         subject: 'Welcome Halah Laboratories',
@@ -136,10 +136,7 @@ class usersService {
     const data = await Promise.all(
       users.map(async (user, index) => {
         try {
-          const { createUserId, username } = await this.createUser(
-            { user },
-            false
-          );
+          const { createUserId, username } = await this.createUser({ user });
           return { id: createUserId, username, error: false };
         } catch (error) {
           return { user: user, index, error: true };

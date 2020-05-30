@@ -309,6 +309,29 @@ const doctorMock = { '_id': '5ec5ce16fc13ae1506000066', 'documentID': '922862890
 
 const copy = (object) => JSON.parse(JSON.stringify(object));
 
+const fields = [
+  '_id',
+  'username',
+  'lastName',
+  'typeOfUser',
+  'imageURL',
+  'firstName',
+  'lastName',
+  'isActive',
+  'documentID',
+];
+const usersResponseMock = copy(usersMock)
+  .map((user) =>
+    Object.keys(user)
+      .filter((key) => fields.includes(key))
+      .reduce((newUser, key) => {
+        newUser[key] = user[key];
+        return newUser;
+      }, {})
+  );;
+
+
+
 function filteredUserMockById(id) {
   const usersFilter = usersMock.filter((user) => user._id == id);
   return copy(usersFilter);
@@ -339,10 +362,31 @@ class UsersServiceMock {
     }
     return Promise.reject();
   }
-  async getUsers(args) { }
-  async createUser({ user }, sendmail) { }
-  async createUsers(users) { }
-  async updateUser({ userId, user }) { }
+  async getUsers() {
+    return Promise.resolve(copy(usersMock));
+  }
+  async createUser({ user }) {
+    if (user) {
+      return Promise.resolve({ createUserId: copy(usersMock[0]._id), username: copy(usersMock[0].username) });
+    }
+    return Promise.reject();
+  }
+  async createUsers(users) {
+    if (users) {
+      return Promise.resolve([{
+        id: copy(usersMock[0]._id),
+        username: copy(usersMock[0].username),
+        error: false,
+      }]);
+    }
+    return Promise.reject();
+  }
+  async updateUser({ userId, user }) {
+    if (userId && user) {
+      return Promise.resolve(copy(usersMock[0]._id));
+    }
+    return Promise.reject();
+  }
 }
 
 module.exports = {
@@ -351,5 +395,6 @@ module.exports = {
   patientMock,
   doctorMock,
   bacteriologistMock,
+  usersResponseMock,
   UsersServiceMock,
 };
