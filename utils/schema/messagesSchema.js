@@ -6,9 +6,11 @@ const schema = mongoose.Schema;
 const MessagesSchema = new schema({
   patientId: {
     type: mongoose.Types.ObjectId,
+    required: true,
   },
   messageText: {
     type: String,
+    required: true,
   },
   createdAt: {
     type: Date,
@@ -18,7 +20,7 @@ const MessagesSchema = new schema({
     type: Date,
     default: Date.now(),
   },
-  isComplete: {
+  read: {
     type: Boolean,
     default: false,
   },
