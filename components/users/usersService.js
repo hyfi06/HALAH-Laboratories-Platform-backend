@@ -78,7 +78,7 @@ class usersService {
     return users || [];
   }
 
-  async createUser({ user }, sendmail = true) {
+  async createUser({ user }, sendmail = config.sendEmail) {
     await validationHandler(user, UserModel);
     let intentsGenerateUsername = 100;
     const { firstName, lastName, documentID } = user;
@@ -111,7 +111,7 @@ class usersService {
 
     const hashedPassword = await bcrypt.hash(passwordSecure, 10);
 
-    if (sendmail) {
+    if (sendmail == 'true') {
       const error = await this.mailService.sendMail({
         to: user.email,
         subject: 'Welcome Halah Laboratories',
@@ -138,7 +138,7 @@ class usersService {
         try {
           const { createUserId, username } = await this.createUser(
             { user },
-            false
+            config.sendEmail
           );
           return { id: createUserId, username, error: false };
         } catch (error) {

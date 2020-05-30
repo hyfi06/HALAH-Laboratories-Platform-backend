@@ -30,6 +30,7 @@ const config = {
     Patient: '/tests',
   },
   loginUrl: process.env.LOGIN_URL,
+  sendEmail: process.env.SEND_MAIL,
 };
 
 module.exports = { config };
