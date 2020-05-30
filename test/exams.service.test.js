@@ -52,5 +52,10 @@ describe('exams - service', function () {
       await examsService.createExam(examsMock[0]);
       assert.strictEqual(createStub.called, true);
     });
+
+    it('should return a id', async function () {
+      const result = await examsService.createExam(examsMock[0]);
+      assert.deepEqual(result, examsMock[0]._id);
+    });
   });
 });
