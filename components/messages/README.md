@@ -30,16 +30,6 @@ Response code 201:
 }
 ```
 
-Response code 404:
-
-```js
-{
-    "statusCode": 404,
-    "error": "Not Found",
-    "message": "Not Found",
-}
-```
-
 ### GET `api/messages?patientId=`
 
 Retrieve a message by patient's id.
@@ -58,6 +48,16 @@ Response 200:
     ]
   },
   "message": "Messages retrieved"
+}
+```
+
+Response code 404:
+
+```js
+{
+    "statusCode": 404,
+    "error": "Not Found",
+    "message": "Not Found",
 }
 ```
 
@@ -99,7 +99,7 @@ console.log(messages);
     updatedAt: 2020-05-30T04:14:35.043Z,
     read: false,
     patientId: 5ecfda99da80860ec24ea439,
-    messageText: 'Listo tu resultado 4'
+    messageText: 'Results ready to download 4'
   }
 ]
 */
@@ -116,7 +116,7 @@ const messagesService = new MessagesService();
 
 const createUserId = await messagesService.createMessages({
   patientId: '5ecfda99da80860ec24ea439',
-  messageText: 'Listo tu resultado 4',
+  messageText: 'Results ready to download 4',
 });
 
 console.log(createUserId); // 5ed1ddabc0f381982068a797

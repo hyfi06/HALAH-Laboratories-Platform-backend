@@ -5,7 +5,7 @@ const MessagesService = require('./messagesService');
 // strategy JWT
 require('../../utils/auth/strategies/jwt');
 
-function usersApi(app) {
+function messagesApi(app) {
   const router = express.Router();
   app.use('/api/messages', router);
   const messagesService = new MessagesService();
@@ -18,7 +18,6 @@ function usersApi(app) {
 
       try {
         const messages = await messagesService.getMessages(patientId);
-        console.log(messages);
 
         res.status(200).json({
           data: messages,
@@ -49,4 +48,4 @@ function usersApi(app) {
   );
 }
 
-module.exports = usersApi;
+module.exports = messagesApi;
