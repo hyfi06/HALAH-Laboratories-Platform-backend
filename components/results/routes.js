@@ -7,6 +7,7 @@ const validationIdHandler = require('../../utils/middleware/validationIdHandler'
 const ResultsService = require('./resultsService');
 const OrdersService = require('../orders/ordersService');
 const ExamsService = require('../exams/examsService');
+const MessagesService = require('../messages/messagesService');
 
 function resultsApi(app) {
   const router = express.Router();
@@ -16,6 +17,7 @@ function resultsApi(app) {
   const resultsService = new ResultsService();
   const ordersService = new OrdersService();
   const examsService = new ExamsService();
+  const messagesService = new MessagesService();
 
   router.post(
     '/',
@@ -28,6 +30,15 @@ function resultsApi(app) {
       try {
         const createResultId = await resultsService.createResult(result);
 
+        const order = await ordersService.getOrder(result.orderId);
+        const exam = await examsService.getExam(order.examTypeId);
+
+        const message = `${exam.name} test results are now available`;
+
+        await messagesService.createMessages({
+          patientId: order.patientId,
+          messageText: message,
+        });
         res.status(201).json({
           data: createResultId,
           message: 'result created',
