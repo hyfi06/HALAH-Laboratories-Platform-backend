@@ -32,6 +32,10 @@ This route handles results of test. [See more](https://github.com/hyfi06/platzi-
 
 This route handles test results pdf. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/pdfs).
 
+### `/api/messages`
+
+This route handles messages. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/messages).
+
 ## Installation
 
 ```bash

@@ -19,6 +19,7 @@ const ordersApi = require('../components/orders/routes');
 const examsApi = require('../components/exams/routes');
 const resultsApi = require('../components/results/routes');
 const pdfApi = require('../components/pdfs/routes');
+const messagesApi = require('../components/messages/routes');
 
 app.use(helmet());
 app.use(cors());
@@ -31,12 +32,13 @@ ordersApi(app);
 examsApi(app);
 resultsApi(app);
 pdfApi(app);
+messagesApi(app);
 
 // Catch 404
 app.use(notFoundHandler);
 
 // error middleware
-if(config.dev){
+if (config.dev) {
   app.use(logErrors);
 } else {
   app.use(errorRegister);
