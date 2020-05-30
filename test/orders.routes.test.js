@@ -8,6 +8,7 @@ const { OrderServiceMock, ordersMock } = require('../utils/mocks/order');
 const { ExamsServiceMock, examsMock } = require('../utils/mocks/exams');
 const { UsersServiceMock, patientMock, doctorMock } = require('../utils/mocks/users');
 const { ResultsServiceMock } = require('../utils/mocks/result');
+const { MessagesServiceMock } = require('../utils/mocks/messages');
 
 const { configMock } = require('../utils/mocks/config');
 
@@ -17,6 +18,7 @@ describe('orders - routes', function () {
     '../exams/examsService': ExamsServiceMock,
     '../users/usersService': UsersServiceMock,
     '../results/resultsService': ResultsServiceMock,
+    '../messages/messagesService': MessagesServiceMock,
     '../../utils/auth/strategies/jwt': {
       '@noCallThru': true,
     },

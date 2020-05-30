@@ -10,6 +10,7 @@ const OrdersService = require('./ordersService');
 const ExamsService = require('../exams/examsService');
 const UsersService = require('../users/usersService');
 const ResultService = require('../results/resultsService');
+const MessagesService = require('../messages/messagesService');
 const add = require('date-fns/add');
 
 function ordersApi(app) {
@@ -21,6 +22,8 @@ function ordersApi(app) {
   const examsService = new ExamsService();
   const usersService = new UsersService();
   const resultService = new ResultService();
+  const messagesService = new MessagesService();
+
 
   router.post(
     '/',
@@ -32,6 +35,15 @@ function ordersApi(app) {
       const order = req.body;
       try {
         const createOrderId = await ordersService.createOrder(order);
+
+        const exam = await examsService.getExam(order.examTypeId);
+
+        const message = `${exam.name} test has been scheduled. Already available for more details`;
+
+        await messagesService.createMessages({
+          patientId: order.patientId,
+          messageText: message,
+        });
 
         res.status(201).json({
           data: createOrderId,
