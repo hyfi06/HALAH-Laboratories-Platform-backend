@@ -5,10 +5,10 @@ This component manager the results.
 ## Routes
 
 ```http
-/api/exams
+/api/results
 ```
 
-### POST `/api/exams`
+### POST `/api/results`
 
 Create a results record.
 
