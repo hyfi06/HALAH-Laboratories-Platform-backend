@@ -1,3 +1,13 @@
+<p align="center">
+  <a href="https://www.halahlaboratories.com/">
+    <img
+      alt="HALAH"
+      src="https://i.imgur.com/JR05wxd.png"
+      width="100"
+    />
+  </a>
+</p>
+
 # Backed HALAH Laboratory Platform
 
 [![Build Status](https://travis-ci.com/hyfi06/platzi-master-end-game-backend.svg?branch=master)](https://travis-ci.com/hyfi06/platzi-master-end-game-backend)
@@ -10,31 +20,31 @@ Allowed routes:
 
 ### `api/auth`
 
-This route handles authentication. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/auth).
+This route handles authentication. [See more](/components/auth).
 
 ### `api/users`
 
-This route handles users. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/users).
+This route handles users. [See more](/components/users).
 
 ### `api/exams`
 
-This route handles enables medical exams. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/exams).
+This route handles enables medical exams. [See more](/components/exams).
 
 ### `api/orders`
 
-This route handles patients orders. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/orders).
+This route handles patients orders. [See more](/components/orders).
 
 ### `api/results`
 
-This route handles results of test. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/results).
+This route handles results of test. [See more](/components/results).
 
 ### `/api/pdfs`
 
-This route handles test results pdf. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/pdfs).
+This route handles test results pdf. [See more](/components/pdfs).
 
 ### `/api/messages`
 
-This route handles messages. [See more](https://github.com/hyfi06/platzi-master-end-game-backend/tree/master/components/messages).
+This route handles messages. [See more](/components/messages).
 
 ## Installation
 
@@ -56,18 +66,30 @@ If you want run, run the next line:
 npm run dev
 ```
 
-### Feature
+## Test
 
-You must "Fork" this project, review the problems and create a Pull Request to this repository.
+If you want run test, run the next line:
 
-### Enhancement
+```bash
+npm test
+```
 
-You must "Fork" this project, review the problems and create a Pull Request to this repository.
+```bash
+npm run cover
+```
 
-### BugFix
+## Contributing
 
-You must "Fork" this project, review the problems and create a Pull Request to this repository.
+Please see our [contributing.md](/contributing.md).
 
 ## License
 
-Licensed under the [MIT License](https://github.com/hyfi06/platzi-master-end-game-backend/blob/master/LICENSE).
+Licensed under the [MIT License](/LICENSE).
+
+## Authors
+
+- [Alexis Araujo](https://github.com/ealexisaraujo)
+- [Alberto Camarena](https://github.com/Alberthor47)
+- [Luis Flores](https://github.com/luisflorescode)
+- [Humberto López](https://github.com/HumbertoMLL)
+- [Héctor Olvera](https://github.com/hyfi06)
