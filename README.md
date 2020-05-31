@@ -78,6 +78,10 @@ npm test
 npm run cover
 ```
 
+## Wiki
+
+Please see our [wiki](https://github.com/hyfi06/platzi-master-end-game-backend/wiki)
+
 ## Contributing
 
 Please see our [contributing.md](/contributing.md).
