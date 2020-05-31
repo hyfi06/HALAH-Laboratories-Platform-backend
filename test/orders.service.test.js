@@ -8,7 +8,7 @@ const { MongoLibMock,
 
 const { ordersMock } = require('../utils/mocks/order');
 
-describe('result - service', function () {
+describe('orders - service', function () {
   const OrdersService = proxyquire('../components/orders/ordersService', {
     '../../lib/mongo': MongoLibMock,
   });
