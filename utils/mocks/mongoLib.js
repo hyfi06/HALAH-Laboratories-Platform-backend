@@ -7,28 +7,33 @@ const { examsMock } = require('./exams');
 const { resultMocks } = require('./result');
 const { ordersMock } = require('./order');
 const { messagesMock } = require('./messages');
+const { usersMock } = require('./users');
+
 const getAllStub = sinon.stub();
-getAllStub
-  .withArgs(config.dbCollections.apiKeys)
-  .resolves(apiKeysMock);
+getAllStub.withArgs(config.dbCollections.apiKeys).resolves(apiKeysMock);
 
-getAllStub
-  .withArgs(config.dbCollections.exams, {})
-  .resolves(examsMock);
+getAllStub.withArgs(config.dbCollections.exams, {}).resolves(examsMock);
 
-getAllStub
-  .withArgs(config.dbCollections.exams, { name: '' })
-  .resolves(null);
+getAllStub.withArgs(config.dbCollections.exams, { name: '' }).resolves(null);
 
+getAllStub.withArgs(config.dbCollections.orders, {}).resolves(ordersMock);
 getAllStub
-  .withArgs(config.dbCollections.orders, {})
-  .resolves(ordersMock);
-getAllStub
-  .withArgs(config.dbCollections.orders, { patientId: ObjectId(ordersMock[0].patientId) })
+  .withArgs(config.dbCollections.orders, {
+    patientId: ObjectId(ordersMock[0].patientId),
+  })
   .resolves([ordersMock[0]]);
+getAllStub.withArgs(config.dbCollections.messages).resolves([messagesMock[0]]);
+
 getAllStub
-  .withArgs(config.dbCollections.messages)
-  .resolves([messagesMock[0]]);
+  .withArgs(config.dbCollections.users, {
+    $or: [
+      { username: usersMock[0].username },
+      { email: usersMock[0].username },
+    ],
+  })
+  .resolves([usersMock[0]]);
+
+getAllStub.withArgs(config.dbCollections.users, {}).resolves(usersMock);
 
 const getStub = sinon.stub();
 getStub
@@ -40,36 +45,41 @@ getStub
 getStub
   .withArgs(config.dbCollections.orders, ordersMock[0]._id)
   .resolves(ordersMock[0]);
+getStub
+  .withArgs(config.dbCollections.users, usersMock[0]._id)
+  .resolves(usersMock[0]);
 
+const getUsernameStub = sinon.stub();
+getUsernameStub.withArgs(config.dbCollections.users).resolves(usersMock[0]);
 
 const createStub = sinon.stub();
-createStub
-  .withArgs(config.dbCollections.exams)
-  .resolves(examsMock[0]._id);
-createStub
-  .withArgs(config.dbCollections.results)
-  .resolves(resultMocks[0]._id);
-createStub
-  .withArgs(config.dbCollections.orders)
-  .resolves(ordersMock[0]._id);
+createStub.withArgs(config.dbCollections.exams).resolves(examsMock[0]._id);
+createStub.withArgs(config.dbCollections.results).resolves(resultMocks[0]._id);
+createStub.withArgs(config.dbCollections.orders).resolves(ordersMock[0]._id);
 createStub
   .withArgs(config.dbCollections.messages)
   .resolves(messagesMock[0]._id);
 
+createStub.withArgs(config.dbCollections.exams).resolves(examsMock[0]._id);
+createStub.withArgs(config.dbCollections.results).resolves(resultMocks[0]._id);
+createStub.withArgs(config.dbCollections.orders).resolves(ordersMock[0]._id);
+createStub.withArgs(config.dbCollections.users).resolves(usersMock[0]._id);
 
 const updateStub = sinon.stub();
-updateStub
-  .withArgs(config.dbCollections.orders)
-  .resolves(ordersMock[0]._id);
+updateStub.withArgs(config.dbCollections.orders).resolves(ordersMock[0]._id);
+
+updateStub.withArgs(config.dbCollections.users).resolves(usersMock[0]._id);
 
 const updateManyStub = sinon.stub();
-updateManyStub
-  .withArgs(config.dbCollections.messages)
-  .resolves(1);
+updateManyStub.withArgs(config.dbCollections.messages).resolves(1);
 
 class MongoLibMock {
   get(collection, id) {
     return getStub(collection, id);
+  }
+
+  getUsername(collection, username) {
+    return getUsernameStub(collection, username);
   }
 
   getAll(collection, query) {
@@ -94,5 +104,6 @@ module.exports = {
   createStub,
   updateStub,
   updateManyStub,
+  getUsernameStub,
   MongoLibMock,
 };
