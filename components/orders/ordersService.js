@@ -66,7 +66,11 @@ class OrdersService {
     const orders = await this.mongoDB.getAll(this.collection, query);
 
     if (orders.length == 0) {
-      throw boom.notFound(`There isn't test${isComplete == 'true' ? ' completed' : ''} for this patient`);
+      let complete ='';
+      if(typeof isComplete !== 'undefined'){
+        complete = isComplete ? ' completed': ' pending';
+      }
+      throw boom.notFound(`There isn't test${complete} for this patient`);
     }
 
     return orders;

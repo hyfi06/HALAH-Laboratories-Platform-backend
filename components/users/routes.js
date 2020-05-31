@@ -116,7 +116,7 @@ function usersApi(app) {
 
         const message = query.includes('isActive')
           ? `User ${
-              user.isActive == 'true' ? 'enabled' : 'disabled'
+              user.isActive ? 'enabled' : 'disabled'
             } sucessfull`
           : 'Data updated sucessfully';
 
