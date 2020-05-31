@@ -12,7 +12,7 @@ const {
 
 const copy = (object) => JSON.parse(JSON.stringify(object));
 
-const { UsersServiceMock, usersMock } = require('../utils/mocks/users');
+const { usersMock } = require('../utils/mocks/users');
 
 describe('user - service', function () {
   const UsersService = proxyquire('../components/users/usersService', {
@@ -21,7 +21,7 @@ describe('user - service', function () {
         return Promise.resolve();
       };
     },
-    // '../../config': configMock,
+    '../../config': configMock,
     '../../lib/mongo': MongoLibMock,
   });
 
@@ -99,6 +99,19 @@ describe('user - service', function () {
       });
 
       assert.deepEqual(result, usersMock[0].username);
+    });
+  });
+
+  describe('when createUsers method is called', async function () {
+    it('should call createUser and getUsername mongoLib method', async function () {
+      await usersService.createUsers([usersMock[0]]);
+      assert.strictEqual(createStub.called, true);
+      assert.strictEqual(getUsernameStub.called, true);
+    });
+    it('should return user', async function () {
+      const result = await usersService.createUsers([usersMock[0]]);
+
+      assert.deepEqual(Object.keys(result[0]), ['id', 'username', 'error']);
     });
   });
 });
