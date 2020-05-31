@@ -11,6 +11,13 @@ class MessagesService {
     this.mongoDB = new MongoLib();
   }
 
+  /**
+   * Create a new Message
+   * @param {object} message message data
+   * @param {string} message.patientId id of patient
+   * @param {string} message.messageText message
+   * @returns {string} created messages id
+   */
   async createMessages(message) {
     await validationModelHandler(message, MessagesModel);
 
@@ -22,6 +29,11 @@ class MessagesService {
     return createMessageId;
   }
 
+  /**
+   * Retrieve a patient messages
+   * @param {string} patientId patient id
+   * @return {object[]} messages of patient
+   */
   async getMessages(patientId) {
     const query = {
       $and: [{ patientId: ObjectId(patientId) }, { read: false }],

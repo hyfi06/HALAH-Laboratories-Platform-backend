@@ -3,6 +3,8 @@ const configMock = {
   config: {
     defaultPath: config.defaultPath,
     authJwtSecret: 'secret',
+    sendEmail: true,
+    dbCollections: config.dbCollections,
   },
 };
 

@@ -15,7 +15,7 @@ class ResultsService {
 
   /**
    * Create a new results
-   * @param {Object} result  data of results
+   * @param {object} result  data of results
    * @returns {string} id of new results
    */
   async createResult(result) {
@@ -44,7 +44,7 @@ class ResultsService {
   /**
    * Retrieve a result by id
    * @param {string} id id of result
-   * @returns {Object} results details
+   * @returns {object} results details
    */
   async getResult(id) {
     const result = await this.mongoDB.get(
