@@ -30,5 +30,6 @@ class MessagesServiceMock {
 
 
 module.exports = {
+  messagesMock,
   MessagesServiceMock,
 };
