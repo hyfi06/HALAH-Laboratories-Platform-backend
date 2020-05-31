@@ -2,7 +2,7 @@ const boom = require('@hapi/boom');
 
 /**
  * Validation data with a model
- * @param {Object} data
+ * @param {object} data
  * @param {mongoose.model} Model 
  */
 async function validationHandler(data, Model) {

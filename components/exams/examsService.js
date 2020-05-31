@@ -13,7 +13,7 @@ class ExamsService {
   /**
    * Retrieve a exam by id
    * @param {string} id id of exam
-   * @returns {Object} exam information
+   * @returns {object} exam information
    */
   async getExam(id) {
     const exam = await this.mongoDB.get(
@@ -30,9 +30,9 @@ class ExamsService {
 
   /**
    * Retrieve a exams by query
-   * @param {Object} query query data
-   * @param {string} query.short exam shortName
-   * @returns {Object[]} exams
+   * @param {object} query query data
+   * @param {string} query.name exam name or shortName
+   * @returns {object[]} exams
    */
   async getExams({ name }) {
     const query = name ? {
@@ -59,10 +59,10 @@ class ExamsService {
   }
 
   /**
- * Create a new exam
- * @param {Object} exam exam data
- * @returns {string} id of new exam
- */
+   * Create a new exam
+   * @param {object} exam exam data
+   * @returns {string} id of new exam
+   */
   async createExam(exam) {
     validationModelHandler(exam, ExamsModel);
     const createExamId = await this.mongoDB.create(

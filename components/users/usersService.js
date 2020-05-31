@@ -18,7 +18,12 @@ class usersService {
     this.UsernameGenerator = new UsernameGenerator();
     this.mailService = new MailService();
   }
-
+  /**
+   * Retrieve a user by username or email
+   * @param {object} query query object
+   * @param {string} query.username username or email
+   * @returns {object} user data
+   */
   async getUser({ username }) {
     const query = username && {
       $or: [{ username: username }, { email: username }],
@@ -27,11 +32,21 @@ class usersService {
     return user;
   }
 
+  /**
+   * Retrieve a user by id
+   * @param {string} query.userId user id
+   * @returns {object} user data
+   */
   async getUserId({ userId }) {
     const user = await this.mongoDB.get(this.collection, userId);
     return user || {};
   }
 
+  /**
+   * Retrieve users by query
+   * @param {object} args query
+   * @returns {object[]} users filtered
+   */
   async getUsers(args) {
     const query = Object.keys(args);
 
@@ -56,8 +71,8 @@ class usersService {
     const where =
       search.length > 0
         ? {
-            $and: search,
-          }
+          $and: search,
+        }
         : {};
 
     const users = (await this.mongoDB.getAll(this.collection, where)).filter(
@@ -78,6 +93,12 @@ class usersService {
     return users || [];
   }
 
+  /**
+   * Create a new user
+   * @param {object} data 
+   * @param {object} data.user user data
+   * @returns {Object} created user id and  created user name
+   */
   async createUser({ user }) {
     await validationHandler(user, UserModel);
     let intentsGenerateUsername = 100;
@@ -132,6 +153,11 @@ class usersService {
     return { createUserId, username };
   }
 
+  /**
+   * Crete users
+   * @param {object[]} users array of user data
+   * @returns {object[]} array with status of created users
+   */
   async createUsers(users) {
     const data = await Promise.all(
       users.map(async (user, index) => {
@@ -148,6 +174,12 @@ class usersService {
     return data;
   }
 
+  /**
+   * Update user by id
+   * @param {string} query.userId user id to update
+   * @param {object} query.user user data
+   * @returns {object} user id and user name of user updated
+   */
   async updateUser({ userId, user }) {
     if (Object.keys(user).length == 0) {
       throw boom.badRequest('Not data to update');

@@ -18,8 +18,8 @@ const layout = require('../../utils/templates/resultsPDF/layout');
 class PDFService {
   /**
    * Get a html string of results
-   * @param {Object[]} orderIds 
-   * @param {string}
+   * @param {string[]} orderIds array of order ids
+   * @returns {string} html of results
    */
   async resultsHTMLString(orderIds) {
     try {
@@ -48,6 +48,11 @@ class PDFService {
     return layout(patientHtml, resultsHTML);
   }
 
+  /**
+   * Retrieve all data needed for generate html of results
+   * @param {string[]} orderIds 
+   * @returns {object} data for generate html of results
+   */
   async getResultsData(orderIds) {
     const orders = await Promise.all(
       orderIds.map(async id => await ordersService.getOrder(id)))
@@ -125,10 +130,22 @@ class PDFService {
     };
   }
 
+  /**
+   * Round a number with give decimals
+   * @param {Number} number number to round
+   * @param {Number} decimals decimals of output
+   * @returns {Number} number rounded
+   */
   _round(number, decimals = 3) {
     return Math.round(number * (10 ** decimals)) / (10 ** decimals);
   }
 
+  /**
+   * Extract unique ids of a array 
+   * @param {object[]} arr array of objects
+   * @param {string} keyId key of objects that contain the id
+   * @returns {string[]} array with unique ids
+   */
   _getIds(arr, keyId) {
     return Object.keys(arr
       .map(item => item[keyId])
@@ -141,11 +158,20 @@ class PDFService {
         return ids;
       }, {}));
   }
-
+  /**
+   * Find a object by id in a array
+   * @param {object[]} arr array
+   * @param {string} id id to look for
+   * @returns {object} found object
+   */
   _findById(arr, id) {
     return arr.filter(item => item._id.toString() == id.toString())[0];
   }
-
+  /**
+   * Get user data by id
+   * @param {string} id user id
+   * @returns {object} user data
+   */
   async _getUsersByIds(id) {
     const user = await usersService.getUserId({
       userId: id,

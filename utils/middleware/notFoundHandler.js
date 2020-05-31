@@ -1,6 +1,11 @@
 const boom = require('@hapi/boom');
 
-function notFoundHandler(req,res) {
+/**
+ * Generate a response 404
+ * @param {*} _ request
+ * @param {*} res response
+ */
+function notFoundHandler(_,res) {
   const {
     output: { statusCode, payload },
   } = boom.notFound();

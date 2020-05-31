@@ -13,7 +13,7 @@ class OrdersService {
 
   /**
    * Create a new Order
-   * @param {Object} order data of order
+   * @param {object} order data of order
    * @returns {string} id of new order
    */
   async createOrder(order) {
@@ -28,9 +28,9 @@ class OrdersService {
   }
 
   /**
-   * Retrieve a order
+   * Retrieve a order by id
    * @param {string} id id of order
-   * @returns {Object} order information
+   * @returns {object} order data
    */
   async getOrder(id) {
     const order = await this.mongoDB.get(
@@ -46,11 +46,11 @@ class OrdersService {
   }
 
   /**
-   * 
-   * @param {Object} query query
-   * @param {string} query.user user id
-   * @param {Boolean} query.isComplete
-   * @returns {Object[]}
+   * Get patient orders
+   * @param {object} query query
+   * @param {string} query.patient patient id
+   * @param {boolean} query.isComplete status of attribute isComplete
+   * @returns {object[]} array of patient orders
    */
   async getOrders({ patient, isComplete }) {
     const query = {};
