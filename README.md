@@ -29,7 +29,7 @@ HALAH Laboratories is a laboratory that offers clinical analysis, through its pl
 - [Wiki](https://github.com/hyfi06/platzi-master-end-game-backend/wiki)
 - [Database](https://github.com/hyfi06/platzi-master-end-game-backend/wiki/Database)
 
-Backend for HALAH Laboratory Platform
+## Backend for HALAH Laboratory Platform
 
 ## API url
 
