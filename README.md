@@ -8,7 +8,7 @@
   </a>
 </p>
 
-# Backed HALAH Laboratory Platform
+# Backend HALAH Laboratory Platform
 
 [![Build Status](https://travis-ci.com/hyfi06/platzi-master-end-game-backend.svg?branch=master)](https://travis-ci.com/hyfi06/platzi-master-end-game-backend)
 
@@ -18,23 +18,23 @@ Backend for HALAH Laboratory Platform
 
 Allowed routes:
 
-### `api/auth`
+### `/api/auth`
 
 This route handles authentication. [See more](/components/auth).
 
-### `api/users`
+### `/api/users`
 
 This route handles users. [See more](/components/users).
 
-### `api/exams`
+### `/api/exams`
 
 This route handles enables medical exams. [See more](/components/exams).
 
-### `api/orders`
+### `/api/orders`
 
 This route handles patients orders. [See more](/components/orders).
 
-### `api/results`
+### `/api/results`
 
 This route handles results of test. [See more](/components/results).
 
