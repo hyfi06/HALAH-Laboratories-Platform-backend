@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.halahlaboratories.com/">
+  <a href="https://www.halahlaboratories.com">
     <img
       alt="HALAH"
       src="https://i.imgur.com/JR05wxd.png"
@@ -8,11 +8,28 @@
   </a>
 </p>
 
-# Backend HALAH Laboratory Platform
+# HALAH Laboratories Platform
 
-[![Build Status](https://travis-ci.com/hyfi06/platzi-master-end-game-backend.svg?branch=master)](https://travis-ci.com/hyfi06/platzi-master-end-game-backend)
+HALAH Laboratories is a laboratory that offers clinical analysis, through its platform makes it easier to avoid human contact when conducting clinical tests.
 
-Backend for HALAH Laboratory Platform
+## Frontend
+
+- [Deploy](https://www.halahlaboratories.com/)
+- [Mockups & Prototypes](https://www.figma.com/file/xdQcnzQayyiFqZ7U4bxQNw/HALAH-labs?node-id=51%3A1470)
+- [Features](https://www.canva.com/design/DAD95DNJxrs/jbyIuU6OdT7pCPTtfdXZrA/view?utm_content=DAD95DNJxrs&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+- [Responsibilities](https://www.canva.com/design/DAD95IXSiv0/4rpYm5FeBeBNtRc9qWxzVw/view?utm_content=DAD95IXSiv0&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+- [Admin Manual](https://www.canva.com/design/DAD9ffb9EzQ/UmLjPGq_RDSJn2cXKjaIoQ/view?utm_content=DAD9ffb9EzQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+- [Organization](https://www.notion.so/Sistema-Gestor-de-Ex-menes-para-Laboratorios-Cl-nicos-df11ce944b2a4dc1adac33d4df519a5b)
+
+## Backend
+
+- [Deploy](https://api.halahlaboratories.com/)
+- [Repository](https://github.com/hyfi06/platzi-master-end-game-backend)
+- [Test catalog research](https://www.mayocliniclabs.com/test-catalog/)
+- [Wiki](https://github.com/hyfi06/platzi-master-end-game-backend/wiki)
+- [Database](https://github.com/hyfi06/platzi-master-end-game-backend/wiki/Database)
+
+## Backend for HALAH Laboratory Platform
 
 ## API url
 
